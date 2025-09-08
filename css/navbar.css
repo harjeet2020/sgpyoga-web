@@ -27,7 +27,7 @@
 }
 
 .navbar-logo {
-    height: 50px;
+    height: 70px;
     width: auto;
     object-fit: contain;
     transition: transform var(--transition-fast);
@@ -39,7 +39,7 @@
 
 .navbar-brand {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--color-primary); /* Eerie Black */
     text-decoration: none;
@@ -69,7 +69,7 @@
 
 .navbar-link {
     font-family: var(--font-body);
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: var(--color-primary); /* Eerie Black */
     text-decoration: none;
