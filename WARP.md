@@ -45,3 +45,4 @@ Body Font: Lato Light
 - Use CSS variables for colors and fonts
 - Structure CSS files in a readable & maintainable way, using comments to explain the purpose of each section
 - Ensure all html tags use data-i18n attribute to fetch translations
+- When using images, provide both high and low resolution versions to ensure optimal performance
