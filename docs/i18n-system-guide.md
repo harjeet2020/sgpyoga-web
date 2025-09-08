@@ -2,7 +2,31 @@
 
 ## 🌍 **Complete Translation System Overview**
 
-This guide explains both the current translation system and the improved version with separate JSON files.
+This guide explains the SGP Yoga internationalization (i18n) system that uses separate JSON files for organized, scalable translations.
+
+## 📁 **Current Implementation**
+
+**Main Files:**
+- `index.html` - Homepage with translation attributes
+- `js/i18n.js` - Main translation system with JSON loading
+- `js/navbar.js` - Navbar functionality and language switching
+- `locales/` - Translation JSON files organized by language and namespace
+
+**File Structure:**
+```
+sgpyoga/
+├── index.html              # Main homepage
+├── js/
+│   ├── i18n.js            # Translation system
+│   └── navbar.js          # Navbar & language switching
+└── locales/
+    ├── en/
+    │   ├── common.json     # Shared translations
+    │   └── home.json       # Homepage translations
+    └── es/
+        ├── common.json
+        └── home.json
+```
 
 ---
 
@@ -60,7 +84,7 @@ const translations = {
 
 ---
 
-## 🚀 **Improved System (i18n-improved.js)**
+## 🚀 **JSON-Based Translation System**
 
 ### **Why Separate JSON Files Are Better**
 
@@ -266,36 +290,6 @@ document.addEventListener('languageChanged', function(event) {
 
 ---
 
-## 🔧 **Migration Guide**
-
-### **From Current to Improved System**
-
-1. **Replace script reference**:
-```html
-<!-- Old -->
-<script src="js/i18n.js"></script>
-
-<!-- New -->
-<script src="js/i18n-improved.js"></script>
-```
-
-2. **Update translation keys**:
-```html
-<!-- Old -->
-<a data-i18n="nav.home">Home</a>
-<h1 data-i18n="home.welcome">Welcome</h1>
-
-<!-- New -->
-<a data-i18n="common:nav.home">Home</a>
-<h1 data-i18n="home:hero.welcome">Welcome</h1>
-```
-
-3. **Create JSON files** from existing translations
-
-4. **Test thoroughly** - the improved system is more robust!
-
----
-
 ## 🎯 **Best Practices**
 
 ### **1. Namespace Organization**
@@ -345,10 +339,10 @@ document.addEventListener('languageChanged', function(event) {
 
 ### **Debug Mode**
 
-Enable debug mode in improved system:
+Enable debug mode:
 
 ```javascript
-// In i18n-improved.js, change debug: true
+// In js/i18n.js, change debug: true
 debug: true,  // Enable detailed logging
 ```
 
@@ -362,15 +356,67 @@ This will log:
 
 ## 📈 **Performance Metrics**
 
-### **Current System**
+### **Legacy In-Memory System**
 - Initial load: ~2-3KB (all translations)
 - Language switch: Instant (already loaded)
 - Memory usage: All translations in memory
+- Scalability: Poor for large sites
 
-### **Improved System**
+### **Current JSON-Based System**
 - Initial load: ~1KB + only needed namespaces
 - Language switch: <100ms (individual file loading)
 - Memory usage: Only loaded namespaces
 - Network requests: Only when needed
+- Scalability: Excellent for any size site
 
-The improved system is better for larger sites with many pages and translations!
+The JSON-based system scales perfectly for websites of any size!
+
+---
+
+## 🚀 **Quick Start Example**
+
+### **1. HTML Setup**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title data-i18n="common:nav.home">SGP Yoga - Home</title>
+    <script src="js/i18n.js"></script>
+</head>
+<body>
+    <h1 data-i18n="home:hero.welcome">Welcome to SGP Yoga</h1>
+    <p data-i18n="home:hero.subtitle">Find your inner peace</p>
+</body>
+</html>
+```
+
+### **2. Translation Files**
+```json
+// locales/en/common.json
+{ "nav": { "home": "Home" } }
+
+// locales/en/home.json  
+{ "hero": { "welcome": "Welcome to SGP Yoga", "subtitle": "Find your inner peace" } }
+
+// locales/es/home.json
+{ "hero": { "welcome": "Bienvenido a SGP Yoga", "subtitle": "Encuentra tu paz interior" } }
+```
+
+### **3. JavaScript Usage**
+```javascript
+// Get translation programmatically
+const welcomeText = window.SGPi18n.t('home:hero.welcome');
+
+// Change language
+window.SGPi18n.changeLanguage('es');
+
+// Load more namespaces
+window.SGPi18n.loadNamespacesOnDemand(['classes', 'events']);
+```
+
+**That's it!** The system automatically:
+- ✅ Detects user's preferred language
+- ✅ Loads only needed translations
+- ✅ Updates all elements with `data-i18n` attributes
+- ✅ Handles language switching seamlessly
+- ✅ Provides fallbacks for missing translations

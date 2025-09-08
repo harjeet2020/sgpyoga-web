@@ -7,14 +7,9 @@
     "blog": "Blog"
   },
   "buttons": {
-    "learn_more": "Learn More",
-    "book_now": "Book Now",
-    "contact_us": "Contact Us",
-    "read_more": "Read More"
+    
   },
   "footer": {
-    "copyright": "© 2024 SGP Yoga. All rights reserved.",
-    "address": "Mexico City, Mexico",
-    "follow_us": "Follow Us"
+    
   }
 }

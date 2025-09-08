@@ -29,9 +29,11 @@ Body Font: Lato Light
 
 ### Languages
 - The site supports English and Spanish languages
-- Language is selected based on user's location, falling back to English (default)
+- Language is selected automatically based on user's browser language, falling back to English (default)
 - There is a dropdown menu in the navbar for manual language selection
 - We're using i18next library to implement multiple language support
+- We store translations in JSON files under the locales folder
+- All html tags use data-i18n attribute to fetch translations
 
 ## Guidelines
 - Use the provided color palette and fonts
@@ -42,3 +44,4 @@ Body Font: Lato Light
 - Use reusable CSS classes to achieve clean and maintainable code
 - Use CSS variables for colors and fonts
 - Structure CSS files in a readable & maintainable way, using comments to explain the purpose of each section
+- Ensure all html tags use data-i18n attribute to fetch translations

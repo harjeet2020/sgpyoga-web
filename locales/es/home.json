@@ -1,17 +1,6 @@
 {
   "hero": {
     "welcome": "Bienvenido a SGP Yoga",
-    "subtitle": "Encuentra tu paz interior en el corazón de la Ciudad de México",
-    "description": "Únete a nosotros para experiencias transformadoras de yoga en los espacios más serenos de la Ciudad de México."
-  },
-  "about_preview": {
-    "title": "Acerca de Nuestra Práctica",
-    "text": "Creemos que el yoga es más que ejercicio—es un viaje de autodescubrimiento y sanación."
-  },
-  "classes_preview": {
-    "title": "Nuestras Clases",
-    "hatha": "Hatha Yoga",
-    "vinyasa": "Vinyasa Flow",
-    "meditation": "Meditación"
+    "subtitle": "Encuentra tu paz interior en el corazón de la Ciudad de México"
   }
 }
