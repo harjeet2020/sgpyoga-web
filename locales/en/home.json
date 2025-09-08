@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "welcome": "Welcome to SGP Yoga",
+    "subtitle": "Find your inner peace in the heart of Mexico City",
+    "description": "Join us for transformative yoga experiences in Mexico City's most serene spaces."
+  },
+  "about_preview": {
+    "title": "About Our Practice",
+    "text": "We believe yoga is more than exercise—it's a journey of self-discovery and healing."
+  },
+  "classes_preview": {
+    "title": "Our Classes",
+    "hatha": "Hatha Yoga",
+    "vinyasa": "Vinyasa Flow",
+    "meditation": "Meditation"
+  }
+}

@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGP Yoga - Yoga Studio in CDMX</title>
-    
-    <!-- Font Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title data-i18n="common:nav.home">SGP Yoga - Home</title>
+    <meta name="description" content="Find your inner peace at SGP Yoga in Mexico City" data-i18n="home:hero.description">
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
@@ -32,11 +29,12 @@
         <!-- Middle Section: Menu Items -->
         <div class="navbar-center">
             <ul class="navbar-menu">
-                <li><a href="index.html" class="navbar-link active" data-i18n="nav.home">Home</a></li>
-                <li><a href="about.html" class="navbar-link" data-i18n="nav.about">About</a></li>
-                <li><a href="classes.html" class="navbar-link" data-i18n="nav.classes">Classes</a></li>
-                <li><a href="events.html" class="navbar-link" data-i18n="nav.events">Events</a></li>
-                <li><a href="blog.html" class="navbar-link" data-i18n="nav.blog">Blog</a></li>
+                <!-- Using common namespace for navigation -->
+                <li><a href="index.html" class="navbar-link active" data-i18n="common:nav.home">Home</a></li>
+                <li><a href="about.html" class="navbar-link" data-i18n="common:nav.about">About</a></li>
+                <li><a href="classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
+                <li><a href="events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
+                <li><a href="blog.html" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
             </ul>
         </div>
         
@@ -66,17 +64,67 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Homepage content will be added here -->
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 data-i18n="home.welcome">Welcome to SGP Yoga</h1>
-                <p data-i18n="home.subtitle">Find your inner peace in the heart of Mexico City</p>
+                <!-- Using home namespace for page-specific content -->
+                <h1 data-i18n="home:hero.welcome">Welcome to SGP Yoga</h1>
+                <p data-i18n="home:hero.subtitle">Find your inner peace in the heart of Mexico City</p>
+                <p data-i18n="home:hero.description">Join us for transformative yoga experiences in Mexico City's most serene spaces.</p>
+                
+                <!-- Using common namespace for buttons -->
+                <button class="btn btn-primary" data-i18n="common:buttons.learn_more">Learn More</button>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="about-preview">
+            <div class="container">
+                <h2 data-i18n="home:about_preview.title">About Our Practice</h2>
+                <p data-i18n="home:about_preview.text">We believe yoga is more than exercise—it's a journey of self-discovery and healing.</p>
+                <button class="btn btn-secondary" data-i18n="common:buttons.read_more">Read More</button>
+            </div>
+        </section>
+
+        <!-- Classes Preview Section -->
+        <section class="classes-preview">
+            <div class="container">
+                <h2 data-i18n="home:classes_preview.title">Our Classes</h2>
+                <div class="classes-grid">
+                    <div class="class-card">
+                        <h3 data-i18n="home:classes_preview.hatha">Hatha Yoga</h3>
+                    </div>
+                    <div class="class-card">
+                        <h3 data-i18n="home:classes_preview.vinyasa">Vinyasa Flow</h3>
+                    </div>
+                    <div class="class-card">
+                        <h3 data-i18n="home:classes_preview.meditation">Meditation</h3>
+                    </div>
+                </div>
+                <button class="btn btn-primary" data-i18n="common:buttons.book_now">Book Now</button>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-i18n="common:footer.copyright">© 2024 SGP Yoga. All rights reserved.</p>
+            <p data-i18n="common:footer.address">Mexico City, Mexico</p>
+            <p data-i18n="common:footer.follow_us">Follow Us</p>
+        </div>
+    </footer>
+
     <!-- JavaScript Files -->
     <script src="js/i18n.js"></script>
     <script src="js/navbar.js"></script>
+
+    <script>
+        // Example of loading additional namespaces on demand
+        async function loadMoreContent() {
+            // If we navigate to a classes page, we might load the classes namespace
+            await window.SGPi18n.loadNamespacesOnDemand(['classes']);
+        }
+    </script>
 </body>
 </html>

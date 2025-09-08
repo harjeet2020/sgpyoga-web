@@ -1,0 +1,20 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca De",
+    "classes": "Clases",
+    "events": "Eventos",
+    "blog": "Blog"
+  },
+  "buttons": {
+    "learn_more": "Saber Más",
+    "book_now": "Reservar Ahora",
+    "contact_us": "Contáctanos",
+    "read_more": "Leer Más"
+  },
+  "footer": {
+    "copyright": "© 2024 SGP Yoga. Todos los derechos reservados.",
+    "address": "Ciudad de México, México",
+    "follow_us": "Síguenos"
+  }
+}
