@@ -5,6 +5,9 @@ This is a yoga studio website built using HTML, CSS and JavaScript. It is a resp
 
 ## Site Information
 
+### Basic Information
+The yoga studio name is SGP Yoga. It is located in CDMX, Mexico. We offer in-person classes and events in various venues around the city.
+
 ### Site Structure
 The site is structured into the following pages:
 - Home (index.html)
@@ -22,7 +25,7 @@ Supplemetary Color: #3e3e3e (Onyx)
 
 ### The site uses the following fonts:
 Heading Font: Cormorant Garamond
-Body Font: Lato
+Body Font: Lato Light
 
 ### Languages
 - The site supports English and Spanish languages
@@ -32,7 +35,10 @@ Body Font: Lato
 
 ## Guidelines
 - Use the provided color palette and fonts
-- Use images and icons found under the assets folder
+- Use images found under the assets folder
+- Use icons from lucide.dev icon library
 - Save current progress and project info upon request under memory-bank folder
 - Create / update documentation upon request under docs folder
 - Use reusable CSS classes to achieve clean and maintainable code
+- Use CSS variables for colors and fonts
+- Structure CSS files in a readable & maintainable way, using comments to explain the purpose of each section
