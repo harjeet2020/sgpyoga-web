@@ -47,27 +47,65 @@ function initializeI18n() {
         return;
     }
     
+    // Get the initial language from localStorage or browser detection
+    const storedLang = localStorage.getItem('selectedLanguage');
+    const browserLang = navigator.language.toLowerCase();
+    const detectedLang = storedLang || (browserLang.startsWith('es') ? 'es' : 'en');
+    
     i18next
         .use(i18nextBrowserLanguageDetector)
         .init({
             debug: false,
+            lng: detectedLang, // Set the language explicitly
             fallbackLng: 'en',
             detection: {
-                // Detect language from various sources
                 order: ['localStorage', 'navigator', 'htmlTag'],
                 lookupLocalStorage: 'selectedLanguage',
                 caches: ['localStorage'],
             },
-            resources: translations
+            resources: {
+                en: {
+                    translation: translations.en
+                },
+                es: {
+                    translation: translations.es
+                }
+            }
         })
         .then(function() {
-            currentLanguage = i18next.language;
+            currentLanguage = i18next.language || detectedLang;
+            
+            // Update the navbar dropdown to match the current language
+            updateNavbarLanguageDisplay(currentLanguage);
+            
+            // Update page content
             updatePageContent();
         })
         .catch(function(error) {
             console.warn('i18next initialization failed:', error);
             initializeFallbackI18n();
         });
+}
+
+/**
+ * Update navbar language display to match current language
+ */
+function updateNavbarLanguageDisplay(langCode) {
+    const currentFlag = document.getElementById('currentFlag');
+    const currentLangCode = document.getElementById('currentLangCode');
+    
+    if (!currentFlag || !currentLangCode) return;
+    
+    const languages = {
+        'en': { flag: '🇺🇸', code: 'EN' },
+        'es': { flag: '🇲🇽', code: 'ES' }
+    };
+    
+    const selectedLang = languages[langCode];
+    if (selectedLang) {
+        currentFlag.textContent = selectedLang.flag;
+        currentLangCode.textContent = selectedLang.code;
+    }
 }
 
 /**
@@ -80,6 +118,10 @@ function initializeFallbackI18n() {
     
     currentLanguage = storedLang || (browserLang.startsWith('es') ? 'es' : 'en');
     
+    // Update the navbar dropdown to match the current language
+    updateNavbarLanguageDisplay(currentLanguage);
+    
+    // Update page content
     updatePageContent();
 }
 
@@ -190,8 +232,6 @@ function changeLanguage(languageCode) {
     // Update HTML lang attribute
     document.documentElement.setAttribute('lang', languageCode);
     document.documentElement.setAttribute('data-lang', languageCode);
-    
-    console.log('Language changed to:', languageCode);
 }
 
 /**
