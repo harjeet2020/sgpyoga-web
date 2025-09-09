@@ -463,3 +463,94 @@ main {
         margin-top: var(--spacing-md);
     }
 }
+
+/* Inspirational Quote Section Styles
+   ========================================================================== */
+.quote-section {
+    background-color: white;
+    padding: var(--spacing-xxl) 0;
+    text-align: center;
+}
+
+.inspirational-quote {
+    font-family: var(--font-heading);
+    font-size: 2.1rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+    position: relative;
+    padding: 0 var(--spacing-lg);
+    border: none;
+    quotes: '"' '"';
+}
+
+.inspirational-quote::before {
+    content: open-quote;
+    font-size: 3rem;
+    color: var(--color-accent-2);
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+}
+
+.inspirational-quote::after {
+    content: close-quote;
+    font-size: 3rem;
+    color: var(--color-accent-2);
+    position: absolute;
+    right: 0;
+    bottom: -1rem;
+}
+
+/* Responsive Design for Quote Section
+   ========================================================================== */
+@media (max-width: 768px) {
+    .quote-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .inspirational-quote {
+        font-size: 2rem;
+        padding: 0 var(--spacing-md);
+    }
+    
+    .inspirational-quote::before,
+    .inspirational-quote::after {
+        font-size: 2.5rem;
+    }
+    
+    .inspirational-quote::before {
+        top: -0.25rem;
+    }
+    
+    .inspirational-quote::after {
+        bottom: -0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .inspirational-quote {
+        font-size: 1.5rem;
+        padding: 0 var(--spacing-sm);
+        line-height: 1.5;
+    }
+    
+    .inspirational-quote::before,
+    .inspirational-quote::after {
+        font-size: 2rem;
+    }
+    
+    .inspirational-quote::before {
+        top: -0.125rem;
+    }
+    
+    .inspirational-quote::after {
+        bottom: -0.5rem;
+    }
+}
