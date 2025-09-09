@@ -2,5 +2,10 @@
   "hero": {
     "welcome": "Respira. Fluye. Transforma.",
     "subtitle": "Encuentra tu lugar en un mundo en evolución."
+  },
+  "classes": {
+    "title": "Clases de Yoga",
+    "subtitle": "Entra en el flujo siguiendo la guía de nuestros maestros expertos. Ofrecemos una variedad de estilos de yoga como Vinyasa, Hatha, Kundalini y Yoga Aéreo - para que todos puedan encontrar lo que necesitan. ¡Te esperamos en el tapete!",
+    "exploreButton": "Explorar Clases"
   }
 }

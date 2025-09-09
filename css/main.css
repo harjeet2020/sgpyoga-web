@@ -186,6 +186,33 @@ a:hover {
     color: var(--color-secondary);
 }
 
+.btn-elegant {
+    background-color: var(--color-accent-2);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-sm);
+    gap: var(--spacing-sm);
+    letter-spacing: 0.5px;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.btn-elegant:hover {
+    background-color: var(--color-accent-1);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-elegant:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
 /* Main Layout Styles
    ========================================================================== */
 main {
@@ -317,5 +344,122 @@ main {
 
     .hero-image img {
         object-position: 60% top;
+    }
+}
+
+/* Classes Section Styles
+   ========================================================================== */
+.classes-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-secondary);
+}
+
+.classes-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.classes-image {
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.classes-image picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.classes-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.classes-image:hover img {
+    transform: scale(1.2);
+}
+
+.classes-text {
+    padding: var(--spacing-lg);
+}
+
+.classes-text h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 600;
+}
+
+.classes-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-supplementary);
+    margin: 0;
+}
+
+/* Responsive Design for Classes Section
+   ========================================================================== */
+@media (max-width: 768px) {
+    .classes-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .classes-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .classes-text {
+        padding: 0;
+    }
+    
+    .classes-text h2 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .classes-text p {
+        font-size: 1rem;
+    }
+    
+    .btn-elegant {
+        font-size: 1rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .classes-section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .classes-content {
+        gap: var(--spacing-md);
+    }
+    
+    .classes-text h2 {
+        font-size: 1.75rem;
+    }
+    
+    .classes-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .btn-elegant {
+        font-size: 0.95rem;
+        padding: var(--spacing-sm) var(--spacing-md);
+        margin-top: var(--spacing-md);
     }
 }
