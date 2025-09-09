@@ -1,6 +1,10 @@
 {
   "hero": {
-    "welcome": "Welcome to SGP Yoga",
-    "subtitle": "Find your inner peace in the heart of Mexico City"
+    "welcome": "Breathe. Flow. Transform.",
+    "subtitle": "Find your place in the evolving world."
+  },
+  "classes": {
+    "title": "Yoga Classes",
+    "subtitle": "Step into the flow following the guidance of our expert teachers. We offer a variety of yoga styles such as Vinyasa, Hatha, Kundalini and Aerial Yoga - so that everyone can find what they need. See you on the mat!"
   }
 }
