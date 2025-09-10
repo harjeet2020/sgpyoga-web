@@ -13,7 +13,15 @@
   },
   "events": {
     "title": "Eventos",
-    "text": "¿Buscas algo especial? ¡Echa un vistazo a nuestros talleres temáticos, retiros y entrenamientos para instructores!",
+    "text": "¿Buscas algo especial? ¡Echa un vistazo a nuestros talleres temáticos, retiros y formaciones de maestros!",
     "exploreButton": "Explorar Eventos"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Estudiantes",
+    "subtitle": "Escucha a nuestra comunidad global de yoga",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "pause": "Pausar presentación",
+    "play": "Reproducir presentación"
   }
 }
