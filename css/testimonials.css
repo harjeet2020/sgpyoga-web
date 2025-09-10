@@ -117,7 +117,7 @@
 .testimonial-text {
     font-family: var(--font-body);
     font-size: 1.1rem;
-    line-height: 1.7;
+    line-height: 1.5;
     color: var(--color-primary);
     margin-bottom: var(--spacing-xl);
     position: relative;
@@ -127,6 +127,7 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    white-space: pre-line;
 }
 
 .testimonial-text::before {
@@ -189,7 +190,7 @@
    ========================================================================== */
 .testimonials-navigation {
     position: absolute;
-    bottom: var(--spacing-xs);
+    bottom: -5px;
     left: 75%;
     transform: translateX(-50%);
     display: flex;
