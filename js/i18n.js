@@ -375,7 +375,7 @@ const sgpI18n = new SGPi18n();
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', async function() {
     await sgpI18n.init({
-        namespaces: ['common', 'home'],
+        namespaces: ['common', 'home', 'testimonials'],
         defaultLang: 'en'
     });
 });
