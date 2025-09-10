@@ -464,11 +464,50 @@ main {
     }
 }
 
+/* Divider Section Styles
+   ========================================================================== */
+.divider-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-secondary);
+    text-align: center;
+}
+
+.divider-image {
+    max-width: 720px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+/* Responsive Design for Divider Section
+   ========================================================================== */
+@media (max-width: 768px) {
+    .divider-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .divider-image {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .divider-section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .divider-image {
+        max-width: 350px;
+    }
+}
+
 /* Inspirational Quote Section Styles
    ========================================================================== */
 .quote-section {
     background-color: white;
-    padding: var(--spacing-xxl) 0;
+    padding: 5rem 0;
     text-align: center;
 }
 

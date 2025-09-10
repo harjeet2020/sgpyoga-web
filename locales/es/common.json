@@ -10,6 +10,31 @@
     
   },
   "footer": {
-    
+    "mission": {
+      "title": "Nuestra Misión",
+      "text": "Guiando almas para descubrir su luz interior a través de la práctica transformadora del yoga en el corazón de la Ciudad de México."
+    },
+    "sitemap": {
+      "title": "Mapa del Sitio",
+      "home": "Inicio",
+      "about": "Acerca De",
+      "classes": "Clases",
+      "events": "Eventos",
+      "blog": "Blog"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "emailValue": "satgurprasaadyoga@gmail.com",
+      "phoneValue": "+52 55 3906 1305"
+    },
+    "social": {
+      "title": "Síguenos",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "copyright": "© 2025 SAT GUR PRASAAD YOGA LLC. Todos los derechos reservados."
   }
 }

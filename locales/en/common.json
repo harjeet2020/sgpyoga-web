@@ -10,6 +10,31 @@
     
   },
   "footer": {
-    
+    "mission": {
+      "title": "Our Mission",
+      "text": "Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City."
+    },
+    "sitemap": {
+      "title": "Site Map",
+      "home": "Home",
+      "about": "About",
+      "classes": "Classes",
+      "events": "Events",
+      "blog": "Blog"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "email": "Email",
+      "phone": "Phone",
+      "emailValue": "satgurprasaadyoga@gmail.com",
+      "phoneValue": "+52 55 3906 1305"
+    },
+    "social": {
+      "title": "Follow Us",
+      "facebook": "Facebook",
+      "instagram": "Instagram", 
+      "youtube": "YouTube"
+    },
+    "copyright": "© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved."
   }
 }

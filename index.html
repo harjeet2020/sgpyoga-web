@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/footer.css">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -107,12 +108,10 @@
             </div>
         </section>
 
-        <!-- Inspirational Quote Section -->
-        <section class="quote-section">
+        <!-- Divider -->
+        <section class="divider-section">
             <div class="container">
-                <blockquote class="inspirational-quote" data-i18n="home:quote.text">
-                    "What you may become is inconsequential in comparison to what you already are."
-                </blockquote>
+                <img src="assets/graphics/handdrawnDividers/divider2.svg" alt="" class="divider-image">
             </div>
         </section>
 
@@ -139,6 +138,15 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Inspirational Quote Section -->
+        <section class="quote-section">
+            <div class="container">
+                <blockquote class="inspirational-quote" data-i18n="home:quote.text">
+                    "What you may become is inconsequential in comparison to what you already are."
+                </blockquote>
             </div>
         </section>
 
@@ -337,6 +345,74 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <!-- Logo and Mission Section -->
+                    <div class="footer-column footer-logo-section">
+                        <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
+                        <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>
+                    </div>
+
+                    <!-- Site Map Section -->
+                    <div class="footer-column footer-sitemap">
+                        <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
+                        <ul>
+                            <li><a href="index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
+                            <li><a href="about.html" data-i18n="common:footer.sitemap.about">About</a></li>
+                            <li><a href="classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
+                            <li><a href="events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
+                            <li><a href="blog.html" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Section -->
+                    <div class="footer-column footer-contact">
+                        <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
+                        <div class="footer-contact-item">
+                            <i data-lucide="mail"></i>
+                            <div>
+                                <span data-i18n="common:footer.contact.email">Email</span>:
+                                <a href="mailto:satgurprasaadyoga@gmail.com" data-i18n="common:footer.contact.emailValue">satgurprasaadyoga@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i data-lucide="phone"></i>
+                            <div>
+                                <span data-i18n="common:footer.contact.phone">Phone</span>:
+                                <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="footer-column footer-social">
+                        <h3 data-i18n="common:footer.social.title">Follow Us</h3>
+                        <div class="footer-social-links">
+                            <a href="#" class="footer-social-link" aria-label="Facebook" data-i18n-aria-label="common:footer.social.facebook">
+                                <i data-lucide="facebook"></i>
+                            </a>
+                            <a href="#" class="footer-social-link" aria-label="Instagram" data-i18n-aria-label="common:footer.social.instagram">
+                                <i data-lucide="instagram"></i>
+                            </a>
+                            <a href="#" class="footer-social-link" aria-label="YouTube" data-i18n-aria-label="common:footer.social.youtube">
+                                <i data-lucide="youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copyright">
+                <p data-i18n="common:footer.copyright">© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript Files -->
     <script src="js/i18n.js"></script>

@@ -1,0 +1,272 @@
+/* ==========================================================================
+   SGP YOGA - FOOTER STYLES
+   ========================================================================== */
+
+/* Footer Main Container
+   ========================================================================== */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: var(--spacing-xxl);
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer a:hover {
+    color: var(--color-accent-2);
+}
+
+/* Footer Content Container
+   ========================================================================== */
+.footer-content {
+    padding: var(--spacing-xxl) 0 var(--spacing-xl) 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Footer Column Styles
+   ========================================================================== */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    color: white;
+}
+
+.footer-column p {
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.9;
+}
+
+/* Logo Section
+   ========================================================================== */
+.footer-logo-section {
+    max-width: 300px;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-mission-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* Site Map Section
+   ========================================================================== */
+.footer-sitemap ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-sitemap li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-sitemap a {
+    display: block;
+    padding: var(--spacing-xs) 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    transition: all var(--transition-fast);
+}
+
+.footer-sitemap a:hover {
+    opacity: 1;
+    color: var(--color-accent-2);
+    transform: translateX(4px);
+}
+
+/* Contact Section
+   ========================================================================== */
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.footer-contact-item i {
+    width: 18px;
+    height: 18px;
+    margin-right: var(--spacing-sm);
+    opacity: 0.8;
+}
+
+.footer-contact-item a {
+    opacity: 0.9;
+}
+
+.footer-contact-item a:hover {
+    opacity: 1;
+    color: var(--color-accent-2);
+}
+
+/* Social Media Section
+   ========================================================================== */
+.footer-social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-circle);
+    transition: all var(--transition-fast);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-social-link:hover {
+    background-color: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-social-link i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Copyright Bar
+   ========================================================================== */
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-logo-section {
+        grid-column: 1 / -1;
+        max-width: none;
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .footer-content {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .footer-logo-section {
+        order: -1;
+    }
+    
+    .footer-sitemap a {
+        transform: none;
+    }
+    
+    .footer-sitemap a:hover {
+        transform: none;
+    }
+    
+    .footer-social-links {
+        justify-content: center;
+    }
+    
+    .footer-contact-item {
+        justify-content: center;
+    }
+    
+    .footer-column h3 {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+/* Print Styles
+   ========================================================================== */
+@media print {
+    .footer {
+        background-color: transparent !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+    
+    .footer-social-links,
+    .footer-logo {
+        display: none !important;
+    }
+}
+
+/* Dark Mode Support (for future implementation)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+    .footer {
+        /* Already dark - no changes needed */
+    }
+}
+
+/* High Contrast Mode Support
+   ========================================================================== */
+@media (prefers-contrast: high) {
+    .footer {
+        border-top: 2px solid white;
+    }
+    
+    .footer-social-link {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .footer a,
+    .footer-social-link {
+        transition: none;
+    }
+    
+    .footer-sitemap a:hover {
+        transform: none;
+    }
+    
+    .footer-social-link:hover {
+        transform: none;
+    }
+}
