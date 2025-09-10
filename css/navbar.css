@@ -33,8 +33,16 @@
     transition: transform var(--transition-fast);
 }
 
-.navbar-logo:hover {
-    transform: scale(1.05);
+.navbar-brand-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.navbar-brand-link:hover {
+    opacity: 0.85;
 }
 
 .navbar-brand {
