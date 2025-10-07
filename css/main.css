@@ -584,11 +584,11 @@ main {
     }
 }
 
-/* Inspirational Quote Section Styles - Option 3: Minimalist Zen
+/* Inspirational Quote Section Styles
    ========================================================================== */
 .quote-section {
     background-color: white;
-    padding: 12rem 0;
+    padding: 14rem 0;
     text-align: center;
     position: relative;
     transition: background-color var(--transition-slow);
@@ -607,14 +607,9 @@ main {
     opacity: 0.3;
 }
 
-/* Subtle hover effect - barely noticeable background shift */
-.quote-section:hover {
-    background-color: rgba(255, 237, 223, 0.2);
-}
-
 .inspirational-quote {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 300;
     color: var(--color-primary);
     max-width: 1100px;
@@ -631,7 +626,7 @@ main {
 /* Minimal, elegant opening quotation mark */
 .inspirational-quote::before {
     content: open-quote;
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 300;
     color: var(--color-accent-2);
     opacity: 0.5;
@@ -645,7 +640,7 @@ main {
 /* Minimal, elegant closing quotation mark */
 .inspirational-quote::after {
     content: close-quote;
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 300;
     color: var(--color-accent-2);
     opacity: 0.5;
