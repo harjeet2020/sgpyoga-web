@@ -351,7 +351,7 @@ main {
    ========================================================================== */
 .classes-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-secondary);
+    background-color: white;
 }
 
 .classes-content {
@@ -468,7 +468,7 @@ main {
    ========================================================================== */
 .divider-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-secondary);
+    background-color: white;
     text-align: center;
 }
 
@@ -598,7 +598,7 @@ main {
    ========================================================================== */
 .events-section {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-secondary);
+    background-color: white;
 }
 
 .events-content {
