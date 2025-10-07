@@ -350,9 +350,15 @@ main {
 /* Classes Section Styles - Magazine-style with Elegant Asymmetry
    ========================================================================== */
 .classes-section {
-    padding: 5rem 0;
+    padding: 5rem 0 2.5rem 0;
     background-color: white;
     position: relative;
+    transition: background-color var(--transition-normal);
+}
+
+/* Subtle hover effect with light steel gray background */
+.classes-section:hover {
+    background-color: var(--color-secondary);
 }
 
 .classes-content {
@@ -672,9 +678,15 @@ main {
 /* Events Section Styles - Mirrored Asymmetry for Visual Balance
    ========================================================================== */
 .events-section {
-    padding: 5rem 0;
+    padding: 2.5rem 0 5rem 0;
     background-color: white;
     position: relative;
+    transition: background-color var(--transition-normal);
+}
+
+/* Subtle hover effect with light steel gray background */
+.events-section:hover {
+    background-color: var(--color-secondary);
 }
 
 .events-content {
