@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Initialize style cards interaction (for touch devices)
     initStyleCards();
+    
+    // Initialize yoga hero interactive elements
+    initYogaHero();
 });
 
 /**
@@ -252,6 +255,146 @@ document.addEventListener('click', function(e) {
         }
     }
 });
+
+/**
+ * Initialize yoga hero interactive elements
+ * Handles hover and click interactions for the 4 yoga aspects
+ */
+function initYogaHero() {
+    const elements = document.querySelectorAll('.yoga-element');
+    const textBox = document.querySelector('.yoga-text-box');
+    const textElement = document.getElementById('yogaText');
+    
+    if (!elements.length || !textBox || !textElement) {
+        return; // Elements not found, exit gracefully
+    }
+    
+    // Store the default text and current selection
+    let defaultText = textElement.textContent;
+    let selectedElement = null;
+    let isHovering = false;
+    
+    // Function to update text with smooth transition
+    function updateText(newText, isDefault = false) {
+        if (!newText) {
+            return;
+        }
+        
+        // Add fading class to fade out
+        textBox.classList.add('fading');
+        
+        // Change text after fade out completes
+        setTimeout(() => {
+            // Update the text content directly
+            textElement.textContent = newText;
+            
+            // Remove fading class to fade back in
+            textBox.classList.remove('fading');
+        }, 300); // Match CSS transition duration
+    }
+    
+    // Function to get translated text for an element
+    function getElementText(elementKey) {
+        if (window.SGPi18n && window.SGPi18n.isInitialized) {
+            const text = window.SGPi18n.t(`about:yoga.texts.${elementKey}`);
+            // If translation returns the key itself, it means it wasn't found
+            if (text && text !== `about:yoga.texts.${elementKey}`) {
+                return text;
+            }
+        }
+        // Fallback to directly accessing translations object
+        if (window.SGPi18n && window.SGPi18n.translations) {
+            const lang = window.SGPi18n.currentLanguage || 'en';
+            return window.SGPi18n.translations[lang]?.about?.yoga?.texts?.[elementKey];
+        }
+        return null;
+    }
+    
+    // Add event listeners to each element
+    elements.forEach(element => {
+        // Hover event - show corresponding text
+        element.addEventListener('mouseenter', function() {
+            isHovering = true;
+            
+            // Only change text on hover if no element is selected
+            if (!selectedElement) {
+                const elementKey = this.dataset.element;
+                const text = getElementText(elementKey);
+                if (text) {
+                    updateText(text);
+                }
+            }
+        });
+        
+        // Mouse leave - revert to default or selected text
+        element.addEventListener('mouseleave', function() {
+            isHovering = false;
+            
+            // If nothing is selected, go back to default
+            if (!selectedElement) {
+                setTimeout(() => {
+                    if (!isHovering) {
+                        if (window.SGPi18n && window.SGPi18n.isInitialized) {
+                            defaultText = window.SGPi18n.t('about:yoga.defaultText');
+                        }
+                        updateText(defaultText);
+                    }
+                }, 100);
+            } else if (selectedElement !== this) {
+                // If a different element is selected, show that element's text
+                const selectedKey = selectedElement.dataset.element;
+                const text = getElementText(selectedKey);
+                if (text) {
+                    updateText(text);
+                }
+            }
+        });
+        
+        // Click event - toggle selection with underline
+        element.addEventListener('click', function() {
+            const elementKey = this.dataset.element;
+            const text = getElementText(elementKey);
+            
+            // If clicking the already selected element, deselect it
+            if (selectedElement === this) {
+                selectedElement.classList.remove('active');
+                selectedElement = null;
+                
+                // Return to default text
+                if (window.SGPi18n && window.SGPi18n.isInitialized) {
+                    defaultText = window.SGPi18n.t('about:yoga.defaultText');
+                }
+                updateText(defaultText);
+            } else {
+                // Deselect previous element if any
+                if (selectedElement) {
+                    selectedElement.classList.remove('active');
+                }
+                
+                // Select this element
+                this.classList.add('active');
+                selectedElement = this;
+                
+                // Update text
+                if (text) {
+                    updateText(text);
+                }
+            }
+        });
+    });
+    
+    // Update default text when language changes
+    document.addEventListener('languageChanged', function() {
+        if (window.SGPi18n && window.SGPi18n.isInitialized) {
+            defaultText = window.SGPi18n.t('about:yoga.defaultText');
+            
+            // If no element is selected and not hovering, update to new default
+            if (!selectedElement && !isHovering) {
+                textElement.textContent = defaultText;
+            }
+        }
+    });
+}
 
 /**
  * Listen for language change events and reload Lucide icons

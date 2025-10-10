@@ -79,45 +79,26 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Section 1: Yoga & Benefits -->
-        <section id="yoga" class="yoga-section section-padding">
-            <div class="yoga-content">
-                <!-- Left Side: Image -->
-                <div class="yoga-image">
-                    <picture>
-                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/yoga-1200.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/yoga-1080.webp">
-                        <img src="assets/photos/inUse/about/yoga-720.webp" alt="Yoga Practice" loading="eager">
-                    </picture>
-                </div>
-                
-                <!-- Right Side: Content -->
-                <div class="yoga-text">
-                    <h2 data-i18n="about:yoga.title">The Practice of Yoga</h2>
-                    <p data-i18n="about:yoga.intro">Yoga is an ancient practice that unites mind, body, and spirit through movement, breath, and meditation. It offers a path to inner peace and self-discovery.</p>
+        <!-- Section 1: Yoga Hero -->
+        <section id="yoga" class="yoga-hero-section">
+            <div class="yoga-hero-overlay">
+                <div class="yoga-hero-content">
+                    <h1 class="yoga-hero-title" data-i18n="about:yoga.heroTitle">What Is Yoga?</h1>
                     
-                    <!-- Benefits Grid -->
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <i data-lucide="heart" class="benefit-icon"></i>
-                            <h3 data-i18n="about:yoga.benefits.physical.title">Physical Health</h3>
-                            <p data-i18n="about:yoga.benefits.physical.text">Improve flexibility, strength, and balance through regular practice.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i data-lucide="brain" class="benefit-icon"></i>
-                            <h3 data-i18n="about:yoga.benefits.mental.title">Mental Clarity</h3>
-                            <p data-i18n="about:yoga.benefits.mental.text">Reduce stress and enhance focus through mindful breathing and meditation.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i data-lucide="sparkles" class="benefit-icon"></i>
-                            <h3 data-i18n="about:yoga.benefits.spiritual.title">Spiritual Growth</h3>
-                            <p data-i18n="about:yoga.benefits.spiritual.text">Connect with your inner self and discover deeper meaning in life.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i data-lucide="smile" class="benefit-icon"></i>
-                            <h3 data-i18n="about:yoga.benefits.emotional.title">Emotional Balance</h3>
-                            <p data-i18n="about:yoga.benefits.emotional.text">Cultivate inner peace and emotional resilience through consistent practice.</p>
-                        </div>
+                    <!-- Interactive Elements -->
+                    <div class="yoga-elements">
+                        <button class="yoga-element" data-element="art" data-i18n="about:yoga.elements.art">Art</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="science" data-i18n="about:yoga.elements.science">Science</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="lifestyle" data-i18n="about:yoga.elements.lifestyle">Lifestyle</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="philosophy" data-i18n="about:yoga.elements.philosophy">Philosophy</button>
+                    </div>
+                    
+                    <!-- Text Box -->
+                    <div class="yoga-text-box">
+                        <p id="yogaText" data-i18n="about:yoga.defaultText">Yoga is an ancient practice that unites mind, body, and spirit through movement, breath, and meditation. It offers a holistic path to inner peace, physical well-being, and self-discovery. Select one of the aspects above to learn more.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +109,11 @@
             <div class="styles-gallery-grid">
                     <!-- Aerial Yoga Tile -->
                     <div class="style-tile" data-style="aerial">
-                        <img src="assets/photos/inUse/about/aerial-1200.webp" alt="Aerial Yoga" class="style-tile-image">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/aerial-1200.webp">
+                            <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/aerial-1080.webp">
+                            <img src="assets/photos/inUse/about/aerial-720.webp" alt="Aerial Yoga" class="style-tile-image" id="aerial-image" loading="lazy">
+                        </picture>
                         <div class="style-overlay">
                             <div class="style-content">
                                 <h3 class="style-name" data-i18n="about:styles.aerial.name">Aerial Yoga</h3>
@@ -139,7 +124,11 @@
 
                     <!-- Vinyasa Yoga Tile -->
                     <div class="style-tile" data-style="vinyasa">
-                        <img src="assets/photos/inUse/about/vinyasa-1200.webp" alt="Vinyasa" class="style-tile-image">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/vinyasa-1200.webp">
+                            <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/vinyasa-1080.webp">
+                            <img src="assets/photos/inUse/about/vinyasa-720.webp" alt="Vinyasa" class="style-tile-image" id="vinyasa-image" loading="lazy">
+                        </picture>
                         <div class="style-overlay">
                             <div class="style-content">
                                 <h3 class="style-name" data-i18n="about:styles.vinyasa.name">Vinyasa</h3>
@@ -150,7 +139,11 @@
 
                     <!-- Hatha Yoga Tile -->
                     <div class="style-tile" data-style="hatha">
-                        <img src="assets/photos/inUse/about/hatha-1200.webp" alt="Hatha" class="style-tile-image">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/hatha-1200.webp">
+                            <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/hatha-1080.webp">
+                            <img src="assets/photos/inUse/about/hatha-720.webp" alt="Hatha" class="style-tile-image" id="hatha-image" loading="lazy">
+                        </picture>
                         <div class="style-overlay">
                             <div class="style-content">
                                 <h3 class="style-name" data-i18n="about:styles.hatha.name">Hatha</h3>
@@ -161,7 +154,11 @@
 
                     <!-- Kundalini Yoga Tile -->
                     <div class="style-tile" data-style="kundalini">
-                        <img src="assets/photos/inUse/about/kundalini-1200.webp" alt="Kundalini" class="style-tile-image">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/kundalini-1200.webp">
+                            <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/kundalini-1080.webp">
+                            <img src="assets/photos/inUse/about/kundalini-720.webp" alt="Kundalini" class="style-tile-image" id="kundalini-image" loading="lazy">
+                        </picture>
                         <div class="style-overlay">
                             <div class="style-content">
                                 <h3 class="style-name" data-i18n="about:styles.kundalini.name">Kundalini</h3>

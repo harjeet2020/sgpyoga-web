@@ -9,8 +9,20 @@
     "spaces": "Spaces"
   },
   "yoga": {
-    "title": "The Practice of Yoga",
-    "intro": "Yoga is an ancient practice that unites mind, body, and spirit through movement, breath, and meditation. It offers a path to inner peace and self-discovery.",
+    "heroTitle": "What Is Yoga?",
+    "elements": {
+      "art": "Art",
+      "science": "Science",
+      "lifestyle": "Lifestyle",
+      "philosophy": "Philosophy"
+    },
+    "defaultText": "Yoga is an ancient practice of developing harmony between body, mind and spirit. It is an exploration of who we are as human beings. It teaches us to be mindful of our thoughts and emotions, and it helps us heal both physically and internally. To master yoga is to master yourself; to dwell firm in the present moment.",
+    "texts": {
+      "art": "Yoga is an art and a creative process. When we practice, unique combinations of graceful movements and breathing make our bodies vessels of cosmic energy. Because of this, each yoga experience is distinctly unique; a symphony of stillness and movement.",
+      "science": "Yoga is a science of awareness. In yoga, we research how different practices affect the flow of energy in the body and the subconscious mind. Thus we can use it more consciously for self-transformation.",
+      "lifestyle": "Yoga is a way to live your life more consciously. Small things such as regular exercise and meditation, healthy diet, and a positive attitude to life can totally change your daily experience.",
+      "philosophy": "Yoga is a philosophy of life. It touches questions such as who we are, what is this world we are living in, and how to achieve happiness. Yoga is a pathway to what some call enlightenment - freedom from suffering, from the world of form."
+    },
     "benefits": {
       "physical": {
         "title": "Physical Health",

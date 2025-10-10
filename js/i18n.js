@@ -367,6 +367,14 @@ class SGPi18n {
     getCurrentLanguage() {
         return this.currentLanguage;
     }
+    
+    /**
+     * Translate page elements (alias for updatePageContent)
+     * This is called by other scripts to re-translate elements
+     */
+    translatePageElements() {
+        this.updatePageContent();
+    }
 }
 
 // Create global instance

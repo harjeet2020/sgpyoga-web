@@ -84,108 +84,143 @@
     font-weight: 300;
 }
 
-/* Section 1: Yoga & Benefits
+/* Section 1: Yoga Hero
    ========================================================================== */
-.yoga-section {
-    background-color: var(--color-secondary);
+/* Purpose: Full-width hero section with interactive elements
+   Features: Background image, centered title, 4 clickable elements, dynamic text box */
+
+.yoga-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 120px; /* Extra padding for anchor nav */
+    padding-bottom: var(--spacing-xxl);
+    
+    /* Placeholder background - replace with actual image */
+    background: linear-gradient(135deg, 
+        rgba(64, 104, 154, 0.9) 0%, 
+        rgba(160, 103, 137, 0.8) 100%),
+        url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920') center/cover no-repeat;
+    background-attachment: fixed; /* Parallax effect */
 }
 
-.yoga-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xxl);
-    max-width: 1400px;
+/* Overlay for better text readability */
+.yoga-hero-overlay {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Hero Content Container */
+.yoga-hero-content {
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--spacing-xl);
+    text-align: center;
+}
+
+/* Hero Title */
+.yoga-hero-title {
+    font-size: 5rem;
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xxl);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive Elements Container */
+.yoga-elements {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+    flex-wrap: wrap;
 }
 
-/* Yoga Image Styling */
-.yoga-image {
+/* Individual Element Button */
+.yoga-element {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm) 0;
     position: relative;
-    overflow: hidden;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
 }
 
-.yoga-image::before {
+/* Hover state */
+.yoga-element:hover {
+    color: var(--color-accent-1);
+    transform: translateY(-2px);
+}
+
+/* Active/Selected state with underline */
+.yoga-element.active {
+    color: var(--color-accent-1);
+}
+
+.yoga-element.active::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(31, 33, 33, 0.2) 0%, transparent 100%);
-    z-index: 1;
-    pointer-events: none;
+    height: 3px;
+    background-color: var(--color-accent-1);
+    animation: slideIn 0.3s ease-out;
 }
 
-.yoga-image img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    display: block;
-    transition: transform var(--transition-slow);
+/* Separator (stars) */
+.yoga-separator {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+    opacity: 0.6;
 }
 
-.yoga-image:hover img {
-    transform: scale(1.05);
+/* Text Box */
+.yoga-text-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xxl);
+    box-shadow: var(--shadow-lg);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Yoga Text Content */
-.yoga-text h2 {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.1;
-}
-
-.yoga-text > p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: var(--spacing-xl);
-    color: var(--color-supplementary);
-}
-
-/* Benefits Grid */
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-}
-
-.benefit-card {
-    padding: var(--spacing-lg);
-    background: white;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-normal);
-}
-
-.benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.benefit-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--color-accent-1);
-    margin-bottom: var(--spacing-md);
-}
-
-.benefit-card h3 {
+.yoga-text-box p {
     font-size: 1.25rem;
-    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
     color: var(--color-primary);
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.benefit-card p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-    color: var(--color-supplementary);
+/* Text fade animation for smooth transitions */
+.yoga-text-box.fading p {
+    opacity: 0;
+}
+
+/* Slide in animation for underline */
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 /* Section 2: Yoga Styles
@@ -287,6 +322,45 @@
     line-height: 1.7;
     margin: 0;
     opacity: 0.95; /* Slightly softer than the heading */
+}
+
+/* Individual Image Positioning
+   ========================================================================
+   Purpose: Control which part of each image is displayed in the tile
+   
+   HOW TO USE object-position:
+   ---------------------------
+   Syntax: object-position: [horizontal] [vertical];
+   
+   Common keyword values:
+   - center center (default) - centered both ways
+   - top center - show top of image
+   - bottom center - show bottom of image  
+   - left center - show left side
+   - right center - show right side
+   - top left, top right, bottom left, bottom right - corners
+   
+   Percentage values (more precise control):
+   - object-position: 50% 50%; (same as center center)
+   - object-position: 30% 40%; (30% from left, 40% from top)
+   - object-position: 75% 25%; (75% from left, 25% from top)
+
+   ======================================================================== */
+
+#aerial-image {
+    object-position: center center; /* Adjust: e.g., 'center 30%' to show top portion */
+}
+
+#vinyasa-image {
+    object-position: center center; /* Adjust: e.g., '70% center' to shift right */
+}
+
+#hatha-image {
+    object-position: center top; /* Adjust: e.g., 'center 40%' for upper-middle */
+}
+
+#kundalini-image {
+    object-position: center 90%; /* Adjust: e.g., 'left center' to show left side */
 }
 
 /* Section 3: Our Teachers
@@ -534,13 +608,17 @@
         font-size: 2.5rem;
     }
     
-    /* Yoga Section */
-    .yoga-content {
-        gap: var(--spacing-xl);
+    /* Yoga Hero Section */
+    .yoga-hero-title {
+        font-size: 4rem;
     }
     
-    .yoga-text h2 {
-        font-size: 2.5rem;
+    .yoga-element {
+        font-size: 1.3rem;
+    }
+    
+    .yoga-text-box p {
+        font-size: 1.125rem;
     }
     
     /* Teachers Grid */
@@ -589,27 +667,40 @@
         font-size: 1.125rem;
     }
     
-    /* Yoga Section */
-    .yoga-section {
+    /* Yoga Hero Section */
+    .yoga-hero-section {
         padding-top: 80px;
+        min-height: 80vh;
+        background-attachment: scroll; /* Disable parallax on mobile */
     }
     
-    .yoga-content {
-        grid-template-columns: 1fr;
+    .yoga-hero-content {
         padding: 0 var(--spacing-md);
     }
     
-    .yoga-text h2 {
-        font-size: 2rem;
-        text-align: center;
+    .yoga-hero-title {
+        font-size: 2.5rem;
     }
     
-    .yoga-text > p {
-        text-align: center;
+    .yoga-elements {
+        gap: var(--spacing-md);
     }
     
-    .benefits-grid {
-        grid-template-columns: 1fr;
+    .yoga-element {
+        font-size: 1.125rem;
+    }
+    
+    .yoga-separator {
+        font-size: 1rem;
+    }
+    
+    .yoga-text-box {
+        padding: var(--spacing-lg);
+        min-height: 160px;
+    }
+    
+    .yoga-text-box p {
+        font-size: 1rem;
     }
     
     /* Styles Section - Stack to single column on mobile */
@@ -672,17 +763,21 @@
         font-size: 1rem;
     }
     
-    .yoga-text h2 {
-        font-size: 1.75rem;
+    .yoga-hero-title {
+        font-size: 2rem;
     }
     
-    .benefit-card {
+    .yoga-element {
+        font-size: 1rem;
+    }
+    
+    .yoga-text-box {
         padding: var(--spacing-md);
+        min-height: 140px;
     }
     
-    .benefit-icon {
-        width: 28px;
-        height: 28px;
+    .yoga-text-box p {
+        font-size: 0.95rem;
     }
     
     /* Styles Gallery - Smaller tiles on small mobile */

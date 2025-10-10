@@ -9,8 +9,20 @@
     "spaces": "Espacios"
   },
   "yoga": {
-    "title": "La Práctica del Yoga",
-    "intro": "El yoga es una práctica antigua que une mente, cuerpo y espíritu a través del movimiento, la respiración y la meditación. Ofrece un camino hacia la paz interior y el autodescubrimiento.",
+    "heroTitle": "¿Qué Es el Yoga?",
+    "elements": {
+      "art": "Arte",
+      "science": "Ciencia",
+      "lifestyle": "Estilo de Vida",
+      "philosophy": "Filosofía"
+    },
+    "defaultText": "El yoga es una práctica antigua de desarrollar armonía entre cuerpo, mente y espíritu. Es una exploración de quiénes somos como seres humanos. Nos enseña a ser conscientes de nuestros pensamientos y emociones, y nos ayuda a sanar tanto física como internamente. Dominar el yoga es dominarse a uno mismo; permanecer firme en el momento presente.",
+    "texts": {
+      "art": "El yoga es un arte y un proceso creativo. Cuando practicamos, combinaciones únicas de movimientos gráciles y respiración hacen que nuestros cuerpos sean recipientes de energía cósmica. Debido a esto, cada experiencia de yoga es distintivamente única; una sinfonía de quietud y movimiento.",
+      "science": "El yoga es una ciencia de la conciencia. En el yoga, investigamos cómo diferentes prácticas afectan el flujo de energía en el cuerpo y la mente subconsciente. Así podemos usarlo más conscientemente para la autotransformación.",
+      "lifestyle": "El yoga es una forma de vivir tu vida más conscientemente. Pequeñas cosas como ejercicio regular y meditación, dieta saludable y una actitud positiva hacia la vida pueden cambiar totalmente tu experiencia diaria.",
+      "philosophy": "El yoga es una filosofía de vida. Toca preguntas como quiénes somos, qué es este mundo en el que vivimos y cómo lograr la felicidad. El yoga es un camino hacia lo que algunos llaman iluminación - libertad del sufrimiento, del mundo de la forma."
+    },
     "benefits": {
       "physical": {
         "title": "Salud Física",
