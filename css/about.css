@@ -92,7 +92,7 @@
 .yoga-hero-section {
     position: relative;
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -250,7 +250,7 @@
     gap: 0; /* No gap for seamless tile effect */
     max-width: 100%;
     margin: 0 auto;
-    height: 100vh; /* Full section height for impactful visual */
+    height: 120vh; /* Full section height for impactful visual */
     min-height: 600px; /* Ensure tiles are tall enough on smaller screens */
 }
 
@@ -489,94 +489,100 @@
 
 /* Section 4: Our Spaces
    ========================================================================== */
+/* Purpose: Full-width gallery layout with split-screen effect
+   Features: Two side-by-side images filling the section, overlay info on hover */
+
 .spaces-section {
     background-color: var(--color-supplementary);
     color: var(--color-secondary);
+    padding: 0 !important; /* Remove padding for full-width effect */
 }
 
-.spaces-section .section-title,
-.spaces-section .section-subtitle {
-    color: var(--color-secondary);
-}
-
-.spaces-grid {
+/* Gallery Grid Layout
+   Purpose: Creates a 1x2 grid (two columns) that fills the entire section
+   Each tile shows space information on hover with a dimming overlay */
+.spaces-gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xxl);
-    max-width: 1400px;
+    gap: 0; /* No gap for seamless tile effect */
+    max-width: 100%;
     margin: 0 auto;
+    height: 65vh; /* Full viewport height for impactful visual */
+    min-height: 600px; /* Ensure tiles are tall enough on smaller screens */
 }
 
-.space-card {
-    background: white;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
-}
-
-.space-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* Space Image with Overlay */
-.space-image {
+/* Individual Space Tile
+   Purpose: Container for each space with background image */
+.space-tile {
     position: relative;
     overflow: hidden;
-    height: 350px;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
 }
 
-.space-image img {
+/* Background Image
+   Purpose: Fills the entire tile, zooms slightly on hover */
+.space-tile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform var(--transition-slow);
 }
 
-.space-card:hover .space-image img {
-    transform: scale(1.1);
+.space-tile:hover .space-tile-image {
+    transform: scale(1.1); /* Zoom effect on hover */
 }
 
+/* Overlay with Dimming Effect
+   Purpose: Hidden by default, appears on hover with semi-transparent background
+   to make text readable over any image */
 .space-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: var(--spacing-lg);
-    background: linear-gradient(to top, rgba(31, 33, 33, 0.9) 0%, transparent 100%);
-    color: white;
-    opacity: 0;
+    height: 100%;
+    background: rgba(31, 33, 33, 0.85); /* Dark dimming overlay - Eerie Black with 85% opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    opacity: 0; /* Hidden by default */
     transition: opacity var(--transition-normal);
 }
 
-.space-card:hover .space-overlay {
-    opacity: 1;
+.space-tile:hover .space-overlay {
+    opacity: 1; /* Fully visible on hover */
 }
 
-.space-overlay p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* Space Content */
+/* Content Container
+   Purpose: Centers and structures the text content within the overlay */
 .space-content {
-    padding: var(--spacing-xl);
+    text-align: center;
+    max-width: 90%;
 }
 
-.space-content h3 {
-    font-size: 2rem;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
+/* Space Name
+   Purpose: Large, prominent heading for the space name */
+.space-name {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-secondary); /* Linen - light color for contrast */
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
+/* Space Address
+   Purpose: Display location with map pin icon */
 .space-address {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-lg);
-    color: var(--color-supplementary);
+    color: var(--color-secondary);
 }
 
 .address-icon {
@@ -590,13 +596,18 @@
 .space-address span {
     font-size: 1rem;
     line-height: 1.5;
+    text-align: left;
 }
 
-.space-content > p {
-    font-size: 1rem;
+/* Space Description
+   Purpose: Detailed description text, readable and elegant */
+.space-description {
+    font-size: 1.125rem;
+    font-family: var(--font-body);
+    color: var(--color-secondary); /* Linen - light color for contrast */
     line-height: 1.7;
-    color: var(--color-supplementary);
-    margin-bottom: var(--spacing-lg);
+    margin: 0 0 var(--spacing-lg) 0;
+    opacity: 0.95; /* Slightly softer than the heading */
 }
 
 /* Space Button */
@@ -611,12 +622,25 @@
     font-size: 1rem;
     text-decoration: none;
     transition: all var(--transition-normal);
+    margin-top: var(--spacing-md);
 }
 
 .btn-space:hover {
     background-color: var(--color-accent-2);
     transform: translateX(4px);
     color: white;
+}
+
+/* Individual Image Positioning
+   ========================================================================
+   Purpose: Control which part of each image is displayed in the tile */
+
+#hariom-image {
+    object-position: center center; /* Adjust as needed */
+}
+
+#aguacate-image {
+    object-position: center center; /* Adjust as needed */
 }
 
 /* Responsive Design - Tablet
@@ -751,13 +775,24 @@
         transform: translateY(-4px);
     }
     
-    /* Spaces Section */
-    .spaces-grid {
+    /* Spaces Section - Stack to single column on mobile */
+    .spaces-gallery-grid {
         grid-template-columns: 1fr;
+        height: auto; /* Auto height for stacked layout */
+        min-height: auto;
     }
     
-    .space-image {
-        height: 280px;
+    .space-tile {
+        height: 400px; /* Fixed height for each tile in mobile view */
+        min-height: 400px;
+    }
+    
+    .space-name {
+        font-size: 1.75rem;
+    }
+    
+    .space-description {
+        font-size: 0.95rem;
     }
 }
 
@@ -816,8 +851,22 @@
         font-size: 1.5rem;
     }
     
-    .space-content h3 {
-        font-size: 1.75rem;
+    /* Spaces Gallery - Smaller tiles on small mobile */
+    .space-tile {
+        height: 350px;
+        min-height: 350px;
+    }
+    
+    .space-name {
+        font-size: 1.5rem;
+    }
+    
+    .space-description {
+        font-size: 0.9rem;
+    }
+    
+    .space-address span {
+        font-size: 0.9rem;
     }
 }
 
@@ -847,6 +896,14 @@
     }
     
     .style-tile:hover .style-tile-image {
+        transform: none;
+    }
+    
+    .space-tile:hover {
+        transform: none;
+    }
+    
+    .space-tile:hover .space-tile-image {
         transform: none;
     }
     

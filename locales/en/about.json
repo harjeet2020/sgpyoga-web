@@ -74,20 +74,18 @@
     }
   },
   "spaces": {
-    "title": "Our Practice Spaces",
+    "title": "Our Spaces",
     "subtitle": "Beautiful venues across CDMX",
     "viewMap": "View on Map",
     "space1": {
-      "name": "Roma Studio",
-      "address": "Calle Orizaba 123, Roma Norte, CDMX",
-      "description": "Our main studio in the heart of Roma Norte offers a peaceful sanctuary for your practice. The space features high ceilings, bamboo floors, and abundant natural light.",
-      "details": "Spacious studio with natural light and serene atmosphere"
+      "name": "Hari Om",
+      "address": "Calle Tres Zapotes 128, Letran Valle, Benito Juárez CDMX",
+      "description": "Our space in Letran Valle is small but cosy and quiet. It is located close to Parque de los Venados in a calm, safe housing district. There are plenty of cafes nearby if you feel like resting after a class."
     },
     "space2": {
-      "name": "Condesa Sanctuary",
-      "address": "Avenida Amsterdam 89, Condesa, CDMX",
-      "description": "Located in beautiful Condesa, this intimate space is perfect for small group classes and private sessions. Features include a garden view and eco-friendly materials.",
-      "details": "Intimate space perfect for small groups and private sessions"
+      "name": "Aguacate",
+      "address": "Callejón de Aguacate 3, Santa Catarina, Coyoacán, CDMX",
+      "description": "Our space in Coyacán is large and beautiful. With plenty of height, it is perfect for aerial yoga classes. It is very close to Parque de los Viveros, but due to its ensconced location, it is also very calm and quiet. "
     }
   }
 }

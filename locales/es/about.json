@@ -74,20 +74,18 @@
     }
   },
   "spaces": {
-    "title": "Nuestros Espacios de Práctica",
+    "title": "Nuestros Espacios",
     "subtitle": "Hermosos lugares en toda la CDMX",
     "viewMap": "Ver en Mapa",
     "space1": {
-      "name": "Estudio Roma",
-      "address": "Calle Orizaba 123, Roma Norte, CDMX",
-      "description": "Nuestro estudio principal en el corazón de Roma Norte ofrece un santuario de paz para tu práctica. El espacio cuenta con techos altos, pisos de bambú y abundante luz natural.",
-      "details": "Estudio espacioso con luz natural y atmósfera serena"
+      "name": "Hari Om",
+      "address": "Calle Tres Zapotes 128, Letran Valle, Benito Juárez CDMX",
+      "description": "Nuestro espacio en Letran Valle es pequeño pero acogedor y tranquilo. Está ubicado cerca del Parque de los Venados en un distrito residencial tranquilo y seguro. Hay muchos cafés cercanos si te apetece descansar después de una clase."
     },
     "space2": {
-      "name": "Santuario Condesa",
-      "address": "Avenida Amsterdam 89, Condesa, CDMX",
-      "description": "Ubicado en la hermosa Condesa, este espacio íntimo es perfecto para clases en grupos pequeños y sesiones privadas. Las características incluyen vista al jardín y materiales ecológicos.",
-      "details": "Espacio íntimo perfecto para grupos pequeños y sesiones privadas"
+      "name": "Aguacate",
+      "address": "Callejón de Aguacate 3, Santa Catarina, Coyoacán, CDMX",
+      "description": "Nuestro espacio en Coyoacán es grande y hermoso. Con mucha altura, es perfecto para clases de yoga aéreo. Está muy cerca del Parque de los Viveros, pero debido a su ubicación resguardada, también es muy tranquilo y silencioso."
     }
   }
 }

@@ -241,54 +241,43 @@
         </section>
 
         <!-- Section 4: Our Spaces -->
-        <section id="spaces" class="spaces-section section-padding">
-            <div class="container">
-                <h2 class="section-title" data-i18n="about:spaces.title">Our Practice Spaces</h2>
-                <p class="section-subtitle" data-i18n="about:spaces.subtitle">Beautiful venues across CDMX</p>
-                
-                <div class="spaces-grid">
-                    <!-- Space 1 -->
-                    <div class="space-card">
-                        <div class="space-image">
-                            <picture>
-                                <source media="(min-width: 1200px)" srcset="assets/photos/inUse/spaces/space1-1200.webp">
-                                <source media="(min-width: 800px)" srcset="assets/photos/inUse/spaces/space1-1080.webp">
-                                <img src="assets/photos/inUse/spaces/space1-720.webp" alt="Studio Space" loading="lazy">
-                            </picture>
-                            <div class="space-overlay">
-                                <p data-i18n="about:spaces.space1.details">Spacious studio with natural light and serene atmosphere</p>
-                            </div>
-                        </div>
+        <section id="spaces" class="spaces-section">
+            <div class="spaces-gallery-grid">
+                <!-- Space 1: Hari Om -->
+                <div class="space-tile" data-space="hariom">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/hariom-1200.webp">
+                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/hariom-1080.webp">
+                        <img src="assets/photos/inUse/about/hariom-720.webp" alt="Hari Om" class="space-tile-image" id="hariom-image" loading="lazy">
+                    </picture>
+                    <div class="space-overlay">
                         <div class="space-content">
-                            <h3 data-i18n="about:spaces.space1.name">Roma Studio</h3>
+                            <h3 class="space-name" data-i18n="about:spaces.space1.name">Roma Studio</h3>
                             <div class="space-address">
                                 <i data-lucide="map-pin" class="address-icon"></i>
                                 <span data-i18n="about:spaces.space1.address">Calle Orizaba 123, Roma Norte, CDMX</span>
                             </div>
-                            <p data-i18n="about:spaces.space1.description">Our main studio in the heart of Roma Norte offers a peaceful sanctuary for your practice. The space features high ceilings, bamboo floors, and abundant natural light.</p>
+                            <p class="space-description" data-i18n="about:spaces.space1.description">Our main studio in the heart of Roma Norte offers a peaceful sanctuary for your practice. The space features high ceilings, bamboo floors, and abundant natural light.</p>
                             <a href="#" class="btn-space" data-i18n="about:spaces.viewMap">View on Map</a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Space 2 -->
-                    <div class="space-card">
-                        <div class="space-image">
-                            <picture>
-                                <source media="(min-width: 1200px)" srcset="assets/photos/inUse/spaces/space2-1200.webp">
-                                <source media="(min-width: 800px)" srcset="assets/photos/inUse/spaces/space2-1080.webp">
-                                <img src="assets/photos/inUse/spaces/space2-720.webp" alt="Studio Space" loading="lazy">
-                            </picture>
-                            <div class="space-overlay">
-                                <p data-i18n="about:spaces.space2.details">Intimate space perfect for small groups and private sessions</p>
-                            </div>
-                        </div>
+                <!-- Space 2: Aguacate -->
+                <div class="space-tile" data-space="aguacate">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/aguacate-1200.webp">
+                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/aguacate-1080.webp">
+                        <img src="assets/photos/inUse/about/aguacate-720.webp" alt="Aguacate" class="space-tile-image" id="aguacate-image" loading="lazy">
+                    </picture>
+                    <div class="space-overlay">
                         <div class="space-content">
-                            <h3 data-i18n="about:spaces.space2.name">Condesa Sanctuary</h3>
+                            <h3 class="space-name" data-i18n="about:spaces.space2.name">Condesa Sanctuary</h3>
                             <div class="space-address">
                                 <i data-lucide="map-pin" class="address-icon"></i>
                                 <span data-i18n="about:spaces.space2.address">Avenida Amsterdam 89, Condesa, CDMX</span>
                             </div>
-                            <p data-i18n="about:spaces.space2.description">Located in beautiful Condesa, this intimate space is perfect for small group classes and private sessions. Features include a garden view and eco-friendly materials.</p>
+                            <p class="space-description" data-i18n="about:spaces.space2.description">Located in beautiful Condesa, this intimate space is perfect for small group classes and private sessions. Features include a garden view and eco-friendly materials.</p>
                             <a href="#" class="btn-space" data-i18n="about:spaces.viewMap">View on Map</a>
                         </div>
                     </div>

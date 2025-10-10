@@ -7,7 +7,7 @@
 .footer {
     background-color: var(--color-primary);
     color: white;
-    margin-top: var(--spacing-xxl);
+    margin-top: 0; /* No margin for seamless connection to full-width sections */
 }
 
 .footer a {
