@@ -22,24 +22,6 @@
       "science": "Yoga is a science of awareness. In yoga, we research how different practices affect the flow of energy in the body and the subconscious mind. Thus we can use it more consciously for self-transformation.",
       "lifestyle": "Yoga is a way to live your life more consciously. Small things such as regular exercise and meditation, healthy diet, and a positive attitude to life can totally change your daily experience.",
       "philosophy": "Yoga is a philosophy of life. It touches questions such as who we are, what is this world we are living in, and how to achieve happiness. Yoga is a pathway to what some call enlightenment - freedom from suffering, from the world of form."
-    },
-    "benefits": {
-      "physical": {
-        "title": "Physical Health",
-        "text": "Improve flexibility, strength, and balance through regular practice."
-      },
-      "mental": {
-        "title": "Mental Clarity",
-        "text": "Reduce stress and enhance focus through mindful breathing and meditation."
-      },
-      "spiritual": {
-        "title": "Spiritual Growth",
-        "text": "Connect with your inner self and discover deeper meaning in life."
-      },
-      "emotional": {
-        "title": "Emotional Balance",
-        "text": "Cultivate inner peace and emotional resilience through consistent practice."
-      }
     }
   },
   "styles": {
@@ -47,31 +29,19 @@
     "subtitle": "Explore different paths to wellness",
     "aerial": {
       "name": "Aerial Yoga",
-      "description": "Practice yoga suspended in silk hammocks, combining traditional poses with aerial arts for a unique, gravity-defying experience.",
-      "feature1": "Decompresses the spine",
-      "feature2": "Builds core strength",
-      "feature3": "Playful and joyful"
+      "description": "Practice yoga suspended in silk hammocks, taking traditional poses into the air for a unique, gravity-defying experience. Aerial Yoga is artful & beautiful - and the hammock enables you to access difficult yoga asanas with more ease."
     },
     "vinyasa": {
       "name": "Vinyasa",
-      "description": "Flow through sequences of poses synchronized with breath, creating a dynamic and meditative practice that builds heat and focus.",
-      "feature1": "Flowing movement",
-      "feature2": "Breath-synchronized",
-      "feature3": "Creative sequences"
+      "description": "Flow through sequences of poses synchronized with the breath, creating a dynamic and meditative practice that builds heat and focus. Vinyasa Yoga is all about fluidity; it rejuvenates the body and restores inner grace."
     },
     "hatha": {
       "name": "Hatha",
-      "description": "A gentle, foundational practice focusing on physical postures and breathing techniques, perfect for beginners and all levels.",
-      "feature1": "Slower pace",
-      "feature2": "Focus on alignment",
-      "feature3": "Accessible to all"
+      "description": "Build a strong foundation with traditional Hatha Yoga - a practice that helps you find balance in a world of dualities. Hatha is an incredibly balanced and versatile yoga style, making it an ideal pick for beginners."
     },
     "kundalini": {
       "name": "Kundalini",
-      "description": "Awaken your inner energy through dynamic movements, breathwork, meditation, and mantra chanting for spiritual transformation.",
-      "feature1": "Energy activation",
-      "feature2": "Powerful breathwork",
-      "feature3": "Deep meditation"
+      "description": "Awaken to your inner self with Kundalini Yoga - a practice that focuses on energy work and self-transformation. Kundalini is an incredibly deep yoga style, perfect for those who want to elevate their practice to a new level."
     }
   },
   "teachers": {

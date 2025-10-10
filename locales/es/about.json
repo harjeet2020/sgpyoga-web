@@ -22,24 +22,6 @@
       "science": "El yoga es una ciencia de la conciencia. En el yoga, investigamos cómo diferentes prácticas afectan el flujo de energía en el cuerpo y la mente subconsciente. Así podemos usarlo más conscientemente para la autotransformación.",
       "lifestyle": "El yoga es una forma de vivir tu vida más conscientemente. Pequeñas cosas como ejercicio regular y meditación, dieta saludable y una actitud positiva hacia la vida pueden cambiar totalmente tu experiencia diaria.",
       "philosophy": "El yoga es una filosofía de vida. Toca preguntas como quiénes somos, qué es este mundo en el que vivimos y cómo lograr la felicidad. El yoga es un camino hacia lo que algunos llaman iluminación - libertad del sufrimiento, del mundo de la forma."
-    },
-    "benefits": {
-      "physical": {
-        "title": "Salud Física",
-        "text": "Mejora la flexibilidad, fuerza y equilibrio a través de la práctica regular."
-      },
-      "mental": {
-        "title": "Claridad Mental",
-        "text": "Reduce el estrés y mejora el enfoque mediante la respiración consciente y la meditación."
-      },
-      "spiritual": {
-        "title": "Crecimiento Espiritual",
-        "text": "Conéctate con tu ser interior y descubre un significado más profundo en la vida."
-      },
-      "emotional": {
-        "title": "Balance Emocional",
-        "text": "Cultiva la paz interior y la resiliencia emocional a través de la práctica constante."
-      }
     }
   },
   "styles": {
@@ -47,31 +29,19 @@
     "subtitle": "Explora diferentes caminos hacia el bienestar",
     "aerial": {
       "name": "Yoga Aéreo",
-      "description": "Practica yoga suspendido en hamacas de seda, combinando posturas tradicionales con artes aéreas para una experiencia única que desafía la gravedad.",
-      "feature1": "Descomprime la columna",
-      "feature2": "Fortalece el core",
-      "feature3": "Divertido y alegre"
+      "description": "Practica yoga suspendido en hamacas de seda, llevando las posturas tradicionales al aire para una experiencia única que desafía la gravedad. El Yoga Aéreo es artístico y hermoso - y la hamaca te permite acceder a asanas difíciles con más facilidad."
     },
     "vinyasa": {
       "name": "Vinyasa",
-      "description": "Fluye a través de secuencias de posturas sincronizadas con la respiración, creando una práctica dinámica y meditativa que genera calor y enfoque.",
-      "feature1": "Movimiento fluido",
-      "feature2": "Sincronizado con la respiración",
-      "feature3": "Secuencias creativas"
+      "description": "Fluye a través de secuencias de posturas sincronizadas con la respiración, creando una práctica dinámica y meditativa que genera calor y enfoque. El Yoga Vinyasa se trata de fluidez; rejuvenece el cuerpo y restaura la gracia interior."
     },
     "hatha": {
       "name": "Hatha",
-      "description": "Una práctica suave y fundamental que se enfoca en posturas físicas y técnicas de respiración, perfecta para principiantes y todos los niveles.",
-      "feature1": "Ritmo más lento",
-      "feature2": "Enfoque en la alineación",
-      "feature3": "Accesible para todos"
+      "description": "Construye una base sólida con el Hatha Yoga tradicional - una práctica que te ayuda a encontrar equilibrio en un mundo de dualidades. Hatha es un estilo de yoga increíblemente equilibrado y versátil, haciéndolo ideal para principiantes."
     },
     "kundalini": {
       "name": "Kundalini",
-      "description": "Despierta tu energía interior a través de movimientos dinámicos, trabajo de respiración, meditación y canto de mantras para la transformación espiritual.",
-      "feature1": "Activación de energía",
-      "feature2": "Trabajo de respiración poderoso",
-      "feature3": "Meditación profunda"
+      "description": "Despierta a tu ser interior con el Kundalini Yoga - una práctica que se enfoca en el trabajo energético y la autotransformación. Kundalini es un estilo de yoga increíblemente profundo, perfecto para aquellos que quieren elevar su práctica a un nuevo nivel."
     }
   },
   "teachers": {

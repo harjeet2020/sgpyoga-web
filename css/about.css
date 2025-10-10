@@ -92,19 +92,29 @@
 .yoga-hero-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 120px; /* Extra padding for anchor nav */
     padding-bottom: var(--spacing-xxl);
     
-    /* Placeholder background - replace with actual image */
-    background: linear-gradient(135deg, 
-        rgba(64, 104, 154, 0.9) 0%, 
-        rgba(160, 103, 137, 0.8) 100%),
-        url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920') center/cover no-repeat;
+    /* Background image - zen stones (base resolution) */
+    background: url('../assets/photos/inUse/about/hero-2560.webp') center/cover no-repeat;
     background-attachment: fixed; /* Parallax effect */
+}
+
+/* Higher resolution variants for larger screens */
+@media (min-width: 1440px) {
+    .yoga-hero-section {
+        background-image: url('../assets/photos/inUse/about/hero-1080.webp');
+    }
+}
+
+@media (min-width: 2048px) {
+    .yoga-hero-section {
+        background-image: url('../assets/photos/inUse/about/hero-1920.webp');
+    }
 }
 
 /* Overlay for better text readability */
@@ -126,8 +136,8 @@
 .yoga-hero-title {
     font-size: 5rem;
     font-family: var(--font-heading);
-    color: var(--color-secondary);
-    margin-bottom: var(--spacing-xxl);
+    color: white;
+    margin-bottom: var(--spacing-md);
     line-height: 1.1;
     letter-spacing: 0.02em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -147,7 +157,7 @@
 .yoga-element {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--color-secondary);
+    color: white;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -189,7 +199,7 @@
 
 /* Text Box */
 .yoga-text-box {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-xxl);
     box-shadow: var(--shadow-lg);
@@ -228,7 +238,7 @@
 .styles-section {
     background-color: var(--color-primary);
     color: var(--color-secondary);
-    padding: 10px 10px !important;
+    padding: 0 !important;
 }
 
 /* Mini-Gallery Grid Layout
@@ -237,7 +247,7 @@
 .styles-gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px; /* No gap for seamless tile effect */
+    gap: 0; /* No gap for seamless tile effect */
     max-width: 100%;
     margin: 0 auto;
     height: 100vh; /* Full section height for impactful visual */
@@ -251,12 +261,6 @@
     overflow: hidden;
     cursor: pointer;
     transition: transform var(--transition-normal);
-}
-
-/* Subtle lift effect on hover for the tile itself */
-.style-tile:hover {
-    transform: scale(1.02);
-    z-index: 10; /* Bring hovered tile to front */
 }
 
 /* Background Image

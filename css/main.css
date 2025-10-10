@@ -219,7 +219,7 @@ main {
     min-height: calc(100vh - 80px); /* Account for navbar height */
 }
 
-/* Hero Section - Full-width with cover image
+/* Hero Section - Full-width with cover image and parallax effect
    ========================================================================== */
 .hero {
     position: relative;
@@ -230,9 +230,26 @@ main {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    
+    /* Background image with parallax effect - base resolution */
+    background: url('../assets/photos/inUse/home/hero-1280.webp') left top/cover no-repeat;
+    background-attachment: fixed; /* Parallax effect */
 }
 
-/* Hero image styling with full coverage */
+/* Higher resolution variants for larger screens */
+@media (min-width: 1440px) {
+    .hero {
+        background-image: url('../assets/photos/inUse/home/hero-1920.webp');
+    }
+}
+
+@media (min-width: 2048px) {
+    .hero {
+        background-image: url('../assets/photos/inUse/home/hero-2560.webp');
+    }
+}
+
+/* Hero image styling with full coverage (fallback for <picture> element if present) */
 .hero-image {
     position: absolute;
     top: 0;
@@ -240,6 +257,8 @@ main {
     width: 100%;
     height: 100%;
     z-index: 1;
+    /* Hide the image element when using CSS background */
+    display: none;
 }
 
 .hero-image img {
@@ -294,6 +313,8 @@ main {
     .hero {
         height: 80vh;
         min-height: 500px;
+        background-attachment: scroll; /* Disable parallax on mobile for better performance */
+        background-position: 60% top; /* Adjust positioning for mobile */
     }
     
     .hero-content {
@@ -325,6 +346,8 @@ main {
     .hero {
         height: 70vh;
         min-height: 450px;
+        background-attachment: scroll; /* Disable parallax on small mobile */
+        background-position: 60% top;
     }
     
     .hero-content {
