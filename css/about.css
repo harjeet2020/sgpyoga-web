@@ -193,6 +193,7 @@
 .styles-section {
     background-color: var(--color-primary);
     color: var(--color-secondary);
+    padding: 10px 10px !important;
 }
 
 /* Mini-Gallery Grid Layout
@@ -201,10 +202,10 @@
 .styles-gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0; /* No gap for seamless tile effect */
-    max-width: 1400px;
+    gap: 10px; /* No gap for seamless tile effect */
+    max-width: 100%;
     margin: 0 auto;
-    height: 70vh; /* Full section height for impactful visual */
+    height: 100vh; /* Full section height for impactful visual */
     min-height: 600px; /* Ensure tiles are tall enough on smaller screens */
 }
 
