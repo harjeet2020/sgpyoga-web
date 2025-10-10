@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "description": "Conoce nuestra filosofía de yoga, estilos, maestros y espacios de práctica en CDMX"
+  },
+  "nav": {
+    "yoga": "Yoga",
+    "styles": "Estilos",
+    "teachers": "Maestros",
+    "spaces": "Espacios"
+  },
+  "yoga": {
+    "title": "La Práctica del Yoga",
+    "intro": "El yoga es una práctica antigua que une mente, cuerpo y espíritu a través del movimiento, la respiración y la meditación. Ofrece un camino hacia la paz interior y el autodescubrimiento.",
+    "benefits": {
+      "physical": {
+        "title": "Salud Física",
+        "text": "Mejora la flexibilidad, fuerza y equilibrio a través de la práctica regular."
+      },
+      "mental": {
+        "title": "Claridad Mental",
+        "text": "Reduce el estrés y mejora el enfoque mediante la respiración consciente y la meditación."
+      },
+      "spiritual": {
+        "title": "Crecimiento Espiritual",
+        "text": "Conéctate con tu ser interior y descubre un significado más profundo en la vida."
+      },
+      "emotional": {
+        "title": "Balance Emocional",
+        "text": "Cultiva la paz interior y la resiliencia emocional a través de la práctica constante."
+      }
+    }
+  },
+  "styles": {
+    "title": "Estilos de Yoga que Enseñamos",
+    "subtitle": "Explora diferentes caminos hacia el bienestar",
+    "aerial": {
+      "name": "Yoga Aéreo",
+      "description": "Practica yoga suspendido en hamacas de seda, combinando posturas tradicionales con artes aéreas para una experiencia única que desafía la gravedad.",
+      "feature1": "Descomprime la columna",
+      "feature2": "Fortalece el core",
+      "feature3": "Divertido y alegre"
+    },
+    "vinyasa": {
+      "name": "Vinyasa",
+      "description": "Fluye a través de secuencias de posturas sincronizadas con la respiración, creando una práctica dinámica y meditativa que genera calor y enfoque.",
+      "feature1": "Movimiento fluido",
+      "feature2": "Sincronizado con la respiración",
+      "feature3": "Secuencias creativas"
+    },
+    "hatha": {
+      "name": "Hatha",
+      "description": "Una práctica suave y fundamental que se enfoca en posturas físicas y técnicas de respiración, perfecta para principiantes y todos los niveles.",
+      "feature1": "Ritmo más lento",
+      "feature2": "Enfoque en la alineación",
+      "feature3": "Accesible para todos"
+    },
+    "kundalini": {
+      "name": "Kundalini",
+      "description": "Despierta tu energía interior a través de movimientos dinámicos, trabajo de respiración, meditación y canto de mantras para la transformación espiritual.",
+      "feature1": "Activación de energía",
+      "feature2": "Trabajo de respiración poderoso",
+      "feature3": "Meditación profunda"
+    }
+  },
+  "teachers": {
+    "title": "Conoce a Nuestros Maestros",
+    "subtitle": "Guías experimentados en tu viaje de yoga",
+    "teacher1": {
+      "name": "Harjeet Singh",
+      "specialty": "Kundalini y Vinyasa",
+      "bio": "Con más de 10 años de práctica y estudio, Harjeet aporta sabiduría profunda y guía compasiva a cada clase. Su estilo de enseñanza enfatiza la atención plena y la conexión espiritual."
+    },
+    "teacher2": {
+      "name": "María González",
+      "specialty": "Hatha y Aéreo",
+      "bio": "El enfoque suave de María y su atención a la alineación hacen que sus clases sean accesibles para todos los niveles. Se especializa en ayudar a los estudiantes a desarrollar confianza y fuerza."
+    },
+    "teacher3": {
+      "name": "Sofia Martínez",
+      "specialty": "Vinyasa Flow",
+      "bio": "Los flujos dinámicos de Sofia combinan creatividad con precisión. Sus clases son energizantes pero meditativas, perfectas para quienes buscan una práctica desafiante."
+    },
+    "teacher4": {
+      "name": "Carlos Hernández",
+      "specialty": "Kundalini y Meditación",
+      "bio": "Carlos guía a los estudiantes en profundos viajes interiores a través del trabajo de respiración y la meditación. Sus clases se enfocan en la transformación y el despertar."
+    },
+    "teacher5": {
+      "name": "Ana López",
+      "specialty": "Aéreo y Hatha",
+      "bio": "El espíritu juguetón de Ana y su guía experta hacen que el yoga aéreo sea accesible y divertido. Ayuda a los estudiantes a superar el miedo y descubrir nuevas posibilidades."
+    }
+  },
+  "spaces": {
+    "title": "Nuestros Espacios de Práctica",
+    "subtitle": "Hermosos lugares en toda la CDMX",
+    "viewMap": "Ver en Mapa",
+    "space1": {
+      "name": "Estudio Roma",
+      "address": "Calle Orizaba 123, Roma Norte, CDMX",
+      "description": "Nuestro estudio principal en el corazón de Roma Norte ofrece un santuario de paz para tu práctica. El espacio cuenta con techos altos, pisos de bambú y abundante luz natural.",
+      "details": "Estudio espacioso con luz natural y atmósfera serena"
+    },
+    "space2": {
+      "name": "Santuario Condesa",
+      "address": "Avenida Amsterdam 89, Condesa, CDMX",
+      "description": "Ubicado en la hermosa Condesa, este espacio íntimo es perfecto para clases en grupos pequeños y sesiones privadas. Las características incluyen vista al jardín y materiales ecológicos.",
+      "details": "Espacio íntimo perfecto para grupos pequeños y sesiones privadas"
+    }
+  }
+}

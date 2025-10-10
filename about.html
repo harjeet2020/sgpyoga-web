@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="common:nav.about">SGP Yoga - About</title>
+    <meta name="description" content="Learn about our yoga philosophy, styles, teachers, and practice spaces" data-i18n="about:meta.description">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- i18next for language support -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <!-- Left Section: Logo and Studio Name -->
+        <div class="navbar-left">
+            <a href="index.html" class="navbar-brand-link">
+                <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
+                <span class="navbar-brand">SGP Yoga</span>
+            </a>
+        </div>
+        
+        <!-- Middle Section: Menu Items -->
+        <div class="navbar-center">
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
+                <li><a href="about.html" class="navbar-link active" data-i18n="common:nav.about">About</a></li>
+                <li><a href="classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
+                <li><a href="events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
+                <li><a href="blog.html" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
+            </ul>
+        </div>
+        
+        <!-- Right Section: Language Dropdown -->
+        <div class="navbar-right">
+            <div class="language-selector">
+                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                    <span class="language-code" id="currentLangCode">EN</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="en">
+                        <span class="flag-circle">🇺🇸</span>
+                        <span class="language-name">English</span>
+                        <span class="language-code">(EN)</span>
+                    </div>
+                    <div class="language-option" data-lang="es">
+                        <span class="flag-circle">🇲🇽</span>
+                        <span class="language-name">Español</span>
+                        <span class="language-code">(ES)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sticky Anchor Navigation -->
+    <nav class="anchor-nav" id="anchorNav">
+        <div class="container">
+            <ul class="anchor-nav-menu">
+                <li><a href="#yoga" class="anchor-link active" data-i18n="about:nav.yoga">Yoga</a></li>
+                <li><a href="#styles" class="anchor-link" data-i18n="about:nav.styles">Styles</a></li>
+                <li><a href="#teachers" class="anchor-link" data-i18n="about:nav.teachers">Teachers</a></li>
+                <li><a href="#spaces" class="anchor-link" data-i18n="about:nav.spaces">Spaces</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Section 1: Yoga & Benefits -->
+        <section id="yoga" class="yoga-section section-padding">
+            <div class="yoga-content">
+                <!-- Left Side: Image -->
+                <div class="yoga-image">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/about/yoga-1200.webp">
+                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/about/yoga-1080.webp">
+                        <img src="assets/photos/inUse/about/yoga-720.webp" alt="Yoga Practice" loading="eager">
+                    </picture>
+                </div>
+                
+                <!-- Right Side: Content -->
+                <div class="yoga-text">
+                    <h2 data-i18n="about:yoga.title">The Practice of Yoga</h2>
+                    <p data-i18n="about:yoga.intro">Yoga is an ancient practice that unites mind, body, and spirit through movement, breath, and meditation. It offers a path to inner peace and self-discovery.</p>
+                    
+                    <!-- Benefits Grid -->
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i data-lucide="heart" class="benefit-icon"></i>
+                            <h3 data-i18n="about:yoga.benefits.physical.title">Physical Health</h3>
+                            <p data-i18n="about:yoga.benefits.physical.text">Improve flexibility, strength, and balance through regular practice.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i data-lucide="brain" class="benefit-icon"></i>
+                            <h3 data-i18n="about:yoga.benefits.mental.title">Mental Clarity</h3>
+                            <p data-i18n="about:yoga.benefits.mental.text">Reduce stress and enhance focus through mindful breathing and meditation.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i data-lucide="sparkles" class="benefit-icon"></i>
+                            <h3 data-i18n="about:yoga.benefits.spiritual.title">Spiritual Growth</h3>
+                            <p data-i18n="about:yoga.benefits.spiritual.text">Connect with your inner self and discover deeper meaning in life.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <i data-lucide="smile" class="benefit-icon"></i>
+                            <h3 data-i18n="about:yoga.benefits.emotional.title">Emotional Balance</h3>
+                            <p data-i18n="about:yoga.benefits.emotional.text">Cultivate inner peace and emotional resilience through consistent practice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Yoga Styles -->
+        <section id="styles" class="styles-section section-padding">
+            <div class="container">
+                <div class="styles-gallery-grid">
+                    <!-- Aerial Yoga Tile -->
+                    <div class="style-tile" data-style="aerial">
+                        <img src="assets/photos/placeholder.jpg" alt="Aerial Yoga" class="style-tile-image">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name" data-i18n="about:styles.aerial.name">Aerial Yoga</h3>
+                                <p class="style-description" data-i18n="about:styles.aerial.description">Practice yoga suspended in silk hammocks, combining traditional poses with aerial arts for a unique, gravity-defying experience.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vinyasa Yoga Tile -->
+                    <div class="style-tile" data-style="vinyasa">
+                        <img src="assets/photos/placeholder.jpg" alt="Vinyasa" class="style-tile-image">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name" data-i18n="about:styles.vinyasa.name">Vinyasa</h3>
+                                <p class="style-description" data-i18n="about:styles.vinyasa.description">Flow through sequences of poses synchronized with breath, creating a dynamic and meditative practice that builds heat and focus.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hatha Yoga Tile -->
+                    <div class="style-tile" data-style="hatha">
+                        <img src="assets/photos/placeholder.jpg" alt="Hatha" class="style-tile-image">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name" data-i18n="about:styles.hatha.name">Hatha</h3>
+                                <p class="style-description" data-i18n="about:styles.hatha.description">A gentle, foundational practice focusing on physical postures and breathing techniques, perfect for beginners and all levels.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kundalini Yoga Tile -->
+                    <div class="style-tile" data-style="kundalini">
+                        <img src="assets/photos/placeholder.jpg" alt="Kundalini" class="style-tile-image">
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name" data-i18n="about:styles.kundalini.name">Kundalini</h3>
+                                <p class="style-description" data-i18n="about:styles.kundalini.description">Awaken your inner energy through dynamic movements, breathwork, meditation, and mantra chanting for spiritual transformation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Our Teachers -->
+        <section id="teachers" class="teachers-section section-padding">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about:teachers.title">Meet Our Teachers</h2>
+                <p class="section-subtitle" data-i18n="about:teachers.subtitle">Experienced guides on your yoga journey</p>
+                
+                <div class="teachers-grid">
+                    <!-- Teacher 1 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="assets/photos/inUse/teachers/teacher1.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 data-i18n="about:teachers.teacher1.name">Harjeet Singh</h3>
+                            <span class="teacher-specialty" data-i18n="about:teachers.teacher1.specialty">Kundalini & Vinyasa</span>
+                            <p data-i18n="about:teachers.teacher1.bio">With over 10 years of practice and study, Harjeet brings deep wisdom and compassionate guidance to every class. His teaching style emphasizes mindfulness and spiritual connection.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 2 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="assets/photos/inUse/teachers/teacher2.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 data-i18n="about:teachers.teacher2.name">María González</h3>
+                            <span class="teacher-specialty" data-i18n="about:teachers.teacher2.specialty">Hatha & Aerial</span>
+                            <p data-i18n="about:teachers.teacher2.bio">María's gentle approach and attention to alignment make her classes accessible to all levels. She specializes in helping students build confidence and strength.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 3 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="assets/photos/inUse/teachers/teacher3.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 data-i18n="about:teachers.teacher3.name">Sofia Martínez</h3>
+                            <span class="teacher-specialty" data-i18n="about:teachers.teacher3.specialty">Vinyasa Flow</span>
+                            <p data-i18n="about:teachers.teacher3.bio">Sofia's dynamic flows blend creativity with precision. Her classes are energizing yet meditative, perfect for those seeking a challenging practice.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 4 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="assets/photos/inUse/teachers/teacher4.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 data-i18n="about:teachers.teacher4.name">Carlos Hernández</h3>
+                            <span class="teacher-specialty" data-i18n="about:teachers.teacher4.specialty">Kundalini & Meditation</span>
+                            <p data-i18n="about:teachers.teacher4.bio">Carlos guides students on profound inner journeys through breathwork and meditation. His classes focus on transformation and awakening.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 5 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="assets/photos/inUse/teachers/teacher5.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 data-i18n="about:teachers.teacher5.name">Ana López</h3>
+                            <span class="teacher-specialty" data-i18n="about:teachers.teacher5.specialty">Aerial & Hatha</span>
+                            <p data-i18n="about:teachers.teacher5.bio">Ana's playful spirit and expert guidance make aerial yoga accessible and fun. She helps students overcome fear and discover new possibilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Our Spaces -->
+        <section id="spaces" class="spaces-section section-padding">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about:spaces.title">Our Practice Spaces</h2>
+                <p class="section-subtitle" data-i18n="about:spaces.subtitle">Beautiful venues across CDMX</p>
+                
+                <div class="spaces-grid">
+                    <!-- Space 1 -->
+                    <div class="space-card">
+                        <div class="space-image">
+                            <picture>
+                                <source media="(min-width: 1200px)" srcset="assets/photos/inUse/spaces/space1-1200.webp">
+                                <source media="(min-width: 800px)" srcset="assets/photos/inUse/spaces/space1-1080.webp">
+                                <img src="assets/photos/inUse/spaces/space1-720.webp" alt="Studio Space" loading="lazy">
+                            </picture>
+                            <div class="space-overlay">
+                                <p data-i18n="about:spaces.space1.details">Spacious studio with natural light and serene atmosphere</p>
+                            </div>
+                        </div>
+                        <div class="space-content">
+                            <h3 data-i18n="about:spaces.space1.name">Roma Studio</h3>
+                            <div class="space-address">
+                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <span data-i18n="about:spaces.space1.address">Calle Orizaba 123, Roma Norte, CDMX</span>
+                            </div>
+                            <p data-i18n="about:spaces.space1.description">Our main studio in the heart of Roma Norte offers a peaceful sanctuary for your practice. The space features high ceilings, bamboo floors, and abundant natural light.</p>
+                            <a href="#" class="btn-space" data-i18n="about:spaces.viewMap">View on Map</a>
+                        </div>
+                    </div>
+
+                    <!-- Space 2 -->
+                    <div class="space-card">
+                        <div class="space-image">
+                            <picture>
+                                <source media="(min-width: 1200px)" srcset="assets/photos/inUse/spaces/space2-1200.webp">
+                                <source media="(min-width: 800px)" srcset="assets/photos/inUse/spaces/space2-1080.webp">
+                                <img src="assets/photos/inUse/spaces/space2-720.webp" alt="Studio Space" loading="lazy">
+                            </picture>
+                            <div class="space-overlay">
+                                <p data-i18n="about:spaces.space2.details">Intimate space perfect for small groups and private sessions</p>
+                            </div>
+                        </div>
+                        <div class="space-content">
+                            <h3 data-i18n="about:spaces.space2.name">Condesa Sanctuary</h3>
+                            <div class="space-address">
+                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <span data-i18n="about:spaces.space2.address">Avenida Amsterdam 89, Condesa, CDMX</span>
+                            </div>
+                            <p data-i18n="about:spaces.space2.description">Located in beautiful Condesa, this intimate space is perfect for small group classes and private sessions. Features include a garden view and eco-friendly materials.</p>
+                            <a href="#" class="btn-space" data-i18n="about:spaces.viewMap">View on Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <!-- Logo and Mission Section -->
+                    <div class="footer-column footer-logo-section">
+                        <a href="index.html" class="footer-logo-link">
+                            <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        </a>
+                        <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
+                        <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>
+                    </div>
+
+                    <!-- Site Map Section -->
+                    <div class="footer-column footer-sitemap">
+                        <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
+                        <ul>
+                            <li><a href="index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
+                            <li><a href="about.html" data-i18n="common:footer.sitemap.about">About</a></li>
+                            <li><a href="classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
+                            <li><a href="events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
+                            <li><a href="blog.html" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bottom Row: Contact and Social -->
+                    <div class="footer-bottom-row">
+                        <!-- Contact Section -->
+                        <div class="footer-column footer-contact">
+                            <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
+                            <div class="footer-contact-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.email">Email</span>:
+                                    <a href="mailto:satgurprasaadyoga@gmail.com" data-i18n="common:footer.contact.emailValue">satgurprasaadyoga@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="phone"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.phone">Phone</span>:
+                                    <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Section -->
+                        <div class="footer-column footer-social">
+                            <h3 data-i18n="common:footer.social.title">Follow Us</h3>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" data-i18n-aria-label="common:footer.social.facebook">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" data-i18n-aria-label="common:footer.social.instagram">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" data-i18n-aria-label="common:footer.social.youtube">
+                                    <i data-lucide="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copyright">
+                <p data-i18n="common:footer.copyright">© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/i18n.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/about.js"></script>
+</body>
+</html>

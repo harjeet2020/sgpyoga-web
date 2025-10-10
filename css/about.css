@@ -1,0 +1,748 @@
+/* ==========================================================================
+   ABOUT PAGE STYLES
+   ========================================================================== */
+
+/* Sticky Anchor Navigation
+   ========================================================================== */
+.anchor-nav {
+    position: sticky;
+    top: 80px; /* Below main navbar */
+    z-index: 900;
+    background-color: rgba(255, 237, 223, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-normal);
+}
+
+.anchor-nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--spacing-xxl);
+}
+
+.anchor-link {
+    display: inline-block;
+    padding: var(--spacing-md) 0;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+/* Active state underline */
+.anchor-link.active::after,
+.anchor-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-accent-1);
+    transition: all var(--transition-fast);
+}
+
+.anchor-link:hover {
+    color: var(--color-accent-2);
+}
+
+.anchor-link.active::after {
+    background-color: var(--color-accent-1);
+}
+
+.anchor-link:hover::after {
+    background-color: var(--color-accent-2);
+}
+
+/* Section Padding Utility
+   ========================================================================== */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-xxl);
+    font-weight: 300;
+}
+
+/* Section 1: Yoga & Benefits
+   ========================================================================== */
+.yoga-section {
+    background-color: var(--color-secondary);
+    padding-top: 120px; /* Extra padding for anchor nav */
+}
+
+.yoga-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    align-items: center;
+}
+
+/* Yoga Image Styling */
+.yoga-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.yoga-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(31, 33, 33, 0.2) 0%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.yoga-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.yoga-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Yoga Text Content */
+.yoga-text h2 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.1;
+}
+
+.yoga-text > p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-supplementary);
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.benefit-card {
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.benefit-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent-1);
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.benefit-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--color-supplementary);
+}
+
+/* Section 2: Yoga Styles
+   ========================================================================== */
+.styles-section {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+/* Mini-Gallery Grid Layout
+   Purpose: Creates a 2x2 grid of image tiles that fill the entire section
+   Each tile shows yoga style information on hover with a dimming overlay */
+.styles-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0; /* No gap for seamless tile effect */
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 70vh; /* Full section height for impactful visual */
+    min-height: 600px; /* Ensure tiles are tall enough on smaller screens */
+}
+
+/* Individual Style Tile
+   Purpose: Container for each yoga style with background image */
+.style-tile {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+}
+
+/* Subtle lift effect on hover for the tile itself */
+.style-tile:hover {
+    transform: scale(1.02);
+    z-index: 10; /* Bring hovered tile to front */
+}
+
+/* Background Image
+   Purpose: Fills the entire tile, zooms slightly on hover */
+.style-tile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.style-tile:hover .style-tile-image {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Overlay with Dimming Effect
+   Purpose: Hidden by default, appears on hover with semi-transparent background
+   to make white text readable over any image */
+.style-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 33, 33, 0.85); /* Dark dimming overlay - Eerie Black with 85% opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+    opacity: 0; /* Hidden by default */
+    transition: opacity var(--transition-normal);
+}
+
+.style-tile:hover .style-overlay {
+    opacity: 1; /* Fully visible on hover */
+}
+
+/* Content Container
+   Purpose: Centers and structures the text content within the overlay */
+.style-content {
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Yoga Style Name
+   Purpose: Large, prominent heading for the style name */
+.style-name {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-secondary); /* Linen - light color for contrast */
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+/* Yoga Style Description
+   Purpose: Detailed description text, readable and elegant */
+.style-description {
+    font-size: 1.125rem;
+    font-family: var(--font-body);
+    color: var(--color-secondary); /* Linen - light color for contrast */
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.95; /* Slightly softer than the heading */
+}
+
+/* Section 3: Our Teachers
+   ========================================================================== */
+.teachers-section {
+    background-color: var(--color-secondary);
+}
+
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Staggered layout for visual interest */
+.teacher-card:nth-child(2),
+.teacher-card:nth-child(4) {
+    transform: translateY(var(--spacing-lg));
+}
+
+.teacher-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    text-align: center;
+}
+
+.teacher-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+.teacher-card:nth-child(2):hover,
+.teacher-card:nth-child(4):hover {
+    transform: translateY(calc(var(--spacing-lg) - 8px));
+}
+
+/* Teacher Photo */
+.teacher-photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: var(--border-radius-circle);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.teacher-card:nth-child(odd) .teacher-photo {
+    border: 3px solid var(--color-accent-1);
+}
+
+.teacher-card:nth-child(even) .teacher-photo {
+    border: 3px solid var(--color-accent-2);
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.teacher-card:hover .teacher-photo img {
+    transform: scale(1.05);
+}
+
+/* Teacher Info */
+.teacher-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.teacher-specialty {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--color-accent-2);
+    color: white;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+.teacher-card:nth-child(odd) .teacher-specialty {
+    background-color: var(--color-accent-1);
+}
+
+.teacher-card:nth-child(even) .teacher-specialty {
+    background-color: var(--color-accent-2);
+}
+
+.teacher-info p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-supplementary);
+    margin: 0;
+    text-align: left;
+}
+
+/* Section 4: Our Spaces
+   ========================================================================== */
+.spaces-section {
+    background-color: var(--color-supplementary);
+    color: var(--color-secondary);
+}
+
+.spaces-section .section-title,
+.spaces-section .section-subtitle {
+    color: var(--color-secondary);
+}
+
+.spaces-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xxl);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.space-card {
+    background: white;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+}
+
+.space-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Space Image with Overlay */
+.space-image {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.space-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.space-card:hover .space-image img {
+    transform: scale(1.1);
+}
+
+.space-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-lg);
+    background: linear-gradient(to top, rgba(31, 33, 33, 0.9) 0%, transparent 100%);
+    color: white;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.space-card:hover .space-overlay {
+    opacity: 1;
+}
+
+.space-overlay p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Space Content */
+.space-content {
+    padding: var(--spacing-xl);
+}
+
+.space-content h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.space-address {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-supplementary);
+}
+
+.address-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-accent-1);
+}
+
+.space-address span {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.space-content > p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Space Button */
+.btn-space {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background-color: var(--color-accent-1);
+    color: white;
+    border-radius: 24px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.btn-space:hover {
+    background-color: var(--color-accent-2);
+    transform: translateX(4px);
+    color: white;
+}
+
+/* Responsive Design - Tablet
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Yoga Section */
+    .yoga-content {
+        gap: var(--spacing-xl);
+    }
+    
+    .yoga-text h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Teachers Grid */
+    .teachers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .teacher-card:nth-child(2),
+    .teacher-card:nth-child(4) {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design - Mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Anchor Navigation */
+    .anchor-nav {
+        top: 60px;
+    }
+    
+    .anchor-nav-menu {
+        gap: var(--spacing-md);
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 var(--spacing-md);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .anchor-link {
+        font-size: 0.875rem;
+        white-space: nowrap;
+        padding: var(--spacing-sm) 0;
+    }
+    
+    /* Section Padding */
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    /* Yoga Section */
+    .yoga-section {
+        padding-top: 80px;
+    }
+    
+    .yoga-content {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
+    }
+    
+    .yoga-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .yoga-text > p {
+        text-align: center;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Styles Section - Stack to single column on mobile */
+    .styles-gallery-grid {
+        grid-template-columns: 1fr;
+        height: auto; /* Auto height for stacked layout */
+        min-height: auto;
+    }
+    
+    .style-tile {
+        height: 350px; /* Fixed height for each tile in mobile view */
+        min-height: 350px;
+    }
+    
+    .style-name {
+        font-size: 1.75rem;
+    }
+    
+    .style-description {
+        font-size: 0.95rem;
+    }
+    
+    /* Teachers Section */
+    .teachers-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .teacher-card:nth-child(2),
+    .teacher-card:nth-child(4) {
+        transform: translateY(0);
+    }
+    
+    .teacher-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    /* Spaces Section */
+    .spaces-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .space-image {
+        height: 280px;
+    }
+}
+
+/* Responsive Design - Small Mobile
+   ========================================================================== */
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .yoga-text h2 {
+        font-size: 1.75rem;
+    }
+    
+    .benefit-card {
+        padding: var(--spacing-md);
+    }
+    
+    .benefit-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Styles Gallery - Smaller tiles on small mobile */
+    .style-tile {
+        height: 300px;
+        min-height: 300px;
+    }
+    
+    .style-name {
+        font-size: 1.5rem;
+    }
+    
+    .style-description {
+        font-size: 0.9rem;
+    }
+    
+    .teacher-photo {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .teacher-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .space-content h3 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Scroll Animation Classes
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .style-tile:hover {
+        transform: none;
+    }
+    
+    .style-tile:hover .style-tile-image {
+        transform: none;
+    }
+    
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}

@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "description": "Learn about our yoga philosophy, styles, teachers, and practice spaces in CDMX"
+  },
+  "nav": {
+    "yoga": "Yoga",
+    "styles": "Styles",
+    "teachers": "Teachers",
+    "spaces": "Spaces"
+  },
+  "yoga": {
+    "title": "The Practice of Yoga",
+    "intro": "Yoga is an ancient practice that unites mind, body, and spirit through movement, breath, and meditation. It offers a path to inner peace and self-discovery.",
+    "benefits": {
+      "physical": {
+        "title": "Physical Health",
+        "text": "Improve flexibility, strength, and balance through regular practice."
+      },
+      "mental": {
+        "title": "Mental Clarity",
+        "text": "Reduce stress and enhance focus through mindful breathing and meditation."
+      },
+      "spiritual": {
+        "title": "Spiritual Growth",
+        "text": "Connect with your inner self and discover deeper meaning in life."
+      },
+      "emotional": {
+        "title": "Emotional Balance",
+        "text": "Cultivate inner peace and emotional resilience through consistent practice."
+      }
+    }
+  },
+  "styles": {
+    "title": "Yoga Styles We Teach",
+    "subtitle": "Explore different paths to wellness",
+    "aerial": {
+      "name": "Aerial Yoga",
+      "description": "Practice yoga suspended in silk hammocks, combining traditional poses with aerial arts for a unique, gravity-defying experience.",
+      "feature1": "Decompresses the spine",
+      "feature2": "Builds core strength",
+      "feature3": "Playful and joyful"
+    },
+    "vinyasa": {
+      "name": "Vinyasa",
+      "description": "Flow through sequences of poses synchronized with breath, creating a dynamic and meditative practice that builds heat and focus.",
+      "feature1": "Flowing movement",
+      "feature2": "Breath-synchronized",
+      "feature3": "Creative sequences"
+    },
+    "hatha": {
+      "name": "Hatha",
+      "description": "A gentle, foundational practice focusing on physical postures and breathing techniques, perfect for beginners and all levels.",
+      "feature1": "Slower pace",
+      "feature2": "Focus on alignment",
+      "feature3": "Accessible to all"
+    },
+    "kundalini": {
+      "name": "Kundalini",
+      "description": "Awaken your inner energy through dynamic movements, breathwork, meditation, and mantra chanting for spiritual transformation.",
+      "feature1": "Energy activation",
+      "feature2": "Powerful breathwork",
+      "feature3": "Deep meditation"
+    }
+  },
+  "teachers": {
+    "title": "Meet Our Teachers",
+    "subtitle": "Experienced guides on your yoga journey",
+    "teacher1": {
+      "name": "Harjeet Singh",
+      "specialty": "Kundalini & Vinyasa",
+      "bio": "With over 10 years of practice and study, Harjeet brings deep wisdom and compassionate guidance to every class. His teaching style emphasizes mindfulness and spiritual connection."
+    },
+    "teacher2": {
+      "name": "María González",
+      "specialty": "Hatha & Aerial",
+      "bio": "María's gentle approach and attention to alignment make her classes accessible to all levels. She specializes in helping students build confidence and strength."
+    },
+    "teacher3": {
+      "name": "Sofia Martínez",
+      "specialty": "Vinyasa Flow",
+      "bio": "Sofia's dynamic flows blend creativity with precision. Her classes are energizing yet meditative, perfect for those seeking a challenging practice."
+    },
+    "teacher4": {
+      "name": "Carlos Hernández",
+      "specialty": "Kundalini & Meditation",
+      "bio": "Carlos guides students on profound inner journeys through breathwork and meditation. His classes focus on transformation and awakening."
+    },
+    "teacher5": {
+      "name": "Ana López",
+      "specialty": "Aerial & Hatha",
+      "bio": "Ana's playful spirit and expert guidance make aerial yoga accessible and fun. She helps students overcome fear and discover new possibilities."
+    }
+  },
+  "spaces": {
+    "title": "Our Practice Spaces",
+    "subtitle": "Beautiful venues across CDMX",
+    "viewMap": "View on Map",
+    "space1": {
+      "name": "Roma Studio",
+      "address": "Calle Orizaba 123, Roma Norte, CDMX",
+      "description": "Our main studio in the heart of Roma Norte offers a peaceful sanctuary for your practice. The space features high ceilings, bamboo floors, and abundant natural light.",
+      "details": "Spacious studio with natural light and serene atmosphere"
+    },
+    "space2": {
+      "name": "Condesa Sanctuary",
+      "address": "Avenida Amsterdam 89, Condesa, CDMX",
+      "description": "Located in beautiful Condesa, this intimate space is perfect for small group classes and private sessions. Features include a garden view and eco-friendly materials.",
+      "details": "Intimate space perfect for small groups and private sessions"
+    }
+  }
+}
