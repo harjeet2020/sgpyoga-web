@@ -45,32 +45,32 @@
     }
   },
   "teachers": {
-    "title": "Conoce a Nuestros Maestros",
-    "subtitle": "Guías experimentados en tu viaje de yoga",
+    "title": "Conoce a Nuestro Equipo",
+    "subtitle": "Todos nuestros maestros están certificados y son experimentados - ¡y personas increíbles además de eso! Cada uno de ellos tiene un conocimiento profundo de la práctica, y será un guía fantástico para ti - sin importar dónde te encuentres en tu viaje de yoga.",
     "teacher1": {
-      "name": "Harjeet Singh",
-      "specialty": "Kundalini y Vinyasa",
-      "bio": "Con más de 10 años de práctica y estudio, Harjeet aporta sabiduría profunda y guía compasiva a cada clase. Su estilo de enseñanza enfatiza la atención plena y la conexión espiritual."
+      "name": "Harjeet",
+      "specialty": "Kundalini Yoga",
+      "bio": "Harjeet es un maestro experimentado de Kundalini Yoga certificado por KRI que se especializa en filosofía de yoga y crecimiento espiritual. Sus clases son altamente valoradas por los estudiantes por su profundidad y variedad. Irradia una sensación de calma y paz; te ayudará a sanar, crecer y transformarte."
     },
     "teacher2": {
-      "name": "María González",
-      "specialty": "Hatha y Aéreo",
-      "bio": "El enfoque suave de María y su atención a la alineación hacen que sus clases sean accesibles para todos los niveles. Se especializa en ayudar a los estudiantes a desarrollar confianza y fuerza."
+      "name": "Camila",
+      "specialty": "Vinyasa y Yoga Aéreo",
+      "bio": "Camila es una apasionada maestra de Yoga Aéreo y Vinyasa con un profundo amor por la práctica. Su conocimiento experto de alineación corporal te ayudará a llevar tu práctica al siguiente nivel, permitiéndote lograr posturas que antes pensabas imposibles."
     },
     "teacher3": {
-      "name": "Sofia Martínez",
-      "specialty": "Vinyasa Flow",
-      "bio": "Los flujos dinámicos de Sofia combinan creatividad con precisión. Sus clases son energizantes pero meditativas, perfectas para quienes buscan una práctica desafiante."
+      "name": "Dani",
+      "specialty": "Yoga Aéreo",
+      "bio": "Dani es una maestra estelar de Yoga Aéreo con excelente habilidad técnica. Su personalidad alegre y a la vez calmada asegura que sus clases sean siempre interesantes y agradables. Te ayudará a crecer rápidamente, empujándote a explorar tus límites desde la primera clase."
     },
     "teacher4": {
-      "name": "Carlos Hernández",
-      "specialty": "Kundalini y Meditación",
-      "bio": "Carlos guía a los estudiantes en profundos viajes interiores a través del trabajo de respiración y la meditación. Sus clases se enfocan en la transformación y el despertar."
+      "name": "Aro",
+      "specialty": "Hatha y Yoga Aéreo",
+      "bio": "Aro enseña tanto Hatha como Yoga Aéreo. Su personalidad cálida te hará sentir como en casa desde la primera clase. Te dará un dominio sólido de los fundamentos, ayudándote a encontrar equilibrio y armonía interior."
     },
     "teacher5": {
-      "name": "Ana López",
-      "specialty": "Aéreo y Hatha",
-      "bio": "El espíritu juguetón de Ana y su guía experta hacen que el yoga aéreo sea accesible y divertido. Ayuda a los estudiantes a superar el miedo y descubrir nuevas posibilidades."
+      "name": "Itzel",
+      "specialty": "Yoga Aéreo",
+      "bio": "Itzel es una maestra de Yoga Aéreo con una fuerza de carácter y determinación sin precedentes. Sus clases te llevarán a través de los momentos más difíciles; te enseñará cómo usar tu práctica para sanar y crecer - física y mentalmente."
     }
   },
   "spaces": {

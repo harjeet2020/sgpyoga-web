@@ -380,10 +380,53 @@ class SGPi18n {
 // Create global instance
 const sgpI18n = new SGPi18n();
 
+/**
+ * Detect the current page and return the corresponding namespace
+ * @returns {string|null} The namespace for the current page, or null if not found
+ */
+function detectPageNamespace() {
+    const path = window.location.pathname;
+    const filename = path.split('/').pop() || 'index.html';
+    
+    // Map filenames to namespaces
+    const pageNamespaceMap = {
+        'index.html': 'home',
+        'about.html': 'about',
+        'classes.html': 'classes',
+        'events.html': 'events',
+        'blog.html': 'blog'
+    };
+    
+    // Handle root path
+    if (filename === '' || filename === '/') {
+        return 'home';
+    }
+    
+    return pageNamespaceMap[filename] || null;
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', async function() {
+    // Detect current page namespace
+    const pageNamespace = detectPageNamespace();
+    
+    // Build namespaces array - always include common, plus page-specific namespace
+    const namespaces = ['common'];
+    
+    // Add page-specific namespace if detected
+    if (pageNamespace && pageNamespace !== 'common') {
+        namespaces.push(pageNamespace);
+    }
+    
+    // Add testimonials namespace for home page
+    if (pageNamespace === 'home') {
+        namespaces.push('testimonials');
+    }
+    
+    console.log('Initializing i18n with namespaces:', namespaces);
+    
     await sgpI18n.init({
-        namespaces: ['common', 'home', 'testimonials'],
+        namespaces: namespaces,
         defaultLang: 'en'
     });
 });

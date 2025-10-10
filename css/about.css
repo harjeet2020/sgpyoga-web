@@ -371,39 +371,56 @@
    ========================================================================== */
 .teachers-section {
     background-color: var(--color-secondary);
+    padding: var(--spacing-xxl) 7% !important;
 }
 
 .teachers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    max-width: 1400px;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xxl);
+    max-width: 100%;
     margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: var(--spacing-xl); /* Space for scrollbar */
 }
 
-/* Staggered layout for visual interest */
-.teacher-card:nth-child(2),
-.teacher-card:nth-child(4) {
-    transform: translateY(var(--spacing-lg));
+/* Custom scrollbar styling for better UX */
+.teachers-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.teachers-grid::-webkit-scrollbar-track {
+    background: rgba(160, 103, 137, 0.1); /* Light accent color */
+    border-radius: 10px;
+}
+
+.teachers-grid::-webkit-scrollbar-thumb {
+    background: var(--color-accent-2);
+    border-radius: 10px;
+    transition: background var(--transition-fast);
+}
+
+.teachers-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-1);
 }
 
 .teacher-card {
     background: white;
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xxl);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-normal);
     text-align: center;
+    flex: 0 0 380px; /* Fixed width, no grow or shrink */
+    min-width: 380px; /* Ensure consistent card width */
 }
 
 .teacher-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-8px);
-}
-
-.teacher-card:nth-child(2):hover,
-.teacher-card:nth-child(4):hover {
-    transform: translateY(calc(var(--spacing-lg) - 8px));
 }
 
 /* Teacher Photo */
@@ -429,10 +446,11 @@
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-normal);
+    filter: brightness(1.05) contrast(1.05) saturate(1.05);
 }
 
 .teacher-card:hover .teacher-photo img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* Teacher Info */
@@ -625,14 +643,10 @@
         font-size: 1.125rem;
     }
     
-    /* Teachers Grid */
-    .teachers-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .teacher-card:nth-child(2),
-    .teacher-card:nth-child(4) {
-        transform: translateY(0);
+    /* Teachers Grid - maintain horizontal scroll on tablet */
+    .teacher-card {
+        flex: 0 0 320px;
+        min-width: 320px;
     }
 }
 
@@ -727,15 +741,10 @@
         font-size: 0.95rem;
     }
     
-    /* Teachers Section */
-    .teachers-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-    }
-    
-    .teacher-card:nth-child(2),
-    .teacher-card:nth-child(4) {
-        transform: translateY(0);
+    /* Teachers Section - maintain horizontal scroll on mobile */
+    .teacher-card {
+        flex: 0 0 280px;
+        min-width: 280px;
     }
     
     .teacher-card:hover {

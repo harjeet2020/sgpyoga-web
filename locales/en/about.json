@@ -45,32 +45,32 @@
     }
   },
   "teachers": {
-    "title": "Meet Our Teachers",
-    "subtitle": "Experienced guides on your yoga journey",
+    "title": "Meet Our Team",
+    "subtitle": "All our teachers are certified and experienced - and amazing people on top of that! Each of them has deep knowledge of the practice, and will be a fantastic guide for you - no matter where you are on your yoga journey.",
     "teacher1": {
-      "name": "Harjeet Singh",
-      "specialty": "Kundalini & Vinyasa",
-      "bio": "With over 10 years of practice and study, Harjeet brings deep wisdom and compassionate guidance to every class. His teaching style emphasizes mindfulness and spiritual connection."
+      "name": "Harjeet",
+      "specialty": "Kundalini Yoga",
+      "bio": "Harjeet is an experienced, KRI certified Kundalini Yoga teacher who specializes in yoga philosphy and spiritual growth. His classes are highly valued by students for their depth and variety. He radiates a sense of calm and peace; he will help you heal, grow and transform."
     },
     "teacher2": {
-      "name": "María González",
-      "specialty": "Hatha & Aerial",
-      "bio": "María's gentle approach and attention to alignment make her classes accessible to all levels. She specializes in helping students build confidence and strength."
+      "name": "Camila",
+      "specialty": "Vinyasa & Aerial Yoga",
+      "bio": "Camila is a passionate Aerial and Vinyasa Yoga teacher with a deep love for the practice. Her expert body alignment knowledge will help you take your practice to the next level, enabling you to achieve postures you previously thought impossible."
     },
     "teacher3": {
-      "name": "Sofia Martínez",
-      "specialty": "Vinyasa Flow",
-      "bio": "Sofia's dynamic flows blend creativity with precision. Her classes are energizing yet meditative, perfect for those seeking a challenging practice."
+      "name": "Dani",
+      "specialty": "Aerial Yoga",
+      "bio": "Dani is a stellar Aerial Yoga teacher with excellent technical ability. Her upbeat and yet calm personality ensures her classes are always intersting and enjoyable. She will help you grow quickly, pushing you to explore your limits from the very first class."
     },
     "teacher4": {
-      "name": "Carlos Hernández",
-      "specialty": "Kundalini & Meditation",
-      "bio": "Carlos guides students on profound inner journeys through breathwork and meditation. His classes focus on transformation and awakening."
+      "name": "Aro",
+      "specialty": "Hatha & Aerial Yoga",
+      "bio": "Aro teaches both Hatha and Aerial Yoga. Her warm personality will make you feel at home from the very first class. She will give you a strong grasp of the fundamentals, helping you find inner balance and harmony."
     },
     "teacher5": {
-      "name": "Ana López",
-      "specialty": "Aerial & Hatha",
-      "bio": "Ana's playful spirit and expert guidance make aerial yoga accessible and fun. She helps students overcome fear and discover new possibilities."
+      "name": "Itzel",
+      "specialty": "Aerial Yoga",
+      "bio": "Itzel is an Aerial Yoga teacher with unprecedented strength of character and determination. Her classes will carry you through the most difficult of moments; she will teach you how to use your practice to heal & grow - physically and mentally."
     }
   },
   "spaces": {
