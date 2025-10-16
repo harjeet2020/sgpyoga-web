@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="common:nav.classes">SGP Yoga - Classes</title>
+    <meta name="description" content="Explore our weekly yoga class schedule in Mexico City" data-i18n="classes:meta.description">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/classes.css">
+    <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- i18next for language support -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <!-- Left Section: Logo and Studio Name -->
+        <div class="navbar-left">
+            <a href="index.html" class="navbar-brand-link">
+                <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
+                <span class="navbar-brand">SGP Yoga</span>
+            </a>
+        </div>
+        
+        <!-- Middle Section: Menu Items -->
+        <div class="navbar-center">
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
+                <li><a href="about.html" class="navbar-link" data-i18n="common:nav.about">About</a></li>
+                <li><a href="classes.html" class="navbar-link active" data-i18n="common:nav.classes">Classes</a></li>
+                <li><a href="events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
+                <li><a href="blog.html" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
+            </ul>
+        </div>
+        
+        <!-- Right Section: Language Dropdown -->
+        <div class="navbar-right">
+            <div class="language-selector">
+                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                    <span class="language-code" id="currentLangCode">EN</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="en">
+                        <span class="flag-circle">🇺🇸</span>
+                        <span class="language-name">English</span>
+                        <span class="language-code">(EN)</span>
+                    </div>
+                    <div class="language-option" data-lang="es">
+                        <span class="flag-circle">🇲🇽</span>
+                        <span class="language-name">Español</span>
+                        <span class="language-code">(ES)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="classes-hero">
+            <picture class="classes-hero-image">
+                <source media="(min-width: 1920px)" srcset="assets/photos/inUse/classes/hero-2560.webp">
+                <source media="(min-width: 1280px)" srcset="assets/photos/inUse/classes/hero-1920.webp">
+                <source media="(min-width: 768px)" srcset="assets/photos/inUse/classes/hero-1280.webp">
+                <img src="assets/photos/inUse/classes/hero-1280.webp" alt="Yoga Classes" loading="eager">
+            </picture>
+            <div class="classes-hero-overlay">
+                <div class="classes-hero-content">
+                    <h1 data-i18n="classes:hero.title">Our Classes</h1>
+                    <p data-i18n="classes:hero.subtitle">Find your practice in our weekly schedule</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="intro-section">
+            <div class="container">
+                <p class="intro-text" data-i18n="classes:intro.text">Join us for transformative yoga classes throughout the week. Each session is carefully designed to meet you wherever you are on your journey.</p>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="schedule-section">
+            <div class="schedule-container">
+                <div class="schedule-grid">
+                    <!-- Header Row -->
+                    <div class="grid-corner"></div>
+                    <div class="day-header" data-i18n="classes:days.mon">Mon</div>
+                    <div class="day-header" data-i18n="classes:days.tue">Tue</div>
+                    <div class="day-header" data-i18n="classes:days.wed">Wed</div>
+                    <div class="day-header" data-i18n="classes:days.thu">Thu</div>
+                    <div class="day-header" data-i18n="classes:days.fri">Fri</div>
+                    <div class="day-header" data-i18n="classes:days.sat">Sat</div>
+                    <div class="day-header" data-i18n="classes:days.sun">Sun</div>
+
+                    <!-- 7:00 AM Row -->
+                    <div class="time-label">7:00</div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--kundalini" data-style="kundalini">
+                            <h3 class="class-name" data-i18n="classes:styles.kundalini">Kundalini Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/harjeet-mini.webp" alt="Harjeet" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.harjeet">Harjeet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--kundalini" data-style="kundalini">
+                            <h3 class="class-name" data-i18n="classes:styles.kundalini">Kundalini Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/harjeet-mini.webp" alt="Harjeet" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.harjeet">Harjeet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--vinyasa" data-style="vinyasa">
+                            <h3 class="class-name" data-i18n="classes:styles.vinyasa">Vinyasa Flow</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/camila-mini.webp" alt="Camila" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.camila">Camila</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+
+                    <!-- 8:00 AM Row -->
+                    <div class="time-label">8:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--aerial" data-style="aerial" style="grid-row: span 2;">
+                            <h3 class="class-name" data-i18n="classes:styles.aerial">Aerial Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/ana-mini.webp" alt="Ana" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.ana">Ana</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+
+                    <!-- 9:00 AM Row -->
+                    <div class="time-label">9:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--hatha" data-style="hatha">
+                            <h3 class="class-name" data-i18n="classes:styles.hatha">Hatha Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/sofia-mini.webp" alt="Sofia" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.sofia">Sofia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--hatha" data-style="hatha">
+                            <h3 class="class-name" data-i18n="classes:styles.hatha">Hatha Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.aguacate">Aguacate Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/sofia-mini.webp" alt="Sofia" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.sofia">Sofia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10:00 AM Row -->
+                    <div class="time-label">10:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--kundalini" data-style="kundalini" style="grid-row: span 2;">
+                            <h3 class="class-name" data-i18n="classes:styles.kundalini">Kundalini Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.aguacate">Aguacate Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/harjeet-mini.webp" alt="Harjeet" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.harjeet">Harjeet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+
+                    <!-- 11:00 AM Row -->
+                    <div class="time-label">11:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--aerial" data-style="aerial" style="grid-row: span 2;">
+                            <h3 class="class-name" data-i18n="classes:styles.aerial">Aerial Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/ana-mini.webp" alt="Ana" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.ana">Ana</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5:00 PM (17:00) Row -->
+                    <div class="time-label">17:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--vinyasa" data-style="vinyasa">
+                            <h3 class="class-name" data-i18n="classes:styles.vinyasa">Vinyasa Flow</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/camila-mini.webp" alt="Camila" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.camila">Camila</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+
+                    <!-- 6:00 PM (18:00) Row -->
+                    <div class="time-label">18:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--vinyasa" data-style="vinyasa" style="grid-row: span 2;">
+                            <h3 class="class-name" data-i18n="classes:styles.vinyasa">Vinyasa Flow</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.aguacate">Aguacate Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/camila-mini.webp" alt="Camila" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.camila">Camila</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--kundalini" data-style="kundalini">
+                            <h3 class="class-name" data-i18n="classes:styles.kundalini">Kundalini Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.aguacate">Aguacate Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/carlos-mini.webp" alt="Carlos" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.carlos">Carlos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+
+                    <!-- 7:00 PM (19:00) Row -->
+                    <div class="time-label">19:00</div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--aerial" data-style="aerial" style="grid-row: span 2;">
+                            <h3 class="class-name" data-i18n="classes:styles.aerial">Aerial Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.aguacate">Aguacate Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/ana-mini.webp" alt="Ana" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.ana">Ana</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--hatha" data-style="hatha">
+                            <h3 class="class-name" data-i18n="classes:styles.hatha">Hatha Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>60 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.roma">Roma Studio</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img src="assets/photos/teachers/sofia-mini.webp" alt="Sofia" class="teacher-photo">
+                                <span class="teacher-name" data-i18n="classes:teachers.sofia">Sofia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legend Section -->
+        <section class="legend-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="classes:legend.title">Class Types</h2>
+                <p class="section-subtitle" data-i18n="classes:legend.subtitle">Each class type offers a unique experience</p>
+                
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <div class="legend-color legend-color--kundalini"></div>
+                        <div class="legend-content">
+                            <h3 data-i18n="classes:legend.kundalini.name">Kundalini Yoga</h3>
+                            <p data-i18n="classes:legend.kundalini.description">Awaken your inner energy through breathwork, movement, and meditation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="legend-item">
+                        <div class="legend-color legend-color--vinyasa"></div>
+                        <div class="legend-content">
+                            <h3 data-i18n="classes:legend.vinyasa.name">Vinyasa Flow</h3>
+                            <p data-i18n="classes:legend.vinyasa.description">Dynamic sequences synchronized with breath for strength and focus</p>
+                        </div>
+                    </div>
+                    
+                    <div class="legend-item">
+                        <div class="legend-color legend-color--hatha"></div>
+                        <div class="legend-content">
+                            <h3 data-i18n="classes:legend.hatha.name">Hatha Yoga</h3>
+                            <p data-i18n="classes:legend.hatha.description">Foundational practice focusing on postures and breathing techniques</p>
+                        </div>
+                    </div>
+                    
+                    <div class="legend-item">
+                        <div class="legend-color legend-color--aerial"></div>
+                        <div class="legend-content">
+                            <h3 data-i18n="classes:legend.aerial.name">Aerial Yoga</h3>
+                            <p data-i18n="classes:legend.aerial.description">Experience yoga suspended in silk hammocks for a unique practice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-i18n="classes:cta.title">Ready to Begin?</h2>
+                <p data-i18n="classes:cta.text">Join us for a class and discover the transformative power of yoga. Contact us to learn more about our schedule and upcoming sessions.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:satgurprasaadyoga@gmail.com" class="btn btn-elegant">
+                        <span data-i18n="classes:cta.contact">Contact Us</span>
+                        <i data-lucide="mail"></i>
+                    </a>
+                    <p class="booking-notice" data-i18n="classes:cta.bookingSoon">Online booking coming soon</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <!-- Logo and Mission Section -->
+                    <div class="footer-column footer-logo-section">
+                        <a href="index.html" class="footer-logo-link">
+                            <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        </a>
+                        <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
+                        <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>
+                    </div>
+
+                    <!-- Site Map Section -->
+                    <div class="footer-column footer-sitemap">
+                        <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
+                        <ul>
+                            <li><a href="index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
+                            <li><a href="about.html" data-i18n="common:footer.sitemap.about">About</a></li>
+                            <li><a href="classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
+                            <li><a href="events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
+                            <li><a href="blog.html" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bottom Row: Contact and Social -->
+                    <div class="footer-bottom-row">
+                        <!-- Contact Section -->
+                        <div class="footer-column footer-contact">
+                            <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
+                            <div class="footer-contact-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.email">Email</span>:
+                                    <a href="mailto:satgurprasaadyoga@gmail.com" data-i18n="common:footer.contact.emailValue">satgurprasaadyoga@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="phone"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.phone">Phone</span>:
+                                    <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Section -->
+                        <div class="footer-column footer-social">
+                            <h3 data-i18n="common:footer.social.title">Follow Us</h3>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" data-i18n-aria-label="common:footer.social.facebook">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" data-i18n-aria-label="common:footer.social.instagram">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" data-i18n-aria-label="common:footer.social.youtube">
+                                    <i data-lucide="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copyright">
+                <p data-i18n="common:footer.copyright">© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/i18n.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/classes.js"></script>
+</body>
+</html>

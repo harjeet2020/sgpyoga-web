@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "description": "Explore our weekly yoga class schedule in Mexico City. Find your perfect practice time."
+  },
+  "hero": {
+    "title": "Our Classes",
+    "subtitle": "Find your practice in our weekly schedule"
+  },
+  "intro": {
+    "text": "Join us for transformative yoga classes throughout the week. Each session is carefully designed to meet you wherever you are on your journey."
+  },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "styles": {
+    "kundalini": "Kundalini Yoga",
+    "vinyasa": "Vinyasa Flow",
+    "hatha": "Hatha Yoga",
+    "aerial": "Aerial Yoga"
+  },
+  "teachers": {
+    "harjeet": "Harjeet",
+    "camila": "Camila",
+    "sofia": "Sofia",
+    "carlos": "Carlos",
+    "ana": "Ana"
+  },
+  "locations": {
+    "roma": "Roma Studio",
+    "aguacate": "Aguacate Studio"
+  },
+  "duration": {
+    "minutes": "{{count}} min",
+    "minutes_plural": "{{count}} min"
+  },
+  "legend": {
+    "title": "Class Types",
+    "subtitle": "Each class type offers a unique experience",
+    "kundalini": {
+      "name": "Kundalini Yoga",
+      "description": "Awaken your inner energy through breathwork, movement, and meditation"
+    },
+    "vinyasa": {
+      "name": "Vinyasa Flow",
+      "description": "Dynamic sequences synchronized with breath for strength and focus"
+    },
+    "hatha": {
+      "name": "Hatha Yoga",
+      "description": "Foundational practice focusing on postures and breathing techniques"
+    },
+    "aerial": {
+      "name": "Aerial Yoga",
+      "description": "Experience yoga suspended in silk hammocks for a unique practice"
+    }
+  },
+  "cta": {
+    "title": "Ready to Begin?",
+    "text": "Join us for a class and discover the transformative power of yoga. Contact us to learn more about our schedule and upcoming sessions.",
+    "contact": "Contact Us",
+    "bookingSoon": "Online booking coming soon"
+  }
+}

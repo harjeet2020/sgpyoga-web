@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "description": "Explora nuestro horario semanal de clases de yoga en la Ciudad de México. Encuentra tu práctica perfecta."
+  },
+  "hero": {
+    "title": "Nuestras Clases",
+    "subtitle": "Encuentra tu práctica en nuestro horario semanal"
+  },
+  "intro": {
+    "text": "Únete a nosotros para clases de yoga transformadoras durante toda la semana. Cada sesión está cuidadosamente diseñada para encontrarte donde sea que estés en tu viaje."
+  },
+  "days": {
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mié",
+    "thu": "Jue",
+    "fri": "Vie",
+    "sat": "Sáb",
+    "sun": "Dom"
+  },
+  "styles": {
+    "kundalini": "Kundalini Yoga",
+    "vinyasa": "Vinyasa Flow",
+    "hatha": "Hatha Yoga",
+    "aerial": "Yoga Aéreo"
+  },
+  "teachers": {
+    "harjeet": "Harjeet",
+    "camila": "Camila",
+    "sofia": "Sofia",
+    "carlos": "Carlos",
+    "ana": "Ana"
+  },
+  "locations": {
+    "roma": "Estudio Roma",
+    "aguacate": "Estudio Aguacate"
+  },
+  "duration": {
+    "minutes": "{{count}} min",
+    "minutes_plural": "{{count}} min"
+  },
+  "legend": {
+    "title": "Tipos de Clases",
+    "subtitle": "Cada tipo de clase ofrece una experiencia única",
+    "kundalini": {
+      "name": "Kundalini Yoga",
+      "description": "Despierta tu energía interior a través de respiración, movimiento y meditación"
+    },
+    "vinyasa": {
+      "name": "Vinyasa Flow",
+      "description": "Secuencias dinámicas sincronizadas con la respiración para fuerza y enfoque"
+    },
+    "hatha": {
+      "name": "Hatha Yoga",
+      "description": "Práctica fundamental enfocada en posturas y técnicas de respiración"
+    },
+    "aerial": {
+      "name": "Yoga Aéreo",
+      "description": "Experimenta el yoga suspendido en hamacas de seda para una práctica única"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Comenzar?",
+    "text": "Únete a nosotros en una clase y descubre el poder transformador del yoga. Contáctanos para obtener más información sobre nuestro horario y próximas sesiones.",
+    "contact": "Contáctanos",
+    "bookingSoon": "Reservas en línea próximamente"
+  }
+}
