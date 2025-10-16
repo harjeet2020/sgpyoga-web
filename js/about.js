@@ -237,24 +237,10 @@ function initLazyLoading() {
 }
 
 /**
- * Handle map button clicks
- * Opens Google Maps with the address
+ * Map button clicks are now handled natively via HTML anchor tags with target="_blank"
+ * This provides better accessibility and simpler maintenance since the Google Maps URLs
+ * are already properly formatted in the HTML href attributes.
  */
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('btn-space') || e.target.closest('.btn-space')) {
-        e.preventDefault();
-        
-        // Get the address from the space card
-        const spaceCard = e.target.closest('.space-card');
-        const addressElement = spaceCard.querySelector('.space-address span');
-        
-        if (addressElement) {
-            const address = addressElement.textContent.trim();
-            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-            window.open(mapsUrl, '_blank');
-        }
-    }
-});
 
 /**
  * Initialize yoga hero interactive elements
