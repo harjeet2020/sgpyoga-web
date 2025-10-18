@@ -68,7 +68,8 @@
   },
   "cta": {
     "title": "Ready to Begin?",
-    "text": "Contact us to learn more about our classes and upcoming events.",
-    "contact": "Contact Us"
+    "text": "Contact us to learn more about our classes and upcoming events. For quick responses, it's best to drop us a message on WhatsApp - but you can also send us an email.",
+    "whatsapp": "WhatsApp",
+    "contact": "Email"
   }
 }

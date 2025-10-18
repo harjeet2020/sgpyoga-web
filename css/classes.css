@@ -421,23 +421,23 @@
    ========================================================================== */
 .cta-section {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent-1));
+    background: var(--color-secondary);
     text-align: center;
-    color: white;
+    color: var(--color-primary);
 }
 
 .cta-section h2 {
     font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 600;
-    color: white;
+    color: var(--color-primary);
     margin-bottom: var(--spacing-lg);
 }
 
 .cta-section p {
     font-size: 1.25rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--color-primary);
     max-width: 700px;
     margin: 0 auto var(--spacing-xl);
     font-weight: 300;
@@ -445,19 +445,21 @@
 
 .cta-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--spacing-md);
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
 }
 
 .cta-buttons .btn-elegant {
-    background-color: white;
-    color: var(--color-accent-2);
+    background-color: var(--color-supplementary);
+    color: var(--color-secondary);
 }
 
 .cta-buttons .btn-elegant:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-accent-1);
+    background-color: var(--color-accent-2);
+    color: var(--color-secondary);
 }
 
 .booking-notice {
