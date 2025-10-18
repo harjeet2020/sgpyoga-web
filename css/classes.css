@@ -344,41 +344,29 @@
 .legend-section {
     padding: 4rem 0;
     background-color: white;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.125rem;
-    color: var(--color-supplementary);
-    margin-bottom: var(--spacing-xxl);
-    font-weight: 300;
-}
-
-.legend-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.legend-scroll-container {
+    display: flex;
+    flex-direction: row;
     gap: var(--spacing-xl);
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    width: fit-content;
 }
 
 .legend-item {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
-    background-color: var(--color-secondary);
     border-radius: var(--border-radius-md);
     transition: all var(--transition-normal);
+    width: 30rem;
+    flex-shrink: 0;
 }
 
 .legend-item:hover {
@@ -386,42 +374,46 @@
     box-shadow: var(--shadow-md);
 }
 
-.legend-color {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--border-radius-sm);
-    flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
+.legend-item--kundalini {
+    background-color: var(--color-secondary);
 }
 
-.legend-color--kundalini {
-    background-color: var(--color-accent-2);
+.legend-item--kundalini .legend-content h3 {
+    color: var(--color-primary);
 }
 
-.legend-color--vinyasa {
+.legend-item--kundalini .legend-content p {
+    color: var(--color-primary);
+}
+
+.legend-item--vinyasa {
+    background-color: hsla(146, 28%, 45%, 1);
+}
+
+.legend-item--hatha {
     background-color: var(--color-accent-1);
 }
 
-.legend-color--hatha {
-    background-color: var(--color-supplementary);
+.legend-item--aerial {
+    background-color: var(--color-accent-2);
 }
 
-.legend-color--aerial {
-    background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent-1));
+.legend-content {
+    text-align: center;
 }
 
 .legend-content h3 {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .legend-content p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--color-supplementary);
+    color: rgba(255, 255, 255, 0.9);
     margin: 0;
 }
 
@@ -509,9 +501,6 @@
         scroll-snap-align: start;
     }
     
-    .section-title {
-        font-size: 2.25rem;
-    }
     
     .cta-section h2 {
         font-size: 2.5rem;
@@ -608,22 +597,13 @@
         padding: var(--spacing-xxl) 0;
     }
     
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: var(--spacing-xl);
-    }
-    
-    .legend-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+    .legend-scroll-container {
+        padding: 0 var(--spacing-md);
     }
     
     .legend-item {
         padding: var(--spacing-md);
+        min-width: 250px;
     }
     
     .legend-color {
@@ -675,9 +655,6 @@
         min-width: 965px;
     }
     
-    .section-title {
-        font-size: 1.75rem;
-    }
     
     .cta-section h2 {
         font-size: 1.75rem;

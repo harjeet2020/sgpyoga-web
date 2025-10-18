@@ -51,25 +51,24 @@
     "subtitle": "Each class type offers a unique experience",
     "kundalini": {
       "name": "Kundalini Yoga",
-      "description": "Awaken your inner energy through breathwork, movement, and meditation"
+      "description": "Embark on a transformative journey of self-discovery and spiritual growth through an intense practice focused on energy work"
     },
     "vinyasa": {
-      "name": "Vinyasa Flow",
-      "description": "Dynamic sequences synchronized with breath for strength and focus"
+      "name": "Vinyasa Yoga",
+      "description": "Tap into your inner flow with dynamic sequences that improve circulation and help you regain grace and balance"
     },
     "hatha": {
       "name": "Hatha Yoga",
-      "description": "Foundational practice focusing on postures and breathing techniques"
+      "description": "Build a strong foundation with a versatile yoga style with deep roots in tradition"
     },
     "aerial": {
       "name": "Aerial Yoga",
-      "description": "Experience yoga suspended in silk hammocks for a unique practice"
+      "description": "Unleash your body's potential with breathtaking aerial sequences performed in silk hammocks"
     }
   },
   "cta": {
     "title": "Ready to Begin?",
-    "text": "Join us for a class and discover the transformative power of yoga. Contact us to learn more about our schedule and upcoming sessions.",
-    "contact": "Contact Us",
-    "bookingSoon": "Online booking coming soon"
+    "text": "Contact us to learn more about our classes and upcoming events.",
+    "contact": "Contact Us"
   }
 }
