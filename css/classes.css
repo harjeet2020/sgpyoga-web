@@ -13,23 +13,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    /* Background image with parallax effect - base resolution */
+    background: url('../assets/photos/inUse/classes/hero-1280.webp') center 40%/cover no-repeat;
+    background-attachment: fixed; /* Parallax effect */
 }
 
-/* Hero image styling - responsive picture element */
-.classes-hero-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+/* Higher resolution variants for larger screens */
+@media (min-width: 1280px) {
+    .classes-hero {
+        background-image: url('../assets/photos/inUse/classes/hero-1920.webp');
+    }
 }
 
-.classes-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 40%;
+@media (min-width: 1920px) {
+    .classes-hero {
+        background-image: url('../assets/photos/inUse/classes/hero-2560.webp');
+    }
 }
 
 .classes-hero-overlay {
@@ -524,6 +524,7 @@
     .classes-hero {
         height: 50vh;
         min-height: 350px;
+        background-attachment: scroll; /* Disable parallax on mobile for better performance */
     }
     
     .classes-hero-content h1 {
