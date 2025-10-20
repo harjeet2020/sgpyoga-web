@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "SGP Yoga - Events",
+    "description": "Join our transformative yoga workshops, retreats, and teacher training programs in Mexico City"
+  },
+  "upcomingEvents": {
+    "title": "Upcoming Events",
+    "subtitle": "Transform your practice with our special events and immersive experiences",
+    "filters": {
+      "all": "All Events",
+      "workshop": "Workshops",
+      "retreat": "Retreats",
+      "training": "Teacher Trainings"
+    }
+  },
+  "events": {
+    "event1": {
+      "title": "Breathwork Fundamentals",
+      "category": "Workshop",
+      "date": "March 15, 2025",
+      "time": "10:00 AM - 1:00 PM",
+      "location": "Roma Studio",
+      "shortDescription": "Learn ancient breathing techniques to calm the mind and energize the body",
+      "fullDescription": "Discover the transformative power of conscious breathing in this comprehensive workshop. You'll learn pranayama techniques from various yoga traditions, understand the science behind breathwork, and experience guided practices that reduce stress, increase energy, and promote deep relaxation. Suitable for all levels.",
+      "instructor": "Harjeet",
+      "price": "$800 MXN",
+      "whatToBring": "Comfortable clothing, yoga mat, water bottle, journal"
+    },
+    "event2": {
+      "title": "Mountain Escape Weekend",
+      "category": "Retreat",
+      "date": "April 20-22, 2025",
+      "time": "Friday 5:00 PM - Sunday 4:00 PM",
+      "location": "Valle de Bravo",
+      "shortDescription": "Three-day retreat combining yoga, meditation, and nature immersion",
+      "fullDescription": "Escape the city and reconnect with yourself in the stunning mountains of Valle de Bravo. This weekend retreat includes daily yoga sessions, guided meditations, hiking, wholesome vegetarian meals, and plenty of time for rest and reflection. Accommodation in a beautiful eco-lodge with mountain views included.",
+      "instructor": "Harjeet & Camila",
+      "price": "$8,500 MXN (all-inclusive)",
+      "whatToBring": "Comfortable clothing for yoga and hiking, personal toiletries, journal, reusable water bottle"
+    },
+    "event3": {
+      "title": "200-Hour Yoga Teacher Training",
+      "category": "Teacher Training",
+      "date": "June 1 - July 20, 2025",
+      "time": "Weekends (Sat-Sun) 9:00 AM - 5:00 PM",
+      "location": "Roma Studio",
+      "shortDescription": "Comprehensive certification program for aspiring yoga teachers",
+      "fullDescription": "Transform your practice and life with our internationally recognized 200-hour yoga teacher training. This comprehensive program covers yoga philosophy, anatomy, teaching methodology, asana practice, meditation, and pranayama. You'll gain the skills and confidence to teach yoga classes professionally. Small group setting with personalized attention. Yoga Alliance certified.",
+      "instructor": "Harjeet, Camila & Guest Teachers",
+      "price": "$45,000 MXN (payment plans available)",
+      "whatToBring": "Yoga mat, props, notebook, anatomy book (recommendations provided), open heart and dedicated mind"
+    },
+    "event4": {
+      "title": "Aerial Yoga Introduction",
+      "category": "Workshop",
+      "date": "March 28, 2025",
+      "time": "2:00 PM - 4:30 PM",
+      "location": "Condesa Sanctuary",
+      "shortDescription": "Experience the joy and freedom of practicing yoga in silk hammocks",
+      "fullDescription": "Take your practice to new heights in this playful introduction to aerial yoga. You'll learn fundamental aerial poses, inversions, and flows while building strength, flexibility, and confidence. The hammocks provide support for challenging poses and allow deeper stretches. No prior aerial experience needed, but basic yoga knowledge recommended.",
+      "instructor": "Camila",
+      "price": "$900 MXN",
+      "whatToBring": "Form-fitting clothing (no zippers or jewelry), water bottle, sense of adventure"
+    },
+    "event5": {
+      "title": "Beach Meditation Retreat",
+      "category": "Retreat",
+      "date": "May 10-13, 2025",
+      "time": "Thursday 3:00 PM - Sunday 12:00 PM",
+      "location": "Tulum, Quintana Roo",
+      "shortDescription": "Four days of meditation, gentle yoga, and beach living in paradise",
+      "fullDescription": "Join us for a deeply restorative retreat on the pristine beaches of Tulum. This retreat focuses on meditation practices, gentle restorative yoga, sound healing, and mindful beach walks. Perfect for those seeking deep rest, clarity, and spiritual renewal. Includes beachfront accommodations, organic meals, and all activities.",
+      "instructor": "Harjeet",
+      "price": "$12,500 MXN (all-inclusive)",
+      "whatToBring": "Light comfortable clothing, swimsuit, sunscreen, hat, journal, meditation cushion (optional)"
+    }
+  },
+  "eventTypes": {
+    "workshops": {
+      "title": "Workshops",
+      "description": "Deep-dive sessions exploring specific aspects of yoga practice, from advanced asanas to pranayama and philosophy"
+    },
+    "retreats": {
+      "title": "Retreats",
+      "description": "Immersive multi-day experiences in beautiful locations, combining practice with rest, nature, and community"
+    },
+    "trainings": {
+      "title": "Teacher Trainings",
+      "description": "Comprehensive certification programs for aspiring teachers, covering all aspects of yoga instruction"
+    }
+  },
+  "modal": {
+    "instructor": "Instructor",
+    "dateTime": "Date & Time",
+    "location": "Location",
+    "price": "Investment",
+    "whatToBring": "What to Bring",
+    "register": "Register Now",
+    "close": "Close"
+  }
+}

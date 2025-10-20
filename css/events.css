@@ -1,0 +1,806 @@
+/* ==========================================================================
+   EVENTS PAGE STYLES
+   ========================================================================== */
+
+/* Section Padding Utility
+   ========================================================================== */
+/* Purpose: Consistent spacing for sections throughout the page */
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Section Title and Subtitle Styles
+   ========================================================================== */
+/* Purpose: Consistent heading styles for section titles */
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-xxl);
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   SECTION 1: UPCOMING EVENTS
+   ========================================================================== */
+/* Purpose: Display upcoming events with category filters and horizontal scrolling cards */
+
+.upcoming-events-section {
+    background-color: var(--color-secondary);
+    padding: 100px 0 var(--spacing-xxl) 0;
+}
+
+/* Event Category Filters
+   ========================================================================== */
+/* Purpose: Pill-style filter buttons for event categories (All, Workshops, Retreats, Trainings) */
+.event-filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xxl);
+    flex-wrap: wrap;
+}
+
+/* Individual Filter Button
+   Purpose: Styled as pill buttons with active state indication */
+.filter-btn {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    border-radius: 25px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+}
+
+.filter-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Active filter state - highlighted with accent color */
+.filter-btn.active {
+    background-color: var(--color-accent-1);
+    color: white;
+    border-color: var(--color-accent-1);
+}
+
+.filter-btn.active:hover {
+    background-color: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+}
+
+/* Event Cards Grid
+   ========================================================================== */
+/* Purpose: Full-width horizontal scrolling container for event cards
+   Similar pattern to teachers section in about.html */
+.events-grid {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xl);
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding: 0 7% var(--spacing-xl) 7%; /* Horizontal padding and space for scrollbar */
+}
+
+/* Custom scrollbar styling for better UX */
+.events-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.events-grid::-webkit-scrollbar-track {
+    background: rgba(64, 104, 154, 0.1); /* Light accent-1 color */
+    border-radius: 10px;
+}
+
+.events-grid::-webkit-scrollbar-thumb {
+    background: var(--color-accent-1);
+    border-radius: 10px;
+    transition: background var(--transition-fast);
+}
+
+.events-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-2);
+}
+
+/* Individual Event Card
+   ========================================================================== */
+/* Purpose: Card component displaying event preview with image, title, meta info, and description */
+.event-card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    flex: 0 0 360px; /* Fixed width, no grow or shrink */
+    min-width: 360px; /* Ensure consistent card width */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effect: lift card and enhance shadow */
+.event-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+}
+
+/* Hide cards that don't match filter */
+.event-card.hidden {
+    display: none;
+}
+
+/* Event Card Image Container
+   Purpose: Contains event image and category badge */
+.event-card-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.event-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+/* Zoom effect on card hover */
+.event-card:hover .event-card-image img {
+    transform: scale(1.1);
+}
+
+/* Event Category Badge
+   Purpose: Pill badge displaying event type (Workshop/Retreat/Training) */
+.event-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+/* Different colors for different event types */
+.event-badge.workshop {
+    background-color: rgba(64, 104, 154, 0.9); /* Accent-1: Lapis Lazuli */
+}
+
+.event-badge.retreat {
+    background-color: rgba(160, 103, 137, 0.9); /* Accent-2: Chinese Violet */
+}
+
+.event-badge.training {
+    background-color: rgba(31, 33, 33, 0.9); /* Primary: Eerie Black */
+}
+
+/* Event Card Content
+   Purpose: Text content container with title, meta info, and description */
+.event-card-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+}
+
+/* Event Card Title */
+.event-card-title {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Event Card Meta Information (Date & Location)
+   ========================================================================== */
+/* Purpose: Display date and location with icons in a flex layout */
+.event-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-supplementary);
+    font-size: 0.9rem;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent-1);
+    flex-shrink: 0;
+}
+
+/* Event Card Description */
+.event-card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-supplementary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 2: EVENT TYPES GALLERY
+   ========================================================================== */
+/* Purpose: Full-width gallery with 3 event type tiles that expand on hover
+   Uses flexbox with flex-grow to create the stretch effect */
+
+.event-types-section {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 0 !important; /* Remove padding for full-width effect */
+}
+
+/* Event Types Gallery Container
+   ========================================================================== */
+/* Purpose: Flexbox container holding 3 tiles in a row
+   Each tile starts with flex: 1, hovered tile expands to flex: 2 */
+.event-types-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 0; /* No gap for seamless effect */
+    width: 100%;
+    height: 65vh; /* Full viewport height for impactful visual */
+    min-height: 600px; /* Ensure tiles are tall enough */
+}
+
+/* Individual Event Type Tile
+   ========================================================================== */
+/* Purpose: Container for each event type with background image and overlay
+   Implements the stretch effect: normally 1fr, 2fr on hover */
+.event-type-tile {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    flex: 1 1 0; /* Equal distribution: 1fr */
+    transition: flex var(--transition-slow); /* Smooth expansion transition */
+}
+
+/* Hover state: Expand the hovered tile to double width */
+.event-type-tile:hover {
+    flex: 2 1 0; /* Stretched state: 2fr */
+}
+
+/* Background Image
+   Purpose: Fills the entire tile, subtle zoom on hover */
+.event-type-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.event-type-tile:hover .event-type-image {
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Overlay with Dimming Effect
+   ========================================================================== */
+/* Purpose: Semi-transparent dark overlay that appears on hover
+   Makes text content readable over any image */
+.event-type-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 33, 33, 0.85); /* Dark dimming overlay - Eerie Black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xxl);
+    opacity: 0; /* Hidden by default */
+    transition: opacity var(--transition-normal);
+}
+
+.event-type-tile:hover .event-type-overlay {
+    opacity: 1; /* Fully visible on hover */
+}
+
+/* Content Container
+   Purpose: Centers and structures text within the overlay */
+.event-type-content {
+    text-align: center;
+    max-width: 90%;
+}
+
+/* Event Type Name (Title) */
+.event-type-name {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-secondary); /* Linen - light color for contrast */
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+/* Event Type Description */
+.event-type-description {
+    font-size: 1.125rem;
+    font-family: var(--font-body);
+    color: var(--color-secondary); /* Linen - light color for contrast */
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.95; /* Slightly softer than the heading */
+}
+
+/* ==========================================================================
+   EVENT DETAILS MODAL
+   ========================================================================== */
+/* Purpose: Full-screen modal overlay displaying detailed event information
+   Opens when user clicks on an event card */
+
+/* Modal Overlay
+   ========================================================================== */
+/* Purpose: Full-screen dark backdrop with blur effect */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 33, 33, 0.9); /* Dark backdrop */
+    backdrop-filter: blur(8px);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: var(--spacing-xl);
+    overflow-y: auto;
+}
+
+/* Show modal when active class is added */
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Container
+   ========================================================================== */
+/* Purpose: White card containing modal content, centered in overlay */
+.modal-container {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Modal slide-in animation */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Close Button
+   ========================================================================== */
+/* Purpose: X button to close modal, positioned in top-right corner */
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: var(--border-radius-circle);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.modal-close:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-close i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Modal Content
+   ========================================================================== */
+/* Purpose: Main content area with image and details in a flex layout */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Image
+   Purpose: Large event image at top of modal */
+.modal-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Modal Details Section
+   ========================================================================== */
+/* Purpose: Contains all text content and event information */
+.modal-details {
+    padding: var(--spacing-xxl);
+}
+
+/* Modal Badge (Event Category) */
+.modal-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+    background-color: var(--color-accent-1);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Modal Title */
+.modal-title {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+}
+
+/* Modal Description */
+.modal-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Modal Info Grid
+   ========================================================================== */
+/* Purpose: 2x2 grid displaying key event details (instructor, date/time, location, price) */
+.modal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+    padding: var(--spacing-lg);
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius-md);
+}
+
+.modal-info-item h4 {
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-1);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modal-info-item p {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+/* Modal "What to Bring" Section
+   ========================================================================== */
+/* Purpose: List of items participants should bring */
+.modal-bring {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: rgba(64, 104, 154, 0.05); /* Light accent-1 background */
+    border-left: 4px solid var(--color-accent-1);
+    border-radius: var(--border-radius-sm);
+}
+
+.modal-bring h4 {
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-bring p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-supplementary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - TABLET
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Event Cards - maintain horizontal scroll */
+    .event-card {
+        flex: 0 0 320px;
+        min-width: 320px;
+    }
+    
+    /* Event Types Gallery - reduce height */
+    .event-types-gallery {
+        height: 55vh;
+        min-height: 500px;
+    }
+    
+    .event-type-name {
+        font-size: 2rem;
+    }
+    
+    .event-type-description {
+        font-size: 1rem;
+    }
+    
+    /* Modal adjustments */
+    .modal-title {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Event Filters - smaller on mobile */
+    .event-filters {
+        gap: var(--spacing-sm);
+    }
+    
+    .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-lg);
+        font-size: 0.875rem;
+    }
+    
+    /* Event Cards - maintain horizontal scroll with smaller cards */
+    .events-grid {
+        padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .event-card {
+        flex: 0 0 280px;
+        min-width: 280px;
+    }
+    
+    .event-card:hover {
+        transform: translateY(-4px); /* Reduced lift on mobile */
+    }
+    
+    .event-card-title {
+        font-size: 1.25rem;
+    }
+    
+    .event-card-description {
+        font-size: 0.9rem;
+    }
+    
+    /* Event Types Gallery - stack vertically on mobile */
+    .event-types-gallery {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .event-type-tile {
+        flex: 0 0 400px; /* Fixed height for stacked tiles */
+        height: 400px;
+    }
+    
+    /* Disable stretch effect on mobile (tiles don't expand) */
+    .event-type-tile:hover {
+        flex: 0 0 400px;
+    }
+    
+    .event-type-name {
+        font-size: 1.75rem;
+    }
+    
+    .event-type-description {
+        font-size: 0.95rem;
+    }
+    
+    /* Modal adjustments for mobile */
+    .modal-overlay {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-container {
+        max-height: 95vh;
+    }
+    
+    .modal-image {
+        height: 200px;
+    }
+    
+    .modal-details {
+        padding: var(--spacing-lg);
+    }
+    
+    .modal-title {
+        font-size: 1.75rem;
+    }
+    
+    .modal-description {
+        font-size: 1rem;
+    }
+    
+    .modal-info-grid {
+        grid-template-columns: 1fr; /* Stack info items on mobile */
+        gap: var(--spacing-md);
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - SMALL MOBILE
+   ========================================================================== */
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Event Filters - wrap on small screens */
+    .filter-btn {
+        padding: var(--spacing-xs) var(--spacing-md);
+        font-size: 0.8rem;
+    }
+    
+    /* Event Cards - even smaller on very small screens */
+    .event-card {
+        flex: 0 0 260px;
+        min-width: 260px;
+    }
+    
+    .event-card-image {
+        height: 180px;
+    }
+    
+    /* Event Types Gallery - shorter tiles */
+    .event-type-tile {
+        flex: 0 0 350px;
+        height: 350px;
+    }
+    
+    .event-type-tile:hover {
+        flex: 0 0 350px;
+    }
+    
+    .event-type-name {
+        font-size: 1.5rem;
+    }
+    
+    .event-type-description {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal adjustments for small mobile */
+    .modal-image {
+        height: 160px;
+    }
+    
+    .modal-details {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-description {
+        font-size: 0.95rem;
+    }
+    
+    .btn-elegant {
+        font-size: 1rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================================================== */
+/* Purpose: Respect user's preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .event-card:hover {
+        transform: none;
+    }
+    
+    .event-type-tile:hover .event-type-image {
+        transform: none;
+    }
+    
+    .modal-container {
+        animation: none;
+    }
+}

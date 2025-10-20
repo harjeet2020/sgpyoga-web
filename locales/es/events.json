@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "SGP Yoga - Eventos",
+    "description": "Únete a nuestros talleres de yoga transformadores, retiros y programas de formación de maestros en la Ciudad de México"
+  },
+  "upcomingEvents": {
+    "title": "Próximos Eventos",
+    "subtitle": "Transforma tu práctica con nuestros eventos especiales y experiencias inmersivas",
+    "filters": {
+      "all": "Todos los Eventos",
+      "workshop": "Talleres",
+      "retreat": "Retiros",
+      "training": "Formación de Maestros"
+    }
+  },
+  "events": {
+    "event1": {
+      "title": "Fundamentos de Respiración",
+      "category": "Taller",
+      "date": "15 de marzo, 2025",
+      "time": "10:00 AM - 1:00 PM",
+      "location": "Estudio Roma",
+      "shortDescription": "Aprende técnicas ancestrales de respiración para calmar la mente y energizar el cuerpo",
+      "fullDescription": "Descubre el poder transformador de la respiración consciente en este taller integral. Aprenderás técnicas de pranayama de diversas tradiciones del yoga, comprenderás la ciencia detrás del trabajo respiratorio y experimentarás prácticas guiadas que reducen el estrés, aumentan la energía y promueven una relajación profunda. Adecuado para todos los niveles.",
+      "instructor": "Harjeet",
+      "price": "$800 MXN",
+      "whatToBring": "Ropa cómoda, tapete de yoga, botella de agua, diario"
+    },
+    "event2": {
+      "title": "Escape de Fin de Semana a la Montaña",
+      "category": "Retiro",
+      "date": "20-22 de abril, 2025",
+      "time": "Viernes 5:00 PM - Domingo 4:00 PM",
+      "location": "Valle de Bravo",
+      "shortDescription": "Retiro de tres días combinando yoga, meditación e inmersión en la naturaleza",
+      "fullDescription": "Escapa de la ciudad y reconecta contigo mismo en las impresionantes montañas de Valle de Bravo. Este retiro de fin de semana incluye sesiones diarias de yoga, meditaciones guiadas, senderismo, comidas vegetarianas nutritivas y mucho tiempo para descansar y reflexionar. Alojamiento incluido en un hermoso eco-lodge con vistas a la montaña.",
+      "instructor": "Harjeet y Camila",
+      "price": "$8,500 MXN (todo incluido)",
+      "whatToBring": "Ropa cómoda para yoga y senderismo, artículos de higiene personal, diario, botella de agua reutilizable"
+    },
+    "event3": {
+      "title": "Formación de Maestros de Yoga 200 Horas",
+      "category": "Formación de Maestros",
+      "date": "1 de junio - 20 de julio, 2025",
+      "time": "Fines de semana (Sáb-Dom) 9:00 AM - 5:00 PM",
+      "location": "Estudio Roma",
+      "shortDescription": "Programa de certificación integral para aspirantes a maestros de yoga",
+      "fullDescription": "Transforma tu práctica y tu vida con nuestra formación de maestros de yoga de 200 horas reconocida internacionalmente. Este programa integral cubre filosofía del yoga, anatomía, metodología de enseñanza, práctica de asanas, meditación y pranayama. Obtendrás las habilidades y la confianza para enseñar clases de yoga profesionalmente. Grupos pequeños con atención personalizada. Certificado por Yoga Alliance.",
+      "instructor": "Harjeet, Camila y Maestros Invitados",
+      "price": "$45,000 MXN (planes de pago disponibles)",
+      "whatToBring": "Tapete de yoga, accesorios, cuaderno, libro de anatomía (se proporcionan recomendaciones), corazón abierto y mente dedicada"
+    },
+    "event4": {
+      "title": "Introducción al Yoga Aéreo",
+      "category": "Taller",
+      "date": "28 de marzo, 2025",
+      "time": "2:00 PM - 4:30 PM",
+      "location": "Santuario Condesa",
+      "shortDescription": "Experimenta la alegría y libertad de practicar yoga en hamacas de seda",
+      "fullDescription": "Lleva tu práctica a nuevas alturas en esta divertida introducción al yoga aéreo. Aprenderás posturas aéreas fundamentales, inversiones y flujos mientras desarrollas fuerza, flexibilidad y confianza. Las hamacas proporcionan apoyo para posturas desafiantes y permiten estiramientos más profundos. No se necesita experiencia aérea previa, pero se recomienda conocimiento básico de yoga.",
+      "instructor": "Camila",
+      "price": "$900 MXN",
+      "whatToBring": "Ropa ajustada (sin cremalleras ni joyas), botella de agua, sentido de aventura"
+    },
+    "event5": {
+      "title": "Retiro de Meditación en la Playa",
+      "category": "Retiro",
+      "date": "10-13 de mayo, 2025",
+      "time": "Jueves 3:00 PM - Domingo 12:00 PM",
+      "location": "Tulum, Quintana Roo",
+      "shortDescription": "Cuatro días de meditación, yoga suave y vida en la playa en el paraíso",
+      "fullDescription": "Únete a nosotros para un retiro profundamente restaurador en las playas prístinas de Tulum. Este retiro se enfoca en prácticas de meditación, yoga restaurativo suave, sanación con sonido y caminatas conscientes por la playa. Perfecto para quienes buscan descanso profundo, claridad y renovación espiritual. Incluye alojamiento frente al mar, comidas orgánicas y todas las actividades.",
+      "instructor": "Harjeet",
+      "price": "$12,500 MXN (todo incluido)",
+      "whatToBring": "Ropa ligera y cómoda, traje de baño, protector solar, sombrero, diario, cojín de meditación (opcional)"
+    }
+  },
+  "eventTypes": {
+    "workshops": {
+      "title": "Talleres",
+      "description": "Sesiones profundas explorando aspectos específicos de la práctica del yoga, desde asanas avanzadas hasta pranayama y filosofía"
+    },
+    "retreats": {
+      "title": "Retiros",
+      "description": "Experiencias inmersivas de varios días en hermosas ubicaciones, combinando práctica con descanso, naturaleza y comunidad"
+    },
+    "trainings": {
+      "title": "Formación de Maestros",
+      "description": "Programas de certificación integrales para aspirantes a maestros, cubriendo todos los aspectos de la instrucción del yoga"
+    }
+  },
+  "modal": {
+    "instructor": "Instructor",
+    "dateTime": "Fecha y Hora",
+    "location": "Ubicación",
+    "price": "Inversión",
+    "whatToBring": "Qué Traer",
+    "register": "Inscríbete Ahora",
+    "close": "Cerrar"
+  }
+}
