@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "SGP Yoga - Events",
-    "description": "Join our transformative yoga workshops, retreats, and teacher training programs in Mexico City"
+    "description": "Join our transformative yoga workshops, retreats, and teacher training programs"
   },
   "upcomingEvents": {
     "title": "Upcoming Events",
-    "subtitle": "Transform your practice with our special events and immersive experiences",
+    "subtitle": "We regularly offer themed workshops, transformative retreats, and comprehensive teacher trainings",
     "filters": {
       "all": "All Events",
       "workshop": "Workshops",
@@ -78,15 +78,15 @@
   "eventTypes": {
     "workshops": {
       "title": "Workshops",
-      "description": "Deep-dive sessions exploring specific aspects of yoga practice, from advanced asanas to pranayama and philosophy"
+      "description": "Our workshops are short but intensive sessions that explore specific aspects of yoga. We often blend physical exercise with breathwork, meditation, sound healing, and yogic philosophy - going beyond what's possible during a traditional class."
     },
     "retreats": {
       "title": "Retreats",
-      "description": "Immersive multi-day experiences in beautiful locations, combining practice with rest, nature, and community"
+      "description": "To us, a retreat is a step back from the hectic reality of our daily lives. Our retreats are tailored to help you heal & transform, at the same time giving you space to rest and regain balance."
     },
     "trainings": {
       "title": "Teacher Trainings",
-      "description": "Comprehensive certification programs for aspiring teachers, covering all aspects of yoga instruction"
+      "description": "The highest joy of a teacher is to see their students become wonderful yogis. Our teacher trainings give you all the tools you need to begin sharing the practice of yoga with the world. All our programmes come with an internationally-recognized Yoga Alliance certification and cover all the essential modules such as alignment, anatomy, philosophy, and more."
     }
   },
   "modal": {

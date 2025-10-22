@@ -5,7 +5,7 @@
   },
   "upcomingEvents": {
     "title": "Próximos Eventos",
-    "subtitle": "Transforma tu práctica con nuestros eventos especiales y experiencias inmersivas",
+    "subtitle": "Ofrecemos regularmente talleres temáticos, retiros transformadores y formaciones integrales de maestros",
     "filters": {
       "all": "Todos los Eventos",
       "workshop": "Talleres",
@@ -78,15 +78,15 @@
   "eventTypes": {
     "workshops": {
       "title": "Talleres",
-      "description": "Sesiones profundas explorando aspectos específicos de la práctica del yoga, desde asanas avanzadas hasta pranayama y filosofía"
+      "description": "Nuestros talleres son sesiones cortas pero intensivas que exploran aspectos específicos del yoga. A menudo combinamos ejercicio físico con trabajo respiratorio, meditación, sanación con sonido y filosofía yóguica - yendo más allá de lo que es posible durante una clase tradicional."
     },
     "retreats": {
       "title": "Retiros",
-      "description": "Experiencias inmersivas de varios días en hermosas ubicaciones, combinando práctica con descanso, naturaleza y comunidad"
+      "description": "Para nosotros, un retiro es un paso atrás de la realidad agitada de nuestra vida diaria. Nuestros retiros están diseñados para ayudarte a sanar y transformarte, al mismo tiempo que te dan espacio para descansar y recuperar el equilibrio."
     },
     "trainings": {
       "title": "Formación de Maestros",
-      "description": "Programas de certificación integrales para aspirantes a maestros, cubriendo todos los aspectos de la instrucción del yoga"
+      "description": "La mayor alegría de un maestro es ver a sus estudiantes convertirse en maravillosos yoguis. Nuestras formaciones de maestros te brindan todas las herramientas que necesitas para comenzar a compartir la práctica del yoga con el mundo. Todos nuestros programas vienen con una certificación de Yoga Alliance reconocida internacionalmente y cubren todos los módulos esenciales como alineación, anatomía, filosofía y más."
     }
   },
   "modal": {
