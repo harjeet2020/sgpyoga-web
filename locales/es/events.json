@@ -48,30 +48,6 @@
       "fullDescription": "El yoga aéreo está ganando cada vez más popularidad, no solo porque se ve genial, sino también porque hace que posturas más avanzadas sean accesibles para principiantes desde el día 1. Nuestro programa híbrido de 50 horas es ideal para maestros de yoga que desean ampliar su repertorio, pero también puedes participar como principiante absoluto. Nuestras sesiones se llevarán a cabo los fines de semana en la hermosa Yoguitería en Calarca, Colombia. Aunque diseñada principalmente como una experiencia presencial, esta formación de maestros puede tomarse parcialmente en línea, pero se requieren dos fines de semana presenciales para obtener tu certificación de Yoga Alliance.",
       "instructor": "Camila y Harjeet",
       "price": "10,000 MXN"
-    },
-    "event4": {
-      "title": "Introducción al Yoga Aéreo",
-      "category": "Taller",
-      "date": "28 de marzo, 2025",
-      "time": "2:00 PM - 4:30 PM",
-      "location": "Santuario Condesa",
-      "shortDescription": "Experimenta la alegría y libertad de practicar yoga en hamacas de seda",
-      "fullDescription": "Lleva tu práctica a nuevas alturas en esta divertida introducción al yoga aéreo. Aprenderás posturas aéreas fundamentales, inversiones y flujos mientras desarrollas fuerza, flexibilidad y confianza. Las hamacas proporcionan apoyo para posturas desafiantes y permiten estiramientos más profundos. No se necesita experiencia aérea previa, pero se recomienda conocimiento básico de yoga.",
-      "instructor": "Camila",
-      "price": "$900 MXN",
-      "whatToBring": "Ropa ajustada (sin cremalleras ni joyas), botella de agua, sentido de aventura"
-    },
-    "event5": {
-      "title": "Retiro de Meditación en la Playa",
-      "category": "Retiro",
-      "date": "10-13 de mayo, 2025",
-      "time": "Jueves 3:00 PM - Domingo 12:00 PM",
-      "location": "Tulum, Quintana Roo",
-      "shortDescription": "Cuatro días de meditación, yoga suave y vida en la playa en el paraíso",
-      "fullDescription": "Únete a nosotros para un retiro profundamente restaurador en las playas prístinas de Tulum. Este retiro se enfoca en prácticas de meditación, yoga restaurativo suave, sanación con sonido y caminatas conscientes por la playa. Perfecto para quienes buscan descanso profundo, claridad y renovación espiritual. Incluye alojamiento frente al mar, comidas orgánicas y todas las actividades.",
-      "instructor": "Harjeet",
-      "price": "$12,500 MXN (todo incluido)",
-      "whatToBring": "Ropa ligera y cómoda, traje de baño, protector solar, sombrero, diario, cojín de meditación (opcional)"
     }
   },
   "eventTypes": {

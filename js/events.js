@@ -119,8 +119,8 @@ function loadEventDataFromTranslations() {
                 console.warn('i18n not fully ready, loading with fallback');
             }
             
-            // Load data for all 5 events
-            ['event1', 'event2', 'event3', 'event4', 'event5'].forEach(eventId => {
+            // Load data for all events
+            ['event1', 'event2', 'event3'].forEach(eventId => {
                 // Try i18next first, then fall back to SGPi18n
                 const t = (key) => {
                     if (typeof i18next !== 'undefined' && i18next.isInitialized) {
