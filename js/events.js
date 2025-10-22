@@ -233,6 +233,7 @@ function renderEvents() {
         const eventId = event.id;
         const category = event.category;
         const imagePath = getEventImage(event, false);
+        const imagePosition = event.imagePosition || 'center'; // Default to 'center' if not specified
         
         // Add past-event class if viewing past events
         const pastClass = currentTimeView === 'past' ? 'past-event' : '';
@@ -241,7 +242,7 @@ function renderEvents() {
         const eventCardHTML = `
             <div class="event-card ${pastClass}" data-category="${category}" data-event="${eventId}">
                 <div class="event-card-image">
-                    <img src="${imagePath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy">
+                    <img src="${imagePath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy" style="object-position: ${imagePosition};">
                     <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
                 </div>
                 <div class="event-card-content">
@@ -515,13 +516,17 @@ function openModal(eventId) {
     const eventCard = document.querySelector(`[data-event="${eventId}"]`);
     const category = eventCard.getAttribute('data-category');
     
-    // Find the event in eventsData to get its image
+    // Find the event in eventsData to get its image and position
     let imagePath = '';
+    let imagePosition = 'center'; // Default position
+    
     if (typeof eventsData !== 'undefined') {
         const eventConfig = eventsData.find(e => e.id === eventId);
         if (eventConfig) {
             // Use high-res image for modal if available
             imagePath = getEventImage(eventConfig, true);
+            // Get custom image position if specified
+            imagePosition = eventConfig.imagePosition || 'center';
         }
     }
     
@@ -544,6 +549,7 @@ function openModal(eventId) {
     
     modalContent.image.src = imagePath;
     modalContent.image.alt = event.title;
+    modalContent.image.style.objectPosition = imagePosition;
     
     // Show modal
     modal.classList.add('active');
