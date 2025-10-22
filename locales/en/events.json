@@ -18,7 +18,7 @@
     }
   },
   "events": {
-    "event1": {
+    "aerial-yoga-photo_nov2025": {
       "title": "Aerial Yoga Photo | Day of the Dead",
       "category": "Workshop",
       "date": "November 1, 2025",
@@ -29,7 +29,7 @@
       "instructor": "Dani & Itzel",
       "price": "$400 MXN"
     },
-    "event2": {
+    "yoga-retreat_nov2025": {
       "title": "Yoga & Nature Immersion",
       "category": "Retreat",
       "date": "November 14-17, 2025",
@@ -40,7 +40,7 @@
       "instructor": "Harjeet & Camila",
       "price": "$8,000 MXN"
     },
-    "event3": {
+    "aerial-teacher-training_nov2025": {
       "title": "50-Hour Aerial Yoga Teacher Training",
       "category": "Teacher Training",
       "date": "November 8 - December 14, 2025",

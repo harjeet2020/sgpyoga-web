@@ -38,7 +38,7 @@
 
 .upcoming-events-section {
     background-color: var(--color-secondary);
-    padding: 100px 0 var(--spacing-xxl) 0;
+    padding: 4rem 0 var(--spacing-xxl) 0;
 }
 
 /* Event Controls Container

@@ -22,7 +22,8 @@
 const eventsData = [
     {
         // Unique identifier - must match the translation key in events.json
-        id: 'event1',
+        // Format: {event-name}_{shortdate} for clarity and uniqueness
+        id: 'aerial-yoga-photo_nov2025',
         
         // Category: 'workshop', 'retreat', or 'training'
         // This determines filtering and badge styling
@@ -42,7 +43,7 @@ const eventsData = [
         imageHigh: 'assets/photos/inUse/events/workshops-1080.webp'
     },
     {
-        id: 'event2',
+        id: 'yoga-retreat_nov2025',
         category: 'retreat',
         startDate: '2025-11-14',
         endDate: '2025-11-17',
@@ -50,7 +51,7 @@ const eventsData = [
         imageHigh: 'assets/photos/inUse/events/retreats-1080.webp'
     },
     {
-        id: 'event3',
+        id: 'aerial-teacher-training_nov2025',
         category: 'training',
         startDate: '2025-11-08',
         endDate: '2025-12-14',
@@ -61,7 +62,7 @@ const eventsData = [
     // Add more events here following the same pattern
     // Example:
     // {
-    //     id: 'event4',
+    //     id: 'breathwork-fundamentals_dec2025',
     //     category: 'workshop',
     //     startDate: '2025-12-15',
     //     endDate: '2025-12-15',

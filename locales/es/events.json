@@ -18,7 +18,7 @@
     }
   },
   "events": {
-    "event1": {
+    "aerial-yoga-photo_nov2025": {
       "title": "Foto de Yoga Aéreo | Día de Muertos",
       "category": "Taller",
       "date": "1 de noviembre, 2025",
@@ -29,7 +29,7 @@
       "instructor": "Dani e Itzel",
       "price": "$400 MXN"
     },
-    "event2": {
+    "yoga-retreat_nov2025": {
       "title": "Inmersión de Yoga y Naturaleza",
       "category": "Retiro",
       "date": "14-17 de noviembre, 2025",
@@ -40,13 +40,13 @@
       "instructor": "Harjeet y Camila",
       "price": "$8,000 MXN"
     },
-    "event3": {
+    "aerial-teacher-training_nov2025": {
       "title": "Formación de Maestros de Yoga Aéreo 50 Horas",
       "category": "Formación de Maestros",
       "date": "8 de noviembre - 14 de diciembre, 2025",
       "time": "Fines de semana (Sáb-Dom)",
       "location": "La Yoguitería, Calarca, Quindío, Colombia",
-      "shortDescription": "Conviértete en maestro de yoga aéreo con nuestro programa de formación especializado.",
+      "shortDescription": "Convértete en maestro de yoga aéreo con nuestro programa de formación especializado.",
       "fullDescription": "El yoga aéreo está ganando cada vez más popularidad, no solo porque se ve genial, sino también porque hace que posturas más avanzadas sean accesibles para principiantes desde el día 1. Nuestro programa híbrido de 50 horas es ideal para maestros de yoga que desean ampliar su repertorio, pero también puedes participar como principiante absoluto. Nuestras sesiones se llevarán a cabo los fines de semana en la hermosa Yoguitería en Calarca, Colombia. Aunque diseñada principalmente como una experiencia presencial, esta formación de maestros puede tomarse parcialmente en línea, pero se requieren dos fines de semana presenciales para obtener tu certificación de Yoga Alliance.",
       "instructor": "Camila y Harjeet",
       "price": "10,000 MXN"
