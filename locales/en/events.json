@@ -18,12 +18,34 @@
     }
   },
   "events": {
+    "aerial-yoga-sound-healing_10oct2025": {
+      "title": "Aerial Yoga Sound Healing",
+      "category": "Workshop",
+      "date": "October 10, 2025",
+      "time": "19:00 - 20:00 PM",
+      "location": "Aguacate Studio, Mexico City",
+      "shortDescription": "Immerse yourself in gentle, restorative aerial yoga accompanied by a deep sound healing session",
+      "fullDescription": "This unique session is a blend of healing aerial yoga movements and sound therapy. We will start with a gentle sequence of poses utilizing silk hammocks, and towards the end you will listen to sound bowls and live mantra chanting while suspended in the air.",
+      "instructor": "Harjeet & Camila",
+      "price": "$400 MXN"
+    },
+    "aerial-yoga-sound-healing_17oct2025": {
+      "title": "Aerial Yoga Sound Healing",
+      "category": "Workshop",
+      "date": "October 17, 2025",
+      "time": "19:00 - 20:00 PM",
+      "location": "Bogotá, Colombia",
+      "shortDescription": "Immerse yourself in gentle, restorative aerial yoga accompanied by a deep sound healing session",
+      "fullDescription": "This unique session is a blend of healing aerial yoga movements and sound therapy. We will start with a gentle sequence of poses utilizing silk hammocks, and towards the end you will listen to sound bowls and live mantra chanting while suspended in the air.",
+      "instructor": "Harjeet & Camila",
+      "price": "$400 MXN"
+    },
     "aerial-yoga-photo_nov2025": {
       "title": "Aerial Yoga Photo | Day of the Dead",
       "category": "Workshop",
       "date": "November 1, 2025",
       "time": "10:00 - 11:00 AM",
-      "location": "Aguacate Studio",
+      "location": "Aguacate Studio, Mexico City",
       "shortDescription": "Practice yoga in the air while a professional photographer captures the moment.",
       "fullDescription": "In this special day-of-the-dead yoga session you will have the opportunity to have professional photos taken while you practice yoga in the air, suspended in silk hammocks. Other than that, it will be a class as usual.",
       "instructor": "Dani & Itzel",
@@ -45,7 +67,7 @@
       "category": "Teacher Training",
       "date": "June 21 - September 27, 2025",
       "time": "Weekends (Saturdays)",
-      "location": "Hari Om, Mexico City, Mexico",
+      "location": "Hari Om, Mexico City",
       "shortDescription": "Become an aerial yoga teacher with our specialized training program.",
       "fullDescription": "Aerial yoga is getting increasingly popular, not only because it looks great, but also because it makes more advanced poses accessible to beginners from day 1. Our 100-Hour in-person program is ideal for yoga teachers who want to expand their repertoire, but you can also participate as an absolute beginner. We will cover all the essential modules such as alignment, anatomy, philosophy, and more. Our sessions will take place on Saturdays in Hari Om Studio, Mexico City.",
       "instructor": "Camila & Harjeet",

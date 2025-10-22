@@ -20,6 +20,27 @@
 // =============================================================================
 
 const eventsData = [
+    // Aerial Sound Healing Workshop, October 2025 (Harjeet & Camila)
+    {
+        id: 'aerial-yoga-sound-healing_10oct2025',
+        category: 'workshop',
+        startDate: '2025-10-10',
+        endDate: '2025-10-10',
+        image: 'assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
+        imageHigh: 'assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
+        cardImagePosition: 'center 20%',
+        modalImagePosition: 'center 13%'
+    },
+    {
+        id: 'aerial-yoga-sound-healing_17oct2025',
+        category: 'workshop',
+        startDate: '2025-10-17',
+        endDate: '2025-10-17',
+        image: 'assets/photos/inUse/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp',
+        imageHigh: 'assets/photos/inUse/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp',
+        cardImagePosition: 'center 70%',
+        modalImagePosition: 'center 20%'
+    },
     // Aerial Yoga Photo Session, Colombia, November 2025 (Dani & Itzel)
     {
         // Unique identifier - must match the translation key in events.json

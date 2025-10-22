@@ -18,6 +18,28 @@
     }
   },
   "events": {
+    "aerial-yoga-sound-healing_10oct2025": {
+      "title": "Sanación con Sonido y Yoga Aéreo",
+      "category": "Taller",
+      "date": "10 de octubre, 2025",
+      "time": "19:00 - 20:00 PM",
+      "location": "Estudio Aguacate, Ciudad de México",
+      "shortDescription": "Sumérgete en una sesión de yoga aéreo suave y restaurativo acompañado de una profunda sesión de sanación con sonido",
+      "fullDescription": "Esta sesión única es una mezcla de movimientos curativos de yoga aéreo y terapia de sonido. Comenzaremos con una secuencia suave de posturas utilizando hamacas de seda, y hacia el final escucharás cuencos de sonido y canto de mantras en vivo mientras estás suspendido en el aire.",
+      "instructor": "Harjeet y Camila",
+      "price": "$400 MXN"
+    },
+    "aerial-yoga-sound-healing_17oct2025": {
+      "title": "Sanación con Sonido y Yoga Aéreo",
+      "category": "Taller",
+      "date": "17 de octubre, 2025",
+      "time": "19:00 - 20:00 PM",
+      "location": "Bogotá, Colombia",
+      "shortDescription": "Sumérgete en una sesión de yoga aéreo suave y restaurativo acompañado de una profunda sesión de sanación con sonido",
+      "fullDescription": "Esta sesión única es una mezcla de movimientos curativos de yoga aéreo y terapia de sonido. Comenzaremos con una secuencia suave de posturas utilizando hamacas de seda, y hacia el final escucharás cuencos de sonido y canto de mantras en vivo mientras estás suspendido en el aire.",
+      "instructor": "Harjeet y Camila",
+      "price": "$400 MXN"
+    },
     "aerial-yoga-photo_nov2025": {
       "title": "Foto de Yoga Aéreo | Día de Muertos",
       "category": "Taller",
