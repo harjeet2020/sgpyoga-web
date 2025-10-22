@@ -46,7 +46,8 @@ const eventsData = [
         // Optional: CSS object-position value for image positioning
         // Examples: 'center', 'top', 'bottom', 'top left', '50% 25%'
         // If not specified, defaults to 'center'
-        imagePosition: 'center 37%'
+        cardImagePosition: 'center 37%',
+        modalImagePosition: 'center 20%'
     },
     // Yoga Retreat, Colombia, November 2025 (Harjeet & Camila)
     {
@@ -56,7 +57,8 @@ const eventsData = [
         endDate: '2025-11-17',
         image: 'assets/photos/inUse/events/unique/yoga-retreat_nov2025-720.webp',
         imageHigh: 'assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp',
-        imagePosition: 'center top'
+        cardImagePosition: 'center top',
+        modalImagePosition: 'center 62%'
     },
      // 100-Hour Aerial Teacher Training, Mexico City, June 2025 (Camila & Harjeet)
     {
@@ -66,7 +68,8 @@ const eventsData = [
         endDate: '2025-09-27',
         image: 'assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-720.webp',
         imageHigh: 'assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-1080.webp',
-        imagePosition: 'center'
+        cardImagePosition: 'center',
+        modalImagePosition: 'center 85%'
     },
     // 50-Hour Aerial Teacher Training, Colombia, November 2025 (Camila & Harjeet)
     {
@@ -76,7 +79,8 @@ const eventsData = [
         endDate: '2025-12-14',
         image: 'assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-720.webp',
         imageHigh: 'assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-1080.webp',
-        imagePosition: 'center'
+        cardImagePosition: 'center',
+        modalImagePosition: 'center 85%'
     }
     
     // Add more events here following the same pattern
@@ -87,7 +91,8 @@ const eventsData = [
     //     startDate: '2025-12-15',
     //     endDate: '2025-12-15',
     //     image: 'assets/photos/inUse/events/my-custom-event.webp',
-    //     imagePosition: 'top center'
+    //     cardImagePosition: 'center',
+    //     modalImagePosition: 'center'
     // }
 ];
 
