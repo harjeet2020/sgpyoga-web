@@ -28,6 +28,12 @@ const eventsData = [
         // This determines filtering and badge styling
         category: 'workshop',
         
+        // Event dates in ISO format (YYYY-MM-DD)
+        // For single-day events, startDate and endDate are the same
+        // For multi-day events, use first and last day
+        startDate: '2025-11-01',
+        endDate: '2025-11-01',
+        
         // Image path for the event card
         // Can be unique per event or use category defaults
         image: 'assets/photos/inUse/events/workshops-720.webp',
@@ -38,12 +44,16 @@ const eventsData = [
     {
         id: 'event2',
         category: 'retreat',
+        startDate: '2025-11-14',
+        endDate: '2025-11-17',
         image: 'assets/photos/inUse/events/retreats-720.webp',
         imageHigh: 'assets/photos/inUse/events/retreats-1080.webp'
     },
     {
         id: 'event3',
         category: 'training',
+        startDate: '2025-11-08',
+        endDate: '2025-12-14',
         image: 'assets/photos/inUse/events/teacher-trainings-720.webp',
         imageHigh: 'assets/photos/inUse/events/teacher-trainings-1080.webp'
     }
@@ -53,6 +63,8 @@ const eventsData = [
     // {
     //     id: 'event4',
     //     category: 'workshop',
+    //     startDate: '2025-12-15',
+    //     endDate: '2025-12-15',
     //     image: 'assets/photos/inUse/events/my-custom-event.webp'
     // }
 ];
@@ -80,8 +92,9 @@ const categoryDefaults = {
 };
 
 // =============================================================================
-// HELPER FUNCTION
+// HELPER FUNCTIONS
 // =============================================================================
+
 /**
  * Purpose: Get the image path for an event, with fallback to category default
  * 
@@ -100,4 +113,39 @@ function getEventImage(event, highRes = false) {
     // Otherwise fall back to category default
     const defaults = categoryDefaults[event.category];
     return defaults ? defaults[imageKey] : categoryDefaults.workshop[imageKey];
+}
+
+/**
+ * Purpose: Determine if an event is in the past
+ * An event is considered past if its end date has passed
+ * 
+ * @param {object} event - Event object from eventsData
+ * @returns {boolean} True if event has ended
+ */
+function isPastEvent(event) {
+    if (!event.endDate) return false;
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
+    
+    const eventEndDate = new Date(event.endDate);
+    eventEndDate.setHours(0, 0, 0, 0);
+    
+    return eventEndDate < today;
+}
+
+/**
+ * Purpose: Sort events by date
+ * 
+ * @param {Array} events - Array of event objects
+ * @param {boolean} ascending - If true, sort earliest first. If false, latest first
+ * @returns {Array} Sorted array of events
+ */
+function sortEventsByDate(events, ascending = true) {
+    return [...events].sort((a, b) => {
+        const dateA = new Date(a.startDate);
+        const dateB = new Date(b.startDate);
+        
+        return ascending ? dateA - dateB : dateB - dateA;
+    });
 }

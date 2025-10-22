@@ -11,6 +11,10 @@
       "workshop": "Workshops",
       "retreat": "Retreats",
       "training": "Teacher Trainings"
+    },
+    "timeToggle": {
+      "showPast": "Show Past Events",
+      "showUpcoming": "Show Upcoming Events"
     }
   },
   "events": {

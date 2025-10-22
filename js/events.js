@@ -20,6 +20,17 @@ const eventData = {};
  */
 let eventsGrid;
 
+/**
+ * Purpose: Track current view state
+ */
+let currentTimeView = 'upcoming'; // 'upcoming' or 'past'
+let currentCategoryFilter = 'all'; // 'all', 'workshop', 'retreat', or 'training'
+
+/**
+ * Purpose: Reference to time toggle button
+ */
+let timeToggleBtn;
+
 // =============================================================================
 // DOM ELEMENT REFERENCES
 // =============================================================================
@@ -55,6 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set up event filtering functionality
         initializeFilters();
         
+        // Set up time toggle functionality
+        initializeTimeToggle();
+        
         // Set up modal functionality
         initializeModal();
         
@@ -77,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeDOMReferences() {
     // Filter buttons
     filterButtons = document.querySelectorAll('.filter-btn');
+    
+    // Time toggle button
+    timeToggleBtn = document.getElementById('timeToggleBtn');
     
     // Events grid container (for dynamic rendering)
     eventsGrid = document.getElementById('eventsGrid');
@@ -148,12 +165,14 @@ function waitForI18n() {
  * 
  * How it works:
  * 1. Clears existing events
- * 2. Loops through eventsData array
- * 3. Creates HTML for each event using template literals
- * 4. Fetches translations from i18n
- * 5. Inserts HTML into events grid
- * 6. Updates eventCards reference
- * 7. Reinitializes Lucide icons
+ * 2. Filters events based on time view (upcoming/past) and category
+ * 3. Sorts events by date
+ * 4. Loops through filtered events
+ * 5. Creates HTML for each event using template literals
+ * 6. Fetches translations from i18n
+ * 7. Inserts HTML into events grid
+ * 8. Updates eventCards reference
+ * 9. Reinitializes Lucide icons
  */
 function renderEvents() {
     if (!eventsGrid) {
@@ -180,15 +199,47 @@ function renderEvents() {
         return key; // Fallback to key itself
     };
     
-    // Render each event
-    eventsData.forEach(event => {
+    // Filter events based on time view (upcoming vs past)
+    let filteredEvents = eventsData.filter(event => {
+        const isPast = isPastEvent(event);
+        return currentTimeView === 'past' ? isPast : !isPast;
+    });
+    
+    // Filter by category if not 'all'
+    if (currentCategoryFilter !== 'all') {
+        filteredEvents = filteredEvents.filter(event => 
+            event.category === currentCategoryFilter
+        );
+    }
+    
+    // Sort events by date
+    // Upcoming events: earliest first (ascending)
+    // Past events: most recent first (descending)
+    const sortAscending = currentTimeView === 'upcoming';
+    filteredEvents = sortEventsByDate(filteredEvents, sortAscending);
+    
+    // If no events found, show a message
+    if (filteredEvents.length === 0) {
+        const noEventsMessage = currentTimeView === 'past' 
+            ? 'No past events found' 
+            : 'No upcoming events found';
+        eventsGrid.innerHTML = `<p class="no-events-message">${noEventsMessage}</p>`;
+        console.log(`No ${currentTimeView} events to display`);
+        return;
+    }
+    
+    // Render each filtered event
+    filteredEvents.forEach(event => {
         const eventId = event.id;
         const category = event.category;
         const imagePath = getEventImage(event, false);
         
+        // Add past-event class if viewing past events
+        const pastClass = currentTimeView === 'past' ? 'past-event' : '';
+        
         // Create event card HTML
         const eventCardHTML = `
-            <div class="event-card" data-category="${category}" data-event="${eventId}">
+            <div class="event-card ${pastClass}" data-category="${category}" data-event="${eventId}">
                 <div class="event-card-image">
                     <img src="${imagePath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy">
                     <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
@@ -222,7 +273,7 @@ function renderEvents() {
         lucide.createIcons();
     }
     
-    console.log(`Rendered ${eventsData.length} events`);
+    console.log(`Rendered ${filteredEvents.length} ${currentTimeView} events`);
 }
 
 // =============================================================================
@@ -276,6 +327,8 @@ function loadEventDataFromTranslations() {
 /**
  * Purpose: Set up event category filtering (All, Workshops, Retreats, Trainings)
  * Users can click filter buttons to show only events of a specific type
+ * 
+ * Updated: Now stores filter state and re-renders events instead of hiding/showing
  */
 function initializeFilters() {
     // Add click event to each filter button
@@ -287,8 +340,9 @@ function initializeFilters() {
             // Update active button state
             updateActiveFilter(this);
             
-            // Filter event cards based on selection
-            filterEvents(filterCategory);
+            // Update filter state and re-render
+            currentCategoryFilter = filterCategory;
+            renderEvents();
         });
     });
 }
@@ -307,32 +361,58 @@ function updateActiveFilter(activeButton) {
     activeButton.classList.add('active');
 }
 
+// =============================================================================
+// TIME TOGGLE FUNCTIONALITY
+// =============================================================================
 /**
- * Purpose: Show/hide event cards based on selected category
- * 
- * @param {string} category - The category to filter by ('all', 'workshop', 'retreat', 'training')
- * 
- * How it works:
- * - If category is 'all', show all cards
- * - Otherwise, show only cards matching the selected category
- * - Uses 'hidden' class to hide non-matching cards
+ * Purpose: Set up the past/upcoming events toggle button
+ * Allows users to switch between viewing upcoming and past events
  */
-function filterEvents(category) {
-    eventCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
+function initializeTimeToggle() {
+    if (!timeToggleBtn) {
+        console.error('Time toggle button not found');
+        return;
+    }
+    
+    timeToggleBtn.addEventListener('click', function() {
+        // Toggle between upcoming and past views
+        currentTimeView = currentTimeView === 'upcoming' ? 'past' : 'upcoming';
         
-        if (category === 'all') {
-            // Show all cards
-            card.classList.remove('hidden');
-        } else {
-            // Show only cards matching the selected category
-            if (cardCategory === category) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        }
+        // Update button text
+        updateTimeToggleButton();
+        
+        // Re-render events with new time filter
+        renderEvents();
+        
+        console.log(`Switched to ${currentTimeView} events view`);
     });
+}
+
+/**
+ * Purpose: Update the time toggle button text based on current view
+ * Button shows opposite action: "Show Past" when viewing upcoming, "Show Upcoming" when viewing past
+ */
+function updateTimeToggleButton() {
+    if (!timeToggleBtn) return;
+    
+    // Get translation function
+    const t = (key) => {
+        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+            return i18next.t(key);
+        } else if (typeof SGPi18n !== 'undefined') {
+            return SGPi18n.t(key);
+        }
+        return key;
+    };
+    
+    // Update button text and data-i18n attribute
+    if (currentTimeView === 'upcoming') {
+        timeToggleBtn.textContent = t('events:upcomingEvents.timeToggle.showPast');
+        timeToggleBtn.setAttribute('data-i18n', 'events:upcomingEvents.timeToggle.showPast');
+    } else {
+        timeToggleBtn.textContent = t('events:upcomingEvents.timeToggle.showUpcoming');
+        timeToggleBtn.setAttribute('data-i18n', 'events:upcomingEvents.timeToggle.showUpcoming');
+    }
 }
 
 // =============================================================================
@@ -485,6 +565,9 @@ document.addEventListener('languageChanged', function() {
         
         // Reload event data for modal
         loadEventDataFromTranslations();
+        
+        // Update time toggle button text
+        updateTimeToggleButton();
         
         // Re-initialize filters and modal for newly rendered cards
         initializeFilters();

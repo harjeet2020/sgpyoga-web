@@ -11,6 +11,10 @@
       "workshop": "Talleres",
       "retreat": "Retiros",
       "training": "Formación de Maestros"
+    },
+    "timeToggle": {
+      "showPast": "Mostrar Eventos Pasados",
+      "showUpcoming": "Mostrar Próximos Eventos"
     }
   },
   "events": {

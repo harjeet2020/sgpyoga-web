@@ -41,6 +41,46 @@
     padding: 100px 0 var(--spacing-xxl) 0;
 }
 
+/* Event Controls Container
+   ========================================================================== */
+/* Purpose: Container for time toggle and category filters */
+.event-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Time Toggle Button
+   ========================================================================== */
+/* Purpose: Toggle button to switch between upcoming and past events */
+.time-toggle-btn {
+    padding: var(--spacing-sm) var(--spacing-xl);
+    background-color: var(--color-accent-2);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    box-shadow: var(--shadow-sm);
+}
+
+.time-toggle-btn:hover {
+    background-color: var(--color-accent-1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.time-toggle-btn:active {
+    transform: translateY(0);
+}
+
 /* Event Category Filters
    ========================================================================== */
 /* Purpose: Pill-style filter buttons for event categories (All, Workshops, Retreats, Trainings) */
@@ -48,7 +88,6 @@
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-    margin-bottom: var(--spacing-xxl);
     flex-wrap: wrap;
 }
 
@@ -150,6 +189,37 @@
 /* Hide cards that don't match filter */
 .event-card.hidden {
     display: none;
+}
+
+/* Past Event Styling
+   ========================================================================== */
+/* Purpose: Grey out past events to visually distinguish them from upcoming events */
+.event-card.past-event {
+    opacity: 0.6;
+}
+
+.event-card.past-event:hover {
+    opacity: 0.8;
+}
+
+.event-card.past-event .event-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(31, 33, 33, 0.3);
+    pointer-events: none;
+}
+
+/* No events message */
+.no-events-message {
+    text-align: center;
+    color: var(--color-supplementary);
+    font-size: 1.1rem;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    font-style: italic;
 }
 
 /* Event Card Image Container
