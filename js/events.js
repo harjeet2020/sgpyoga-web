@@ -84,7 +84,6 @@ function initializeDOMReferences() {
         dateTime: document.getElementById('modalEventDateTime'),
         location: document.getElementById('modalEventLocation'),
         price: document.getElementById('modalEventPrice'),
-        bring: document.getElementById('modalEventBring'),
         registerBtn: document.getElementById('modalRegisterBtn')
     };
 }
@@ -116,8 +115,7 @@ function loadEventDataFromTranslations() {
                     shortDescription: i18next.t(`events:events.${eventId}.shortDescription`),
                     fullDescription: i18next.t(`events:events.${eventId}.fullDescription`),
                     instructor: i18next.t(`events:events.${eventId}.instructor`),
-                    price: i18next.t(`events:events.${eventId}.price`),
-                    whatToBring: i18next.t(`events:events.${eventId}.whatToBring`)
+                    price: i18next.t(`events:events.${eventId}.price`)
                 };
             });
             
@@ -228,6 +226,9 @@ function initializeModal() {
             closeModal();
         }
     });
+    
+    // Set up register button functionality
+    initializeRegisterButton();
 }
 
 /**
@@ -258,7 +259,6 @@ function openModal(eventId) {
     modalContent.dateTime.textContent = `${event.date} • ${event.time}`;
     modalContent.location.textContent = event.location;
     modalContent.price.textContent = event.price;
-    modalContent.bring.textContent = event.whatToBring;
     
     // Set event image based on category
     // Map event categories to appropriate images
@@ -331,22 +331,26 @@ document.addEventListener('languageChanged', function() {
 // =============================================================================
 /**
  * Purpose: Handle registration button clicks in modal
- * Currently opens email client, can be extended to link to registration form
+ * Opens WhatsApp chat with pre-filled message for event registration
  */
-if (modalContent.registerBtn) {
-    modalContent.registerBtn.addEventListener('click', function() {
-        // Get current event title from modal
-        const eventTitle = modalContent.title.textContent;
-        
-        // Open email client with pre-filled subject
-        const subject = encodeURIComponent(`Registration Inquiry: ${eventTitle}`);
-        const body = encodeURIComponent(`I would like to register for ${eventTitle}.\n\nPlease provide me with more information about registration process, availability, and payment options.\n\nThank you!`);
-        
-        window.location.href = `mailto:satgurprasaadyoga@gmail.com?subject=${subject}&body=${body}`;
-        
-        // Alternative: Open a registration form page
-        // window.open('registration-form.html?event=' + encodeURIComponent(eventTitle), '_blank');
-    });
+function initializeRegisterButton() {
+    if (modalContent.registerBtn) {
+        modalContent.registerBtn.addEventListener('click', function() {
+            // Get current event title from modal
+            const eventTitle = modalContent.title.textContent;
+            
+            // Create WhatsApp message with event details
+            const message = encodeURIComponent(`Hi! I would like to register for ${eventTitle}. Please provide me with more information about registration process, availability, and payment options. Thank you!`);
+            
+            // Open WhatsApp with pre-filled message
+            // Phone number: +52 55 3906 1305 (format for WhatsApp: 525539061305)
+            window.open(`https://wa.me/525539061305?text=${message}`, '_blank');
+            
+            console.log('Register button clicked, opening WhatsApp...');
+        });
+    } else {
+        console.error('Register button not found in modal');
+    }
 }
 
 // =============================================================================

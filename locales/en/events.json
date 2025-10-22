@@ -39,16 +39,15 @@
       "whatToBring": "Comfortable clothing for yoga and hiking, personal toiletries, journal, reusable water bottle"
     },
     "event3": {
-      "title": "200-Hour Yoga Teacher Training",
+      "title": "50-Hour Aerial Yoga Teacher Training",
       "category": "Teacher Training",
-      "date": "June 1 - July 20, 2025",
-      "time": "Weekends (Sat-Sun) 9:00 AM - 5:00 PM",
-      "location": "Roma Studio",
-      "shortDescription": "Comprehensive certification program for aspiring yoga teachers",
-      "fullDescription": "Transform your practice and life with our internationally recognized 200-hour yoga teacher training. This comprehensive program covers yoga philosophy, anatomy, teaching methodology, asana practice, meditation, and pranayama. You'll gain the skills and confidence to teach yoga classes professionally. Small group setting with personalized attention. Yoga Alliance certified.",
-      "instructor": "Harjeet, Camila & Guest Teachers",
-      "price": "$45,000 MXN (payment plans available)",
-      "whatToBring": "Yoga mat, props, notebook, anatomy book (recommendations provided), open heart and dedicated mind"
+      "date": "November 8 - December 14, 2025",
+      "time": "Weekends (Sat-Sun)",
+      "location": "La Yoguitería, Calarca, Quindío, Colombia",
+      "shortDescription": "Become an aerial yoga teacher with our specialized training program.",
+      "fullDescription": "Aerial yoga is getting increasingly popular, not only because it looks great, but also because it makes more advanced poses accessible to beginners from day 1. Our 50-Hour hybrid program is ideal for yoga teachers who want to expand their repertoire, but you can also participate as an absolute beginner. Our sessions will take place over the weekends in the beautiful Yoguitería in Calarca, Colombia. Although designed primarily as an in-person experience, this teacher training can be taken partially online - but two in-person weekends are required to obtain your Yoga Alliance certification.",
+      "instructor": "Camila & Harjeet",
+      "price": "10,000 MXN"
     },
     "event4": {
       "title": "Aerial Yoga Introduction",
