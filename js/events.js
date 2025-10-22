@@ -15,6 +15,11 @@
  */
 const eventData = {};
 
+/**
+ * Purpose: Reference to the events grid container for dynamic rendering
+ */
+let eventsGrid;
+
 // =============================================================================
 // DOM ELEMENT REFERENCES
 // =============================================================================
@@ -39,23 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cache DOM elements for performance
     initializeDOMReferences();
     
-    // Set up event filtering functionality
-    initializeFilters();
-    
-    // Set up modal functionality
-    initializeModal();
-    
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    // Load event data from translations after a small delay to ensure i18n is ready
-    setTimeout(() => {
+    // Wait for i18n to be ready, then render events and initialize features
+    waitForI18n().then(() => {
+        // Render events dynamically from eventsData.js
+        renderEvents();
+        
+        // Load full event data from translations for modal
         loadEventDataFromTranslations();
-    }, 500);
-    
-    console.log('Events page initialized successfully');
+        
+        // Set up event filtering functionality
+        initializeFilters();
+        
+        // Set up modal functionality
+        initializeModal();
+        
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        
+        console.log('Events page initialized successfully');
+    });
 });
 
 // =============================================================================
@@ -69,7 +78,10 @@ function initializeDOMReferences() {
     // Filter buttons
     filterButtons = document.querySelectorAll('.filter-btn');
     
-    // Event cards
+    // Events grid container (for dynamic rendering)
+    eventsGrid = document.getElementById('eventsGrid');
+    
+    // Event cards (will be queried after rendering)
     eventCards = document.querySelectorAll('.event-card');
     
     // Modal elements
@@ -91,62 +103,171 @@ function initializeDOMReferences() {
 }
 
 // =============================================================================
+// I18N READINESS CHECK
+// =============================================================================
+/**
+ * Purpose: Wait for i18next to be fully initialized before rendering
+ * This ensures translations are available when we create event cards
+ * 
+ * @returns {Promise} Resolves when i18n is ready
+ * 
+ * Why: We need translations to be loaded before rendering event cards,
+ * otherwise they'll show translation keys instead of actual text
+ */
+function waitForI18n() {
+    return new Promise((resolve) => {
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max wait
+        
+        const checkI18n = setInterval(() => {
+            attempts++;
+            
+            // Check if either i18next or SGPi18n is ready
+            const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
+                              (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized);
+            
+            if (i18nReady || attempts >= maxAttempts) {
+                clearInterval(checkI18n);
+                
+                if (!i18nReady) {
+                    console.warn('i18n not fully ready after timeout');
+                }
+                
+                resolve();
+            }
+        }, 100);
+    });
+}
+
+// =============================================================================
+// DYNAMIC EVENT RENDERING
+// =============================================================================
+/**
+ * Purpose: Dynamically render event cards from eventsData array
+ * This is the core function that creates HTML for all events
+ * 
+ * How it works:
+ * 1. Clears existing events
+ * 2. Loops through eventsData array
+ * 3. Creates HTML for each event using template literals
+ * 4. Fetches translations from i18n
+ * 5. Inserts HTML into events grid
+ * 6. Updates eventCards reference
+ * 7. Reinitializes Lucide icons
+ */
+function renderEvents() {
+    if (!eventsGrid) {
+        console.error('Events grid container not found');
+        return;
+    }
+    
+    // Check if eventsData exists
+    if (typeof eventsData === 'undefined' || !eventsData.length) {
+        console.error('eventsData not found or empty');
+        return;
+    }
+    
+    // Clear existing events
+    eventsGrid.innerHTML = '';
+    
+    // Get translation function
+    const t = (key) => {
+        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+            return i18next.t(key);
+        } else if (typeof SGPi18n !== 'undefined') {
+            return SGPi18n.t(key);
+        }
+        return key; // Fallback to key itself
+    };
+    
+    // Render each event
+    eventsData.forEach(event => {
+        const eventId = event.id;
+        const category = event.category;
+        const imagePath = getEventImage(event, false);
+        
+        // Create event card HTML
+        const eventCardHTML = `
+            <div class="event-card" data-category="${category}" data-event="${eventId}">
+                <div class="event-card-image">
+                    <img src="${imagePath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy">
+                    <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
+                </div>
+                <div class="event-card-content">
+                    <h3 class="event-card-title" data-i18n="events:events.${eventId}.title">${t(`events:events.${eventId}.title`)}</h3>
+                    <div class="event-card-meta">
+                        <div class="event-meta-item">
+                            <i data-lucide="calendar" class="meta-icon"></i>
+                            <span data-i18n="events:events.${eventId}.date">${t(`events:events.${eventId}.date`)}</span>
+                        </div>
+                        <div class="event-meta-item">
+                            <i data-lucide="map-pin" class="meta-icon"></i>
+                            <span data-i18n="events:events.${eventId}.location">${t(`events:events.${eventId}.location`)}</span>
+                        </div>
+                    </div>
+                    <p class="event-card-description" data-i18n="events:events.${eventId}.shortDescription">${t(`events:events.${eventId}.shortDescription`)}</p>
+                </div>
+            </div>
+        `;
+        
+        // Insert event card into grid
+        eventsGrid.insertAdjacentHTML('beforeend', eventCardHTML);
+    });
+    
+    // Update eventCards reference after rendering
+    eventCards = document.querySelectorAll('.event-card');
+    
+    // Reinitialize Lucide icons for newly rendered content
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
+    console.log(`Rendered ${eventsData.length} events`);
+}
+
+// =============================================================================
 // EVENT DATA LOADING
 // =============================================================================
 /**
  * Purpose: Load event data from i18next translations
  * This ensures we have all event details available for the modal
  * 
- * Why: The HTML only contains basic info (title, date, location).
+ * Why: Dynamically rendered cards show basic info, but modal needs complete details.
  * Full details (description, instructor, price, etc.) come from translations.
  */
 function loadEventDataFromTranslations() {
-    // Wait for i18next OR SGPi18n to be ready
-    let attempts = 0;
-    const maxAttempts = 50; // 5 seconds max wait
-    
-    const checkI18n = setInterval(() => {
-        attempts++;
-        
-        // Check if either i18next or SGPi18n is ready
-        const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
-                          (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized);
-        
-        if (i18nReady || attempts >= maxAttempts) {
-            clearInterval(checkI18n);
-            
-            if (!i18nReady) {
-                console.warn('i18n not fully ready, loading with fallback');
-            }
-            
-            // Load data for all events
-            ['event1', 'event2', 'event3'].forEach(eventId => {
-                // Try i18next first, then fall back to SGPi18n
-                const t = (key) => {
-                    if (typeof i18next !== 'undefined' && i18next.isInitialized) {
-                        return i18next.t(key);
-                    } else if (typeof SGPi18n !== 'undefined') {
-                        return SGPi18n.t(key);
-                    }
-                    return key; // Fallback to key itself
-                };
-                
-                eventData[eventId] = {
-                    title: t(`events:events.${eventId}.title`),
-                    category: t(`events:events.${eventId}.category`),
-                    date: t(`events:events.${eventId}.date`),
-                    time: t(`events:events.${eventId}.time`),
-                    location: t(`events:events.${eventId}.location`),
-                    shortDescription: t(`events:events.${eventId}.shortDescription`),
-                    fullDescription: t(`events:events.${eventId}.fullDescription`),
-                    instructor: t(`events:events.${eventId}.instructor`),
-                    price: t(`events:events.${eventId}.price`)
-                };
-            });
-            
-            console.log('Event data loaded from translations:', eventData);
+    // Get translation function
+    const t = (key) => {
+        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+            return i18next.t(key);
+        } else if (typeof SGPi18n !== 'undefined') {
+            return SGPi18n.t(key);
         }
-    }, 100);
+        return key; // Fallback to key itself
+    };
+    
+    // Load data for all events from eventsData array
+    if (typeof eventsData !== 'undefined') {
+        eventsData.forEach(event => {
+            const eventId = event.id;
+            
+            eventData[eventId] = {
+                title: t(`events:events.${eventId}.title`),
+                category: t(`events:events.${eventId}.category`),
+                date: t(`events:events.${eventId}.date`),
+                time: t(`events:events.${eventId}.time`),
+                location: t(`events:events.${eventId}.location`),
+                shortDescription: t(`events:events.${eventId}.shortDescription`),
+                fullDescription: t(`events:events.${eventId}.fullDescription`),
+                instructor: t(`events:events.${eventId}.instructor`),
+                price: t(`events:events.${eventId}.price`)
+            };
+        });
+        
+        console.log('Event data loaded from translations:', eventData);
+    } else {
+        console.error('eventsData not found');
+    }
 }
 
 // =============================================================================
@@ -285,24 +406,35 @@ function openModal(eventId) {
     modalContent.location.textContent = event.location;
     modalContent.price.textContent = event.price;
     
-    // Set event image based on category
-    // Map event categories to appropriate images
+    // Set event image based on eventsData configuration
     const eventCard = document.querySelector(`[data-event="${eventId}"]`);
     const category = eventCard.getAttribute('data-category');
-    let imagePath = '';
     
-    switch(category) {
-        case 'workshop':
-            imagePath = 'assets/photos/inUse/events/workshops-720.webp';
-            break;
-        case 'retreat':
-            imagePath = 'assets/photos/inUse/events/retreats-720.webp';
-            break;
-        case 'training':
-            imagePath = 'assets/photos/inUse/events/teacher-trainings-720.webp';
-            break;
-        default:
-            imagePath = 'assets/photos/inUse/events/workshops-720.webp';
+    // Find the event in eventsData to get its image
+    let imagePath = '';
+    if (typeof eventsData !== 'undefined') {
+        const eventConfig = eventsData.find(e => e.id === eventId);
+        if (eventConfig) {
+            // Use high-res image for modal if available
+            imagePath = getEventImage(eventConfig, true);
+        }
+    }
+    
+    // Fallback to category default if no image found
+    if (!imagePath) {
+        switch(category) {
+            case 'workshop':
+                imagePath = 'assets/photos/inUse/events/workshops-1080.webp';
+                break;
+            case 'retreat':
+                imagePath = 'assets/photos/inUse/events/retreats-1080.webp';
+                break;
+            case 'training':
+                imagePath = 'assets/photos/inUse/events/teacher-trainings-1080.webp';
+                break;
+            default:
+                imagePath = 'assets/photos/inUse/events/workshops-1080.webp';
+        }
     }
     
     modalContent.image.src = imagePath;
@@ -338,16 +470,27 @@ function closeModal() {
 // LANGUAGE CHANGE HANDLING
 // =============================================================================
 /**
- * Purpose: Reload event data when language changes
- * This ensures modal displays correct language after user switches languages
+ * Purpose: Re-render events and reload data when language changes
+ * This ensures everything displays in the correct language after user switches languages
  * 
- * Why: When user changes language, all i18next translations update,
- * but our cached eventData needs to be refreshed with new language
+ * Why: When user changes language, we need to:
+ * 1. Re-render all event cards with new translations
+ * 2. Reload eventData for modal with new translations
  */
 document.addEventListener('languageChanged', function() {
     // Wait a moment for translations to fully update
     setTimeout(() => {
+        // Re-render events with new language
+        renderEvents();
+        
+        // Reload event data for modal
         loadEventDataFromTranslations();
+        
+        // Re-initialize filters and modal for newly rendered cards
+        initializeFilters();
+        initializeModal();
+        
+        console.log('Events re-rendered for language change');
     }, 100);
 });
 
