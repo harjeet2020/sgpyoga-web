@@ -58,7 +58,7 @@
     padding: var(--spacing-sm) var(--spacing-xl);
     background-color: white;
     color: var(--color-primary);
-    border: 2px solid var(--color-primary);
+    border: 1.5px solid var(--color-primary);
     border-radius: 25px;
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -275,8 +275,8 @@
     flex-direction: row;
     gap: 0; /* No gap for seamless effect */
     width: 100%;
-    height: 65vh; /* Full viewport height for impactful visual */
-    min-height: 600px; /* Ensure tiles are tall enough */
+    height: 70vh; /* Full viewport height for impactful visual */
+    min-height: 400px; /* Ensure tiles are tall enough */
 }
 
 /* Individual Event Type Tile
@@ -293,7 +293,7 @@
 
 /* Hover state: Expand the hovered tile to double width */
 .event-type-tile:hover {
-    flex: 2 1 0; /* Stretched state: 2fr */
+    flex: 1.4 1 0; /* Stretched state: 1.4fr */
 }
 
 /* Background Image
