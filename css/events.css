@@ -43,42 +43,47 @@
 
 /* Event Controls Container
    ========================================================================== */
-/* Purpose: Container for time toggle and category filters */
+/* Purpose: Container for time toggle and category filters in one horizontal line */
 .event-controls {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: var(--spacing-lg);
+    justify-content: center;
+    gap: var(--spacing-xxl);
     margin-bottom: var(--spacing-xxl);
+    flex-wrap: wrap;
 }
 
 /* Time Toggle Button
    ========================================================================== */
-/* Purpose: Toggle button to switch between upcoming and past events */
+/* Purpose: Toggle button to switch between upcoming and past events
+   Styled as a distinct rectangular button with subtle rounded corners */
 .time-toggle-btn {
-    padding: var(--spacing-sm) var(--spacing-xl);
-    background-color: var(--color-accent-2);
+    padding: 10px 22px;
+    background-color: var(--color-primary);
     color: white;
-    border: none;
-    border-radius: 25px;
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
     transition: all var(--transition-normal);
-    text-transform: capitalize;
     letter-spacing: 0.02em;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 .time-toggle-btn:hover {
-    background-color: var(--color-accent-1);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    background-color: var(--color-supplementary);
+    border-color: var(--color-supplementary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .time-toggle-btn:active {
     transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Event Category Filters
@@ -86,7 +91,7 @@
 /* Purpose: Pill-style filter buttons for event categories (All, Workshops, Retreats, Trainings) */
 .event-filters {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--spacing-md);
     flex-wrap: wrap;
 }
