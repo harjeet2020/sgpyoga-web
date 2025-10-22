@@ -20,6 +20,7 @@
 // =============================================================================
 
 const eventsData = [
+    // Aerial Yoga Photo Session, Colombia, November 2025 (Dani & Itzel)
     {
         // Unique identifier - must match the translation key in events.json
         // Format: {event-name}_{shortdate} for clarity and uniqueness
@@ -47,6 +48,7 @@ const eventsData = [
         // If not specified, defaults to 'center'
         imagePosition: 'center 37%'
     },
+    // Yoga Retreat, Colombia, November 2025 (Harjeet & Camila)
     {
         id: 'yoga-retreat_nov2025',
         category: 'retreat',
@@ -56,6 +58,17 @@ const eventsData = [
         imageHigh: 'assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp',
         imagePosition: 'center top'
     },
+     // 100-Hour Aerial Teacher Training, Mexico City, June 2025 (Camila & Harjeet)
+    {
+        id: 'aerial-teacher-training_jun2025',
+        category: 'training',
+        startDate: '2025-06-21',
+        endDate: '2025-09-27',
+        image: 'assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-720.webp',
+        imageHigh: 'assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-1080.webp',
+        imagePosition: 'center'
+    },
+    // 50-Hour Aerial Teacher Training, Colombia, November 2025 (Camila & Harjeet)
     {
         id: 'aerial-teacher-training_nov2025',
         category: 'training',
