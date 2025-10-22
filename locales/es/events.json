@@ -15,28 +15,26 @@
   },
   "events": {
     "event1": {
-      "title": "Fundamentos de Respiración",
+      "title": "Foto de Yoga Aéreo | Día de Muertos",
       "category": "Taller",
-      "date": "15 de marzo, 2025",
-      "time": "10:00 AM - 1:00 PM",
-      "location": "Estudio Roma",
-      "shortDescription": "Aprende técnicas ancestrales de respiración para calmar la mente y energizar el cuerpo",
-      "fullDescription": "Descubre el poder transformador de la respiración consciente en este taller integral. Aprenderás técnicas de pranayama de diversas tradiciones del yoga, comprenderás la ciencia detrás del trabajo respiratorio y experimentarás prácticas guiadas que reducen el estrés, aumentan la energía y promueven una relajación profunda. Adecuado para todos los niveles.",
-      "instructor": "Harjeet",
-      "price": "$800 MXN",
-      "whatToBring": "Ropa cómoda, tapete de yoga, botella de agua, diario"
+      "date": "1 de noviembre, 2025",
+      "time": "10:00 - 11:00 AM",
+      "location": "Estudio Aguacate",
+      "shortDescription": "Practica yoga en el aire mientras un fotógrafo profesional captura el momento.",
+      "fullDescription": "En esta sesión especial de yoga del día de muertos tendrás la oportunidad de que te tomen fotos profesionales mientras practicas yoga en el aire, suspendido en hamacas de seda. Aparte de eso, será una clase como de costumbre.",
+      "instructor": "Dani e Itzel",
+      "price": "$400 MXN"
     },
     "event2": {
-      "title": "Escape de Fin de Semana a la Montaña",
+      "title": "Inmersión de Yoga y Naturaleza",
       "category": "Retiro",
-      "date": "20-22 de abril, 2025",
-      "time": "Viernes 5:00 PM - Domingo 4:00 PM",
-      "location": "Valle de Bravo",
-      "shortDescription": "Retiro de tres días combinando yoga, meditación e inmersión en la naturaleza",
-      "fullDescription": "Escapa de la ciudad y reconecta contigo mismo en las impresionantes montañas de Valle de Bravo. Este retiro de fin de semana incluye sesiones diarias de yoga, meditaciones guiadas, senderismo, comidas vegetarianas nutritivas y mucho tiempo para descansar y reflexionar. Alojamiento incluido en un hermoso eco-lodge con vistas a la montaña.",
+      "date": "14-17 de noviembre, 2025",
+      "time": "4 Días Completos",
+      "location": "Salento, Quindío, Colombia",
+      "shortDescription": "Un retiro de cuatro días que combina yoga, filosofía espiritual y conexión con la naturaleza.",
+      "fullDescription": "Este retiro de propósito general está diseñado para ayudarte a rejuvenecer y recuperar la armonía a través del Vinyasa y Kundalini Yoga. Nuestro espacio en Salento es verdaderamente especial; tendremos varias caminatas a cimas de montañas, lagos y cascadas. También cubriremos los principios teóricos detrás del yoga y la espiritualidad, tocaremos el conocimiento del calendario maya y nos conectaremos a través de círculos de compartir y otras actividades. La comida y el alojamiento están incluidos, pero el transporte al lugar del retiro corre por tu cuenta. Para aquellos que quieran conocer un poco de Colombia, es posible extender el retiro por 1 día para un viaje al Valle de Cócora por 1,000 MXN adicionales.",
       "instructor": "Harjeet y Camila",
-      "price": "$8,500 MXN (todo incluido)",
-      "whatToBring": "Ropa cómoda para yoga y senderismo, artículos de higiene personal, diario, botella de agua reutilizable"
+      "price": "$8,000 MXN"
     },
     "event3": {
       "title": "Formación de Maestros de Yoga Aéreo 50 Horas",
