@@ -39,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cache DOM elements for performance
     initializeDOMReferences();
     
-    // Load event data from translations after i18n is ready
-    loadEventDataFromTranslations();
-    
     // Set up event filtering functionality
     initializeFilters();
     
@@ -52,6 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+    
+    // Load event data from translations after a small delay to ensure i18n is ready
+    setTimeout(() => {
+        loadEventDataFromTranslations();
+    }, 500);
     
     console.log('Events page initialized successfully');
 });
@@ -99,27 +101,50 @@ function initializeDOMReferences() {
  * Full details (description, instructor, price, etc.) come from translations.
  */
 function loadEventDataFromTranslations() {
-    // Wait for i18next to be ready
+    // Wait for i18next OR SGPi18n to be ready
+    let attempts = 0;
+    const maxAttempts = 50; // 5 seconds max wait
+    
     const checkI18n = setInterval(() => {
-        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+        attempts++;
+        
+        // Check if either i18next or SGPi18n is ready
+        const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
+                          (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized);
+        
+        if (i18nReady || attempts >= maxAttempts) {
             clearInterval(checkI18n);
+            
+            if (!i18nReady) {
+                console.warn('i18n not fully ready, loading with fallback');
+            }
             
             // Load data for all 5 events
             ['event1', 'event2', 'event3', 'event4', 'event5'].forEach(eventId => {
+                // Try i18next first, then fall back to SGPi18n
+                const t = (key) => {
+                    if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+                        return i18next.t(key);
+                    } else if (typeof SGPi18n !== 'undefined') {
+                        return SGPi18n.t(key);
+                    }
+                    return key; // Fallback to key itself
+                };
+                
                 eventData[eventId] = {
-                    title: i18next.t(`events:events.${eventId}.title`),
-                    category: i18next.t(`events:events.${eventId}.category`),
-                    date: i18next.t(`events:events.${eventId}.date`),
-                    time: i18next.t(`events:events.${eventId}.time`),
-                    location: i18next.t(`events:events.${eventId}.location`),
-                    shortDescription: i18next.t(`events:events.${eventId}.shortDescription`),
-                    fullDescription: i18next.t(`events:events.${eventId}.fullDescription`),
-                    instructor: i18next.t(`events:events.${eventId}.instructor`),
-                    price: i18next.t(`events:events.${eventId}.price`)
+                    title: t(`events:events.${eventId}.title`),
+                    category: t(`events:events.${eventId}.category`),
+                    date: t(`events:events.${eventId}.date`),
+                    time: t(`events:events.${eventId}.time`),
+                    location: t(`events:events.${eventId}.location`),
+                    shortDescription: t(`events:events.${eventId}.shortDescription`),
+                    fullDescription: t(`events:events.${eventId}.fullDescription`),
+                    instructor: t(`events:events.${eventId}.instructor`),
+                    price: t(`events:events.${eventId}.price`)
                 };
             });
             
-            console.log('Event data loaded from translations');
+            console.log('Event data loaded from translations:', eventData);
         }
     }, 100);
 }
