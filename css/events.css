@@ -587,31 +587,94 @@
 
 /* Modal Info Grid
    ========================================================================== */
-/* Purpose: 2x2 grid displaying key event details (instructor, date/time, location, price) */
+/* Purpose: Icon-enhanced cards displaying key event details (instructor, date/time, location, price) */
 .modal-info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xxl);
+}
+
+/* Individual Info Card */
+.modal-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
     padding: var(--spacing-lg);
-    background-color: var(--color-secondary);
+    background-color: white;
+    border: 1.5px solid rgba(64, 104, 154, 0.15);
     border-radius: var(--border-radius-md);
+    transition: all var(--transition-normal);
+}
+
+.modal-info-item:hover {
+    border-color: var(--color-accent-1);
+    box-shadow: 0 4px 12px rgba(64, 104, 154, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Icon Container */
+.modal-info-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-circle);
+    flex-shrink: 0;
+}
+
+/* Different background colors for each icon type */
+.modal-info-item:nth-child(1) .modal-info-icon {
+    background-color: rgba(160, 103, 137, 0.1); /* Instructor - Violet tint */
+    color: var(--color-accent-2);
+}
+
+.modal-info-item:nth-child(2) .modal-info-icon {
+    background-color: rgba(64, 104, 154, 0.1); /* Date - Blue tint */
+    color: var(--color-accent-1);
+}
+
+.modal-info-item:nth-child(3) .modal-info-icon {
+    background-color: rgba(64, 104, 154, 0.1); /* Location - Blue tint */
+    color: var(--color-accent-1);
+}
+
+.modal-info-item:nth-child(4) .modal-info-icon {
+    background-color: rgba(160, 103, 137, 0.1); /* Price - Violet tint */
+    color: var(--color-accent-2);
+}
+
+.modal-info-icon i {
+    width: 22px;
+    height: 22px;
+}
+
+/* Text Container */
+.modal-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    flex: 1;
 }
 
 .modal-info-item h4 {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: var(--font-body);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent-1);
-    margin-bottom: var(--spacing-xs);
+    color: var(--color-supplementary);
+    margin: 0;
 }
 
 .modal-info-item p {
     font-size: 1rem;
+    font-weight: 500;
     color: var(--color-primary);
     margin: 0;
+    line-height: 1.4;
 }
 
 /* Modal "What to Bring" Section

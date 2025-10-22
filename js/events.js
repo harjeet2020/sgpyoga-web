@@ -508,7 +508,8 @@ function openModal(eventId) {
     modalContent.badge.textContent = event.category;
     modalContent.description.textContent = event.fullDescription;
     modalContent.instructor.textContent = event.instructor;
-    modalContent.dateTime.textContent = `${event.date} • ${event.time}`;
+    // Display date and time on separate lines
+    modalContent.dateTime.innerHTML = `${event.date}<br>${event.time}`;
     modalContent.location.textContent = event.location;
     modalContent.price.textContent = event.price;
     
