@@ -268,6 +268,9 @@ function renderEvents() {
     // Update eventCards reference after rendering
     eventCards = document.querySelectorAll('.event-card');
     
+    // Re-attach modal click handlers to newly rendered cards
+    attachModalHandlers();
+    
     // Reinitialize Lucide icons for newly rendered content
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -423,13 +426,8 @@ function updateTimeToggleButton() {
  * Modal opens when user clicks an event card, closes via X button, overlay click, or ESC key
  */
 function initializeModal() {
-    // Add click event to each event card to open modal
-    eventCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const eventId = this.getAttribute('data-event');
-            openModal(eventId);
-        });
-    });
+    // Attach click handlers to event cards
+    attachModalHandlers();
     
     // Close modal when X button is clicked
     if (modalClose) {
@@ -455,6 +453,33 @@ function initializeModal() {
     
     // Set up register button functionality
     initializeRegisterButton();
+}
+
+/**
+ * Purpose: Attach click handlers to event cards for opening modal
+ * This function can be called multiple times after re-rendering events
+ * 
+ * Why separate function: When events are re-rendered (filter/toggle change),
+ * new DOM elements are created, so we need to re-attach click handlers
+ */
+function attachModalHandlers() {
+    // Add click event to each event card to open modal
+    eventCards.forEach(card => {
+        // Remove any existing listeners to prevent duplicates
+        // Using a named function stored as a property allows us to remove it
+        if (card.modalClickHandler) {
+            card.removeEventListener('click', card.modalClickHandler);
+        }
+        
+        // Create and store the handler function
+        card.modalClickHandler = function() {
+            const eventId = this.getAttribute('data-event');
+            openModal(eventId);
+        };
+        
+        // Attach the handler
+        card.addEventListener('click', card.modalClickHandler);
+    });
 }
 
 /**
