@@ -149,21 +149,28 @@ let searchResults = null;  // null = no search active, array = search results
 let searchDebounceTimer = null;
 
 // Load blog namespace and initialize search
-if (typeof window.SGPi18n !== 'undefined') {
-    window.SGPi18n.loadNamespacesOnDemand(['blog']).then(() => {
-        console.log('Blog namespace loaded');
-        initializeSearch();  // Initialize search first
-        initializeFilters();
-        filterPosts();
-    });
+// Wait for i18n to be ready
+function initializeBlog() {
+    if (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized) {
+        console.log('Loading blog namespace...');
+        window.SGPi18n.loadNamespacesOnDemand(['blog']).then(() => {
+            console.log('Blog namespace loaded successfully');
+            initializeSearch();
+            initializeFilters();
+            filterPosts();
+        });
+    } else {
+        // Fallback if SGPi18n is not available yet
+        console.log('Waiting for i18n initialization...');
+        setTimeout(initializeBlog, 100);
+    }
+}
+
+// Start initialization when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeBlog);
 } else {
-    // Fallback if SGPi18n is not available
-    console.log('SGPi18n not available, initializing with fallback');
-    document.addEventListener('DOMContentLoaded', () => {
-        initializeSearch();
-        initializeFilters();
-        filterPosts();
-    });
+    initializeBlog();
 }
 
 /**
