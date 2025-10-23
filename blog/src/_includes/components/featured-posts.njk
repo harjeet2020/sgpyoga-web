@@ -26,7 +26,7 @@
         </div>
 
         <!-- Slideshow Container -->
-        <div class="featured-posts-slideshow">
+        <div class="featured-posts-slideshow" id="featuredPostsSlideshow">
             <div class="featured-posts-wrapper">
                 {% for post in featuredSlides %}
                 {# Determine if this is the first slide (for eager loading) #}
@@ -125,6 +125,11 @@
                     <i data-lucide="chevron-right"></i>
                 </button>
             </div>
+        </div>
+        
+        <!-- No featured posts message (hidden by default, shown by JavaScript if needed) -->
+        <div class="no-featured-posts" id="noFeaturedPosts" style="display: none;">
+            <p data-i18n="blog:featured.noPostsAvailable">No featured posts available in your selected language.</p>
         </div>
     </div>
 </section>

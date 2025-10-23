@@ -68,7 +68,7 @@ module.exports = function(eleventyConfig) {
    * Enforces min/max limits with warnings
    */
   eleventyConfig.addCollection("featuredPosts", function(collectionApi) {
-    const MIN_FEATURED = 3;  // Minimum recommended featured posts
+    const MIN_FEATURED = 1;  // Minimum featured posts
     const MAX_FEATURED = 6;  // Maximum featured posts to display
     
     let featured = collectionApi
