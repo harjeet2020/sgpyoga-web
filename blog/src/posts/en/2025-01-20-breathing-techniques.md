@@ -2,7 +2,7 @@
 title: "Essential Breathing Techniques for Your Practice"
 description: "Learn powerful pranayama techniques to deepen your yoga practice and enhance your wellbeing."
 date: 2025-01-20
-category: "Practice Tips"
+categoryKey: general
 layout: layouts/post/standard.njk
 lang: en
 image: "/assets/photos/inUse/home/classes-1200.webp"

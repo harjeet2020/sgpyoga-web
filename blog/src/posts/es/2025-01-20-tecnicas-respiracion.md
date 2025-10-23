@@ -2,7 +2,7 @@
 title: "Técnicas Esenciales de Respiración para tu Práctica"
 description: "Aprende poderosas técnicas de pranayama para profundizar tu práctica de yoga y mejorar tu bienestar."
 date: 2025-01-20
-category: "Consejos de Práctica"
+categoryKey: general
 layout: layouts/post/standard.njk
 lang: es
 image: "/assets/photos/inUse/home/classes-1200.webp"

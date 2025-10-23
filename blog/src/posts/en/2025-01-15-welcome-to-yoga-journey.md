@@ -2,7 +2,7 @@
 title: "Welcome to Our Yoga Journey"
 description: "Discover the transformative power of yoga and begin your journey toward balance, peace, and self-discovery in Mexico City."
 date: 2025-01-15
-category: "Philosophy"
+categoryKey: spirituality
 layout: layouts/post/standard.njk
 lang: en
 tags: ["yoga", "philosophy", "mindfulness"]

@@ -2,7 +2,7 @@
 title: "Bienvenidos a Nuestro Viaje de Yoga"
 description: "Descubre el poder transformador del yoga y comienza tu camino hacia el equilibrio, la paz y el autodescubrimiento en la Ciudad de México."
 date: 2025-01-15
-category: "Filosofía"
+categoryKey: spirituality
 layout: layouts/post/standard.njk
 lang: es
 tags: ["yoga", "filosofía", "mindfulness"]

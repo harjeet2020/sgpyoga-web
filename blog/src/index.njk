@@ -16,13 +16,21 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
         {# Language selector or filter could go here #}
         
         <section class="posts-section">
-            <h2 data-i18n="blog:index.recentPosts">Recent Posts</h2>
+            <h2 data-i18n="blog:index.allPosts">All Posts</h2>
+            
+            {# Category Filter Pills #}
+            <div class="blog-filters">
+                <button class="filter-btn active" data-filter="all" data-i18n="blog:categories.all">All Posts</button>
+                <button class="filter-btn" data-filter="general" data-i18n="blog:categories.general">General</button>
+                <button class="filter-btn" data-filter="announcements" data-i18n="blog:categories.announcements">Announcements</button>
+                <button class="filter-btn" data-filter="spirituality" data-i18n="blog:categories.spirituality">Spirituality</button>
+            </div>
             
             {# Display all posts from both languages, sorted by date #}
-            {# JavaScript will filter by current language #}
+            {# JavaScript will filter by current language and category #}
             <div class="posts-grid">
                 {% for post in collections.allPosts %}
-                <article class="post-card" data-lang="{{ post.data.lang }}">
+                <article class="post-card" data-lang="{{ post.data.lang }}" data-category="{{ post.data.categoryKey or 'general' }}">
                     <a href="{{ post.url | url }}" class="post-card-link">
                         {% if post.data.image %}
                         <div class="post-card-image">
@@ -39,8 +47,8 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
                                         {{ post.date | readableDate }}
                                     {% endif %}
                                 </time>
-                                {% if post.data.category %}
-                                    <span class="post-card-category">{{ post.data.category }}</span>
+                                {% if post.data.categoryKey %}
+                                    <span class="post-card-category" data-i18n="blog:categories.{{ post.data.categoryKey }}">{{ post.data.categoryKey | capitalize }}</span>
                                 {% endif %}
                                 {% if post.data.lang %}
                                     <span class="post-card-lang">{{ post.data.lang | upper }}</span>
@@ -102,24 +110,50 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
 
 <script>
 /**
- * Blog Index - Language Filtering
- * Filters posts based on the currently selected language from i18next
+ * Blog Index - Language & Category Filtering
+ * Filters posts based on currently selected language and category
  */
+
+// Global state for active category filter
+let currentCategoryFilter = 'all';
 
 // Load blog namespace on page load
 if (typeof window.SGPi18n !== 'undefined') {
     window.SGPi18n.loadNamespacesOnDemand(['blog']).then(() => {
         console.log('Blog namespace loaded');
-        filterPostsByLanguage();
+        initializeFilters();
+        filterPosts();
     });
 }
 
-// Wait for i18next to be initialized
-function filterPostsByLanguage() {
+/**
+ * Initialize category filter button event listeners
+ */
+function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button styling
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update current filter and re-filter posts
+            currentCategoryFilter = this.getAttribute('data-filter');
+            console.log('Category filter changed to:', currentCategoryFilter);
+            filterPosts();
+        });
+    });
+}
+
+/**
+ * Main filtering function - filters by both language AND category
+ */
+function filterPosts() {
     // Get current language from i18next (falls back to 'en' if not ready)
     const currentLang = (typeof i18next !== 'undefined' && i18next.language) ? i18next.language : 'en';
     
-    console.log('Filtering blog posts for language:', currentLang);
+    console.log(`Filtering posts: language=${currentLang}, category=${currentCategoryFilter}`);
     
     // Get all post cards
     const postCards = document.querySelectorAll('.post-card');
@@ -127,11 +161,16 @@ function filterPostsByLanguage() {
     
     let visibleCount = 0;
     
-    // Show/hide posts based on language
+    // Show/hide posts based on language AND category
     postCards.forEach(card => {
         const cardLang = card.getAttribute('data-lang');
+        const cardCategory = card.getAttribute('data-category');
         
-        if (cardLang === currentLang) {
+        // Post is visible if it matches language AND (category is 'all' OR matches selected category)
+        const matchesLanguage = (cardLang === currentLang);
+        const matchesCategory = (currentCategoryFilter === 'all' || cardCategory === currentCategoryFilter);
+        
+        if (matchesLanguage && matchesCategory) {
             card.style.display = '';
             visibleCount++;
         } else {
@@ -139,7 +178,7 @@ function filterPostsByLanguage() {
         }
     });
     
-    // Show message if no posts in current language
+    // Show message if no posts match current filters
     let noPostsMessage = document.querySelector('.no-posts-message');
     
     if (visibleCount === 0) {
@@ -148,10 +187,21 @@ function filterPostsByLanguage() {
             noPostsMessage.className = 'no-posts-message';
             noPostsMessage.style.cssText = 'grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--color-supplementary);';
             
-            if (currentLang === 'es') {
-                noPostsMessage.innerHTML = '<p>No hay publicaciones disponibles en español en este momento.</p><p><a href="#" onclick="switchLanguage(\'en\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en inglés</a></p>';
+            // Create appropriate message based on filters
+            if (currentCategoryFilter === 'all') {
+                // Only language filter is active
+                if (currentLang === 'es') {
+                    noPostsMessage.innerHTML = '<p>No hay publicaciones disponibles en español en este momento.</p><p><a href="#" onclick="switchLanguage(\'en\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en inglés</a></p>';
+                } else {
+                    noPostsMessage.innerHTML = '<p>No posts available in English at this time.</p><p><a href="#" onclick="switchLanguage(\'es\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en español</a></p>';
+                }
             } else {
-                noPostsMessage.innerHTML = '<p>No posts available in English at this time.</p><p><a href="#" onclick="switchLanguage(\'es\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en español</a></p>';
+                // Both filters are active
+                if (currentLang === 'es') {
+                    noPostsMessage.innerHTML = '<p>No hay publicaciones en esta categoría.</p><p><a href="#" onclick="resetFilters(); return false;" style="color: var(--color-accent-1);">Ver todas las publicaciones</a></p>';
+                } else {
+                    noPostsMessage.innerHTML = '<p>No posts in this category.</p><p><a href="#" onclick="resetFilters(); return false;" style="color: var(--color-accent-1);">View all posts</a></p>';
+                }
             }
             
             postsGrid.appendChild(noPostsMessage);
@@ -162,14 +212,37 @@ function filterPostsByLanguage() {
         }
     }
     
-    console.log(`Showing ${visibleCount} posts in ${currentLang}`);
+    console.log(`Showing ${visibleCount} posts (language: ${currentLang}, category: ${currentCategoryFilter})`);
 }
 
-// Helper function to switch language (works with navbar language selector)
+/**
+ * Reset all filters to default state
+ */
+function resetFilters() {
+    // Reset category filter to 'all'
+    currentCategoryFilter = 'all';
+    
+    // Update active button styling
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === 'all') {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Re-filter posts
+    filterPosts();
+}
+
+/**
+ * Helper function to switch language (works with navbar language selector)
+ */
 function switchLanguage(lang) {
     if (typeof i18next !== 'undefined') {
         i18next.changeLanguage(lang, () => {
-            filterPostsByLanguage();
+            filterPosts();
         });
     }
 }
@@ -178,23 +251,32 @@ function switchLanguage(lang) {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         // Wait a bit for i18next to initialize
-        setTimeout(filterPostsByLanguage, 100);
+        setTimeout(() => {
+            initializeFilters();
+            filterPosts();
+        }, 100);
     });
 } else {
     // DOM already loaded
-    setTimeout(filterPostsByLanguage, 100);
+    setTimeout(() => {
+        initializeFilters();
+        filterPosts();
+    }, 100);
 }
 
 // Listen for language changes from navbar
 if (typeof i18next !== 'undefined') {
     i18next.on('languageChanged', (lng) => {
         console.log('Language changed to:', lng);
-        filterPostsByLanguage();
+        filterPosts();
     });
 }
 
 // Also filter when i18next finishes initializing
-window.addEventListener('i18nextInitialized', filterPostsByLanguage);
+window.addEventListener('i18nextInitialized', () => {
+    initializeFilters();
+    filterPosts();
+});
 </script>
 
 {# JavaScript for featured posts slideshow #}
