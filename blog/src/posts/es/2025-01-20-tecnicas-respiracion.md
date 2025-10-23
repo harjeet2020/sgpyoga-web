@@ -9,6 +9,13 @@ image: "/assets/photos/inUse/home/classes-1200.webp"
 imageAlt: "Practicante de yoga demostrando técnica de respiración"
 imageCaption: "El control adecuado de la respiración es la base de la práctica de yoga"
 tags: ["pranayama", "respiración", "técnica"]
+
+# Featured post configuration
+featured: true
+featuredOrder: 2
+featuredImage: "/assets/photos/inUse/home/classes-1200.webp"
+featuredImageLow: "/assets/photos/inUse/home/classes-720.webp"
+featuredImageAlt: "Practicante de yoga demostrando técnica de respiración"
 ---
 
 La respiración es el puente entre el cuerpo y la mente. En yoga, llamamos al trabajo respiratorio **pranayama** – la práctica de controlar la fuerza vital (prana) a través de la respiración consciente.

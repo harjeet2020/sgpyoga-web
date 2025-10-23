@@ -9,6 +9,13 @@ image: "/assets/photos/inUse/home/classes-1200.webp"
 imageAlt: "Yoga practitioner demonstrating breathing technique"
 imageCaption: "Proper breath control is the foundation of yoga practice"
 tags: ["pranayama", "breathing", "technique"]
+
+# Featured post configuration
+featured: true
+featuredOrder: 2
+featuredImage: "/assets/photos/inUse/home/classes-1200.webp"
+featuredImageLow: "/assets/photos/inUse/home/classes-720.webp"
+featuredImageAlt: "Yoga practitioner demonstrating breathing technique"
 ---
 
 Breath is the bridge between body and mind. In yoga, we call breathwork **pranayama** – the practice of controlling the life force (prana) through conscious breathing.

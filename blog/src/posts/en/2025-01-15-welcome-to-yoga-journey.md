@@ -6,6 +6,13 @@ category: "Philosophy"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["yoga", "philosophy", "mindfulness"]
+
+# Featured post configuration
+featured: true
+featuredOrder: 1
+featuredImage: "/assets/photos/inUse/home/hero-1920.webp"
+featuredImageLow: "/assets/photos/inUse/home/hero-1280.webp"
+featuredImageAlt: "Person meditating in peaceful yoga studio in Mexico City"
 ---
 
 Welcome to the SGP Yoga blog! We're thrilled to have you join us on this journey of self-discovery, mindfulness, and holistic wellness.

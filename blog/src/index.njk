@@ -4,13 +4,15 @@ title: "Blog"
 description: "Read our latest insights on yoga practice, philosophy, and community"
 ---
 
-<div class="blog-index">
-    <div class="container">
-        <header class="index-header">
-            <h1 data-i18n="blog:index.title">SGP Yoga Blog</h1>
-            <p data-i18n="blog:index.subtitle">Insights on yoga practice, philosophy, and community in Mexico City</p>
-        </header>
+{# Additional CSS for featured posts #}
+<link rel="stylesheet" href="/css/blog-featured.css">
 
+<div class="blog-index">
+    {# Featured Posts Slideshow Section #}
+    {% include "components/featured-posts.njk" %}
+    
+    {# Main Blog Content #}
+    <div class="container">
         {# Language selector or filter could go here #}
         
         <section class="posts-section">
@@ -195,20 +197,23 @@ if (typeof i18next !== 'undefined') {
 window.addEventListener('i18nextInitialized', filterPostsByLanguage);
 </script>
 
+{# JavaScript for featured posts slideshow #}
+<script src="/js/blog-featured.js"></script>
+
+{# Re-initialize Lucide icons for dynamically added elements #}
+<script>
+    // Re-initialize Lucide icons after slideshow loads
+    if (typeof lucide !== 'undefined') {
+        setTimeout(() => {
+            lucide.createIcons();
+        }, 100);
+    }
+</script>
+
 <style>
     /* Temporary inline styles - will move to blog.css later */
     .blog-index {
-        padding: 2rem 0;
-    }
-    
-    .index-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    
-    .index-header h1 {
-        font-size: 3rem;
-        margin-bottom: 0.5rem;
+        padding: 0;
     }
     
     .posts-grid {

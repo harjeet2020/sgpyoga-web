@@ -1,0 +1,477 @@
+/* ==========================================================================
+   SGP YOGA - BLOG FEATURED POSTS SLIDESHOW STYLES
+   Adapted from testimonials.css for blog featured posts
+   ========================================================================== */
+
+/* Featured Posts Section Layout
+   ========================================================================== */
+.featured-posts-section {
+    background-color: var(--color-secondary);
+    padding: 0 0 var(--spacing-xxl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Header */
+.featured-posts-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.featured-posts-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.featured-posts-header p {
+    font-size: 1.125rem;
+    color: var(--color-supplementary);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Slideshow Container
+   ========================================================================== */
+.featured-posts-slideshow {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    min-height: 600px;
+}
+
+/* Slide Wrapper */
+.featured-posts-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Individual Slide - Split Screen Layout
+   ========================================================================== */
+.featured-slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.6s ease-in-out;
+    align-items: stretch;
+}
+
+.featured-slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Photo Section
+   ========================================================================== */
+.featured-photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-supplementary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-photo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.featured-photo picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.featured-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.featured-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* Content Section
+   ========================================================================== */
+.featured-content {
+    padding: var(--spacing-xl) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    position: relative;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* Category Badge */
+.featured-category {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent-1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-md);
+    padding: 0.25rem 0.75rem;
+    background: rgba(64, 104, 154, 0.1);
+    border-radius: var(--border-radius-sm);
+    width: fit-content;
+}
+
+/* Featured Title */
+.featured-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    line-height: 1.3;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.featured-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+.featured-title a:hover {
+    color: var(--color-accent-1);
+}
+
+/* Featured Description */
+.featured-description {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 300;
+}
+
+/* Featured Metadata
+   ========================================================================== */
+.featured-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--spacing-md);
+    border-top: 1.2px solid rgba(160, 103, 137, 0.2);
+    margin-bottom: var(--spacing-md);
+}
+
+.featured-meta time {
+    font-size: 0.95rem;
+    color: var(--color-supplementary);
+    font-weight: 300;
+}
+
+/* Read More Link */
+.featured-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-accent-2);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.featured-read-more:hover {
+    color: var(--color-accent-1);
+    gap: var(--spacing-sm);
+}
+
+.featured-read-more i {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--transition-normal);
+}
+
+.featured-read-more:hover i {
+    transform: translateX(4px);
+}
+
+/* Featured Tags
+   ========================================================================== */
+.featured-tags {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.featured-tag {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    background: var(--color-secondary);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-normal);
+}
+
+.featured-tag:hover {
+    background: rgba(160, 103, 137, 0.15);
+    color: var(--color-accent-2);
+}
+
+/* Navigation Controls - Sleek Minimal Design
+   ========================================================================== */
+.featured-posts-navigation {
+    position: absolute;
+    bottom: -5px;
+    left: 75%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    padding: 0;
+    z-index: 10;
+}
+
+/* Navigation Arrows */
+.nav-btn {
+    background: transparent;
+    border: none;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-primary);
+    opacity: 0.6;
+    transition: opacity var(--transition-normal);
+    outline: none;
+}
+
+.nav-btn:hover {
+    opacity: 1;
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.nav-btn:disabled:hover {
+    opacity: 0.3;
+}
+
+.nav-btn svg,
+.nav-btn i {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Dots Navigation - Minimal Round Dots */
+.featured-posts-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--border-radius-circle);
+    background-color: #c0c0c0; /* Light grey */
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    opacity: 0.4;
+    border: none;
+    padding: 0;
+}
+
+.dot.active {
+    background-color: var(--color-accent-2); /* Chinese violet for active */
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.dot:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+/* Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    .featured-posts-section {
+        padding: calc(var(--spacing-xl) / 2) 0 var(--spacing-xl) 0;
+    }
+
+    .featured-posts-header h1 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .featured-posts-header p {
+        font-size: 1rem;
+    }
+
+    .featured-posts-slideshow {
+        margin: 0 var(--spacing-md);
+        min-height: auto;
+    }
+
+    .featured-slide {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .featured-photo {
+        height: 300px;
+        order: 1;
+    }
+
+    .featured-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+        order: 2;
+    }
+
+    .featured-title {
+        font-size: 1.5rem;
+    }
+
+    .featured-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .featured-posts-navigation {
+        position: static;
+        transform: none;
+        margin-top: var(--spacing-lg);
+        gap: var(--spacing-lg);
+    }
+
+    .nav-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .nav-btn i {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-posts-section {
+        padding: calc(var(--spacing-lg) / 2) 0 var(--spacing-lg) 0;
+    }
+
+    .featured-posts-slideshow {
+        margin: 0 var(--spacing-sm);
+        border-radius: var(--border-radius-md);
+    }
+
+    .featured-posts-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .featured-posts-header p {
+        font-size: 0.95rem;
+    }
+
+    .featured-photo {
+        height: 250px;
+    }
+
+    .featured-content {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .featured-title {
+        font-size: 1.25rem;
+    }
+
+    .featured-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .featured-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .featured-posts-navigation {
+        gap: var(--spacing-md);
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-btn i {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dot {
+        width: 7px;
+        height: 7px;
+    }
+}
+
+/* Accessibility Enhancements
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .featured-slide {
+        transition: none;
+    }
+    
+    .featured-photo img {
+        transition: none;
+    }
+    
+    .nav-btn, .dot {
+        transition: none;
+    }
+}
+
+/* Focus States for Keyboard Navigation */
+.nav-btn:focus,
+.dot:focus {
+    outline: none;
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+    .featured-posts-slideshow {
+        border: 2px solid var(--color-primary);
+    }
+    
+    .featured-category {
+        border: 1px solid var(--color-accent-1);
+    }
+}
