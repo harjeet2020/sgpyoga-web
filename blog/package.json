@@ -1,0 +1,27 @@
+{
+  "name": "sgpyoga-blog",
+  "version": "1.0.0",
+  "description": "Blog system for SGP Yoga website using Eleventy",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rm -rf dist",
+    "serve": "cd .. && python3 -m http.server 8080",
+    "build:watch": "eleventy --watch"
+  },
+  "keywords": [
+    "eleventy",
+    "blog",
+    "yoga",
+    "static-site"
+  ],
+  "author": "SGP Yoga",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

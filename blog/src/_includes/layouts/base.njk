@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'en' }}" data-lang="{{ lang or 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ description or 'SGP Yoga Blog - Insights on yoga practice, philosophy, and community' }}">
+    
+    <title>{{ title }} | SGP Yoga Blog</title>
+    
+    {# Main site CSS - using copied assets from dist/ #}
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    
+    {# Lucide Icons #}
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    {# i18next for language support #}
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+<body>
+    {# Navigation Bar - Full navbar from main site #}
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="/index.html" class="navbar-brand-link">
+                <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
+                <span class="navbar-brand">SGP Yoga</span>
+            </a>
+        </div>
+        
+        <div class="navbar-center">
+            <ul class="navbar-menu">
+                <li><a href="/index.html" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
+                <li><a href="/about.html" class="navbar-link" data-i18n="common:nav.about">About</a></li>
+                <li><a href="/classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
+                <li><a href="/events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
+                <li><a href="/blog/dist/" class="navbar-link active" data-i18n="common:nav.blog">Blog</a></li>
+            </ul>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="language-selector">
+                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                    <span class="language-code" id="currentLangCode">EN</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="en">
+                        <span class="flag-circle">🇺🇸</span>
+                        <span class="language-name">English</span>
+                        <span class="language-code">(EN)</span>
+                    </div>
+                    <div class="language-option" data-lang="es">
+                        <span class="flag-circle">🇲🇽</span>
+                        <span class="language-name">Español</span>
+                        <span class="language-code">(ES)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {# Main content area - will be filled by child templates #}
+    <main class="blog-main">
+        {{ content | safe }}
+    </main>
+
+    {# Footer - Full footer from main site #}
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    {# Logo and Mission Section #}
+                    <div class="footer-column footer-logo-section">
+                        <a href="/index.html" class="footer-logo-link">
+                            <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        </a>
+                        <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
+                        <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>
+                    </div>
+
+                    {# Site Map Section #}
+                    <div class="footer-column footer-sitemap">
+                        <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
+                        <ul>
+                            <li><a href="/index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
+                            <li><a href="/about.html" data-i18n="common:footer.sitemap.about">About</a></li>
+                            <li><a href="/classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
+                            <li><a href="/events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
+                            <li><a href="/blog/dist/" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    {# Bottom Row: Contact and Social #}
+                    <div class="footer-bottom-row">
+                        {# Contact Section #}
+                        <div class="footer-column footer-contact">
+                            <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
+                            <div class="footer-contact-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.email">Email</span>:
+                                    <a href="mailto:satgurprasaadyoga@gmail.com" data-i18n="common:footer.contact.emailValue">satgurprasaadyoga@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="phone"></i>
+                                <div>
+                                    <span data-i18n="common:footer.contact.phone">Phone</span>:
+                                    <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# Social Media Section #}
+                        <div class="footer-column footer-social">
+                            <h3 data-i18n="common:footer.social.title">Follow Us</h3>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" data-i18n-aria-label="common:footer.social.facebook">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" data-i18n-aria-label="common:footer.social.instagram">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" data-i18n-aria-label="common:footer.social.youtube">
+                                    <i data-lucide="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# Copyright Bar #}
+            <div class="footer-copyright">
+                <p data-i18n="common:footer.copyright">© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    {# JavaScript Files #}
+    <script src="/js/i18n.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/blog-search.js"></script>
+    
+    {# Initialize Lucide icons #}
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

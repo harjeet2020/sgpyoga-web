@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=/blog/dist/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Blog...</title>
+    <style>
+        body {
+            font-family: 'Lato Light', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffeddf;
+            color: #1f2121;
+        }
+        .message {
+            text-align: center;
+        }
+        .message h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .message a {
+            color: #40689a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .message a:hover {
+            color: #a06789;
+        }
+    </style>
+    <script>
+        // Immediate redirect in case meta refresh doesn't work
+        window.location.href = '/blog/dist/';
+    </script>
+</head>
+<body>
+    <div class="message">
+        <h1>Redirecting to Blog...</h1>
+        <p>If you are not redirected automatically, <a href="/blog/dist/">click here</a>.</p>
+    </div>
+</body>
+</html>
