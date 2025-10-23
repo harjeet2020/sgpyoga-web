@@ -16,39 +16,42 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
         {# Language selector or filter could go here #}
         
         <section class="posts-section">
-            <h2 data-i18n="blog:index.allPosts">All Posts</h2>
+            <h2 class="posts-section-title" data-i18n="blog:index.allPosts">All Posts</h2>
             
-            {# Search Box #}
-            <div class="blog-search" role="search">
-                <label for="blogSearchInput" class="visually-hidden">Search blog posts</label>
-                <i data-lucide="search" class="search-icon"></i>
-                <input 
-                    type="search" 
-                    id="blogSearchInput" 
-                    class="search-input"
-                    placeholder="Search posts..."
-                    data-i18n="[placeholder]blog:search.placeholder"
-                    aria-label="Search blog posts"
-                    autocomplete="off"
-                >
-                <button 
-                    type="button" 
-                    id="searchClearBtn" 
-                    class="search-clear-btn" 
-                    aria-label="Clear search"
-                    data-i18n="[aria-label]blog:search.clear"
-                    style="display: none;"
-                >
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-            
-            {# Category Filter Pills #}
-            <div class="blog-filters">
-                <button class="filter-btn active" data-filter="all" data-i18n="blog:categories.all">All Posts</button>
-                <button class="filter-btn" data-filter="general" data-i18n="blog:categories.general">General</button>
-                <button class="filter-btn" data-filter="announcements" data-i18n="blog:categories.announcements">Announcements</button>
-                <button class="filter-btn" data-filter="spirituality" data-i18n="blog:categories.spirituality">Spirituality</button>
+            {# Combined Filters and Search Bar Container #}
+            <div class="filters-search-container">
+                {# Category Filter Pills #}
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all" data-i18n="blog:categories.all">All Posts</button>
+                    <button class="filter-btn" data-filter="general" data-i18n="blog:categories.general">General</button>
+                    <button class="filter-btn" data-filter="announcements" data-i18n="blog:categories.announcements">Announcements</button>
+                    <button class="filter-btn" data-filter="spirituality" data-i18n="blog:categories.spirituality">Spirituality</button>
+                </div>
+                
+                {# Search Box #}
+                <div class="blog-search" role="search">
+                    <label for="blogSearchInput" class="visually-hidden">Search blog posts</label>
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input 
+                        type="search" 
+                        id="blogSearchInput" 
+                        class="search-input"
+                        placeholder="Search posts..."
+                        data-i18n="[placeholder]blog:search.placeholder"
+                        aria-label="Search blog posts"
+                        autocomplete="off"
+                    >
+                    <button 
+                        type="button" 
+                        id="searchClearBtn" 
+                        class="search-clear-btn" 
+                        aria-label="Clear search"
+                        data-i18n="[aria-label]blog:search.clear"
+                        style="display: none;"
+                    >
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
             </div>
             
             {# Display all posts from both languages, sorted by date #}

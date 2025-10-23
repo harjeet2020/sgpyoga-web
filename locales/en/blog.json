@@ -1,4 +1,9 @@
 {
+  "featured": {
+    "title": "Featured Posts",
+    "subtitle": "Discover our most popular insights and practices",
+    "noPostsAvailable": "No featured posts available in your selected language."
+  },
   "index": {
     "title": "SGP Yoga Blog",
     "subtitle": "Insights on yoga practice, philosophy, and community in Mexico City",

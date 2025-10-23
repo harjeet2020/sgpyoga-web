@@ -34,13 +34,37 @@
     color: var(--color-supplementary);
 }
 
+/* Posts Section Title
+   ========================================================================== */
+/* Purpose: Centered 'All Posts' heading */
+.posts-section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+}
+
+/* Filters and Search Container
+   ========================================================================== */
+/* Purpose: Horizontal layout for category filters and search bar */
+.filters-search-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Search Box
    ========================================================================== */
 /* Purpose: Fuzzy search input with icon and clear button */
 .blog-search {
-    max-width: 600px;
-    margin: 0 auto var(--spacing-lg);
+    flex: 0 1 300px;
     position: relative;
+    margin-left: 4rem;
 }
 
 .search-input {
@@ -128,11 +152,8 @@
 /* Purpose: Pill-style filter buttons for blog categories */
 .blog-filters {
     display: flex;
-    justify-content: center;
     gap: var(--spacing-md);
-    flex-wrap: wrap;
-    margin-bottom: var(--spacing-xl);
-    padding: 0 var(--spacing-md);
+    flex-wrap: nowrap;
 }
 
 /* Individual Filter Button */
@@ -474,9 +495,18 @@
 /* Responsive Design
    ========================================================================== */
 @media (max-width: 768px) {
+    .filters-search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .blog-filters {
+        justify-content: center;
+    }
+    
     .blog-search {
+        flex: 1;
         max-width: 100%;
-        padding: 0 var(--spacing-md);
     }
     
     .posts-by-language {

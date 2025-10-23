@@ -1,4 +1,9 @@
 {
+  "featured": {
+    "title": "Publicaciones Destacadas",
+    "subtitle": "Descubre nuestras reflexiones y prácticas más populares",
+    "noPostsAvailable": "No hay publicaciones destacadas disponibles en el idioma seleccionado."
+  },
   "index": {
     "title": "Blog de SGP Yoga",
     "subtitle": "Reflexiones sobre la práctica del yoga, filosofía y comunidad en la Ciudad de México",
