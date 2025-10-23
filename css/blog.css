@@ -34,6 +34,95 @@
     color: var(--color-supplementary);
 }
 
+/* Search Box
+   ========================================================================== */
+/* Purpose: Fuzzy search input with icon and clear button */
+.blog-search {
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    padding-left: 3rem;  /* Space for search icon */
+    padding-right: 3rem; /* Space for clear button */
+    
+    border: 2px solid var(--color-secondary);
+    border-radius: var(--border-radius-md);
+    
+    font-family: var(--font-body);
+    font-size: 1rem;
+    
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-accent-1);
+    box-shadow: 0 0 0 3px rgba(64, 104, 154, 0.1);
+}
+
+.search-input::placeholder {
+    color: var(--color-supplementary);
+    opacity: 0.7;
+}
+
+/* Search Icon */
+.search-icon {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-supplementary);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+}
+
+/* Clear Button */
+.search-clear-btn {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    
+    color: var(--color-supplementary);
+    transition: color var(--transition-fast);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-clear-btn:hover {
+    color: var(--color-accent-2);
+}
+
+.search-clear-btn i {
+    width: 18px;
+    height: 18px;
+}
+
+/* Visually hidden label for accessibility */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 /* Category Filter Pills
    ========================================================================== */
 /* Purpose: Pill-style filter buttons for blog categories */
@@ -385,6 +474,11 @@
 /* Responsive Design
    ========================================================================== */
 @media (max-width: 768px) {
+    .blog-search {
+        max-width: 100%;
+        padding: 0 var(--spacing-md);
+    }
+    
     .posts-by-language {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);

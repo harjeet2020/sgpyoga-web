@@ -2,8 +2,21 @@
   "index": {
     "title": "Blog de SGP Yoga",
     "subtitle": "Reflexiones sobre la práctica del yoga, filosofía y comunidad en la Ciudad de México",
-    "recentPosts": "Publicaciones Recientes",
+    "allPosts": "Todas las Publicaciones",
     "englishPosts": "Publicaciones en Inglés",
     "spanishPosts": "Publicaciones en Español"
+  },
+  "categories": {
+    "all": "Todas las Publicaciones",
+    "general": "General",
+    "announcements": "Anuncios",
+    "spirituality": "Espiritualidad"
+  },
+  "search": {
+    "placeholder": "Buscar publicaciones...",
+    "clear": "Limpiar búsqueda",
+    "minLength": "Escribe al menos 2 caracteres para buscar",
+    "noResults": "No se encontraron publicaciones para \"{query}\"",
+    "searching": "Buscando..."
   }
 }

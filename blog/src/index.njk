@@ -18,6 +18,31 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
         <section class="posts-section">
             <h2 data-i18n="blog:index.allPosts">All Posts</h2>
             
+            {# Search Box #}
+            <div class="blog-search" role="search">
+                <label for="blogSearchInput" class="visually-hidden">Search blog posts</label>
+                <i data-lucide="search" class="search-icon"></i>
+                <input 
+                    type="search" 
+                    id="blogSearchInput" 
+                    class="search-input"
+                    placeholder="Search posts..."
+                    data-i18n="[placeholder]blog:search.placeholder"
+                    aria-label="Search blog posts"
+                    autocomplete="off"
+                >
+                <button 
+                    type="button" 
+                    id="searchClearBtn" 
+                    class="search-clear-btn" 
+                    aria-label="Clear search"
+                    data-i18n="[aria-label]blog:search.clear"
+                    style="display: none;"
+                >
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
             {# Category Filter Pills #}
             <div class="blog-filters">
                 <button class="filter-btn active" data-filter="all" data-i18n="blog:categories.all">All Posts</button>
@@ -110,20 +135,158 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
 
 <script>
 /**
- * Blog Index - Language & Category Filtering
- * Filters posts based on currently selected language and category
+ * Blog Index - Language, Category & Search Filtering
+ * Filters posts based on language, category, and fuzzy search
  */
 
-// Global state for active category filter
+// Global state
 let currentCategoryFilter = 'all';
+let fuseInstance = null;
+let searchResults = null;  // null = no search active, array = search results
+let searchDebounceTimer = null;
 
-// Load blog namespace on page load
+// Load blog namespace and initialize search
 if (typeof window.SGPi18n !== 'undefined') {
     window.SGPi18n.loadNamespacesOnDemand(['blog']).then(() => {
         console.log('Blog namespace loaded');
+        initializeSearch();  // Initialize search first
         initializeFilters();
         filterPosts();
     });
+} else {
+    // Fallback if SGPi18n is not available
+    console.log('SGPi18n not available, initializing with fallback');
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeSearch();
+        initializeFilters();
+        filterPosts();
+    });
+}
+
+/**
+ * Initialize search functionality
+ * Fetches search index JSON and sets up Fuse.js
+ */
+async function initializeSearch() {
+    try {
+        // Fetch the search index JSON
+        const response = await fetch('/blog/dist/search-index.json');
+        if (!response.ok) {
+            console.warn('Search index not found, search will be disabled');
+            return;
+        }
+        
+        const searchData = await response.json();
+        console.log(`Search index loaded: ${searchData.length} posts`);
+        
+        // Create Fuse instance with weighted search
+        fuseInstance = new Fuse(searchData, {
+            keys: [
+                { name: 'title', weight: 0.3 },
+                { name: 'description', weight: 0.2 },
+                { name: 'content', weight: 0.3 },
+                { name: 'category', weight: 0.1 },
+                { name: 'tags', weight: 0.1 }
+            ],
+            threshold: 0.4,
+            ignoreLocation: true,
+            minMatchCharLength: 2
+        });
+        
+        // Set up search input listeners
+        const searchInput = document.getElementById('blogSearchInput');
+        const clearBtn = document.getElementById('searchClearBtn');
+        
+        if (searchInput) {
+            // Search on input (debounced)
+            searchInput.addEventListener('input', (e) => {
+                handleSearchInput(e.target.value);
+            });
+            
+            // Immediate search on Enter key
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    clearTimeout(searchDebounceTimer);
+                    performSearch(e.target.value);
+                }
+                // Clear search on Escape key
+                if (e.key === 'Escape') {
+                    clearSearch();
+                }
+            });
+        }
+        
+        if (clearBtn) {
+            clearBtn.addEventListener('click', clearSearch);
+        }
+        
+        console.log('Search initialized successfully');
+    } catch (error) {
+        console.error('Failed to initialize search:', error);
+    }
+}
+
+/**
+ * Handle search input with debouncing
+ */
+function handleSearchInput(query) {
+    const clearBtn = document.getElementById('searchClearBtn');
+    
+    // Show/hide clear button
+    if (clearBtn) {
+        clearBtn.style.display = query.length > 0 ? 'block' : 'none';
+    }
+    
+    // Clear previous timer
+    clearTimeout(searchDebounceTimer);
+    
+    // Debounce search (300ms)
+    searchDebounceTimer = setTimeout(() => {
+        performSearch(query);
+    }, 300);
+}
+
+/**
+ * Perform the actual search
+ */
+function performSearch(query) {
+    if (!fuseInstance) {
+        console.warn('Search not initialized');
+        return;
+    }
+    
+    // Clear search if query is too short
+    if (query.length < 2) {
+        searchResults = null;
+        filterPosts();
+        return;
+    }
+    
+    // Perform fuzzy search
+    searchResults = fuseInstance.search(query);
+    console.log(`Search for "${query}": ${searchResults.length} results`);
+    
+    // Re-filter posts with search results
+    filterPosts();
+}
+
+/**
+ * Clear search and reset to showing all posts
+ */
+function clearSearch() {
+    const searchInput = document.getElementById('blogSearchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
+    
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    if (clearBtn) {
+        clearBtn.style.display = 'none';
+    }
+    
+    searchResults = null;
+    filterPosts();
 }
 
 /**
@@ -147,13 +310,14 @@ function initializeFilters() {
 }
 
 /**
- * Main filtering function - filters by both language AND category
+ * Main filtering function - filters by search, language AND category
  */
 function filterPosts() {
     // Get current language from i18next (falls back to 'en' if not ready)
     const currentLang = (typeof i18next !== 'undefined' && i18next.language) ? i18next.language : 'en';
     
-    console.log(`Filtering posts: language=${currentLang}, category=${currentCategoryFilter}`);
+    const searchActive = searchResults !== null;
+    console.log(`Filtering posts: search=${searchActive}, language=${currentLang}, category=${currentCategoryFilter}`);
     
     // Get all post cards
     const postCards = document.querySelectorAll('.post-card');
@@ -161,16 +325,26 @@ function filterPosts() {
     
     let visibleCount = 0;
     
-    // Show/hide posts based on language AND category
+    // Show/hide posts based on search, language AND category
     postCards.forEach(card => {
         const cardLang = card.getAttribute('data-lang');
         const cardCategory = card.getAttribute('data-category');
+        const cardUrl = card.querySelector('a').getAttribute('href');
         
-        // Post is visible if it matches language AND (category is 'all' OR matches selected category)
+        // Check 1: Does it match search results (if search is active)?
+        let matchesSearch = true;
+        if (searchActive) {
+            matchesSearch = searchResults.some(result => result.item.url === cardUrl);
+        }
+        
+        // Check 2: Does it match language?
         const matchesLanguage = (cardLang === currentLang);
+        
+        // Check 3: Does it match category?
         const matchesCategory = (currentCategoryFilter === 'all' || cardCategory === currentCategoryFilter);
         
-        if (matchesLanguage && matchesCategory) {
+        // Post is visible if it matches ALL active filters
+        if (matchesSearch && matchesLanguage && matchesCategory) {
             card.style.display = '';
             visibleCount++;
         } else {
@@ -252,6 +426,7 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         // Wait a bit for i18next to initialize
         setTimeout(() => {
+            initializeSearch();
             initializeFilters();
             filterPosts();
         }, 100);
@@ -259,6 +434,7 @@ if (document.readyState === 'loading') {
 } else {
     // DOM already loaded
     setTimeout(() => {
+        initializeSearch();
         initializeFilters();
         filterPosts();
     }, 100);
@@ -274,6 +450,7 @@ if (typeof i18next !== 'undefined') {
 
 // Also filter when i18next finishes initializing
 window.addEventListener('i18nextInitialized', () => {
+    initializeSearch();
     initializeFilters();
     filterPosts();
 });

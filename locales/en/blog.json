@@ -2,8 +2,21 @@
   "index": {
     "title": "SGP Yoga Blog",
     "subtitle": "Insights on yoga practice, philosophy, and community in Mexico City",
-    "recentPosts": "Recent Posts",
+    "allPosts": "All Posts",
     "englishPosts": "English Posts",
     "spanishPosts": "Spanish Posts"
+  },
+  "categories": {
+    "all": "All Posts",
+    "general": "General",
+    "announcements": "Announcements",
+    "spirituality": "Spirituality"
+  },
+  "search": {
+    "placeholder": "Search posts...",
+    "clear": "Clear search",
+    "minLength": "Type at least 2 characters to search",
+    "noResults": "No posts found for \"{query}\"",
+    "searching": "Searching..."
   }
 }

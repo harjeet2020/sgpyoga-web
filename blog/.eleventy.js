@@ -147,18 +147,30 @@ module.exports = function(eleventyConfig) {
   
   /**
    * Convert collection to JSON for search index
-   * Usage: {{ collections.postsEN | toSearchIndex }}
+   * Usage: {{ collections.allPosts | toSearchIndex }}
+   * Generates search index with weighted fields for Fuse.js
    */
   eleventyConfig.addFilter("toSearchIndex", function(collection) {
-    return JSON.stringify(collection.map(post => ({
-      title: post.data.title,
-      description: post.data.description,
-      content: post.template.frontMatter.content,
-      url: post.url,
-      date: post.date,
-      category: post.data.category,
-      lang: post.data.lang || 'en'
-    })));
+    return JSON.stringify(collection.map(post => {
+      // Extract content and strip excessive whitespace
+      const content = (post.template.frontMatter.content || '')
+        .replace(/\n{3,}/g, '\n\n')  // Normalize multiple newlines
+        .trim();
+      
+      // Add pathPrefix to URL to match rendered hrefs
+      const fullUrl = '/blog/dist' + post.url;
+      
+      return {
+        title: post.data.title || '',
+        description: post.data.description || '',
+        content: content,
+        category: post.data.categoryKey || 'general',
+        tags: post.data.tags || [],
+        url: fullUrl,
+        lang: post.data.lang || 'en',
+        date: post.date
+      };
+    }));
   });
   
   /**
