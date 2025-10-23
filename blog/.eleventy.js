@@ -151,6 +151,9 @@ module.exports = function(eleventyConfig) {
   // ========================================================================
   
   return {
+    // Path prefix for all URLs (important for subdirectory deployment)
+    pathPrefix: "/blog/dist/",
+    
     // Directory structure
     dir: {
       input: "src",           // Source files directory

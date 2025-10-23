@@ -7,20 +7,21 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
 <div class="blog-index">
     <div class="container">
         <header class="index-header">
-            <h1>SGP Yoga Blog</h1>
-            <p>Insights on yoga practice, philosophy, and community in Mexico City</p>
+            <h1 data-i18n="blog:index.title">SGP Yoga Blog</h1>
+            <p data-i18n="blog:index.subtitle">Insights on yoga practice, philosophy, and community in Mexico City</p>
         </header>
 
         {# Language selector or filter could go here #}
         
         <section class="posts-section">
-            <h2>Recent Posts</h2>
+            <h2 data-i18n="blog:index.recentPosts">Recent Posts</h2>
             
             {# Display all posts from both languages, sorted by date #}
+            {# JavaScript will filter by current language #}
             <div class="posts-grid">
                 {% for post in collections.allPosts %}
-                <article class="post-card">
-                    <a href="{{ post.url }}" class="post-card-link">
+                <article class="post-card" data-lang="{{ post.data.lang }}">
+                    <a href="{{ post.url | url }}" class="post-card-link">
                         {% if post.data.image %}
                         <div class="post-card-image">
                             <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy">
@@ -62,13 +63,14 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
         </section>
 
         {# Separate sections by language (alternative view) #}
-        <section class="posts-by-language">
-            <div class="language-section">
-                <h2>English Posts</h2>
+        {# Hidden by default - JavaScript will show if needed #}
+        <section class="posts-by-language" style="display: none;">
+            <div class="language-section" data-lang="en">
+                <h2 data-i18n="blog:index.englishPosts">English Posts</h2>
                 <ul class="post-list">
                     {% for post in collections.postsEN | limit(5) %}
                     <li>
-                        <a href="{{ post.url }}">
+                        <a href="{{ post.url | url }}">
                             <strong>{{ post.data.title }}</strong>
                             <span class="post-date">{{ post.date | readableDate }}</span>
                         </a>
@@ -78,12 +80,12 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
                 </ul>
             </div>
 
-            <div class="language-section">
-                <h2>Publicaciones en Español</h2>
+            <div class="language-section" data-lang="es">
+                <h2 data-i18n="blog:index.spanishPosts">Publicaciones en Español</h2>
                 <ul class="post-list">
                     {% for post in collections.postsES | limit(5) %}
                     <li>
-                        <a href="{{ post.url }}">
+                        <a href="{{ post.url | url }}">
                             <strong>{{ post.data.title }}</strong>
                             <span class="post-date">{{ post.date | readableDateES }}</span>
                         </a>
@@ -95,6 +97,103 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
         </section>
     </div>
 </div>
+
+<script>
+/**
+ * Blog Index - Language Filtering
+ * Filters posts based on the currently selected language from i18next
+ */
+
+// Load blog namespace on page load
+if (typeof window.SGPi18n !== 'undefined') {
+    window.SGPi18n.loadNamespacesOnDemand(['blog']).then(() => {
+        console.log('Blog namespace loaded');
+        filterPostsByLanguage();
+    });
+}
+
+// Wait for i18next to be initialized
+function filterPostsByLanguage() {
+    // Get current language from i18next (falls back to 'en' if not ready)
+    const currentLang = (typeof i18next !== 'undefined' && i18next.language) ? i18next.language : 'en';
+    
+    console.log('Filtering blog posts for language:', currentLang);
+    
+    // Get all post cards
+    const postCards = document.querySelectorAll('.post-card');
+    const postsGrid = document.querySelector('.posts-grid');
+    
+    let visibleCount = 0;
+    
+    // Show/hide posts based on language
+    postCards.forEach(card => {
+        const cardLang = card.getAttribute('data-lang');
+        
+        if (cardLang === currentLang) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Show message if no posts in current language
+    let noPostsMessage = document.querySelector('.no-posts-message');
+    
+    if (visibleCount === 0) {
+        if (!noPostsMessage) {
+            noPostsMessage = document.createElement('div');
+            noPostsMessage.className = 'no-posts-message';
+            noPostsMessage.style.cssText = 'grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--color-supplementary);';
+            
+            if (currentLang === 'es') {
+                noPostsMessage.innerHTML = '<p>No hay publicaciones disponibles en español en este momento.</p><p><a href="#" onclick="switchLanguage(\'en\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en inglés</a></p>';
+            } else {
+                noPostsMessage.innerHTML = '<p>No posts available in English at this time.</p><p><a href="#" onclick="switchLanguage(\'es\'); return false;" style="color: var(--color-accent-1);">Ver publicaciones en español</a></p>';
+            }
+            
+            postsGrid.appendChild(noPostsMessage);
+        }
+    } else {
+        if (noPostsMessage) {
+            noPostsMessage.remove();
+        }
+    }
+    
+    console.log(`Showing ${visibleCount} posts in ${currentLang}`);
+}
+
+// Helper function to switch language (works with navbar language selector)
+function switchLanguage(lang) {
+    if (typeof i18next !== 'undefined') {
+        i18next.changeLanguage(lang, () => {
+            filterPostsByLanguage();
+        });
+    }
+}
+
+// Initialize filtering when page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        // Wait a bit for i18next to initialize
+        setTimeout(filterPostsByLanguage, 100);
+    });
+} else {
+    // DOM already loaded
+    setTimeout(filterPostsByLanguage, 100);
+}
+
+// Listen for language changes from navbar
+if (typeof i18next !== 'undefined') {
+    i18next.on('languageChanged', (lng) => {
+        console.log('Language changed to:', lng);
+        filterPostsByLanguage();
+    });
+}
+
+// Also filter when i18next finishes initializing
+window.addEventListener('i18nextInitialized', filterPostsByLanguage);
+</script>
 
 <style>
     /* Temporary inline styles - will move to blog.css later */
