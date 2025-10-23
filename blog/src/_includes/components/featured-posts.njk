@@ -89,12 +89,14 @@
                             </time>
                             
                             <a href="{{ post.url | url }}" class="featured-read-more">
-                                {% if post.data.lang == 'es' %}
-                                    Leer más
-                                {% else %}
-                                    Read More
-                                {% endif %}
-                                <i data-lucide="arrow-right"></i>
+                                <span class="read-more-text">
+                                    {% if post.data.lang == 'es' %}
+                                        Leer más
+                                    {% else %}
+                                        Read More
+                                    {% endif %}
+                                </span>
+                                <i data-lucide="arrow-right" class="read-more-icon"></i>
                             </a>
                         </div>
                         

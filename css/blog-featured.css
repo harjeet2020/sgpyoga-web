@@ -83,11 +83,15 @@
     width: 100%;
     transition: opacity 0.6s ease-in-out;
     align-items: stretch;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .featured-slide.active {
     opacity: 1;
     position: relative;
+    pointer-events: auto;
+    z-index: 10;
 }
 
 /* Photo Section
@@ -169,6 +173,8 @@
     color: inherit;
     text-decoration: none;
     transition: color var(--transition-normal);
+    display: inline-block;
+    width: 100%;
 }
 
 .featured-title a:hover {
@@ -189,23 +195,28 @@
    ========================================================================== */
 .featured-meta {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     padding-top: var(--spacing-md);
     border-top: 1.2px solid rgba(160, 103, 137, 0.2);
     margin-bottom: var(--spacing-md);
+    gap: var(--spacing-md);
 }
 
 .featured-meta time {
     font-size: 0.95rem;
     color: var(--color-supplementary);
     font-weight: 300;
-    line-height: 1;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
 }
 
 /* Read More Link */
 .featured-read-more {
     display: inline-flex;
+    flex-direction: row;
     align-items: center;
     gap: var(--spacing-xs);
     font-family: var(--font-heading);
@@ -215,7 +226,15 @@
     color: var(--color-accent-2);
     text-decoration: none;
     transition: all var(--transition-normal);
-    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.featured-read-more .read-more-text {
+    display: inline-block;
+    line-height: 1;
 }
 
 .featured-read-more:hover {
@@ -223,15 +242,22 @@
     gap: var(--spacing-sm);
 }
 
+.featured-read-more .read-more-icon,
 .featured-read-more i,
 .featured-read-more svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
     transition: transform var(--transition-normal);
 }
 
-.featured-read-more:hover i {
+.featured-read-more:hover .read-more-icon,
+.featured-read-more:hover i,
+.featured-read-more:hover svg {
     transform: translateX(4px);
 }
 
