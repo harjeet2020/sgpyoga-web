@@ -1,12 +1,11 @@
 ---
 title: "The 7 Main Chakras & The Human Energy System"
 description: "A comprehensive guide to understanding the seven major chakras, the human energy system, and how they influence our spiritual transformation and daily life."
-date: 2025-10-23
+date: 2025-10-23T12:00:00
 category: "spirituality"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["chakras", "energy", "kundalini yoga"]
-featured: true
 ---
 
 ## **Introduction**

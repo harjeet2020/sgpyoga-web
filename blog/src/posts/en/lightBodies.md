@@ -1,12 +1,11 @@
 ---
 title: "The 10 Light Bodies of Consciousness As A Way To Mastery"
 description: "The Light Bodies are similar to chakras in a way - but instead of physical energy centers, they are abstract layers of consciousness that exist in our electromagnetic field."
-date: 2025-10-23
+date: 2025-10-23T12:00:00
 category: "spirituality"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["light bodies", "consciousness", "kundalini yoga"]
-featured: true
 ---
 
 ## Introduction

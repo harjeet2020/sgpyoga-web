@@ -1,12 +1,13 @@
 ---
 title: "Yoga Immersion Retreat In Colombia"
 description: "We are excited to announce our upcoming Yoga Immersion Retreat in Colombia - an experience for you to heal and rejuvenate. Hope to see you there!"
-date: 2025-10-23
+date: 2025-10-23T12:00:00
 category: "announcements"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["retreat", "yoga", "immersion"]
 featured: true
+featuredOrder: 4
 ---
 
 Dear Family,
