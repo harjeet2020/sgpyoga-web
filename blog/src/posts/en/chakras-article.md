@@ -5,7 +5,7 @@ date: 2025-10-23
 category: "spirituality"
 layout: layouts/post/standard.njk
 lang: en
-tags: ["chakras", "energy", "kundalini yoga", "spirituality", "meditation"]
+tags: ["chakras", "energy", "kundalini yoga"]
 featured: true
 ---
 
@@ -55,23 +55,23 @@ What follows is a detailed description of each of the seven major chakras. Treat
 
 <aside>
 
-**Name:** Root Chakra
+<strong>Name:</strong> Root Chakra
 
-**Sanskrit Name:** Muladhara
+<strong>Sanskrit Name:</strong> Muladhara
 
-**Color:** Red
+<strong>Color:</strong> Red
 
-**Element:** Earth
+<strong>Element:</strong> Earth
 
-**Food:** Meat (protein)
+<strong>Food:</strong> Meat (protein)
 
-**Verb:** I have
+<strong>Verb:</strong> I have
 
-**Force:** Stability
+<strong>Force:</strong> Stability
 
-**Challenge:** Fear
+<strong>Challenge:</strong> Fear
 
-**Location:** Base of the Spine
+<strong>Location:</strong> Base of the Spine
 
 </aside>
 
@@ -80,13 +80,29 @@ What follows is a detailed description of each of the seven major chakras. Treat
 
 **The Root Chakra** represents all aspects of our material existence. It is responsible for health and wellbeing of our form – the physical body – ensuring it gets all it needs. It is associated with feelings of belonging and security, and is most commonly blocked by fear or worry for survival. It also represents our connection to **Mother Earth** and all life.
 
-If your root chakra is balanced, you are grounded and stable. You know that you can provide for yourself, and do not easily succumb to fear or anxiety. You realize that life at its core is simple, and you don’t need much to be happy. You feel like you belong where you are, and are content with what you have.
+<div class="text-blue">
+
+If your root chakra is balanced, you are grounded and stable. You know that you can provide for yourself, and do not easily succumb to fear or anxiety. You realize that life at its core is simple, and you don't need much to be happy. You feel like you belong where you are, and are content with what you have.
+
+</div>
+
+<div class="text-gray">
 
 If your root chakra is blocked (spinning too slow), you are disconnected from the reality of things. You worry too much, and your thoughts and actions are chaotic. You tend to overcomplicate things, and often feel apart from others, lonely and misunderstood. You fear change and the challenges it brings, and your desire for stability and safety prevents you from truly enjoying life.
 
-If your root chakra is overactive (spinning too fast), you are overly focused on the material aspects of life. Your main goal is to accumulate wealth, and you don’t hesitate to do this at the expense of others. You are arrogant and egocentric, unaware of the reality beyond the tip of your nose. More subtle aspects of life escape you.
+</div>
 
-If you have mastered your root chakra, you have transcended fear completely. You put your trust in a higher power, and fearlessly stride into the most difficult of situations, reliably providing solace and stability to those around you. The concepts of scarcity, poverty and limitation don’t exist for you - for you understand that *you* are the very substance of all form.
+<div class="text-orange">
+
+If your root chakra is overactive (spinning too fast), you are overly focused on the material aspects of life. Your main goal is to accumulate wealth, and you don't hesitate to do this at the expense of others. You are arrogant and egocentric, unaware of the reality beyond the tip of your nose. More subtle aspects of life escape you.
+
+</div>
+
+<div class="text-green">
+
+If you have mastered your root chakra, you have transcended fear completely. You put your trust in a higher power, and fearlessly stride into the most difficult of situations, reliably providing solace and stability to those around you. The concepts of scarcity, poverty and limitation don't exist for you - for you understand that you are the very substance of all form.
+
+</div>
 
 ---
 
@@ -119,17 +135,33 @@ If you have mastered your root chakra, you have transcended fear completely. You
 
 **The Sacral Chakra** is the gravity center of the human body, where the majority of our inner power resides. It is the source of sexual energy - the very energy of creation. It represents the fluidity and joy of life, a sense of inner freedom, feelings, subtelty and sensuality.
 
+<div class="text-blue">
+
 If your sacral chakra is balanced, you walk though life gracefully, truly enjoying every little moment. You are sensitive, creative, and simply go with the flow. Everything seems vibrant to you, and you have an inherent sense of joy and happiness that never fades.
 
-If your sacral chakra is blocked (spinning too slow), you often feel numb, like you cannot feel anything at all. Life seems bland and dull to you, devoid of taste, and you don’t truly enjoy living. You are always tired, lacking energy to do and create.
+</div>
+
+<div class="text-gray">
+
+If your sacral chakra is blocked (spinning too slow), you often feel numb, like you cannot feel anything at all. Life seems bland and dull to you, devoid of taste, and you don't truly enjoy living. You are always tired, lacking energy to do and create.
+
+</div>
+
+<div class="text-orange">
 
 If your sacral chakra is overactive (spinning too fast), you are overwhelmed by the intensity of your feelings and sensations. You are erratic and impulsive, acting first and thinking second, then suffering for it. Your emotions drown out logic, and you are prone to mood swings and addictions. You are a prisoner of your pleasures and desires, loosing your balance and wellbeing in favour of temporary satisfaction.
 
-If you have mastered your sacral chakra, you have learned to live on a knife’s edge. You are filled to the brim with potent energy of pure joy and ecstasy, and yet you have complete control over it. Your energy field is thrumming with tangible power, and you use this power consciously to create things of unprecedented beauty.
+</div>
+
+<div class="text-green">
+
+If you have mastered your sacral chakra, you have learned to live on a knife's edge. You are filled to the brim with potent energy of pure joy and ecstasy, and yet you have complete control over it. Your energy field is thrumming with tangible power, and you use this power consciously to create things of unprecedented beauty.
+
+</div>
 
 ---
 
-### 3rd Chakra: Manipura
+### **3rd Chakra: Manipura**
 
 <aside>
 
@@ -158,13 +190,29 @@ If you have mastered your sacral chakra, you have learned to live on a knife’s
 
 **The Solar Plexus** chakra represents our strength, discipline & willpower. It allows us to focus all our energy into a single point, giving us the capacity to achieve any goal, overcome any obstacle. Psychologically, it is responsible for our sense of self-worth.
 
+<div class="text-blue">
+
 If your solar plexus chakra is balanced, you are disciplined and focused. You know what you want in life, and you steadily work to achieve it. You have a strong will, and you have confidence in your ability to succeed. You are also brave and eager to face challenges life throws at you.
+
+</div>
+
+<div class="text-gray">
 
 If your solar plexus chakra is blocked (spinning too slow), you lack mental discipline to achieve anything. You think success is impossible, and you give up on your projects whenever you encounter difficulties. You are easily influenced by others, and struggle to form your own opinions. You often feel inferior and worthless.
 
-If your solar plexus chakra is overactive (spinning too fast), you let your strength sabotage your life, and that of others. You have a forcefull personality, dominating others with your presence and not letting them express themselves. You bend people to your will, sometimes even manipulating them to achieve your goals. You’d do anything to get what you want, and when you fail anyway, you get angry - furious, even. When met with difficulties, you keep banging your head against the wall, until the wall (or your head) finally breaks.
+</div>
+
+<div class="text-orange">
+
+If your solar plexus chakra is overactive (spinning too fast), you let your strength sabotage your life, and that of others. You have a forcefull personality, dominating others with your presence and not letting them express themselves. You bend people to your will, sometimes even manipulating them to achieve your goals. You'd do anything to get what you want, and when you fail anyway, you get angry - furious, even. When met with difficulties, you keep banging your head against the wall, until the wall (or your head) finally breaks.
+
+</div>
+
+<div class="text-green">
 
 If you have mastered your solar plexus chakra, your will becomes reality. You do not have to fight or struggle to achieve your goals - you simply do things, and they work. You radiate unparalleled strength, discipline and focus - and you use those qualities to live a peaceful and harmonious life.
+
+</div>
 
 ---
 
@@ -197,13 +245,29 @@ If you have mastered your solar plexus chakra, your will becomes reality. You do
 
 **The Heart Chakra** represents love, compassion, empathy and understanding. It is a center of unity; it helps us bridge our differences and focus on what brings us together. It is also health, the vibrance of life, and abundance & prosperity.
 
+<div class="text-blue">
+
 If your heart chakra is balanced, you are a kind and gentle person. You don’t blame people for their failures, and have the capacity to forgive. You seek solutions that are good for everyone, not only for yourself. Your life is vibrant, full of love and opportunities. You are also humble, grateful and generous, aware that evey single moment of your life is a gift from the universe.
+
+</div>
+
+<div class="text-gray">
 
 If your heart chakra is blocked (spinning too slow), you are disconnected from the flow of life. You don’t understand other people, and are quick to blame or judge them for their behaviour. You are arrogant and self-centered, rarely thinking of how your actions affect others. It is difficult for you to express love, as you see it as something shameful.
 
+</div>
+
+<div class="text-orange">
+
 If your heart chakra is overactive (spinning too fast), you are overly kind & compassionate. You feel the pain of others as if it were yours, and you try to solve everyone’s problems, even when they don’t want you to. You get overly attached to people, and prone to extreme sadness, grief and depression.
 
-If you have mastered your heart chakra, you are filled with such love, empathy and humility that all disharmonies around you simply begin to dissolve. People are attracted to your presence, which acts as a healing balm on their wounds. You command trust and respect, and you can easily establish a meaningful connection with anybody. 
+</div>
+
+<div class="text-green">
+
+If you have mastered your heart chakra, you are filled with such love, empathy and humility that all disharmonies around you simply begin to dissolve. People are attracted to your presence, which acts as a healing balm on their wounds. You command trust and respect, and you can easily establish a meaningful connection with anybody.
+
+</div> 
 
 ---
 
@@ -236,13 +300,29 @@ If you have mastered your heart chakra, you are filled with such love, empathy a
 
 **The Throat Chakra** represents our honesty, integrity, and desire to live Truth. It brings us a sense of inner stillness and tranquility. It governs our creativity, self-expression and charisma, which is why it is an importat energy center for artists. It also helps us understand and manage our emotions.
 
+<div class="text-blue">
+
 If your throat chakra is balanced, you are positive and creative. You express yourself freely and confidently. You are a deeply honest person, and you radiate a sense of inner peace and calm. People tend to gravitate towards you, eagerly listening to what you have to say. You rarely lose yourself to your emotions, maintaining inner harmony with ease.
+
+</div>
+
+<div class="text-gray">
 
 If your throat chakra is blocked (spinning too slow), you are shy and timid. You struggle to express yourself, and this hinders your creativity. You often feel a jumble of conflictng emotions you can’t quite understand, and you tend to suppress feelings that are difficult to bear, pretending they don’t exist. This might lead to a feeling of numbness, when it’s difficult for you to feel any emotion at all. You are also prone to stress & anxiety.
 
+</div>
+
+<div class="text-orange">
+
 If your throat chakra is overactive (spinning too fast), you are a compulsive liar. You use words to paint illusions that have little to do with reality. You lie not only to others, but also to yourself, pretending things are fine when they are not. Your entire life is like a castle built on sand, and you constantly struggle to prevent the illusion you created from collapsing.
 
+</div>
+
+<div class="text-green">
+
 If you have mastered your throat chakra, you radiate a sense of immense tranquility, calm and peace - a sign of total mastery over your emotions. You have learned to accept painful truths, and this gave you the power of discernment - the ability to distinguish Truth from Lie on first sight. Whatever the gaze of your awareness touches, it transforms to reveal its true nature.
+
+</div>
 
 ---
 
@@ -275,13 +355,29 @@ If you have mastered your throat chakra, you radiate a sense of immense tranquil
 
 **The** **Third Eye Chakra** is responsible for intelligence, intuition, and insight. It is the command center of the body; it controls all the subconscious processes necessary for its correct functioning.
 
-If your third eye chakra is balanced, you are an intelligent and open-minded person, never scared to reevaluate your thoughts & beliefs. You don’t overthink, allowing your intution to guide your decisions. You also have the ability to see beyond the surface of things and understand the subtext of each life situation. 
+<div class="text-blue">
+
+If your third eye chakra is balanced, you are an intelligent and open-minded person, never scared to reevaluate your thoughts & beliefs. You don't overthink, allowing your intution to guide your decisions. You also have the ability to see beyond the surface of things and understand the subtext of each life situation.
+
+</div>
+
+<div class="text-gray">
 
 If your third eye chakra is blocked (spinning too slow), you struggle to see beyond the tip of your nose. You perspective is limited, and you cling to your beliefs, refusing to accept the viewpoints of others. You are blissfully unaware of your own ignorance, and quick to judge, failing to see the underlying complexity of life. You are also prone to overthinking - restlessly analyzing things that are simple in nature, trying to control every aspect of your life.
 
+</div>
+
+<div class="text-orange">
+
 If your third eye chakra is overactive (spinning too fast), you are easily deceived by delusions of your mind. You are out of touch with reality, living in fantasies conjured up by your imagination. You have a tendency to be overly mistical or mysterious, finding hidden meanings where there are none. Your delusional approach to life is a form of escape from the harsh reality.
 
+</div>
+
+<div class="text-green">
+
 If you have mastered your third eye chakra, you can see through the illusion of this world. You have an ability to connect with the true nature of things, and this fuels your insightful & original thoughts. You are aware of the chain of cause & effect, and you can easily see and evaluate all the potential outcomes of each decision you make. You are in full control of your human experience rathat than a victim of circumstance & fate.
+
+</div>
 
 ---
 
@@ -314,10 +410,26 @@ If you have mastered your third eye chakra, you can see through the illusion of 
 
 **The Crown Charka** represents our connection with the divine. It is consciousness in its purest form - nothingness. It is associated with our ability to accept & let go, surrendering to a will higher than ours. It gives us wisdom, spiritual understanding, and a sense of inner freedom.
 
-If your crown chakra is balanced, you are living a spiritual life in a material world. You are aware of your existance as a soul, and you let the power of your spirit sustain you and express itself in form. You don’t identify yourself with your body or mind, and recognize that your life is but a brief stop on a millenial journey. You know when to push and when to let go, balancing constructive action with the philosophy of surrender.
+<div class="text-blue">
+
+If your crown chakra is balanced, you are living a spiritual life in a material world. You are aware of your existance as a soul, and you let the power of your spirit sustain you and express itself in form. You don't identify yourself with your body or mind, and recognize that your life is but a brief stop on a millenial journey. You know when to push and when to let go, balancing constructive action with the philosophy of surrender.
+
+</div>
+
+<div class="text-gray">
 
 If your crown chakra is blocked (spinning too slow), spiritual knowledge eludes you. You only see the surface of the ocean of life, and you remain ignorant of its true depth. You strongly identify yourself with your body and mind, and you find it difficult to accept & let go. Your spritiual growth is extremely slow due to your reluctance or inability to self-reflect. You are immature and childish, and you tend to repeat the same mistakes over and over again, mulishly refusing to learn.
 
+</div>
+
+<div class="text-orange">
+
 If your crown chakra is overactive (spinning too fast), you are overly detatched from the world.  Your acceptance of what is has become a form of apathy, and your wisdom has turned into spiritual arrogance. You secretly hate yourself and your life, and you feel a prisoner and a victim of the reality that surrounds you. You are lonely and unhappy, and feel powerless, unable to effect a meaningful change in your life, not caring enough to try.
 
+</div>
+
+<div class="text-green">
+
 If you have mastered your crown chakra, you are in this world, but not of it. You dwell in higher states of consciousness, and nothing that happens in your material life has the capacity to take this inner kingdom away from you. You have transcended suffering, and this has brought you to a permanent state of inner freedom. You are one with all life, and you see space & time not as constraints, but merely expressions of infinity in form.
+
+</div>
