@@ -164,7 +164,7 @@ module.exports = function(eleventyConfig) {
         title: post.data.title || '',
         description: post.data.description || '',
         content: content,
-        category: post.data.categoryKey || 'general',
+        category: post.data.category || 'general',
         tags: post.data.tags || [],
         url: fullUrl,
         lang: post.data.lang || 'en',

@@ -58,7 +58,7 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
             {# JavaScript will filter by current language and category #}
             <div class="posts-grid">
                 {% for post in collections.allPosts %}
-                <article class="post-card" data-lang="{{ post.data.lang }}" data-category="{{ post.data.categoryKey or 'general' }}">
+                <article class="post-card" data-lang="{{ post.data.lang }}" data-category="{{ post.data.category or 'general' }}">
                     <a href="{{ post.url | url }}" class="post-card-link">
                         {% if post.data.image %}
                         <div class="post-card-image">
@@ -75,8 +75,8 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
                                         {{ post.date | readableDate }}
                                     {% endif %}
                                 </time>
-                                {% if post.data.categoryKey %}
-                                    <span class="post-card-category" data-i18n="blog:categories.{{ post.data.categoryKey }}">{{ post.data.categoryKey | capitalize }}</span>
+                                {% if post.data.category %}
+                                    <span class="post-card-category" data-i18n="blog:categories.{{ post.data.category }}">{{ post.data.category | capitalize }}</span>
                                 {% endif %}
                                 {% if post.data.lang %}
                                     <span class="post-card-lang">{{ post.data.lang | upper }}</span>
