@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/blog.css">
+    {% if layout == "layouts/post/standard.njk" %}
+    <link rel="stylesheet" href="/css/blogPost.css">
+    {% endif %}
     
     {# Lucide Icons #}
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
