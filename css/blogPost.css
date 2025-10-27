@@ -13,7 +13,7 @@
 
 .post-header {
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto var(--spacing-xxl);
 }
 
@@ -27,7 +27,7 @@
 
 .post-meta {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xl);
     justify-content: center;
     align-items: center;
     color: var(--color-supplementary);
@@ -40,6 +40,10 @@
     padding: 0.25rem var(--spacing-sm);
     border-radius: var(--border-radius-sm);
     font-weight: 500;
+}
+
+.post-meta .post-card-author {
+    margin-left: 0;
 }
 
 .post-hero {
@@ -203,7 +207,7 @@
 }
 
 .post-footer {
-    max-width: 800px;
+    max-width: 900px;
     margin: var(--spacing-xxl) auto 0;
     padding-top: var(--spacing-xl);
     border-top: 1px solid var(--color-secondary);

@@ -78,7 +78,7 @@
 .navbar-link {
     font-family: var(--font-body);
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 300;
     color: var(--color-primary); /* Eerie Black */
     text-decoration: none;
     padding: var(--spacing-sm) var(--spacing-md);

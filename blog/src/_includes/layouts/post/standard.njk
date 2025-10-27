@@ -18,8 +18,13 @@ layout: layouts/base.njk
                         {{ date | readableDate }}
                     {% endif %}
                 </time>
-                {% if category %}
-                    <span class="post-category">{{ category }}</span>
+                {% if authorName %}
+                <div class="post-card-author">
+                    <span class="author-name">{{ authorName }}</span>
+                    {% if authorImage %}
+                    <img src="{{ authorImage }}" alt="{{ authorName }}" class="author-avatar">
+                    {% endif %}
+                </div>
                 {% endif %}
             </div>
         </header>
