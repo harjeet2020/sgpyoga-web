@@ -15,7 +15,7 @@
 /* Blog Index Styles
    ========================================================================== */
 .blog-index {
-    padding: var(--spacing-xl) 0;
+    padding: 0;
 }
 
 .index-header {
@@ -268,22 +268,22 @@
 .post-card-author {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-md);
     margin-left: auto;
 }
 
 .author-avatar {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     object-fit: cover;
     border: 1.5px solid var(--color-secondary);
 }
 
 .author-name {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-supplementary);
-    font-weight: 400;
+    font-weight: 200;
 }
 
 .post-card-title {
