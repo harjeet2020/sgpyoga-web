@@ -272,16 +272,15 @@
 .featured-tag {
     font-size: 0.8rem;
     font-weight: 400;
-    color: var(--color-primary);
-    background: var(--color-secondary);
+    color: white;
+    background-color: var(--color-accent-1);
     padding: 0.35rem 0.75rem;
     border-radius: var(--border-radius-sm);
     transition: all var(--transition-normal);
 }
 
 .featured-tag:hover {
-    background: rgba(160, 103, 137, 0.15);
-    color: var(--color-accent-2);
+    background-color: var(--color-accent-2);
 }
 
 /* Navigation Controls - Sleek Minimal Design
