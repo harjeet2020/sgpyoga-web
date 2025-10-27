@@ -75,11 +75,13 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
                                         {{ post.date | readableDate }}
                                     {% endif %}
                                 </time>
-                                {% if post.data.category %}
-                                    <span class="post-card-category" data-i18n="blog:categories.{{ post.data.category }}">{{ post.data.category | capitalize }}</span>
-                                {% endif %}
-                                {% if post.data.lang %}
-                                    <span class="post-card-lang">{{ post.data.lang | upper }}</span>
+                                {% if post.data.authorName %}
+                                <div class="post-card-author">
+                                    <span class="author-name">{{ post.data.authorName }}</span>
+                                    {% if post.data.authorImage %}
+                                    <img src="{{ post.data.authorImage }}" alt="{{ post.data.authorName }}" class="author-avatar">
+                                    {% endif %}
+                                </div>
                                 {% endif %}
                             </div>
                             
@@ -522,6 +524,8 @@ window.addEventListener('i18nextInitialized', () => {
     
     .post-card-meta {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 1rem;
         font-size: 0.875rem;
         color: #666;
@@ -529,17 +533,29 @@ window.addEventListener('i18nextInitialized', () => {
         flex-wrap: wrap;
     }
     
-    .post-card-category,
-    .post-card-lang {
-        background: #f0f0f0;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
+    .post-card-meta time {
+        flex-shrink: 0;
     }
     
-    .post-card-lang {
-        background: #40689a;
-        color: white;
-        font-weight: bold;
+    .post-card-author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: auto;
+    }
+    
+    .author-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1.5px solid #ffeddf;
+    }
+    
+    .author-name {
+        font-size: 0.875rem;
+        color: #666;
+        font-weight: 400;
     }
     
     .post-card-title {

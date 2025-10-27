@@ -8,6 +8,8 @@ lang: en
 tags: ["retreat", "yoga", "immersion"]
 featured: true
 featuredOrder: 4
+authorName: "Harjeet"
+authorImage: "/assets/photos/inUse/about/harjeet.webp"
 ---
 
 Dear Family,

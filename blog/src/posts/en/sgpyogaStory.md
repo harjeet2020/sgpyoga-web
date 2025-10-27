@@ -8,6 +8,8 @@ lang: en
 tags: ["sgpyoga"]
 featured: true
 featuredOrder: 1
+authorName: "Harjeet"
+authorImage: "/assets/photos/inUse/about/harjeet.webp"
 ---
 
 **SGP Yoga** isn't just a yoga school. It is a tight-knit community of amazing people for whom yoga is more than just a practice - to us, it is a way of life. Each of us has their own unique story, and has experienced their own joruneys of healing & transformation. This gives us the capacity to provide top quality yoga education; we are not just instructors, but healers, teachers, and guides.

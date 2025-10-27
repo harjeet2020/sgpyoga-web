@@ -251,27 +251,39 @@
 
 .post-card-meta {
     display: flex;
-    gap: var(--spacing-sm);
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.875rem;
     color: var(--color-supplementary);
     margin-bottom: var(--spacing-sm);
     flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.post-card-meta time {
+    flex-shrink: 0;
+}
+
+/* Author information */
+.post-card-author {
+    display: flex;
     align-items: center;
+    gap: var(--spacing-xs);
+    margin-left: auto;
 }
 
-.post-card-category,
-.post-card-lang {
-    background: var(--color-secondary);
-    padding: 0.25rem var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-    font-weight: 500;
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--color-secondary);
 }
 
-.post-card-lang {
-    background: var(--color-accent-1);
-    color: white;
-    font-weight: 600;
-    font-size: 0.75rem;
+.author-name {
+    font-size: 0.875rem;
+    color: var(--color-supplementary);
+    font-weight: 400;
 }
 
 .post-card-title {

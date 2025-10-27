@@ -8,6 +8,8 @@ lang: en
 tags: ["teacher training", "aerial yoga"]
 featured: true
 featuredOrder: 5
+authorName: "Harjeet"
+authorImage: "/assets/photos/inUse/about/harjeet.webp"
 ---
 
 Dear Family,

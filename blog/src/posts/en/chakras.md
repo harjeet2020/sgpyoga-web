@@ -6,6 +6,8 @@ category: "spirituality"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["chakras", "energy", "kundalini yoga"]
+authorName: "Harjeet"
+authorImage: "/assets/photos/inUse/about/harjeet.webp"
 ---
 
 ## **Introduction**

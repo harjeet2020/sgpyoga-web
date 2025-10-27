@@ -8,6 +8,8 @@ lang: en
 tags: ["yoga styles"]
 featured: true
 featuredOrder: 3
+authorName: "Harjeet"
+authorImage: "/assets/photos/inUse/about/harjeet.webp"
 ---
 
 ## Choosing A Yoga Style
