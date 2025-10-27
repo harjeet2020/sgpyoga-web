@@ -5,6 +5,10 @@
 /* Individual blog post styles that extend the main site design system
    Uses CSS variables from main.css for consistency */
 
+/* Import Google Fonts - Signature Script Font
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap');
+
 /* Individual Post Styles
    ========================================================================== */
 .post {
@@ -206,6 +210,20 @@
     margin: 0;
 }
 
+/* Signature Element
+   ========================================================================== */
+/* Purpose: Elegant script styling for signatures at the end of posts */
+
+.signature {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-accent-1);
+    display: block;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+}
+
 .post-footer {
     max-width: 900px;
     margin: var(--spacing-xxl) auto 0;
@@ -267,5 +285,10 @@
     /* Smaller drop cap on mobile */
     .post-content > h2:first-of-type + p::first-letter {
         font-size: 2.5em;
+    }
+    
+    /* Smaller signature on mobile */
+    .signature {
+        font-size: 1.5rem;
     }
 }

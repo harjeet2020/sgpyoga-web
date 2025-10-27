@@ -22,4 +22,4 @@ The retreat will take place from November 14 to November 17, 2025. You can arriv
 
 With Love,
 
-Harjeet & Cami
+<span class="signature">Harjeet & Cami</span>

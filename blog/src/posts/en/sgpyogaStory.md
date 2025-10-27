@@ -28,4 +28,4 @@ Thank you for being on this journey with us.
 
 With Love,
 
-Harjeet & Cami
+<span class="signature">Harjeet & Cami</span>

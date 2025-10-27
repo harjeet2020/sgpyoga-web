@@ -24,4 +24,4 @@ If this sounds interesting to you, let us know as soon as possible - the number 
 
 With Love,
 
-Harjeet & Cami
+<span class="signature">Harjeet & Cami</span>
