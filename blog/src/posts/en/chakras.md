@@ -3,7 +3,7 @@ title: "The 7 Main Chakras & The Human Energy System"
 description: "A comprehensive guide to understanding the seven major chakras, the human energy system, and how they influence our spiritual transformation and daily life."
 date: 2025-10-23T12:00:00
 category: "spirituality"
-layout: layouts/post/standard.njk
+layout: layouts/post/longform.njk
 lang: en
 tags: ["chakras", "energy", "kundalini yoga"]
 authorName: "Harjeet"
@@ -34,6 +34,8 @@ The reason knowledge about energy – and chakras – is so helpful, is that it 
 
 I realize that it was perhaps a lengthy introduction, but if you didn’t have this knowledge, you wouldn’t be able to benefit in any way from the information that follows. Many people know about chakras, even meditate with them, but are unable to use what they know to facilitate their spiritual transformation. In fact, a large number of people – spiritual/yoga teachers included - remains in stagnation for years, talking about spirituality but still running away from their trauma just like everyone else. They recite meaningless affirmations, attend festivals and workshops, do yoga and chant mantras – but ultimately, all this is in vain if one fails to look at what resides within them, sincerely and with utmost honesty. Even I continually find myself surprised by the depth of my ignorance and stupidity – and by my inclination to ignore what I don’t want to see. Over the years I’ve learned that this awareness of our shortcomings is a very good thing. It means that we’re still growing. It is the things we don’t notice that usually hold us back; everything else is already being transformed by the light of our awareness. In other words, the mere act of noticing your trauma brings about healing. I can also say from experience that truly following the spiritual path requires immense dedication and courage – and pain, so much pain that you are rendered unable to continue living in a lie. This path is not chosen by us – it is forced upon us whether we want it or not, and we can do nothing to prevent, accelerate or decelerate it. And yet, although certainly difficult and painful, it is a glorious path to follow – for along the way, you get to experience and discover things unimaginable. An entire new world opens up to you; and although the journey is much more important than the destination, what awaits us at the end is not bad either – at the end, there lies true freedom.
 
+---
+
 ## **The Human Energy System**
 
 Now that you are aware of all this, let us return to more practical matters and see what we know about our energy system – and how to put this knowledge to a good use.
@@ -60,6 +62,8 @@ What follows is a detailed description of each of the seven major chakras. Treat
 
 <aside>
 
+<div class="aside-text">
+
 <strong>Name:</strong> Root Chakra
 
 <strong>Sanskrit Name:</strong> Muladhara
@@ -77,6 +81,10 @@ What follows is a detailed description of each of the seven major chakras. Treat
 <strong>Challenge:</strong> Fear
 
 <strong>Location:</strong> Base of the Spine
+
+</div>
+
+<img src="/assets/graphics/chakras/1.png" alt="Muladhara - Root Chakra" class="aside-photo">
 
 </aside>
 
@@ -115,6 +123,8 @@ If you have mastered your root chakra, you have transcended fear completely. You
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Sacral Chakra
 
 **Sanskrit Name:** Svadhisthana
@@ -132,6 +142,10 @@ If you have mastered your root chakra, you have transcended fear completely. You
 **Challenge:** Desire
 
 **Location:** The Navel
+
+</div>
+
+<img src="/assets/graphics/chakras/2.png" alt="Svadhisthana - Sacral Chakra" class="aside-photo">
 
 </aside>
 
@@ -170,6 +184,8 @@ If you have mastered your sacral chakra, you have learned to live on a knife's e
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Solar Plexus Chakra
 
 **Sanskrit Name:** Manipura
@@ -187,6 +203,10 @@ If you have mastered your sacral chakra, you have learned to live on a knife's e
 **Challenge:** Anger
 
 **Location:** The Solar Plexus
+
+</div>
+
+<img src="/assets/graphics/chakras/3.png" alt="Manipura - Solar Plexus Chakra" class="aside-photo">
 
 </aside>
 
@@ -225,6 +245,8 @@ If you have mastered your solar plexus chakra, your will becomes reality. You do
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Heart Chakra
 
 **Sanskrit Name:** Anahata
@@ -242,6 +264,10 @@ If you have mastered your solar plexus chakra, your will becomes reality. You do
 **Challenge:** Grief
 
 **Location:** The Heart
+
+</div>
+
+<img src="/assets/graphics/chakras/4.png" alt="Anahata - Heart Chakra" class="aside-photo">
 
 </aside>
 
@@ -280,6 +306,8 @@ If you have mastered your heart chakra, you are filled with such love, empathy a
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Throat Chakra
 
 **Sanskrit Name:** Vishuddha
@@ -297,6 +325,10 @@ If you have mastered your heart chakra, you are filled with such love, empathy a
 **Challenge:** Integrity
 
 **Location:** The Throat
+
+</div>
+
+<img src="/assets/graphics/chakras/5.png" alt="Vishuddha - Throat Chakra" class="aside-photo">
 
 </aside>
 
@@ -335,6 +367,8 @@ If you have mastered your throat chakra, you radiate a sense of immense tranquil
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Third Eye Chakra
 
 **Sanskrit Name:** Ajna
@@ -352,6 +386,10 @@ If you have mastered your throat chakra, you radiate a sense of immense tranquil
 **Challenge:** Delusion
 
 **Location:** The Brow Point
+
+</div>
+
+<img src="/assets/graphics/chakras/6.png" alt="Ajna - Third Eye Chakra" class="aside-photo">
 
 </aside>
 
@@ -390,6 +428,8 @@ If you have mastered your third eye chakra, you can see through the illusion of 
 
 <aside>
 
+<div class="aside-text">
+
 **Name:** Crown Chakra
 
 **Sanskrit Name:** Sahasrara
@@ -407,6 +447,10 @@ If you have mastered your third eye chakra, you can see through the illusion of 
 **Challenge:** Numbness
 
 **Location:** The Top of the Head
+
+</div>
+
+<img src="/assets/graphics/chakras/7.png" alt="Sahasrara - Crown Chakra" class="aside-photo">
 
 </aside>
 

@@ -123,10 +123,34 @@
 /* Horizontal rules for section breaks */
 .post-content hr {
     border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--color-accent-1), transparent);
+    height: 48px;
+    background: url('/assets/graphics/lotus.svg') center/48px no-repeat;
+    filter: brightness(0) saturate(100%) invert(42%) sepia(35%) saturate(1089%) hue-rotate(179deg) brightness(92%) contrast(88%);
     margin: var(--spacing-xxl) 0;
-    opacity: 0.3;
+    position: relative;
+    overflow: visible;
+}
+
+.post-content hr::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: calc(50% - 32px);
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-accent-1));
+    opacity: 0.4;
+}
+
+.post-content hr::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: calc(50% - 32px);
+    height: 2px;
+    background: linear-gradient(to left, transparent, var(--color-accent-1));
+    opacity: 0.4;
 }
 
 /* Emphasis and strong text */
@@ -179,48 +203,104 @@
 
 /* Aside sections (chakra info boxes) */
 .post-content aside {
-    background: rgba(31, 33, 33, 0.9); /* Primary color with opacity */
-    padding: var(--spacing-xl);
-    margin: var(--spacing-xl) 0 var(--spacing-xxl) 0;
-    font-size: 0.95rem;
+    width: 90%;
+    background: hsla(0, 0%, 100%, 0.8);
+    padding: var(--spacing-sm) var(--spacing-xxl);
+    margin: var(--spacing-xl) auto var(--spacing-xxl) auto;
+    font-size: 1.05rem;
     box-shadow: var(--shadow-lg);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-sm);
-    color: white;
+    color: black;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
 }
 
-.post-content aside p {
+.post-content aside .aside-text {
+    flex: 1;
+}
+
+.post-content aside .aside-text p {
     margin-bottom: var(--spacing-xs);
-    line-height: 1.6;
-    color: white;
+    line-height: 1.4;
+    color: black;
 }
 
-.post-content aside p:last-child {
+.post-content aside .aside-text p:last-child {
     margin-bottom: 0;
 }
 
-.post-content aside strong {
-    color: var(--color-accent-2);
+.post-content aside .aside-text strong {
+    color: var(--color-accent-1);
     font-weight: 700;
     display: inline-block;
 }
 
+.post-content aside .aside-photo {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 240px;
+    border-radius: var(--border-radius-md);
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.5);
+    transition: transform var(--transition-slow);
+}
+
+.post-content aside .aside-photo:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile responsiveness for aside */
+@media (max-width: 768px) {
+    .post-content aside {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .post-content aside .aside-photo {
+        order: -1;
+        flex: 0 0 150px;
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /* Blockquotes (chakra wisdom quotes) */
 .post-content blockquote {
-    background: linear-gradient(to right, rgba(64, 104, 154, 0.05), transparent);
-    border-left: 4px solid var(--color-accent-1);
-    padding: var(--spacing-lg) var(--spacing-xl);
+    background: transparent;
+    border: none;
+    padding: var(--spacing-xl) var(--spacing-xxl);
     margin: var(--spacing-xxl) 0;
+    margin-bottom: var(--spacing-md);
     font-style: italic;
     color: var(--color-primary);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 300;
-    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    text-align: center;
+    font-family: 'Cormorant Garamond', var(--font-heading);
+    position: relative;
+    line-height: 1.6;
+}
+
+.post-content blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+    font-size: 5rem;
+    color: var(--color-accent-2);
+    opacity: 0.4;
+    font-family: Georgia, serif;
+    line-height: 1;
 }
 
 .post-content blockquote p {
-    margin: 0;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    text-align: center;
 }
 
 /* Signature Element

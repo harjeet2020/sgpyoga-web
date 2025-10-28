@@ -15,6 +15,10 @@
     {% if layout == "layouts/post/standard.njk" %}
     <link rel="stylesheet" href="/css/blogPost.css">
     {% endif %}
+    {% if layout == "layouts/post/longform.njk" %}
+    <link rel="stylesheet" href="/css/blogPost.css">
+    <link rel="stylesheet" href="/css/blogPost-longform.css">
+    {% endif %}
     
     {# Lucide Icons #}
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -150,6 +154,9 @@
     {# JavaScript Files #}
     <script src="/js/i18n.js"></script>
     <script src="/js/navbar.js"></script>
+    {% if layout == "layouts/post/longform.njk" %}
+    <script src="/js/blogPost-toc.js"></script>
+    {% endif %}
     
     {# Initialize Lucide icons #}
     <script>

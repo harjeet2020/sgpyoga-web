@@ -1,0 +1,13 @@
+{# Table of Contents Component for Long-Form Posts
+   This component provides a container for the automatically-generated
+   table of contents. The actual TOC is generated client-side by JavaScript
+   which parses h2, h3, and h4 headings from the post content.
+#}
+
+<aside class="toc-container" id="tocContainer" aria-label="Table of Contents">
+    <nav class="toc-nav">
+        <div class="toc-list-wrapper" id="tocList">
+            {# TOC will be dynamically generated here by JavaScript #}
+        </div>
+    </nav>
+</aside>
