@@ -132,6 +132,60 @@ imageCaption: "Traditional representation of the chakra system"
 
 ---
 
+### `imageDisplay`
+**Type:** String (enum)  
+**Description:** Controls where the cover image is displayed. Determines whether the image appears on the blog card (index page), within the blog post itself (as a hero image), both locations, or neither. If not specified, defaults to `'both'`.  
+**Accepted Values:**
+- `'blog-card'` - Image appears only on the blog card in the index/listing pages
+- `'blog-post'` - Image appears only as a hero image within the full blog post
+- `'both'` - Image appears in both locations (default)
+- `'none'` - Image is not displayed anywhere (useful for storing image data without showing it)
+
+**Example:**
+```yaml
+imageDisplay: 'blog-card'
+```
+
+---
+
+### `imageCardPosition`
+**Type:** String (CSS object-position)  
+**Description:** Controls the positioning of the image within the blog card on index/listing pages. Uses CSS `object-position` syntax. This is useful when you want to focus on a specific part of an image that might get cropped due to the card's fixed aspect ratio. If not specified, defaults to `center` (applied via CSS).  
+**Common Values:**
+- `'center'` - Centers the image (default)
+- `'top'` - Aligns image to top
+- `'bottom'` - Aligns image to bottom
+- `'left'` - Aligns image to left
+- `'right'` - Aligns image to right
+- `'top left'`, `'top right'`, `'bottom left'`, `'bottom right'` - Corner positions
+- `'50% 25%'` - Precise positioning using percentages (horizontal vertical)
+
+**Example:**
+```yaml
+imageCardPosition: 'top center'
+```
+
+---
+
+### `imagePostPosition`
+**Type:** String (CSS object-position)  
+**Description:** Controls the positioning of the hero image within the blog post. Uses CSS `object-position` syntax. This allows you to adjust which part of the image is visible when it's displayed as a hero image with a max-height constraint. If not specified, defaults to `center` (applied via CSS).  
+**Common Values:**
+- `'center'` - Centers the image (default)
+- `'top'` - Aligns image to top
+- `'bottom'` - Aligns image to bottom
+- `'left'` - Aligns image to left
+- `'right'` - Aligns image to right
+- `'top left'`, `'top right'`, `'bottom left'`, `'bottom right'` - Corner positions
+- `'50% 25%'` - Precise positioning using percentages (horizontal vertical)
+
+**Example:**
+```yaml
+imagePostPosition: 'center top'
+```
+
+---
+
 ### `featured`
 **Type:** Boolean  
 **Description:** Marks a post as "featured" to be included in the featured posts collection. Featured posts are displayed prominently on the blog index and home pages. The system enforces a maximum of 6 featured posts.  
@@ -172,6 +226,9 @@ authorImage: "/assets/photos/inUse/about/harjeet.webp"
 image: "/assets/photos/blog/sgpyoga-journey.webp"
 imageAlt: "SGP Yoga team teaching a class in Mexico City"
 imageCaption: "Our first joint workshop in Mexico City, 2024"
+imageDisplay: "both"
+imageCardPosition: "center"
+imagePostPosition: "center top"
 ---
 ```
 
@@ -219,6 +276,8 @@ All collections are automatically sorted by date (newest first), except featured
 8. **Keep descriptions concise** - Aim for 50-160 characters for optimal SEO
 9. **Use consistent category names** - Stick to established categories for better organization
 10. **Include publication time** - Use full ISO format with time for better timestamp precision
+11. **Control image display thoughtfully** - Use `imageDisplay` to optimize user experience (e.g., use `'blog-card'` for announcement posts that don't need hero images)
+12. **Fine-tune image positioning** - Use `imageCardPosition` and `imagePostPosition` to ensure the most important part of your images is visible, especially for images with off-center subjects or when using portrait-oriented photos in landscape containers
 
 ---
 

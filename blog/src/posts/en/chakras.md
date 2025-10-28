@@ -8,6 +8,10 @@ lang: en
 tags: ["chakras", "energy", "kundalini yoga"]
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/blog/chakras.webp"
+imageAlt: "A graphic representing the 7 main chakras flowing along a mountain"
+imageDisplay: 'blog-card'
+imageCardPosition: 'center 5%'
 ---
 
 ## **Introduction**

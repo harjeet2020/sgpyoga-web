@@ -29,10 +29,13 @@ layout: layouts/base.njk
             </div>
         </header>
 
-        {# Hero image (optional) #}
-        {% if image %}
+        {# Hero image (optional) - controlled by imageDisplay property #}
+        {# imageDisplay values: 'blog-card', 'blog-post', 'both' (default), 'none' #}
+        {% set displayMode = imageDisplay or 'both' %}
+        {% if image and (displayMode == 'blog-post' or displayMode == 'both') %}
         <figure class="post-hero">
-            <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="lazy">
+            <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="lazy"
+                {% if imagePostPosition %}style="object-position: {{ imagePostPosition }};"{% endif %}>
             {% if imageCaption %}
                 <figcaption>{{ imageCaption }}</figcaption>
             {% endif %}

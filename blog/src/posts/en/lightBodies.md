@@ -8,6 +8,10 @@ lang: en
 tags: ["light bodies", "consciousness", "kundalini yoga"]
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/blog/lightBodies.webp"
+imageAlt: "A monk in orange robes meditaing in a dark-lit temple"
+imageDisplay: 'blog-card'
+imageCardPosition: 'center'
 ---
 
 ## Introduction

@@ -60,9 +60,12 @@ description: "Read our latest insights on yoga practice, philosophy, and communi
                 {% for post in collections.allPosts %}
                 <article class="post-card" data-lang="{{ post.data.lang }}" data-category="{{ post.data.category or 'general' }}">
                     <a href="{{ post.url | url }}" class="post-card-link">
-                        {% if post.data.image %}
+                        {# Show image on card based on imageDisplay property #}
+                        {% set displayMode = post.data.imageDisplay or 'both' %}
+                        {% if post.data.image and (displayMode == 'blog-card' or displayMode == 'both') %}
                         <div class="post-card-image">
-                            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy">
+                            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy"
+                                {% if post.data.imageCardPosition %}style="object-position: {{ post.data.imageCardPosition }};"{% endif %}>
                         </div>
                         {% endif %}
                         

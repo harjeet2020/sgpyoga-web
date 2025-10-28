@@ -10,6 +10,10 @@ featured: true
 featuredOrder: 2
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/blog/ourTeam.webp"
+imageAlt: "Aerial Yoga Teacher Training Advert"
+imageDisplay: 'blog-card'
+imageCardPosition: 'center 40%'
 ---
 
 To us, owning a yoga school isn't only about business - it is about family. In this article, we would like to introduce ourselves to you, so that you can get to know us better and feel at home in our community.

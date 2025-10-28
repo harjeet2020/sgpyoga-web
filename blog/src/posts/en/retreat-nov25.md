@@ -10,6 +10,10 @@ featured: true
 featuredOrder: 4
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp"
+imageAlt: "Yoga Retreat Advert"
+imageDisplay: 'blog-card'
+imageCardPosition: 'center top'
 ---
 
 Dear Family,

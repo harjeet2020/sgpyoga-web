@@ -10,6 +10,11 @@ featured: true
 featuredOrder: 3
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/blog/yogaStyles.webp"
+imageAlt: "A yogi in a fish yoga pose"
+imageDisplay: 'both'
+imageCardPosition: 'center 40%'
+imagePostPosition: 'center 40%'
 ---
 
 ## Choosing A Yoga Style
