@@ -197,8 +197,38 @@
 .post-content img {
     width: 100%;
     height: auto;
-    border-radius: var(--border-radius-md);
     margin: var(--spacing-xl) 0;
+}
+
+/* Float images for side-by-side text layout */
+.post-content img.float-right {
+    float: right;
+    width: 40%;
+    max-width: 400px;
+    margin: 0 0 var(--spacing-lg) var(--spacing-xxl);
+}
+
+.post-content img.float-left {
+    float: left;
+    width: 40%;
+    max-width: 400px;
+    margin: 0 var(--spacing-xxl) var(--spacing-lg) 0;
+}
+
+/* Clear floats after paragraphs with floated images */
+.post-content .clear {
+    clear: both;
+}
+
+/* Mobile: Stack floated images */
+@media (max-width: 768px) {
+    .post-content img.float-right,
+    .post-content img.float-left {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: var(--spacing-lg) 0;
+    }
 }
 
 /* Aside sections (chakra info boxes) */
