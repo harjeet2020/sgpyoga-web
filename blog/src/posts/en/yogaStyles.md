@@ -15,6 +15,7 @@ imageAlt: "A yogi in a fish yoga pose"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'
 imagePostPosition: 'center 40%'
+imageFeaturedPosition: 'right top'
 ---
 
 ## Choosing A Yoga Style

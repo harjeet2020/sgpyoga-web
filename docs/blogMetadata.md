@@ -186,6 +186,25 @@ imagePostPosition: 'center top'
 
 ---
 
+### `imageFeaturedPosition`
+**Type:** String (CSS object-position)  
+**Description:** Controls the positioning of the image within the featured posts slideshow. Uses CSS `object-position` syntax. This allows you to adjust which part of the image is visible in the featured slideshow, which may have different dimensions than blog cards or post heroes. If not specified, defaults to `center` (applied via CSS).  
+**Common Values:**
+- `'center'` - Centers the image (default)
+- `'top'` - Aligns image to top
+- `'bottom'` - Aligns image to bottom
+- `'left'` - Aligns image to left
+- `'right'` - Aligns image to right
+- `'top left'`, `'top right'`, `'bottom left'`, `'bottom right'` - Corner positions
+- `'50% 25%'` - Precise positioning using percentages (horizontal vertical)
+
+**Example:**
+```yaml
+imageFeaturedPosition: 'center 30%'
+```
+
+---
+
 ### `featured`
 **Type:** Boolean  
 **Description:** Marks a post as "featured" to be included in the featured posts collection. Featured posts are displayed prominently on the blog index and home pages. The system enforces a maximum of 6 featured posts.  
@@ -229,6 +248,7 @@ imageCaption: "Our first joint workshop in Mexico City, 2024"
 imageDisplay: "both"
 imageCardPosition: "center"
 imagePostPosition: "center top"
+imageFeaturedPosition: "center 30%"
 ---
 ```
 
@@ -277,7 +297,7 @@ All collections are automatically sorted by date (newest first), except featured
 9. **Use consistent category names** - Stick to established categories for better organization
 10. **Include publication time** - Use full ISO format with time for better timestamp precision
 11. **Control image display thoughtfully** - Use `imageDisplay` to optimize user experience (e.g., use `'blog-card'` for announcement posts that don't need hero images)
-12. **Fine-tune image positioning** - Use `imageCardPosition` and `imagePostPosition` to ensure the most important part of your images is visible, especially for images with off-center subjects or when using portrait-oriented photos in landscape containers
+12. **Fine-tune image positioning** - Use `imageCardPosition`, `imagePostPosition`, and `imageFeaturedPosition` to ensure the most important part of your images is visible across all display contexts (blog cards, post heroes, and featured slideshow), especially for images with off-center subjects or when using portrait-oriented photos in landscape containers
 
 ---
 

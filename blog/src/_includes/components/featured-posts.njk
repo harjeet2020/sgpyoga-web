@@ -9,7 +9,7 @@
    
    Requirements:
    - Posts must have 'featured: true' in frontmatter
-   - Required fields: featuredImage, featuredImageLow, featuredImageAlt
+   - Required fields: image, imageAlt
    - Optional fields: featuredOrder (for sorting), featuredExcerpt
    ======================================================================== #}
 
@@ -41,21 +41,14 @@
                     <!-- Photo Section -->
                     <div class="featured-photo">
                         <a href="{{ post.url | url }}" class="featured-photo-link" aria-label="Read {{ post.data.title }}">
-                            <picture>
-                                {# High-resolution for large screens #}
-                                {% if post.data.featuredImage %}
-                                <source 
-                                    media="(min-width: 1200px)" 
-                                    srcset="{{ post.data.featuredImage }}">
-                                {% endif %}
-                                
-                                {# Standard/fallback resolution #}
-                                <img 
-                                    src="{{ post.data.featuredImageLow or post.data.featuredImage }}" 
-                                    alt="{{ post.data.featuredImageAlt or post.data.title }}"
-                                    loading="{{ loadingStrategy }}"
-                                    class="featured-image">
-                            </picture>
+                            {% if post.data.image %}
+                            <img 
+                                src="{{ post.data.image }}" 
+                                alt="{{ post.data.imageAlt or post.data.title }}"
+                                loading="{{ loadingStrategy }}"
+                                class="featured-image"
+                                {% if post.data.imageFeaturedPosition %}style="object-position: {{ post.data.imageFeaturedPosition }};"{% endif %}>
+                            {% endif %}
                         </a>
                     </div>
                     
