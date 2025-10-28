@@ -173,8 +173,9 @@
 }
 
 .filter-btn:hover {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background-color: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+    color: white;
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
@@ -184,11 +185,6 @@
     background-color: var(--color-accent-1);
     color: white;
     border-color: var(--color-accent-1);
-}
-
-.filter-btn.active:hover {
-    background-color: var(--color-accent-2);
-    border-color: var(--color-accent-2);
 }
 
 /* Posts Grid

@@ -10,6 +10,8 @@ featured: true
 featuredOrder: 5
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+image: "/assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-1080.webp"
+imageAlt: "Aerial Yoga Teacher Training in Colombia"
 ---
 
 Dear Family,
