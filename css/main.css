@@ -326,7 +326,7 @@ main {
     
     /* Hero responsive adjustments */
     .hero {
-        height: 80vh;
+        height: 40vh;
         min-height: 500px;
         background-attachment: scroll; /* Disable parallax on mobile for better performance */
         background-position: 60% top; /* Adjust positioning for mobile */
@@ -359,7 +359,7 @@ main {
     
     /* Mobile hero adjustments */
     .hero {
-        height: 70vh;
+        height: 40vh;
         min-height: 450px;
         background-attachment: scroll; /* Disable parallax on small mobile */
         background-position: 60% top;
@@ -516,18 +516,36 @@ main {
 
 @media (max-width: 768px) {
     .classes-section {
-        padding: 3rem 0;
+        padding: 3rem 1rem;
+        background-color: white;
+        transition: background-color 0.5s ease 2s;
+    }
+    
+    .classes-section:active {
+        background-color: var(--color-secondary);
+        transition: background-color 0.1s ease 0s;
     }
     
     .classes-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+        gap: var(--spacing-xxl);
         text-align: center;
     }
     
-    /* Reset transforms for mobile */
+    /* Reset transforms for mobile and constrain image size */
     .classes-image {
         transform: translateY(0);
+        height: 480px;
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .classes-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 70%;
     }
     
     .classes-image::before {
@@ -556,15 +574,25 @@ main {
 
 @media (max-width: 480px) {
     .classes-section {
-        padding: 2rem 0;
+        padding: 2rem 1rem;
     }
     
     .classes-content {
-        gap: var(--spacing-lg);
+        gap: var(--spacing-xxl);
+    }
+    
+    .classes-image {
+        height: 300px;
+        width: 90%;
+        max-width: 360px;
+        overflow: hidden;
     }
     
     .classes-image img {
-        aspect-ratio: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 70%;
     }
     
     .classes-text h2 {
@@ -580,45 +608,6 @@ main {
         font-size: 0.95rem;
         padding: var(--spacing-sm) var(--spacing-md);
         margin-top: var(--spacing-md);
-    }
-}
-
-/* Divider Section Styles
-   ========================================================================== */
-.divider-section {
-    padding: 0;
-    background-color: white;
-    text-align: center;
-}
-
-.divider-image {
-    max-width: 720px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    opacity: 0.8;
-}
-
-/* Responsive Design for Divider Section
-   ========================================================================== */
-@media (max-width: 768px) {
-    .divider-section {
-        padding: var(--spacing-lg) 0;
-    }
-    
-    .divider-image {
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 480px) {
-    .divider-section {
-        padding: var(--spacing-md) 0;
-    }
-    
-    .divider-image {
-        max-width: 350px;
     }
 }
 
@@ -709,14 +698,14 @@ main {
     }
     
     .inspirational-quote::before {
-        font-size: 2rem;
+        font-size: 3.5rem;
         left: var(--spacing-md);
         top: -1rem;
         opacity: 0.4;
     }
     
     .inspirational-quote::after {
-        font-size: 2rem;
+        font-size: 3.5rem;
         right: var(--spacing-md);
         bottom: -1rem;
         opacity: 0.4;
@@ -741,14 +730,14 @@ main {
     }
     
     .inspirational-quote::before {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
         left: var(--spacing-sm);
         top: -0.875rem;
         opacity: 0.4;
     }
     
     .inspirational-quote::after {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
         right: var(--spacing-sm);
         bottom: -0.875rem;
         opacity: 0.4;
@@ -886,18 +875,37 @@ main {
 
 @media (max-width: 768px) {
     .events-section {
-        padding: 3rem 0;
+        padding: 3rem 1rem;
+        background-color: white;
+        transition: background-color 0.5s ease 2s;
+    }
+    
+    .events-section:active {
+        background-color: var(--color-secondary);
+        transition: background-color 0.1s ease 0s;
     }
     
     .events-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
+        gap: var(--spacing-xxl);
         text-align: center;
     }
     
-    /* Reset transforms for mobile */
+    /* Reset transforms for mobile and constrain image size */
     .events-image {
         transform: translateY(0);
+        height: 480px;
+        width: 90%;
+        margin: 0 auto;
+        overflow: hidden;
+        order: 2;
+    }
+
+    .events-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 70%;
     }
     
     .events-image::before {
@@ -907,6 +915,7 @@ main {
     .events-text {
         padding: 0;
         transform: translateY(0);
+        order: 1;
     }
     
     .events-text h2 {
@@ -921,15 +930,30 @@ main {
 
 @media (max-width: 480px) {
     .events-section {
-        padding: 2rem 0;
+        padding: 2rem 1rem;
     }
     
     .events-content {
-        gap: var(--spacing-lg);
+        gap: var(--spacing-xxl);
+    }
+    
+    .events-image {
+        height: 300px;
+        width: 90%;
+        max-width: 360px;
+        overflow: hidden;
+        order: 2;
     }
     
     .events-image img {
-        aspect-ratio: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 70%;
+    }
+    
+    .events-text {
+        order: 1;
     }
     
     .events-text h2 {

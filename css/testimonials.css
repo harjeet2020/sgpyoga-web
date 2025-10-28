@@ -276,7 +276,7 @@
    ========================================================================== */
 @media (max-width: 768px) {
     .testimonials-section {
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-xxl) var(--spacing-sm);
     }
 
     .testimonials-header h2 {
@@ -350,7 +350,7 @@
 
 @media (max-width: 480px) {
     .testimonials-section {
-        padding: var(--spacing-lg) 0;
+        padding: var(--spacing-xxl) var(--spacing-xs);
     }
 
     .testimonials-slideshow {
