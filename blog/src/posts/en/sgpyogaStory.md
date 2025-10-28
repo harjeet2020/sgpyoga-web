@@ -1,15 +1,25 @@
 ---
+# Basic Post Information
 title: "The Journey So Far | The Origins of SGP Yoga"
 description: "A yoga school doesn't just magically pop into being - at least for us, it has been a long journey. This article tells the story of who we are, what we do, and how we got here."
 date: 2025-10-27T12:00:00
 category: "general"
+
+# Template Configuration
 layout: layouts/post/standard.njk
 lang: en
+
+# Post Organization
 tags: ["sgpyoga"]
+visible: true
 featured: true
 featuredOrder: 1
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/blog/ourStory.webp"
 imageAlt: "A man standing on a mountain peak, a clear blue sky in the background, a few clouds floating in the sky"
 imageDisplay: 'both'

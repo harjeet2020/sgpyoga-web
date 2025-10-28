@@ -1,15 +1,25 @@
 ---
+# Basic Post Information
 title: "50-Hour Aerial Yoga Teacher Training In Colombia"
 description: "Aerial Yoga is coming to Colombia, with a 50-Hour Teacher Training accredited by Yoga Alliance! "
 date: 2025-10-23T12:00:00
 category: "announcements"
+
+# Template Configuration
 layout: layouts/post/standard.njk
 lang: en
+
+# Post Organization
 tags: ["teacher training", "aerial yoga"]
+visible: true
 featured: true
 featuredOrder: 5
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-1080.webp"
 imageAlt: "Aerial Yoga Teacher Training Advert"
 imageDisplay: 'both'

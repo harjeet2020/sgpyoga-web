@@ -1,15 +1,25 @@
 ---
+# Basic Post Information
 title: "Meet Our Team | The Yogis of SGP Yoga"
 description: "The most important aspect of every business is the people behind it. We have been fortunate to have an amazing team at our disposal - read on to meet them!"
 date: 2025-10-29T12:00:00
 category: "general"
+
+# Template Configuration
 layout: layouts/post/standard.njk
 lang: en
+
+# Post Organization
 tags: ["sgpyoga", "team"]
+visible: false
 featured: true
 featuredOrder: 2
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/blog/ourTeam.webp"
 imageAlt: "Aerial Yoga Teacher Training Advert"
 imageDisplay: 'blog-card'

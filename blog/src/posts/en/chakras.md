@@ -1,13 +1,23 @@
 ---
+# Basic Post Information
 title: "The 7 Main Chakras & The Human Energy System"
 description: "A comprehensive guide to understanding the seven major chakras, the human energy system, and how they influence our spiritual transformation and daily life."
 date: 2025-10-23T12:00:00
 category: "spirituality"
+
+# Template Configuration
 layout: layouts/post/longform.njk
 lang: en
+
+# Post Organization
 tags: ["chakras", "energy", "kundalini yoga"]
+visible: true
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/blog/chakras.webp"
 imageAlt: "A graphic representing the 7 main chakras flowing along a mountain"
 imageDisplay: 'blog-card'

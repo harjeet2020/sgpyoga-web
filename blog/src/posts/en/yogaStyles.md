@@ -1,15 +1,25 @@
 ---
+# Basic Post Information
 title: "A Guided Journey Through Yoga Styles"
 description: "Yoga has evolved into an astounding amount of different styles, each with its own unique benefits. In this article, we will show you around this variety, so that you can choose the right style for you."
 date: 2025-11-01T12:00:00
 category: "spirituality"
+
+# Template Configuration
 layout: layouts/post/longform.njk
 lang: en
+
+# Post Organization
 tags: ["yoga styles"]
+visible: true
 featured: true
 featuredOrder: 3
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/blog/yogaStyles.webp"
 imageAlt: "A yogi in a fish yoga pose"
 imageDisplay: 'both'

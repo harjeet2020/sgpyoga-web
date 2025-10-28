@@ -11,6 +11,63 @@
 module.exports = function(eleventyConfig) {
   
   // ========================================================================
+  // Helper Functions - Post Visibility Control
+  // ========================================================================
+  
+  /**
+   * Log information about invisible posts for preview purposes
+   * @param {Object} post - The post object
+   * @param {String} reason - Why the post is invisible ('draft' or 'scheduled')
+   */
+  function logInvisiblePost(post, reason) {
+    const title = post.data.title || 'Untitled';
+    const previewUrl = '/blog/dist' + post.url;
+    const dateStr = new Date(post.date).toISOString().split('T')[0];
+    
+    if (reason === 'draft') {
+      console.log(`📝 Draft post hidden: "${title}"`);
+      console.log(`   Preview URL: ${previewUrl}`);
+    } else if (reason === 'scheduled') {
+      console.log(`📅 Scheduled post (${dateStr}): "${title}"`);
+      console.log(`   Preview URL: ${previewUrl}`);
+    }
+  }
+  
+  /**
+   * Check if a post should be visible in collections
+   * Posts are hidden if:
+   * - visible property is explicitly set to false (draft mode)
+   * - date is in the future (scheduled post)
+   * 
+   * @param {Object} post - The post object with data and date
+   * @returns {Boolean} - True if post should be visible in collections
+   */
+  function isPostVisible(post) {
+    const now = new Date();
+    const postDate = new Date(post.date);
+    
+    // Check explicit visibility flag (defaults to true if not specified)
+    const isExplicitlyVisible = post.data.visible !== false;
+    
+    // Check if post date is not in the future
+    const isNotFuture = postDate <= now;
+    
+    // Log invisible posts for preview purposes
+    if (!isExplicitlyVisible) {
+      logInvisiblePost(post, 'draft');
+      return false;
+    }
+    
+    if (!isNotFuture) {
+      logInvisiblePost(post, 'scheduled');
+      return false;
+    }
+    
+    return true;
+  }
+  
+  
+  // ========================================================================
   // Passthrough Copy - Static Assets
   // ========================================================================
   // Copy site-wide assets from parent project into the blog output (dist/)
@@ -34,30 +91,36 @@ module.exports = function(eleventyConfig) {
   /**
    * English Posts Collection
    * Filters posts from src/posts/en/ and sorts by date (newest first)
+   * Only includes visible posts (respects visible flag and future dates)
    */
   eleventyConfig.addCollection("postsEN", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/posts/en/*.md")
+      .filter(post => isPostVisible(post))
       .sort((a, b) => b.date - a.date);
   });
   
   /**
    * Spanish Posts Collection
    * Filters posts from src/posts/es/ and sorts by date (newest first)
+   * Only includes visible posts (respects visible flag and future dates)
    */
   eleventyConfig.addCollection("postsES", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/posts/es/*.md")
+      .filter(post => isPostVisible(post))
       .sort((a, b) => b.date - a.date);
   });
   
   /**
    * All Posts Collection (both languages)
    * Useful for generating combined feeds or search indexes
+   * Only includes visible posts (respects visible flag and future dates)
    */
   eleventyConfig.addCollection("allPosts", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/posts/**/*.md")
+      .filter(post => isPostVisible(post))
       .sort((a, b) => b.date - a.date);
   });
   
@@ -73,6 +136,7 @@ module.exports = function(eleventyConfig) {
     
     let featured = collectionApi
       .getFilteredByGlob("src/posts/**/*.md")
+      .filter(post => isPostVisible(post))  // Only visible posts can be featured
       .filter(post => post.data.featured === true)
       .sort((a, b) => {
         // Sort by featuredOrder first (lower numbers appear first)

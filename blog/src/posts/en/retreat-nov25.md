@@ -1,15 +1,25 @@
 ---
+# Basic Post Information
 title: "Yoga Immersion Retreat In Colombia"
 description: "We are excited to announce our upcoming Yoga Immersion Retreat in Colombia - an experience for you to heal and rejuvenate. Hope to see you there!"
 date: 2025-10-23T12:00:00
 category: "announcements"
+
+# Template Configuration
 layout: layouts/post/standard.njk
 lang: en
+
+# Post Organization
 tags: ["retreat", "yoga", "immersion"]
+visible: true
 featured: true
 featuredOrder: 4
+
+# Author Information
 authorName: "Harjeet"
 authorImage: "/assets/photos/inUse/about/harjeet.webp"
+
+# Featured Image
 image: "/assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp"
 imageAlt: "Yoga Retreat Advert"
 imageDisplay: 'blog-card'

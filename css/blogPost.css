@@ -205,14 +205,14 @@
     float: right;
     width: 40%;
     max-width: 400px;
-    margin: 0 0 var(--spacing-lg) var(--spacing-xxl);
+    margin: var(--spacing-md) 0 0 var(--spacing-xxl);
 }
 
 .post-content img.float-left {
     float: left;
     width: 40%;
     max-width: 400px;
-    margin: 0 var(--spacing-xxl) var(--spacing-lg) 0;
+    margin: var(--spacing-md) var(--spacing-xxl) 0 0;
 }
 
 /* Clear floats after paragraphs with floated images */

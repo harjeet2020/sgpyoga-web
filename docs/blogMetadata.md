@@ -225,6 +225,48 @@ featuredOrder: 1
 
 ---
 
+### `visible`
+**Type:** Boolean  
+**Default:** `true`  
+**Description:** Controls whether a post appears in blog collections (index page, search results, featured posts). When set to `false`, the post is treated as a draft and will be hidden from all public listings, but remains accessible via direct URL for preview purposes. Posts with future dates are also automatically hidden until their publication date arrives, regardless of this setting. This property enables writers to preview post drafts and schedule future publications.  
+
+**Use Cases:**
+- **Draft Mode:** Set `visible: false` to work on posts that aren't ready for publication
+- **Scheduled Posts:** Use a future `date` (posts automatically become visible when date arrives)
+- **Previewing:** Draft and scheduled posts can always be previewed via their direct URL
+
+**Important Notes:**
+- Defaults to `true` if omitted (backward compatibility)
+- Posts are built and accessible via URL even when `visible: false`
+- During build, invisible posts are logged to console with their preview URLs
+- Future-dated posts require a site rebuild to become visible after their date passes
+
+**Examples:**
+```yaml
+# Draft post (not visible, accessible via URL)
+visible: false
+date: 2025-10-23T12:00:00
+```
+
+```yaml
+# Scheduled post (auto-publishes on Nov 15)
+visible: true
+date: 2025-11-15T09:00:00
+```
+
+```yaml
+# Published post (default behavior)
+visible: true
+date: 2025-10-20T12:00:00
+```
+
+```yaml
+# Also published (visible defaults to true)
+date: 2025-10-20T12:00:00
+```
+
+---
+
 ## Complete Example
 
 Here's a full example showing all available metadata fields:
@@ -238,6 +280,7 @@ category: "general"
 layout: layouts/post/standard.njk
 lang: en
 tags: ["sgpyoga", "community", "story"]
+visible: true
 featured: true
 featuredOrder: 1
 authorName: "Harjeet"
@@ -275,11 +318,19 @@ lang: en
 
 Posts are automatically organized into collections based on their metadata:
 
-- **`postsEN`** - All English posts (`lang: en`)
-- **`postsES`** - All Spanish posts (`lang: es`)
-- **`allPosts`** - All posts in both languages
-- **`featuredPosts`** - Posts marked with `featured: true` (max 6, sorted by `featuredOrder`)
+- **`postsEN`** - All visible English posts (`lang: en`)
+- **`postsES`** - All visible Spanish posts (`lang: es`)
+- **`allPosts`** - All visible posts in both languages
+- **`featuredPosts`** - Visible posts marked with `featured: true` (max 6, sorted by `featuredOrder`)
 
+**Visibility Filtering:**
+All collections automatically filter out posts that are:
+- Explicitly hidden with `visible: false` (draft posts)
+- Scheduled for future publication (posts with `date` in the future)
+
+Invisible posts are still built and accessible via direct URL for preview purposes. During the build process, hidden posts are logged to the console with their preview URLs.
+
+**Sorting:**
 All collections are automatically sorted by date (newest first), except featured posts which are sorted by `featuredOrder` first, then by date.
 
 ---
@@ -298,6 +349,9 @@ All collections are automatically sorted by date (newest first), except featured
 10. **Include publication time** - Use full ISO format with time for better timestamp precision
 11. **Control image display thoughtfully** - Use `imageDisplay` to optimize user experience (e.g., use `'blog-card'` for announcement posts that don't need hero images)
 12. **Fine-tune image positioning** - Use `imageCardPosition`, `imagePostPosition`, and `imageFeaturedPosition` to ensure the most important part of your images is visible across all display contexts (blog cards, post heroes, and featured slideshow), especially for images with off-center subjects or when using portrait-oriented photos in landscape containers
+13. **Use draft mode for work-in-progress** - Set `visible: false` while working on posts to preview them without publishing
+14. **Schedule posts strategically** - Use future dates to auto-publish content at specific times (requires site rebuild)
+15. **Preview before publishing** - Check console output during build for preview URLs of draft and scheduled posts
 
 ---
 
