@@ -39,6 +39,7 @@
 .upcoming-events-section {
     background-color: var(--color-secondary);
     padding: 4rem 0 var(--spacing-xxl) 0;
+    position: relative;
 }
 
 /* Event Controls Container
@@ -167,6 +168,58 @@
 
 .events-grid::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent-2);
+}
+
+/* Scroll Indicators - Hidden on desktop, shown on mobile/tablet */
+.events-scroll-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius-circle);
+    display: none; /* Hidden by default, shown on mobile/tablet via JS */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    border: 2px solid var(--color-accent-1);
+}
+
+.events-scroll-indicator.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.events-scroll-indicator:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    border-color: var(--color-accent-2);
+}
+
+.events-scroll-indicator.left {
+    left: 16px;
+}
+
+.events-scroll-indicator.right {
+    right: 16px;
+}
+
+.events-scroll-indicator svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-1);
+    transition: color var(--transition-fast);
+}
+
+.events-scroll-indicator:hover svg {
+    color: var(--color-accent-2);
 }
 
 /* Individual Event Card
@@ -367,7 +420,8 @@
 }
 
 /* Hover state: Expand the hovered tile to double width */
-.event-type-tile:hover {
+.event-type-tile:hover,
+.event-type-tile.active {
     flex: 1.4 1 0; /* Stretched state: 1.4fr */
 }
 
@@ -381,7 +435,8 @@
     transition: transform var(--transition-slow);
 }
 
-.event-type-tile:hover .event-type-image {
+.event-type-tile:hover .event-type-image,
+.event-type-tile.active .event-type-image {
     transform: scale(1.05); /* Subtle zoom effect */
 }
 
@@ -404,8 +459,9 @@
     transition: opacity var(--transition-normal);
 }
 
-.event-type-tile:hover .event-type-overlay {
-    opacity: 1; /* Fully visible on hover */
+.event-type-tile:hover .event-type-overlay,
+.event-type-tile.active .event-type-overlay {
+    opacity: 1; /* Fully visible on hover/active */
 }
 
 /* Content Container
@@ -714,11 +770,21 @@
     .section-title {
         font-size: 2.5rem;
     }
+
+    .event-filters {
+        margin-top: var(--spacing-md);
+    }
+    
+    /* Show scroll indicators on tablet, adjust position */
+    .events-scroll-indicator {
+        display: flex;
+        top: 60%; /* Move lower on tablet */
+    }
     
     /* Event Cards - maintain horizontal scroll */
     .event-card {
-        flex: 0 0 320px;
-        min-width: 320px;
+        flex: 0 0 360px;
+        min-width: 360px;
     }
     
     /* Event Types Gallery - reduce height */
@@ -758,9 +824,20 @@
         margin-bottom: var(--spacing-lg);
     }
     
-    /* Event Filters - smaller on mobile */
+    /* Upcoming Events Section - extra top padding for fixed navbar on mobile */
+    .upcoming-events-section {
+        padding: 3rem var(--spacing-xl) var(--spacing-xxl) var(--spacing-xl) !important; /* Extra padding to account for fixed navbar */
+    }
+    
+    /* Events scroll indicators - adjust position on mobile */
+    .events-scroll-indicator {
+        top: 65%; /* Move even lower on mobile */
+    }
+    
+    /* Event Filters - smaller on mobile, centered with wrap */
     .event-filters {
         gap: var(--spacing-sm);
+        justify-content: center;
     }
     
     .filter-btn {
@@ -774,8 +851,8 @@
     }
     
     .event-card {
-        flex: 0 0 280px;
-        min-width: 280px;
+        flex: 0 0 320px;
+        min-width: 320px;
     }
     
     .event-card:hover {
@@ -862,7 +939,21 @@
         font-size: 1rem;
     }
     
-    /* Event Filters - wrap on small screens */
+    /* Upcoming Events Section - extra top padding for fixed navbar on small mobile */
+    .upcoming-events-section {
+        padding-top: 8rem !important; /* Extra padding to account for fixed navbar */
+    }
+    
+    /* Events scroll indicators - adjust position on small mobile */
+    .events-scroll-indicator {
+        top: 70%; /* Move even lower on small mobile */
+    }
+    
+    /* Event Filters - wrap on small screens, centered */
+    .event-filters {
+        justify-content: center;
+    }
+    
     .filter-btn {
         padding: var(--spacing-xs) var(--spacing-md);
         font-size: 0.8rem;
@@ -870,8 +961,8 @@
     
     /* Event Cards - even smaller on very small screens */
     .event-card {
-        flex: 0 0 260px;
-        min-width: 260px;
+        flex: 0 0 300px;
+        min-width: 300px;
     }
     
     .event-card-image {

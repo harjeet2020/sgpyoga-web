@@ -77,6 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
             lucide.createIcons();
         }
         
+        // Initialize events scroll indicators
+        initEventsScrollIndicators();
+        
+        // Initialize event type tiles tap-to-toggle for touch devices
+        initEventTypeTilesToggle();
+        
         console.log('Events page initialized successfully');
     });
 });
@@ -654,6 +660,123 @@ function scrollToSection(sectionId) {
             block: 'start'
         });
     }
+}
+
+// =============================================================================
+// EVENTS SCROLL INDICATORS
+// =============================================================================
+/**
+ * Initialize events scroll indicators
+ * Show/hide arrows based on scroll position and handle click scrolling
+ */
+function initEventsScrollIndicators() {
+    const eventsGrid = document.querySelector('.events-grid');
+    const leftIndicator = document.querySelector('.events-scroll-indicator.left');
+    const rightIndicator = document.querySelector('.events-scroll-indicator.right');
+    
+    if (!eventsGrid || !leftIndicator || !rightIndicator) return;
+    
+    // Only show on mobile/tablet (1024px and below)
+    const isMobileOrTablet = () => window.innerWidth <= 1024;
+    
+    if (!isMobileOrTablet()) return;
+    
+    // Update indicator visibility based on scroll position
+    function updateIndicators() {
+        if (!isMobileOrTablet()) {
+            leftIndicator.classList.remove('visible');
+            rightIndicator.classList.remove('visible');
+            return;
+        }
+        
+        const scrollLeft = eventsGrid.scrollLeft;
+        const maxScroll = eventsGrid.scrollWidth - eventsGrid.clientWidth;
+        
+        // Show left arrow if not at the start
+        if (scrollLeft > 10) {
+            leftIndicator.classList.add('visible');
+        } else {
+            leftIndicator.classList.remove('visible');
+        }
+        
+        // Show right arrow if not at the end
+        if (scrollLeft < maxScroll - 10) {
+            rightIndicator.classList.add('visible');
+        } else {
+            rightIndicator.classList.remove('visible');
+        }
+    }
+    
+    // Scroll left when left arrow is clicked
+    leftIndicator.addEventListener('click', function() {
+        const scrollAmount = eventsGrid.clientWidth * 0.8;
+        eventsGrid.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Scroll right when right arrow is clicked
+    rightIndicator.addEventListener('click', function() {
+        const scrollAmount = eventsGrid.clientWidth * 0.8;
+        eventsGrid.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Update indicators on scroll
+    eventsGrid.addEventListener('scroll', updateIndicators);
+    
+    // Update indicators on window resize
+    window.addEventListener('resize', updateIndicators);
+    
+    // Initial update (with delay to ensure events are rendered)
+    setTimeout(updateIndicators, 500);
+}
+
+// =============================================================================
+// EVENT TYPE TILES TAP-TO-TOGGLE
+// =============================================================================
+/**
+ * Initialize event type tiles tap-to-toggle for touch devices
+ * On mobile/tablet, tap to expand/collapse tiles instead of hover
+ */
+function initEventTypeTilesToggle() {
+    const eventTypeTiles = document.querySelectorAll('.event-type-tile');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice) return;
+    
+    eventTypeTiles.forEach(tile => {
+        tile.addEventListener('click', function(e) {
+            // Check if this tile is already active
+            const isActive = this.classList.contains('active');
+            
+            // Close all other tiles
+            eventTypeTiles.forEach(otherTile => {
+                if (otherTile !== this) {
+                    otherTile.classList.remove('active');
+                }
+            });
+            
+            // Toggle this tile
+            if (isActive) {
+                this.classList.remove('active');
+            } else {
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Close active tile when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.event-type-tile')) {
+            eventTypeTiles.forEach(tile => {
+                tile.classList.remove('active');
+            });
+        }
+    });
 }
 
 // =============================================================================
