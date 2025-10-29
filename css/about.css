@@ -372,6 +372,7 @@
 .teachers-section {
     background-color: var(--color-secondary);
     padding: var(--spacing-xxl) 7% !important;
+    position: relative;
 }
 
 .teachers-grid {
@@ -485,6 +486,56 @@
     color: var(--color-supplementary);
     margin: 0;
     text-align: left;
+}
+
+/* Scroll Indicators - Hidden on desktop, shown on mobile/tablet */
+.teachers-scroll-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius-circle);
+    display: none; /* Hidden by default, shown on mobile/tablet via JS */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.teachers-scroll-indicator.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.teachers-scroll-indicator:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.teachers-scroll-indicator.left {
+    left: 16px;
+}
+
+.teachers-scroll-indicator.right {
+    right: 16px;
+}
+
+.teachers-scroll-indicator svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-1);
+    transition: color var(--transition-fast);
+}
+
+.teachers-scroll-indicator:hover svg {
+    color: var(--color-accent-2);
 }
 
 /* Section 4: Our Spaces
@@ -669,8 +720,13 @@
     
     /* Teachers Grid - maintain horizontal scroll on tablet */
     .teacher-card {
-        flex: 0 0 320px;
-        min-width: 320px;
+        flex: 0 0 360px;
+        min-width: 360px;
+    }
+    
+    /* Show scroll indicators on tablet */
+    .teachers-scroll-indicator {
+        display: flex;
     }
     
     .anchor-nav {
@@ -772,8 +828,8 @@
     
     /* Teachers Section - maintain horizontal scroll on mobile */
     .teacher-card {
-        flex: 0 0 280px;
-        min-width: 280px;
+        flex: 0 0 340px;
+        min-width: 340px;
     }
     
     .teacher-card:hover {
@@ -829,9 +885,9 @@
     }
     
     .yoga-hero-section {
-        height: 60vh;
-        min-height: 60vh;
-        padding: 3rem var(--spacing-lg) 0 var(--spacing-lg);
+        height: 65vh;
+        min-height: 65vh;
+        padding: 6rem var(--spacing-lg) 0 var(--spacing-lg);
     }
     
     .yoga-hero-title {
@@ -843,6 +899,7 @@
     }
     
     .yoga-text-box {
+        margin-top: -1.5rem;
         padding: var(--spacing-md);
         min-height: 140px;
     }

@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Initialize yoga hero interactive elements
     initYogaHero();
+    
+    // Initialize teachers scroll indicators
+    initTeachersScrollIndicators();
 });
 
 /**
@@ -415,6 +418,76 @@ function initYogaHero() {
             }
         }
     });
+}
+
+/**
+ * Initialize teachers scroll indicators
+ * Show/hide arrows based on scroll position and handle click scrolling
+ */
+function initTeachersScrollIndicators() {
+    const teachersGrid = document.querySelector('.teachers-grid');
+    const leftIndicator = document.querySelector('.teachers-scroll-indicator.left');
+    const rightIndicator = document.querySelector('.teachers-scroll-indicator.right');
+    
+    if (!teachersGrid || !leftIndicator || !rightIndicator) return;
+    
+    // Only show on mobile/tablet (1024px and below)
+    const isMobileOrTablet = () => window.innerWidth <= 1024;
+    
+    if (!isMobileOrTablet()) return;
+    
+    // Update indicator visibility based on scroll position
+    function updateIndicators() {
+        if (!isMobileOrTablet()) {
+            leftIndicator.classList.remove('visible');
+            rightIndicator.classList.remove('visible');
+            return;
+        }
+        
+        const scrollLeft = teachersGrid.scrollLeft;
+        const maxScroll = teachersGrid.scrollWidth - teachersGrid.clientWidth;
+        
+        // Show left arrow if not at the start
+        if (scrollLeft > 10) {
+            leftIndicator.classList.add('visible');
+        } else {
+            leftIndicator.classList.remove('visible');
+        }
+        
+        // Show right arrow if not at the end
+        if (scrollLeft < maxScroll - 10) {
+            rightIndicator.classList.add('visible');
+        } else {
+            rightIndicator.classList.remove('visible');
+        }
+    }
+    
+    // Scroll left when left arrow is clicked
+    leftIndicator.addEventListener('click', function() {
+        const scrollAmount = teachersGrid.clientWidth * 0.8;
+        teachersGrid.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Scroll right when right arrow is clicked
+    rightIndicator.addEventListener('click', function() {
+        const scrollAmount = teachersGrid.clientWidth * 0.8;
+        teachersGrid.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Update indicators on scroll
+    teachersGrid.addEventListener('scroll', updateIndicators);
+    
+    // Update indicators on window resize
+    window.addEventListener('resize', updateIndicators);
+    
+    // Initial update
+    updateIndicators();
 }
 
 /**
