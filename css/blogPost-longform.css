@@ -166,8 +166,8 @@
 /* Tablet and Mobile Responsiveness
    ========================================================================== */
 
-/* Tablet (992px and below) - Switch to single column */
-@media (max-width: 992px) {
+/* Tablet (1024px and below) - Switch to single column */
+@media (max-width: 1024px) {
     .post-longform .longform-wrapper {
         grid-template-columns: 1fr;
         gap: 0;

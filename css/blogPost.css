@@ -12,7 +12,14 @@
 /* Individual Post Styles
    ========================================================================== */
 .post {
-    padding: var(--spacing-xxl) 0;
+    padding: var(--spacing-xl) var(--spacing-xl);
+}
+
+@media (max-width: 480px) {
+    .post {
+        margin-top: 3rem;
+        padding: var(--spacing-xxl) var(--spacing-md);
+    }
 }
 
 .post-header {
@@ -221,7 +228,7 @@
 }
 
 /* Mobile: Stack floated images */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .post-content img.float-right,
     .post-content img.float-left {
         float: none;
@@ -280,8 +287,22 @@
     transform: scale(1.1);
 }
 
-/* Mobile responsiveness for aside */
-@media (max-width: 768px) {
+/* Tablet vertical (768px-991px): Maintain side-by-side with scaled-down images */
+@media (max-width: 991px) and (min-width: 768px) {
+    .post-content aside {
+        padding: var(--spacing-xl) var(--spacing-xxl);
+        gap: var(--spacing-lg);
+    }
+    
+    .post-content aside .aside-photo {
+        flex: 0 0 180px;
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Mobile responsiveness for aside - stack vertically on smaller screens */
+@media (max-width: 767px) {
     .post-content aside {
         flex-direction: column;
         text-align: center;
@@ -385,7 +406,7 @@
 
 /* Responsive Design
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .post-title {
         font-size: 2rem;
     }
