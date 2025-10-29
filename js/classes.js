@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Optional: Add smooth scroll behavior to schedule on mobile
     initMobileScrollEnhancement();
+    
+    // Initialize legend scroll indicators
+    initLegendScrollIndicators();
+    
+    // Initialize class card tap-to-toggle for touch devices
+    initClassCardToggle();
 });
 
 /**
@@ -165,3 +171,127 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/**
+ * Initialize legend scroll indicators
+ * Show/hide arrows based on scroll position and handle click scrolling
+ */
+function initLegendScrollIndicators() {
+    const legendSection = document.querySelector('.legend-section');
+    const leftIndicator = document.querySelector('.legend-scroll-indicator.left');
+    const rightIndicator = document.querySelector('.legend-scroll-indicator.right');
+    
+    if (!legendSection || !leftIndicator || !rightIndicator) return;
+    
+    // Only show on mobile/tablet (1024px and below)
+    const isMobileOrTablet = () => window.innerWidth <= 1024;
+    
+    if (!isMobileOrTablet()) return;
+    
+    // Position indicators vertically based on section position
+    function positionIndicators() {
+        const rect = legendSection.getBoundingClientRect();
+        const centerY = rect.top + (rect.height / 2);
+        
+        leftIndicator.style.top = `${centerY}px`;
+        rightIndicator.style.top = `${centerY}px`;
+    }
+    
+    // Update indicator visibility based on scroll position
+    function updateIndicators() {
+        if (!isMobileOrTablet()) {
+            leftIndicator.classList.remove('visible');
+            rightIndicator.classList.remove('visible');
+            return;
+        }
+        
+        // Update position
+        positionIndicators();
+        
+        const scrollLeft = legendSection.scrollLeft;
+        const maxScroll = legendSection.scrollWidth - legendSection.clientWidth;
+        
+        // Show left arrow if not at the start
+        if (scrollLeft > 10) {
+            leftIndicator.classList.add('visible');
+        } else {
+            leftIndicator.classList.remove('visible');
+        }
+        
+        // Show right arrow if not at the end
+        if (scrollLeft < maxScroll - 10) {
+            rightIndicator.classList.add('visible');
+        } else {
+            rightIndicator.classList.remove('visible');
+        }
+    }
+    
+    // Scroll left when left arrow is clicked
+    leftIndicator.addEventListener('click', function() {
+        const scrollAmount = legendSection.clientWidth * 0.8;
+        legendSection.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Scroll right when right arrow is clicked
+    rightIndicator.addEventListener('click', function() {
+        const scrollAmount = legendSection.clientWidth * 0.8;
+        legendSection.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Update indicators on scroll (both window and section scroll)
+    legendSection.addEventListener('scroll', updateIndicators);
+    window.addEventListener('scroll', updateIndicators);
+    
+    // Update indicators on window resize
+    window.addEventListener('resize', updateIndicators);
+    
+    // Initial update
+    updateIndicators();
+}
+
+/**
+ * Initialize class card tap-to-toggle for touch devices
+ * On mobile/tablet, tap to expand/collapse card details instead of hover
+ */
+function initClassCardToggle() {
+    const classCards = document.querySelectorAll('.class-card');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice) return;
+    
+    classCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Check if this card is already active
+            const isActive = this.classList.contains('active');
+            
+            // Close all other cards
+            classCards.forEach(otherCard => {
+                if (otherCard !== this) {
+                    otherCard.classList.remove('active');
+                }
+            });
+            
+            // Toggle this card
+            if (isActive) {
+                this.classList.remove('active');
+            } else {
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    // Close active card when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.class-card')) {
+            classCards.forEach(card => {
+                card.classList.remove('active');
+            });
+        }
+    });
+}
