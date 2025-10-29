@@ -324,7 +324,16 @@
         gap: var(--spacing-sm);
         padding: var(--spacing-md);
         height: auto;
-        position: relative; /* Remove sticky on mobile for better UX */
+        position: fixed; /* Fixed position for hide/show on scroll */
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(0);
+    }
+    
+    .navbar.navbar-hidden {
+        transform: translateY(-100%);
     }
     
     .navbar-left,

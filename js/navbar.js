@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set active nav link based on current page
     setActiveNavLink();
+    
+    // Initialize mobile scroll behavior
+    initMobileScrollBehavior();
 });
 
 /**
@@ -277,11 +280,72 @@ window.addEventListener('resize', function() {
     }, 150);
 });
 
+/**
+ * Initialize mobile scroll behavior - hide navbar on scroll down, show on scroll up
+ */
+function initMobileScrollBehavior() {
+    // Only apply on mobile devices (640px and below)
+    const isMobile = () => window.innerWidth <= 640;
+    
+    if (!isMobile()) return;
+    
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
+    let lastScrollTop = 0;
+    let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+    let isScrolling = false;
+    
+    window.addEventListener('scroll', function() {
+        if (!isMobile()) return;
+        
+        // Use requestAnimationFrame for better performance
+        if (!isScrolling) {
+            window.requestAnimationFrame(function() {
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Ignore small scroll movements
+                if (Math.abs(currentScrollTop - lastScrollTop) < scrollThreshold) {
+                    isScrolling = false;
+                    return;
+                }
+                
+                // Scrolling down - hide navbar
+                if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+                    navbar.classList.add('navbar-hidden');
+                } 
+                // Scrolling up - show navbar
+                else if (currentScrollTop < lastScrollTop) {
+                    navbar.classList.remove('navbar-hidden');
+                }
+                
+                // Always show navbar at the very top
+                if (currentScrollTop <= 50) {
+                    navbar.classList.remove('navbar-hidden');
+                }
+                
+                lastScrollTop = currentScrollTop;
+                isScrolling = false;
+            });
+            
+            isScrolling = true;
+        }
+    });
+    
+    // Reset on window resize
+    window.addEventListener('resize', function() {
+        if (!isMobile()) {
+            navbar.classList.remove('navbar-hidden');
+        }
+    });
+}
+
 // Export functions for potential use in other scripts
 if (typeof window !== 'undefined') {
     window.SGPNavbar = {
         selectLanguage,
         toggleLanguageDropdown,
-        setActiveNavLink
+        setActiveNavLink,
+        initMobileScrollBehavior
     };
 }

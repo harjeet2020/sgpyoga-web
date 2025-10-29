@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize style cards interaction (for touch devices)
     initStyleCards();
     
+    // Initialize space tiles interaction (for touch devices)
+    initSpaceTiles();
+    
     // Initialize yoga hero interactive elements
     initYogaHero();
 });
@@ -180,30 +183,62 @@ function initScrollAnimations() {
 }
 
 /**
- * Initialize style cards for touch devices
- * On mobile/tablet, tap to flip instead of hover
+ * Initialize style tiles for touch devices
+ * On mobile/tablet, tap to show/hide overlay instead of hover
  */
 function initStyleCards() {
-    const styleCards = document.querySelectorAll('.style-card');
+    const styleTiles = document.querySelectorAll('.style-tile');
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     if (isTouchDevice) {
-        styleCards.forEach(card => {
-            let isFlipped = false;
+        styleTiles.forEach(tile => {
+            const overlay = tile.querySelector('.style-overlay');
+            let isVisible = false;
             
-            card.addEventListener('click', function(e) {
+            tile.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Toggle flipped state
-                const inner = this.querySelector('.style-card-inner');
-                
-                if (isFlipped) {
-                    inner.style.transform = 'rotateY(0deg)';
+                // Toggle overlay visibility
+                if (isVisible) {
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
                 } else {
-                    inner.style.transform = 'rotateY(180deg)';
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
                 }
                 
-                isFlipped = !isFlipped;
+                isVisible = !isVisible;
+            });
+        });
+    }
+}
+
+/**
+ * Initialize space tiles for touch devices
+ * On mobile/tablet, tap to show/hide overlay instead of hover
+ */
+function initSpaceTiles() {
+    const spaceTiles = document.querySelectorAll('.space-tile');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+        spaceTiles.forEach(tile => {
+            const overlay = tile.querySelector('.space-overlay');
+            let isVisible = false;
+            
+            tile.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Toggle overlay visibility
+                if (isVisible) {
+                    overlay.style.opacity = '0';
+                    overlay.style.pointerEvents = 'none';
+                } else {
+                    overlay.style.opacity = '1';
+                    overlay.style.pointerEvents = 'auto';
+                }
+                
+                isVisible = !isVisible;
             });
         });
     }
