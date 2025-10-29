@@ -19,7 +19,7 @@
 }
 
 .featured-posts-header h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
     font-weight: 600;
@@ -365,13 +365,21 @@
 
 /* Responsive Design
    ========================================================================== */
+@media (max-width: 1024px) {
+    .featured-posts-section {
+        padding: var(--spacing-xs) 0 var(--spacing-xxl) 0;
+        margin-bottom: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .featured-posts-section {
-        padding: calc(var(--spacing-xl) / 2) 0 var(--spacing-xl) 0;
+        padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-xxl) var(--spacing-lg);
+        margin-bottom: 1rem;
     }
 
     .featured-posts-header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: var(--spacing-sm);
     }
 
@@ -395,7 +403,7 @@
     }
 
     .featured-content {
-        padding: var(--spacing-lg) var(--spacing-md);
+        padding: var(--spacing-lg) var(--spacing-xl);
         order: 2;
     }
 
@@ -429,7 +437,8 @@
 
 @media (max-width: 480px) {
     .featured-posts-section {
-        padding: calc(var(--spacing-lg) / 2) 0 var(--spacing-lg) 0;
+        margin-top: 5rem;
+        padding: calc(var(--spacing-lg) / 2) 0 var(--spacing-xxl) 0;
     }
 
     .featured-posts-slideshow {
@@ -438,7 +447,7 @@
     }
 
     .featured-posts-header h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .featured-posts-header p {
@@ -450,7 +459,7 @@
     }
 
     .featured-content {
-        padding: var(--spacing-md) var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-xl);
     }
 
     .featured-title {
