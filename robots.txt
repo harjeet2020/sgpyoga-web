@@ -1,0 +1,17 @@
+# SGP Yoga - Robots.txt
+# Last Updated: 2025-01-29
+
+User-agent: *
+Allow: /
+
+# Disallow admin and system directories
+Disallow: /blog/dist/admin/
+Disallow: /js/
+Disallow: /css/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://www.sgpyoga.co/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1

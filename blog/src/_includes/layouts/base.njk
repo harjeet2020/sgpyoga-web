@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ description or 'SGP Yoga Blog - Insights on yoga practice, philosophy, and community' }}">
     
+    {# Open Graph / Facebook #}
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.sgpyoga.co{{ page.url }}">
+    <meta property="og:title" content="{{ title or 'SGP Yoga Blog' }}">
+    <meta property="og:description" content="{{ description or 'Explore yoga wisdom, practice tips, and philosophy from our teachers in Mexico City.' }}">
+    <meta property="og:image" content="https://www.sgpyoga.co{{ image or '/assets/photos/inUse/social/og-blog.webp' }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="{{ lang == 'es' ? 'es_MX' : 'en_US' }}">
+    <meta property="og:locale:alternate" content="{{ lang == 'es' ? 'en_US' : 'es_MX' }}">
+    <meta property="og:site_name" content="SGP Yoga">
+    
+    {# Twitter Card #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.sgpyoga.co{{ page.url }}">
+    <meta name="twitter:title" content="{{ title or 'SGP Yoga Blog' }}">
+    <meta name="twitter:description" content="{{ description or 'Explore yoga wisdom, practice tips, and philosophy from our teachers in Mexico City.' }}">
+    <meta name="twitter:image" content="https://www.sgpyoga.co{{ image or '/assets/photos/inUse/social/og-blog.webp' }}">
+    
     <title>{{ title }} | SGP Yoga Blog</title>
     
     {# Main site CSS - using copied assets from dist/ #}
