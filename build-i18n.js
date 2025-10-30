@@ -187,10 +187,29 @@ function processHTML(html, translations, filename) {
         (match) => match.replace(/data-lang=["']en["']/, 'data-lang="es"')
     );
     
-    // Update canonical and hreflang tags for Spanish version
+    // Update canonical URL to point to Spanish version
     processed = processed.replace(
         /<link rel=["']canonical["'] href=["'](https:\/\/www\.sgpyoga\.co\/)([^"']+)["']>/g,
         (match, domain, page) => `<link rel="canonical" href="${domain}es/${page}">`
+    );
+    
+    // Update hreflang tags for Spanish version
+    // Update the hreflang="es" to point to /es/ version (but avoid double /es/es/)
+    processed = processed.replace(
+        /<link rel=["']alternate["'] hreflang=["']es["'] href=["'](https:\/\/www\.sgpyoga\.co\/)(?!es\/)([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="es" href="${domain}es/${page}">`
+    );
+    
+    // Ensure hreflang="en" points to root version
+    processed = processed.replace(
+        /<link rel=["']alternate["'] hreflang=["']en["'] href=["'](https:\/\/www\.sgpyoga\.co\/)es\/([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="en" href="${domain}${page}">`
+    );
+    
+    // Ensure x-default points to root version (English)
+    processed = processed.replace(
+        /<link rel=["']alternate["'] hreflang=["']x-default["'] href=["'](https:\/\/www\.sgpyoga\.co\/)es\/([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="x-default" href="${domain}${page}">`
     );
     
     // Convert relative paths to absolute paths for resources
