@@ -192,6 +192,14 @@ function renderEvents() {
         return;
     }
     
+    // Debug: Check i18n status
+    console.log('renderEvents - i18n status:', {
+        i18nextAvailable: typeof i18next !== 'undefined',
+        i18nextInitialized: typeof i18next !== 'undefined' && i18next.isInitialized,
+        SGPi18nAvailable: typeof window.SGPi18n !== 'undefined',
+        SGPi18nInitialized: typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized
+    });
+    
     // Clear existing events
     eventsGrid.innerHTML = '';
     
@@ -199,9 +207,15 @@ function renderEvents() {
     const t = (key) => {
         if (typeof i18next !== 'undefined' && i18next.isInitialized) {
             return i18next.t(key);
-        } else if (typeof SGPi18n !== 'undefined') {
-            return SGPi18n.t(key);
+        } else if (typeof window.SGPi18n !== 'undefined') {
+            const result = window.SGPi18n.t(key);
+            // Debug first translation only
+            if (key.includes('aerial-teacher-training_nov2025.title')) {
+                console.log(`Translation test for ${key}:`, result);
+            }
+            return result;
         }
+        console.warn(`i18n not available for key: ${key}`);
         return key; // Fallback to key itself
     };
     
@@ -301,8 +315,8 @@ function loadEventDataFromTranslations() {
     const t = (key) => {
         if (typeof i18next !== 'undefined' && i18next.isInitialized) {
             return i18next.t(key);
-        } else if (typeof SGPi18n !== 'undefined') {
-            return SGPi18n.t(key);
+        } else if (typeof window.SGPi18n !== 'undefined') {
+            return window.SGPi18n.t(key);
         }
         return key; // Fallback to key itself
     };
@@ -409,8 +423,8 @@ function updateTimeToggleButton() {
     const t = (key) => {
         if (typeof i18next !== 'undefined' && i18next.isInitialized) {
             return i18next.t(key);
-        } else if (typeof SGPi18n !== 'undefined') {
-            return SGPi18n.t(key);
+        } else if (typeof window.SGPi18n !== 'undefined') {
+            return window.SGPi18n.t(key);
         }
         return key;
     };
