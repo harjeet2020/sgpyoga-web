@@ -147,7 +147,7 @@ function waitForI18n() {
             
             // Check if either i18next or SGPi18n is ready
             const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
-                              (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized);
+                              (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized);
             
             if (i18nReady || attempts >= maxAttempts) {
                 clearInterval(checkI18n);
