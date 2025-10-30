@@ -121,7 +121,32 @@ processed = processed.replace(
 
 ---
 
-### 5. **Build Pipeline Configuration**
+### 5. **Blog Template - Missing Canonical/Hreflang Tags**
+
+**Problem:** The blog base template (`blog/src/_includes/layouts/base.njk`) was missing canonical and hreflang tags entirely.
+
+**Fix Applied:** Added language-aware canonical and hreflang tags to the template:
+```html
+{# SEO: Canonical & Hreflang Tags #}
+<link rel="canonical" href="https://www.sgpyoga.co{{ page.url }}">
+{% if lang == 'es' %}
+    {# Spanish page - link to English equivalent #}
+    <link rel="alternate" hreflang="en" href="https://www.sgpyoga.co/blog/dist/{{ page.fileSlug }}.html">
+    <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co{{ page.url }}">
+    <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/blog/dist/{{ page.fileSlug }}.html">
+{% else %}
+    {# English page - link to English equivalent #}
+    <link rel="alternate" hreflang="en" href="https://www.sgpyoga.co{{ page.url }}">
+    <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/blog/dist/es/{{ page.fileSlug }}.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co{{ page.url }}">
+{% endif %}
+```
+
+**Result:** ✅ All blog pages (index and posts) now have proper SEO tags
+
+---
+
+### 6. **Build Pipeline Configuration**
 
 **Problem:** No unified build command in package.json
 

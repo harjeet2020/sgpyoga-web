@@ -24,6 +24,20 @@
     <meta name="twitter:description" content="{{ description or 'Explore yoga wisdom, practice tips, and philosophy from our teachers in Mexico City.' }}">
     <meta name="twitter:image" content="https://www.sgpyoga.co{{ image or '/assets/photos/inUse/social/og-blog.webp' }}">
     
+    {# SEO: Canonical & Hreflang Tags #}
+    <link rel="canonical" href="https://www.sgpyoga.co{{ page.url }}">
+    {% if lang == 'es' %}
+        {# Spanish page - link to English equivalent #}
+        <link rel="alternate" hreflang="en" href="https://www.sgpyoga.co/blog/dist/{{ page.fileSlug }}.html">
+        <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co{{ page.url }}">
+        <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/blog/dist/{{ page.fileSlug }}.html">
+    {% else %}
+        {# English page - link to Spanish equivalent #}
+        <link rel="alternate" hreflang="en" href="https://www.sgpyoga.co{{ page.url }}">
+        <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/blog/dist/es/{{ page.fileSlug }}.html">
+        <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co{{ page.url }}">
+    {% endif %}
+    
     <title>{{ title }} | SGP Yoga Blog</title>
     
     {# Main site CSS - using copied assets from dist/ #}
