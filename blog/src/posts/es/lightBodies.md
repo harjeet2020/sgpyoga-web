@@ -15,10 +15,10 @@ visible: true
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/blog/lightBodies.webp"
+image: "/assets/photos/blog/lightBodies.webp"
 imageAlt: "Un monje con túnicas naranjas meditando en un templo con poca luz"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center'

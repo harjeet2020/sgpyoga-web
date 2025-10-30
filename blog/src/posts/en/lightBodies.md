@@ -15,10 +15,10 @@ visible: true
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/blog/lightBodies.webp"
+image: "/assets/photos/blog/lightBodies.webp"
 imageAlt: "A monk in orange robes meditaing in a dark-lit temple"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center'

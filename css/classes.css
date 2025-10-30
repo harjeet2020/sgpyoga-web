@@ -15,20 +15,20 @@
     justify-content: center;
     
     /* Background image with parallax effect - base resolution */
-    background: url('../assets/photos/inUse/classes/hero-1280.webp') center 40%/cover no-repeat;
+    background: url('../assets/photos/classes/hero-1280.webp') center 40%/cover no-repeat;
     background-attachment: fixed; /* Parallax effect */
 }
 
 /* Higher resolution variants for larger screens */
 @media (min-width: 1280px) {
     .classes-hero {
-        background-image: url('../assets/photos/inUse/classes/hero-1920.webp');
+        background-image: url('../assets/photos/classes/hero-1920.webp');
     }
 }
 
 @media (min-width: 1920px) {
     .classes-hero {
-        background-image: url('../assets/photos/inUse/classes/hero-2560.webp');
+        background-image: url('../assets/photos/classes/hero-2560.webp');
     }
 }
 

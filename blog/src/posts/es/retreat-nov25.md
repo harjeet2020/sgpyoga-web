@@ -17,10 +17,10 @@ featuredOrder: 4
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp"
+image: "/assets/photos/events/unique/yoga-retreat_nov2025-1080.webp"
 imageAlt: "Anuncio de Retiro de Yoga"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center top'

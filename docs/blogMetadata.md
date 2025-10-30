@@ -97,7 +97,7 @@ authorName: "Harjeet"
 **Description:** Path to the author's profile image/avatar. Should be an absolute path starting from the site root. Image will be displayed next to the author name.  
 **Example:**
 ```yaml
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 ```
 
 ---
@@ -284,7 +284,7 @@ visible: true
 featured: true
 featuredOrder: 1
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 image: "/assets/photos/blog/sgpyoga-journey.webp"
 imageAlt: "SGP Yoga team teaching a class in Mexico City"
 imageCaption: "Our first joint workshop in Mexico City, 2024"

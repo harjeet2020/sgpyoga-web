@@ -17,10 +17,10 @@ featuredOrder: 2
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/blog/ourTeam.webp"
+image: "/assets/photos/blog/ourTeam.webp"
 imageAlt: "Aerial Yoga Teacher Training Advert"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center 40%'
@@ -28,7 +28,7 @@ imageCardPosition: 'center 40%'
 
 To us, owning a yoga school isn't only about business - it is about family. In this article, we would like to introduce ourselves to you, so that you can get to know us better and feel at home in our community.
 
-<img src="/assets/photos/inUse/about/harjeet.webp" alt="Harjeet - Founder of SGP Yoga" class="float-right">
+<img src="/assets/photos/about/harjeet.webp" alt="Harjeet - Founder of SGP Yoga" class="float-right">
 
 My name is Harjeet, and I am the founder of SGP Yoga. At least, I was the one who opened the company and invented the name - Camila did all the hard work of creating the community that we have today. My journey with yoga started in 2018, when I was 19 years old. At this stage of my life I felt lost and confused; I did't particuarly enjoy living, and was accompanied by constant depression and anxiety. At one point, I realized I simply couldn't go on like this. I made many radical changes in my life, including quitting university before obtaining my computer science degree, and I started to look for answers in spiritual philosophy and yoga. I went all in, attending spiritual workshops and practicing yoga for many hours each day, because I so desperately needed healing & transformation. And it simply just... worked.
 

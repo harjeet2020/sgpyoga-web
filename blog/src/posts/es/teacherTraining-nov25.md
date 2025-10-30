@@ -17,10 +17,10 @@ featuredOrder: 5
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-1080.webp"
+image: "/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp"
 imageAlt: "Anuncio de Formación de Maestros de Yoga Aéreo"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'

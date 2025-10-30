@@ -247,20 +247,20 @@ main {
     justify-content: flex-start;
     
     /* Background image with parallax effect - base resolution */
-    background: url('../assets/photos/inUse/home/hero-1280.webp') left top/cover no-repeat;
+    background: url('../assets/photos/home/hero-1280.webp') left top/cover no-repeat;
     background-attachment: fixed; /* Parallax effect */
 }
 
 /* Higher resolution variants for larger screens */
 @media (min-width: 1440px) {
     .hero {
-        background-image: url('../assets/photos/inUse/home/hero-1920.webp');
+        background-image: url('../assets/photos/home/hero-1920.webp');
     }
 }
 
 @media (min-width: 2048px) {
     .hero {
-        background-image: url('../assets/photos/inUse/home/hero-2560.webp');
+        background-image: url('../assets/photos/home/hero-2560.webp');
     }
 }
 

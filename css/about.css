@@ -100,20 +100,20 @@
     padding-bottom: var(--spacing-xxl);
     
     /* Background image - zen stones (base resolution) */
-    background: url('../assets/photos/inUse/about/hero-2560.webp') center/cover no-repeat;
+    background: url('../assets/photos/about/hero-2560.webp') center/cover no-repeat;
     background-attachment: fixed; /* Parallax effect */
 }
 
 /* Higher resolution variants for larger screens */
 @media (min-width: 1440px) {
     .yoga-hero-section {
-        background-image: url('../assets/photos/inUse/about/hero-1080.webp');
+        background-image: url('../assets/photos/about/hero-1080.webp');
     }
 }
 
 @media (min-width: 2048px) {
     .yoga-hero-section {
-        background-image: url('../assets/photos/inUse/about/hero-1920.webp');
+        background-image: url('../assets/photos/about/hero-1920.webp');
     }
 }
 

@@ -73,7 +73,7 @@ The Event Structured Data system automatically generates [Schema.org Event](http
       "@type": "Event",
       "name": "Aerial Yoga Sound Healing",
       "description": "This unique session is a blend of healing aerial yoga movements and sound therapy...",
-      "image": "https://www.sgpyoga.co/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp",
+      "image": "https://www.sgpyoga.co/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp",
       "startDate": "2025-10-10",
       "endDate": "2025-10-10",
       "eventStatus": "https://schema.org/EventScheduled",
@@ -155,8 +155,8 @@ Creates and appends the JSON-LD script element to page `<head>`.
     category: 'workshop',
     startDate: '2025-10-10',
     endDate: '2025-10-10',
-    image: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
-    imageHigh: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
+    image: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
+    imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
     cardImagePosition: 'center 20%',
     modalImagePosition: 'center 13%'
 }
@@ -211,7 +211,7 @@ Creates and appends the JSON-LD script element to page `<head>`.
     category: 'workshop',
     startDate: '2025-12-15',
     endDate: '2025-12-15',
-    image: '/assets/photos/inUse/events/breathwork-workshop.webp'
+    image: '/assets/photos/events/breathwork-workshop.webp'
 }
 ```
 

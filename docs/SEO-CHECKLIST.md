@@ -295,9 +295,9 @@ Crawl-delay: 1
   "url": "https://www.sgpyoga.com",
   "logo": "https://www.sgpyoga.com/assets/logo/logoMain.png",
   "image": [
-    "https://www.sgpyoga.com/assets/photos/inUse/home/hero-1280.webp",
-    "https://www.sgpyoga.com/assets/photos/inUse/home/classes-1200.webp",
-    "https://www.sgpyoga.com/assets/photos/inUse/home/events-1200.webp"
+    "https://www.sgpyoga.com/assets/photos/home/hero-1280.webp",
+    "https://www.sgpyoga.com/assets/photos/home/classes-1200.webp",
+    "https://www.sgpyoga.com/assets/photos/home/events-1200.webp"
   ],
   "telephone": "+525539061305",
   "email": "satgurprasaadyoga@gmail.com",
@@ -468,7 +468,7 @@ Update HTML:
       "@type": "Event",
       "name": "Kundalini Awakening Workshop",
       "description": "Deep dive into Kundalini yoga practices with breath work, meditation, and kriyas for spiritual awakening.",
-      "image": "https://www.sgpyoga.com/assets/photos/inUse/events/kundalini-workshop.webp",
+      "image": "https://www.sgpyoga.com/assets/photos/events/kundalini-workshop.webp",
       "startDate": "2025-02-15T10:00:00-06:00",
       "endDate": "2025-02-15T16:00:00-06:00",
       "eventStatus": "https://schema.org/EventScheduled",

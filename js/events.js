@@ -541,16 +541,16 @@ function openModal(eventId) {
     if (!imagePath) {
         switch(category) {
             case 'workshop':
-                imagePath = 'assets/photos/inUse/events/workshops-1080.webp';
+                imagePath = 'assets/photos/events/workshops-1080.webp';
                 break;
             case 'retreat':
-                imagePath = 'assets/photos/inUse/events/retreats-1080.webp';
+                imagePath = 'assets/photos/events/retreats-1080.webp';
                 break;
             case 'training':
-                imagePath = 'assets/photos/inUse/events/teacher-trainings-1080.webp';
+                imagePath = 'assets/photos/events/teacher-trainings-1080.webp';
                 break;
             default:
-                imagePath = 'assets/photos/inUse/events/workshops-1080.webp';
+                imagePath = 'assets/photos/events/workshops-1080.webp';
         }
     }
     

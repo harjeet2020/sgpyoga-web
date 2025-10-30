@@ -26,8 +26,8 @@ const eventsData = [
         category: 'workshop',
         startDate: '2025-10-10',
         endDate: '2025-10-10',
-        image: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
-        imageHigh: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
+        image: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
         cardImagePosition: 'center 20%',
         modalImagePosition: 'center 13%'
     },
@@ -36,8 +36,8 @@ const eventsData = [
         category: 'workshop',
         startDate: '2025-10-17',
         endDate: '2025-10-17',
-        image: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp',
-        imageHigh: '/assets/photos/inUse/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp',
+        image: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp',
         cardImagePosition: 'center 70%',
         modalImagePosition: 'center 20%'
     },
@@ -59,10 +59,10 @@ const eventsData = [
         
         // Image path for the event card
         // Can be unique per event or use category defaults
-        image: '/assets/photos/inUse/events/unique/aerial-yoga-photo_nov2025-720.webp',
+        image: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-720.webp',
         
         // Optional: Higher resolution image for modal or larger displays
-        imageHigh: '/assets/photos/inUse/events/unique/aerial-yoga-photo_nov2025-1080.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-1080.webp',
         
         // Optional: CSS object-position value for image positioning
         // Examples: 'center', 'top', 'bottom', 'top left', '50% 25%'
@@ -76,8 +76,8 @@ const eventsData = [
         category: 'retreat',
         startDate: '2025-11-14',
         endDate: '2025-11-17',
-        image: '/assets/photos/inUse/events/unique/yoga-retreat_nov2025-720.webp',
-        imageHigh: '/assets/photos/inUse/events/unique/yoga-retreat_nov2025-1080.webp',
+        image: '/assets/photos/events/unique/yoga-retreat_nov2025-720.webp',
+        imageHigh: '/assets/photos/events/unique/yoga-retreat_nov2025-1080.webp',
         cardImagePosition: 'center top',
         modalImagePosition: 'center 62%'
     },
@@ -87,8 +87,8 @@ const eventsData = [
         category: 'training',
         startDate: '2025-06-21',
         endDate: '2025-09-27',
-        image: '/assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-720.webp',
-        imageHigh: '/assets/photos/inUse/events/unique/aerial-teacher-training_jun2025-1080.webp',
+        image: '/assets/photos/events/unique/aerial-teacher-training_jun2025-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_jun2025-1080.webp',
         cardImagePosition: 'center',
         modalImagePosition: 'center 85%'
     },
@@ -98,8 +98,8 @@ const eventsData = [
         category: 'training',
         startDate: '2025-11-08',
         endDate: '2025-12-14',
-        image: '/assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-720.webp',
-        imageHigh: '/assets/photos/inUse/events/unique/aerial-teacher-training_nov2025-1080.webp',
+        image: '/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp',
         cardImagePosition: 'center',
         modalImagePosition: 'center 85%'
     }
@@ -111,7 +111,7 @@ const eventsData = [
     //     category: 'workshop',
     //     startDate: '2025-12-15',
     //     endDate: '2025-12-15',
-    //     image: '/assets/photos/inUse/events/my-custom-event.webp',
+    //     image: '/assets/photos/events/my-custom-event.webp',
     //     cardImagePosition: 'center',
     //     modalImagePosition: 'center'
     // }
@@ -126,16 +126,16 @@ const eventsData = [
  */
 const categoryDefaults = {
     workshop: {
-        image: '/assets/photos/inUse/events/workshops-720.webp',
-        imageHigh: '/assets/photos/inUse/events/workshops-1080.webp'
+        image: '/assets/photos/events/workshops-720.webp',
+        imageHigh: '/assets/photos/events/workshops-1080.webp'
     },
     retreat: {
-        image: '/assets/photos/inUse/events/retreats-720.webp',
-        imageHigh: '/assets/photos/inUse/events/retreats-1080.webp'
+        image: '/assets/photos/events/retreats-720.webp',
+        imageHigh: '/assets/photos/events/retreats-1080.webp'
     },
     training: {
-        image: '/assets/photos/inUse/events/teacher-trainings-720.webp',
-        imageHigh: '/assets/photos/inUse/events/teacher-trainings-1080.webp'
+        image: '/assets/photos/events/teacher-trainings-720.webp',
+        imageHigh: '/assets/photos/events/teacher-trainings-1080.webp'
     }
 };
 

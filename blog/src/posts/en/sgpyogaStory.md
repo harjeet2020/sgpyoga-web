@@ -17,10 +17,10 @@ featuredOrder: 1
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/blog/ourStory.webp"
+image: "/assets/photos/blog/ourStory.webp"
 imageAlt: "A man standing on a mountain peak, a clear blue sky in the background, a few clouds floating in the sky"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'

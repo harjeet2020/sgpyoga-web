@@ -15,10 +15,10 @@ visible: true
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/inUse/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet.webp"
 
 # Featured Image
-image: "/assets/photos/inUse/blog/chakras.webp"
+image: "/assets/photos/blog/chakras.webp"
 imageAlt: "A graphic representing the 7 main chakras flowing along a mountain"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center 5%'
