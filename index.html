@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="common:nav.home">SGP Yoga - Home</title>
-    <meta name="description" content="Find your place in the evolving world." data-i18n="home:hero.subtitle">
+    <title data-i18n="common:pageTitles.home">SGP Yoga - Yoga Classes in Mexico City | CDMX Studio</title>
+    <meta name="description" content="Transformative yoga classes in Mexico City. Expert-led Kundalini, Vinyasa, Hatha & Aerial Yoga in CDMX. Join workshops, retreats & teacher trainings. Book your class today!" data-i18n="home:meta.description">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -43,6 +43,133 @@
     <!-- i18next for language support -->
     <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <!-- LocalBusiness Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/SportsActivityLocation",
+      "name": "SGP Yoga",
+      "alternateName": "Sat Gur Prasaad Yoga",
+      "description": "Mobile yoga studio offering transformative Vinyasa, Hatha, Kundalini, and Aerial Yoga classes throughout Mexico City. We bring expert instruction to various studios and venues across CDMX.",
+      "url": "https://www.sgpyoga.co",
+      "logo": "https://www.sgpyoga.co/assets/logo/logoMain.png",
+      "image": [
+        "https://www.sgpyoga.co/assets/photos/inUse/home/hero-1280.webp",
+        "https://www.sgpyoga.co/assets/photos/inUse/home/classes-1200.webp",
+        "https://www.sgpyoga.co/assets/photos/inUse/home/events-1200.webp"
+      ],
+      "telephone": "+525539061305",
+      "email": "satgurprasaadyoga@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mexico City",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Mexico City",
+          "sameAs": "https://en.wikipedia.org/wiki/Mexico_City"
+        },
+        {
+          "@type": "Place",
+          "name": "Benito Juárez",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Letran Valle",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Coyoacán",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100035570391956",
+        "https://www.instagram.com/satgurprasaad_yoga/",
+        "https://www.youtube.com/@satgurprasaadyoga"
+      ],
+      "knowsLanguage": ["en", "es"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Yoga Classes and Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vinyasa Yoga Classes",
+              "description": "Dynamic flow-based yoga classes suitable for all levels"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kundalini Yoga Classes",
+              "description": "Spiritual practice combining breathwork, meditation, and movement"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerial Yoga Classes",
+              "description": "Yoga practice using suspended hammocks for enhanced flexibility"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hatha Yoga Classes",
+              "description": "Traditional yoga focusing on physical postures and breathing"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sound Healing Sessions",
+              "description": "Therapeutic sound healing sessions for deep relaxation and balance"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoga Philosophy Workshops",
+              "description": "Educational workshops exploring the philosophical foundations of yoga"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerial Yoga Teacher Training",
+              "description": "Comprehensive teacher training programs for aerial yoga certification"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
