@@ -57,7 +57,7 @@ function waitForDependencies() {
             
             // Check for i18next
             const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
-                              (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized);
+                              (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized);
             
             // Check for eventsData
             const eventsDataReady = typeof eventsData !== 'undefined' && Array.isArray(eventsData);
@@ -202,10 +202,10 @@ function generateSingleEventSchema(eventData, position) {
 function getTranslationFunction() {
     if (typeof i18next !== 'undefined' && i18next.isInitialized) {
         return (key) => i18next.t(key);
-    } else if (typeof SGPi18n !== 'undefined' && SGPi18n.isInitialized) {
+    } else if (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized) {
         return (key) => {
             const [namespace, ...rest] = key.split(':');
-            return SGPi18n.t(rest.join(':'), namespace);
+            return window.SGPi18n.t(rest.join(':'), namespace);
         };
     }
     return null;

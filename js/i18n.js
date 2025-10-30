@@ -518,13 +518,18 @@ function detectPageNamespace() {
     const cleanPath = path.replace('/es/', '/');
     const filename = cleanPath.split('/').pop() || 'index.html';
     
-    // Map filenames to namespaces
+    // Map filenames to namespaces (support both with and without .html extension)
     const pageNamespaceMap = {
         'index.html': 'home',
+        'index': 'home',
         'about.html': 'about',
+        'about': 'about',
         'classes.html': 'classes',
+        'classes': 'classes',
         'events.html': 'events',
-        'blog.html': 'blog'
+        'events': 'events',
+        'blog.html': 'blog',
+        'blog': 'blog'
     };
     
     // Handle root path
