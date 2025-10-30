@@ -1,0 +1,12 @@
+# Build output
+_site/
+
+# Node modules
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

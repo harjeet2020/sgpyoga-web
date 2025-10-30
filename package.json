@@ -5,7 +5,8 @@
   "scripts": {
     "build:i18n": "node build-i18n.js",
     "build:blog": "cd blog && npm install && npm run build",
-    "build": "npm run build:i18n && npm run build:blog",
+    "build:copy": "mkdir -p _site && cp -r *.html robots.txt sitemap.xml css js assets locales es _site/ && cp -r blog/dist _site/blog",
+    "build": "npm run build:i18n && npm run build:blog && npm run build:copy",
     "watch:i18n": "node build-i18n.js && echo 'Watching for changes... (Ctrl+C to stop)' && fswatch -o index.html about.html classes.html events.html locales/ | xargs -n1 -I{} node build-i18n.js"
   },
   "keywords": ["yoga", "i18n", "multilingual"],
