@@ -518,12 +518,11 @@ main {
     .classes-section {
         padding: 3rem 1rem;
         background-color: white;
-        transition: background-color 0.5s ease 2s;
+        transition: background-color 0.6s ease-out;
     }
     
-    .classes-section:active {
+    .classes-section.in-view {
         background-color: var(--color-secondary);
-        transition: background-color 0.1s ease 0s;
     }
     
     .classes-content {
@@ -877,12 +876,11 @@ main {
     .events-section {
         padding: 3rem 1rem;
         background-color: white;
-        transition: background-color 0.5s ease 2s;
+        transition: background-color 0.6s ease-out;
     }
     
-    .events-section:active {
+    .events-section.in-view {
         background-color: var(--color-secondary);
-        transition: background-color 0.1s ease 0s;
     }
     
     .events-content {
