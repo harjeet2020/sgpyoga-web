@@ -20,6 +20,10 @@ class SGPi18n {
      * @param {string} options.defaultLang - Default language
      */
     async init(options = {}) {
+        console.log('🚀 SGP i18n initializing...');
+        console.log('  URL:', window.location.href);
+        console.log('  Pathname:', window.location.pathname);
+        
         const {
             namespaces = ['common'],
             defaultLang = 'en'
@@ -28,6 +32,7 @@ class SGPi18n {
         try {
             // Detect initial language
             this.currentLanguage = this.detectLanguage(defaultLang);
+            console.log('  Language detected:', this.currentLanguage);
             
             // Load initial namespaces
             await this.loadNamespaces(namespaces);
@@ -53,11 +58,36 @@ class SGPi18n {
 
     /**
      * Detect the user's preferred language
+     * First checks URL path, then localStorage, then browser language
      */
     detectLanguage(defaultLang) {
+        console.log('🔍 detectLanguage called');
+        console.log('  Path:', window.location.pathname);
+        console.log('  localStorage:', localStorage.getItem('selectedLanguage'));
+        
+        // Priority 1: Check if we're on a Spanish URL path
+        if (window.location.pathname.startsWith('/es/')) {
+            console.log('  ✅ Detected from /es/ path');
+            return 'es';
+        }
+        
+        // Check for Spanish blog path
+        if (window.location.pathname.includes('/blog/dist/es/')) {
+            console.log('  ✅ Detected from /blog/dist/es/ path');
+            return 'es';
+        }
+        
+        // Priority 2: Check localStorage
         const storedLang = localStorage.getItem('selectedLanguage');
+        if (storedLang && this.supportedLanguages.includes(storedLang)) {
+            console.log('  ✅ Detected from localStorage:', storedLang);
+            return storedLang;
+        }
+        
+        // Priority 3: Check browser language
         const browserLang = navigator.language.toLowerCase();
-        const detectedLang = storedLang || (browserLang.startsWith('es') ? 'es' : defaultLang);
+        const detectedLang = browserLang.startsWith('es') ? 'es' : defaultLang;
+        console.log('  ✅ Detected from browser:', detectedLang);
         
         return this.supportedLanguages.includes(detectedLang) ? detectedLang : defaultLang;
     }
@@ -104,7 +134,7 @@ class SGPi18n {
      */
     async loadTranslationFile(language, namespace) {
         try {
-            const response = await fetch(`locales/${language}/${namespace}.json`);
+            const response = await fetch(`/locales/${language}/${namespace}.json`);
             
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}`);
@@ -230,15 +260,10 @@ class SGPi18n {
     }
 
     /**
-     * Change language and reload content
+     * Update language in-place without redirecting
      * @param {string} languageCode - New language code
      */
-    async changeLanguage(languageCode) {
-        if (!this.supportedLanguages.includes(languageCode)) {
-            console.warn('Unsupported language:', languageCode);
-            return;
-        }
-
+    async updateLanguageInPlace(languageCode) {
         const previousLang = this.currentLanguage;
         this.currentLanguage = languageCode;
 
@@ -248,8 +273,109 @@ class SGPi18n {
                 await i18next.changeLanguage(languageCode);
             }
 
-            // Update localStorage and HTML attributes
-            localStorage.setItem('selectedLanguage', languageCode);
+            // Update HTML attributes
+            document.documentElement.setAttribute('lang', languageCode);
+            document.documentElement.setAttribute('data-lang', languageCode);
+
+            // Update UI
+            this.updateNavbarLanguageDisplay();
+            this.updatePageContent();
+
+            console.log(`Language updated in-place from ${previousLang} to ${languageCode}`);
+        } catch (error) {
+            console.error('Error updating language:', error);
+            this.currentLanguage = previousLang; // Revert on error
+        }
+    }
+
+    /**
+     * Change language and redirect to appropriate URL
+     * @param {string} languageCode - New language code
+     */
+    async changeLanguage(languageCode) {
+        console.log('🔄 changeLanguage called:', languageCode);
+        console.log('📍 Current path:', window.location.pathname);
+        
+        if (!this.supportedLanguages.includes(languageCode)) {
+            console.warn('Unsupported language:', languageCode);
+            return;
+        }
+
+        const currentPath = window.location.pathname;
+        
+        // Update localStorage for next visit
+        localStorage.setItem('selectedLanguage', languageCode);
+        console.log('💾 Stored language in localStorage:', languageCode);
+        
+        // Special handling for blog pages
+        if (currentPath.includes('/blog/dist/')) {
+            console.log('📚 Blog page detected');
+            if (languageCode === 'es') {
+                // Switch to Spanish blog
+                if (!currentPath.includes('/blog/dist/es/')) {
+                    // Handle blog index
+                    if (currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html') {
+                        window.location.href = '/blog/dist/es/';
+                        return;
+                    }
+                    // Handle blog posts - posts already have language in their URL structure
+                    // e.g., /blog/dist/posts/en/... -> /blog/dist/posts/es/...
+                    window.location.href = currentPath.replace('/posts/en/', '/posts/es/');
+                    return;
+                }
+                // Already on Spanish blog - no redirect needed
+                console.log('✅ Already on Spanish blog, no redirect');
+                // Update in-place without redirecting
+                await this.updateLanguageInPlace(languageCode);
+                return;
+            } else {
+                // Switch to English blog
+                if (currentPath.includes('/blog/dist/es/')) {
+                    // From Spanish blog index to English blog index
+                    window.location.href = currentPath.replace('/blog/dist/es/', '/blog/dist/');
+                    return;
+                }
+                // Handle Spanish blog posts -> English blog posts
+                if (currentPath.includes('/posts/es/')) {
+                    window.location.href = currentPath.replace('/posts/es/', '/posts/en/');
+                    return;
+                }
+                // Already on English blog - no redirect needed
+                console.log('✅ Already on English blog, no redirect');
+                await this.updateLanguageInPlace(languageCode);
+                return;
+            }
+        }
+        
+        // Regular page handling (non-blog)
+        const filename = currentPath.split('/').pop() || 'index.html';
+        
+        // Redirect to appropriate language version
+        if (languageCode === 'es') {
+            // Switching to Spanish - redirect to /es/ version
+            if (!currentPath.startsWith('/es/')) {
+                window.location.href = `/es/${filename}`;
+                return; // Exit early, page will reload
+            }
+        } else {
+            // Switching to English - redirect to root version
+            if (currentPath.startsWith('/es/')) {
+                window.location.href = `/${filename}`;
+                return; // Exit early, page will reload
+            }
+        }
+        
+        // If already on correct language URL, update in-place (for dynamic content)
+        const previousLang = this.currentLanguage;
+        this.currentLanguage = languageCode;
+
+        try {
+            // Update i18next if available
+            if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+                await i18next.changeLanguage(languageCode);
+            }
+
+            // Update HTML attributes
             document.documentElement.setAttribute('lang', languageCode);
             document.documentElement.setAttribute('data-lang', languageCode);
 
@@ -382,11 +508,15 @@ const sgpI18n = new SGPi18n();
 
 /**
  * Detect the current page and return the corresponding namespace
+ * Handles both root and /es/ paths
  * @returns {string|null} The namespace for the current page, or null if not found
  */
 function detectPageNamespace() {
     const path = window.location.pathname;
-    const filename = path.split('/').pop() || 'index.html';
+    
+    // Remove /es/ prefix if present for namespace detection
+    const cleanPath = path.replace('/es/', '/');
+    const filename = cleanPath.split('/').pop() || 'index.html';
     
     // Map filenames to namespaces
     const pageNamespaceMap = {

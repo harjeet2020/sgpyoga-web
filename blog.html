@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=/blog/dist/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to Blog...</title>
+    <script>
+        // Detect language and redirect to appropriate blog index
+        const currentPath = window.location.pathname;
+        const storedLang = localStorage.getItem('selectedLanguage');
+        const browserLang = navigator.language.toLowerCase();
+        
+        // Check if we're coming from a Spanish page
+        const isSpanish = currentPath.startsWith('/es/') || 
+                         storedLang === 'es' || 
+                         (browserLang.startsWith('es') && !storedLang);
+        
+        const blogUrl = isSpanish ? '/blog/dist/es/' : '/blog/dist/';
+        window.location.href = blogUrl;
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=/blog/dist/">
+    </noscript>
     <style>
         body {
             font-family: 'Lato Light', sans-serif;
@@ -33,10 +49,6 @@
             color: #a06789;
         }
     </style>
-    <script>
-        // Immediate redirect in case meta refresh doesn't work
-        window.location.href = '/blog/dist/';
-    </script>
 </head>
 <body>
     <div class="message">

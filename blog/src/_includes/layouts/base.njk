@@ -13,8 +13,8 @@
     <meta property="og:image" content="https://www.sgpyoga.co{{ image or '/assets/photos/inUse/social/og-blog.webp' }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="{{ lang == 'es' ? 'es_MX' : 'en_US' }}">
-    <meta property="og:locale:alternate" content="{{ lang == 'es' ? 'en_US' : 'es_MX' }}">
+    <meta property="og:locale" content="{% if lang == 'es' %}es_MX{% else %}en_US{% endif %}">
+    <meta property="og:locale:alternate" content="{% if lang == 'es' %}en_US{% else %}es_MX{% endif %}">
     <meta property="og:site_name" content="SGP Yoga">
     
     {# Twitter Card #}
@@ -53,7 +53,7 @@
     {# Navigation Bar - Full navbar from main site #}
     <nav class="navbar">
         <div class="navbar-left">
-            <a href="/index.html" class="navbar-brand-link">
+            <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="navbar-brand-link">
                 <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
@@ -61,11 +61,11 @@
         
         <div class="navbar-center">
             <ul class="navbar-menu">
-                <li><a href="/index.html" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
-                <li><a href="/about.html" class="navbar-link" data-i18n="common:nav.about">About</a></li>
-                <li><a href="/classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
-                <li><a href="/events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
-                <li><a href="/blog/dist/" class="navbar-link active" data-i18n="common:nav.blog">Blog</a></li>
+                <li><a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
+                <li><a href="{% if lang == 'es' %}/es/about.html{% else %}/about.html{% endif %}" class="navbar-link" data-i18n="common:nav.about">About</a></li>
+                <li><a href="{% if lang == 'es' %}/es/classes.html{% else %}/classes.html{% endif %}" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
+                <li><a href="{% if lang == 'es' %}/es/events.html{% else %}/events.html{% endif %}" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
+                <li><a href="{% if lang == 'es' %}/blog/dist/es/{% else %}/blog/dist/{% endif %}" class="navbar-link active" data-i18n="common:nav.blog">Blog</a></li>
             </ul>
         </div>
         
@@ -104,7 +104,7 @@
                 <div class="footer-grid">
                     {# Logo and Mission Section #}
                     <div class="footer-column footer-logo-section">
-                        <a href="/index.html" class="footer-logo-link">
+                        <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="footer-logo-link">
                             <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
@@ -115,11 +115,11 @@
                     <div class="footer-column footer-sitemap">
                         <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
                         <ul>
-                            <li><a href="/index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
-                            <li><a href="/about.html" data-i18n="common:footer.sitemap.about">About</a></li>
-                            <li><a href="/classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
-                            <li><a href="/events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
-                            <li><a href="/blog/dist/" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                            <li><a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" data-i18n="common:footer.sitemap.home">Home</a></li>
+                            <li><a href="{% if lang == 'es' %}/es/about.html{% else %}/about.html{% endif %}" data-i18n="common:footer.sitemap.about">About</a></li>
+                            <li><a href="{% if lang == 'es' %}/es/classes.html{% else %}/classes.html{% endif %}" data-i18n="common:footer.sitemap.classes">Classes</a></li>
+                            <li><a href="{% if lang == 'es' %}/es/events.html{% else %}/events.html{% endif %}" data-i18n="common:footer.sitemap.events">Events</a></li>
+                            <li><a href="{% if lang == 'es' %}/blog/dist/es/{% else %}/blog/dist/{% endif %}" data-i18n="common:footer.sitemap.blog">Blog</a></li>
                         </ul>
                     </div>
 

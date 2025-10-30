@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="es" data-lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="events:meta.title">SGP Yoga - Events</title>
+    <title>SGP Yoga - Eventos</title>
     <meta name="description" content="Join our transformative yoga workshops, retreats, and teacher training programs in Mexico City" data-i18n="events:meta.description">
     
     <!-- Open Graph / Facebook -->
@@ -26,10 +26,10 @@
     <meta name="twitter:image" content="https://www.sgpyoga.co/assets/photos/inUse/social/og-events.webp">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/events.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/events.css">
+    <link rel="stylesheet" href="/css/footer.css">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -43,8 +43,8 @@
     <nav class="navbar">
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
-            <a href="index.html" class="navbar-brand-link">
-                <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
+            <a href="/es/index.html" class="navbar-brand-link">
+                <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -52,11 +52,11 @@
         <!-- Middle Section: Menu Items -->
         <div class="navbar-center">
             <ul class="navbar-menu">
-                <li><a href="index.html" class="navbar-link" data-i18n="common:nav.home">Home</a></li>
-                <li><a href="about.html" class="navbar-link" data-i18n="common:nav.about">About</a></li>
-                <li><a href="classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
-                <li><a href="events.html" class="navbar-link active" data-i18n="common:nav.events">Events</a></li>
-                <li><a href="/blog/dist/" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
+                <li><a href="/es/index.html" class="navbar-link">Inicio</a></li>
+                <li><a href="/es/about.html" class="navbar-link">Acerca De</a></li>
+                <li><a href="/es/classes.html" class="navbar-link">Clases</a></li>
+                <li><a href="/es/events.html" class="navbar-link active">Eventos</a></li>
+                <li><a href="/blog/dist/" class="navbar-link">Blog</a></li>
             </ul>
         </div>
         
@@ -89,21 +89,21 @@
         <!-- Section 1: Upcoming Events -->
         <section id="upcoming-events" class="upcoming-events-section section-padding">
             <div class="container">
-                <h2 class="section-title" data-i18n="events:upcomingEvents.title">Upcoming Events</h2>
-                <p class="section-subtitle" data-i18n="events:upcomingEvents.subtitle">Transform your practice with our special events and immersive experiences</p>
+                <h2 class="section-title">Próximos Eventos</h2>
+                <p class="section-subtitle">Ofrecemos regularmente talleres temáticos, retiros transformadores y formaciones integrales de maestros</p>
                 
                 <!-- Filter Controls -->
                 <div class="event-controls">
                     <!-- Category Filters -->
                     <div class="event-filters">
-                        <button class="filter-btn active" data-filter="all" data-i18n="events:upcomingEvents.filters.all">All Events</button>
-                        <button class="filter-btn" data-filter="workshop" data-i18n="events:upcomingEvents.filters.workshop">Workshops</button>
-                        <button class="filter-btn" data-filter="retreat" data-i18n="events:upcomingEvents.filters.retreat">Retreats</button>
-                        <button class="filter-btn" data-filter="training" data-i18n="events:upcomingEvents.filters.training">Teacher Trainings</button>
+                        <button class="filter-btn active" data-filter="all">Todos los Eventos</button>
+                        <button class="filter-btn" data-filter="workshop">Talleres</button>
+                        <button class="filter-btn" data-filter="retreat">Retiros</button>
+                        <button class="filter-btn" data-filter="training">Formación de Maestros</button>
                     </div>
                     
                     <!-- Time View Toggle -->
-                    <button class="time-toggle-btn" id="timeToggleBtn" data-i18n="events:upcomingEvents.timeToggle.showPast">Show Past Events</button>
+                    <button class="time-toggle-btn" id="timeToggleBtn">Mostrar Eventos Pasados</button>
                 </div>
             </div>
             
@@ -132,14 +132,14 @@
                 <!-- Workshops Tile -->
                 <div class="event-type-tile" data-type="workshops">
                     <picture>
-                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/events/workshops-1200.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/events/workshops-1080.webp">
-                        <img src="assets/photos/inUse/events/workshops-720.webp" alt="Workshops" class="event-type-image" loading="lazy">
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/events/workshops-1200.webp">
+                        <source media="(min-width: 800px)" srcset="/assets/photos/inUse/events/workshops-1080.webp">
+                        <img src="/assets/photos/inUse/events/workshops-720.webp" alt="Workshops" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
                         <div class="event-type-content">
-                            <h3 class="event-type-name" data-i18n="events:eventTypes.workshops.title">Workshops</h3>
-                            <p class="event-type-description" data-i18n="events:eventTypes.workshops.description">Deep-dive sessions exploring specific aspects of yoga practice, from advanced asanas to pranayama and philosophy</p>
+                            <h3 class="event-type-name">Talleres</h3>
+                            <p class="event-type-description">Nuestros talleres son sesiones cortas pero intensivas que exploran aspectos específicos del yoga. A menudo combinamos ejercicio físico con trabajo respiratorio, meditación, sanación con sonido y filosofía yóguica - yendo más allá de lo que es posible durante una clase tradicional.</p>
                         </div>
                     </div>
                 </div>
@@ -147,14 +147,14 @@
                 <!-- Retreats Tile -->
                 <div class="event-type-tile" data-type="retreats">
                     <picture>
-                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/events/retreats-1200.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/events/retreats-1080.webp">
-                        <img src="assets/photos/inUse/events/retreats-720.webp" alt="Retreats" class="event-type-image" loading="lazy">
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/events/retreats-1200.webp">
+                        <source media="(min-width: 800px)" srcset="/assets/photos/inUse/events/retreats-1080.webp">
+                        <img src="/assets/photos/inUse/events/retreats-720.webp" alt="Retreats" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
                         <div class="event-type-content">
-                            <h3 class="event-type-name" data-i18n="events:eventTypes.retreats.title">Retreats</h3>
-                            <p class="event-type-description" data-i18n="events:eventTypes.retreats.description">Immersive multi-day experiences in beautiful locations, combining practice with rest, nature, and community</p>
+                            <h3 class="event-type-name">Retiros</h3>
+                            <p class="event-type-description">Para nosotros, un retiro es un paso atrás de la realidad agitada de nuestra vida diaria. Nuestros retiros están diseñados para ayudarte a sanar y transformarte, al mismo tiempo que te dan espacio para descansar y recuperar el equilibrio.</p>
                         </div>
                     </div>
                 </div>
@@ -162,14 +162,14 @@
                 <!-- Teacher Trainings Tile -->
                 <div class="event-type-tile" data-type="trainings">
                     <picture>
-                        <source media="(min-width: 1200px)" srcset="assets/photos/inUse/events/teacher-trainings-1080.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/inUse/events/teacher-trainings-1080.webp">
-                        <img src="assets/photos/inUse/events/teacher-trainings-720.webp" alt="Teacher Trainings" class="event-type-image" loading="lazy">
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/events/teacher-trainings-1080.webp">
+                        <source media="(min-width: 800px)" srcset="/assets/photos/inUse/events/teacher-trainings-1080.webp">
+                        <img src="/assets/photos/inUse/events/teacher-trainings-720.webp" alt="Teacher Trainings" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
                         <div class="event-type-content">
-                            <h3 class="event-type-name" data-i18n="events:eventTypes.trainings.title">Teacher Trainings</h3>
-                            <p class="event-type-description" data-i18n="events:eventTypes.trainings.description">Comprehensive certification programs for aspiring teachers, covering all aspects of yoga instruction</p>
+                            <h3 class="event-type-name">Formación de Maestros</h3>
+                            <p class="event-type-description">La mayor alegría de un maestro es ver a sus estudiantes convertirse en maravillosos yoguis. Nuestras formaciones de maestros te brindan todas las herramientas que necesitas para comenzar a compartir la práctica del yoga con el mundo. Todos nuestros programas vienen con una certificación de Yoga Alliance reconocida internacionalmente y cubren todos los módulos esenciales como alineación, anatomía, filosofía y más.</p>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                                 <i data-lucide="user"></i>
                             </div>
                             <div class="modal-info-text">
-                                <h4 data-i18n="events:modal.instructor">Instructor</h4>
+                                <h4>Instructor</h4>
                                 <p id="modalEventInstructor">Instructor name</p>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                                 <i data-lucide="calendar-clock"></i>
                             </div>
                             <div class="modal-info-text">
-                                <h4 data-i18n="events:modal.dateTime">Date & Time</h4>
+                                <h4>Fecha y Hora</h4>
                                 <p id="modalEventDateTime">Date and time</p>
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                                 <i data-lucide="map-pin"></i>
                             </div>
                             <div class="modal-info-text">
-                                <h4 data-i18n="events:modal.location">Location</h4>
+                                <h4>Ubicación</h4>
                                 <p id="modalEventLocation">Location</p>
                             </div>
                         </div>
@@ -225,13 +225,13 @@
                                 <i data-lucide="dollar-sign"></i>
                             </div>
                             <div class="modal-info-text">
-                                <h4 data-i18n="events:modal.price">Investment</h4>
+                                <h4>Inversión</h4>
                                 <p id="modalEventPrice">Price</p>
                             </div>
                         </div>
                     </div>
                     
-                    <button class="btn btn-elegant" id="modalRegisterBtn" data-i18n="events:modal.register">Register Now</button>
+                    <button class="btn btn-elegant" id="modalRegisterBtn">Inscríbete Ahora</button>
                 </div>
             </div>
         </div>
@@ -244,22 +244,22 @@
                 <div class="footer-grid">
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
-                        <a href="index.html" class="footer-logo-link">
-                            <img src="assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        <a href="/es/index.html" class="footer-logo-link">
+                            <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
                         </a>
-                        <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
-                        <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga.</p>
+                        <h3>Nuestra Misión</h3>
+                        <p class="footer-mission-text">Guiando almas para descubrir su luz interior a través de la práctica transformadora del yoga.</p>
                     </div>
 
                     <!-- Site Map Section -->
                     <div class="footer-column footer-sitemap">
-                        <h3 data-i18n="common:footer.sitemap.title">Site Map</h3>
+                        <h3>Mapa del Sitio</h3>
                         <ul>
-                            <li><a href="index.html" data-i18n="common:footer.sitemap.home">Home</a></li>
-                            <li><a href="about.html" data-i18n="common:footer.sitemap.about">About</a></li>
-                            <li><a href="classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
-                            <li><a href="events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
-                            <li><a href="/blog/dist/" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                            <li><a href="/es/index.html">Inicio</a></li>
+                            <li><a href="/es/about.html">Acerca De</a></li>
+                            <li><a href="/es/classes.html">Clases</a></li>
+                            <li><a href="/es/events.html">Eventos</a></li>
+                            <li><a href="/blog/dist/">Blog</a></li>
                         </ul>
                     </div>
 
@@ -267,34 +267,34 @@
                     <div class="footer-bottom-row">
                         <!-- Contact Section -->
                         <div class="footer-column footer-contact">
-                            <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
+                            <h3>Contáctanos</h3>
                             <div class="footer-contact-item">
                                 <i data-lucide="mail"></i>
                                 <div>
-                                    <span data-i18n="common:footer.contact.email">Email</span>:
-                                    <a href="mailto:satgurprasaadyoga@gmail.com" data-i18n="common:footer.contact.emailValue">satgurprasaadyoga@gmail.com</a>
+                                    <span>Correo</span>:
+                                    <a href="mailto:satgurprasaadyoga@gmail.com">satgurprasaadyoga@gmail.com</a>
                                 </div>
                             </div>
                             <div class="footer-contact-item">
                                 <i data-lucide="phone"></i>
                                 <div>
-                                    <span data-i18n="common:footer.contact.phone">Phone</span>:
-                                    <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>
+                                    <span>Teléfono</span>:
+                                    <a href="tel:+525539061305">+52 55 3906 1305</a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Social Media Section -->
                         <div class="footer-column footer-social">
-                            <h3 data-i18n="common:footer.social.title">Follow Us</h3>
+                            <h3>Síguenos</h3>
                             <div class="footer-social-links">
-                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" data-i18n-aria-label="common:footer.social.facebook">
+                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" >
                                     <i data-lucide="facebook"></i>
                                 </a>
-                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" data-i18n-aria-label="common:footer.social.instagram">
+                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" >
                                     <i data-lucide="instagram"></i>
                                 </a>
-                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" data-i18n-aria-label="common:footer.social.youtube">
+                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" >
                                     <i data-lucide="youtube"></i>
                                 </a>
                             </div>
@@ -305,15 +305,15 @@
 
             <!-- Copyright Bar -->
             <div class="footer-copyright">
-                <p data-i18n="common:footer.copyright">© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved.</p>
+                <p>© 2025 SAT GUR PRASAAD YOGA LLC. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/i18n.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/eventsData.js"></script>
-    <script src="js/events.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/eventsData.js"></script>
+    <script src="/js/events.js"></script>
 </body>
 </html>

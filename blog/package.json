@@ -8,7 +8,8 @@
     "dev": "eleventy --serve",
     "clean": "rm -rf dist",
     "serve": "cd .. && echo '\n🌐 Server running at http://localhost:8080\n📝 Blog: http://localhost:8080/blog/dist/\n' && python3 -m http.server 8080",
-    "build:watch": "eleventy --watch"
+    "build:watch": "eleventy --watch",
+    "start": "eleventy --serve --watch"
   },
   "keywords": [
     "eleventy",

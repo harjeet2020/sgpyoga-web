@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca De</title>
+    <meta name="description" content="Learn about our yoga philosophy, styles, teachers, and practice spaces" data-i18n="about:meta.description">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sgpyoga.co/about.html">
+    <meta property="og:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City">
+    <meta property="og:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga in CDMX.">
+    <meta property="og:image" content="https://www.sgpyoga.co/assets/photos/inUse/social/og-about.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:site_name" content="SGP Yoga">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.sgpyoga.co/about.html">
+    <meta name="twitter:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City">
+    <meta name="twitter:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga.">
+    <meta name="twitter:image" content="https://www.sgpyoga.co/assets/photos/inUse/social/og-about.webp">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- i18next for language support -->
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <!-- Left Section: Logo and Studio Name -->
+        <div class="navbar-left">
+            <a href="/es/index.html" class="navbar-brand-link">
+                <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="navbar-logo">
+                <span class="navbar-brand">SGP Yoga</span>
+            </a>
+        </div>
+        
+        <!-- Middle Section: Menu Items -->
+        <div class="navbar-center">
+            <ul class="navbar-menu">
+                <li><a href="/es/index.html" class="navbar-link">Inicio</a></li>
+                <li><a href="/es/about.html" class="navbar-link active">Acerca De</a></li>
+                <li><a href="/es/classes.html" class="navbar-link">Clases</a></li>
+                <li><a href="/es/events.html" class="navbar-link">Eventos</a></li>
+                <li><a href="/blog/dist/" class="navbar-link">Blog</a></li>
+            </ul>
+        </div>
+        
+        <!-- Right Section: Language Dropdown -->
+        <div class="navbar-right">
+            <div class="language-selector">
+                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                    <span class="language-code" id="currentLangCode">EN</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="en">
+                        <span class="flag-circle">🇺🇸</span>
+                        <span class="language-name">English</span>
+                        <span class="language-code">(EN)</span>
+                    </div>
+                    <div class="language-option" data-lang="es">
+                        <span class="flag-circle">🇲🇽</span>
+                        <span class="language-name">Español</span>
+                        <span class="language-code">(ES)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sticky Anchor Navigation -->
+    <nav class="anchor-nav" id="anchorNav">
+        <div class="container">
+            <ul class="anchor-nav-menu">
+                <li><a href="#yoga" class="anchor-link active">Yoga</a></li>
+                <li><a href="#styles" class="anchor-link">Estilos</a></li>
+                <li><a href="#teachers" class="anchor-link">Maestros</a></li>
+                <li><a href="#spaces" class="anchor-link">Espacios</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Section 1: Yoga Hero -->
+        <section id="yoga" class="yoga-hero-section">
+            <div class="yoga-hero-overlay">
+                <div class="yoga-hero-content">
+                    <h1 class="yoga-hero-title">¿Qué Es el Yoga?</h1>
+                    
+                    <!-- Interactive Elements -->
+                    <div class="yoga-elements">
+                        <button class="yoga-element" data-element="art">Arte</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="science">Ciencia</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="lifestyle">Estilo de Vida</button>
+                        <span class="yoga-separator" aria-hidden="true">✦</span>
+                        <button class="yoga-element" data-element="philosophy">Filosofía</button>
+                    </div>
+                    
+                    <!-- Text Box -->
+                    <div class="yoga-text-box">
+                        <p id="yogaText">El yoga es una práctica antigua de desarrollar armonía entre cuerpo, mente y espíritu. Es una exploración de quiénes somos como seres humanos. Nos enseña a ser conscientes de nuestros pensamientos y emociones, y nos ayuda a sanar tanto física como internamente. Dominar el yoga es dominarse a uno mismo; permanecer firme en el momento presente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Yoga Styles -->
+        <section id="styles" class="styles-section section-padding">
+            <div class="styles-gallery-grid">
+                    <!-- Aerial Yoga Tile -->
+                    <div class="style-tile" data-style="aerial">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/aerial-1200.webp">
+                            <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/aerial-1080.webp">
+                            <img src="/assets/photos/inUse/about/aerial-720.webp" alt="Aerial Yoga" class="style-tile-image" id="aerial-image" loading="lazy">
+                        </picture>
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name">Yoga Aéreo</h3>
+                                <p class="style-description">Practica yoga suspendido en hamacas de seda, llevando las posturas tradicionales al aire para una experiencia única que desafía la gravedad. El Yoga Aéreo es artístico y hermoso - y la hamaca te permite acceder a asanas difíciles con más facilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vinyasa Yoga Tile -->
+                    <div class="style-tile" data-style="vinyasa">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/vinyasa-1200.webp">
+                            <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/vinyasa-1080.webp">
+                            <img src="/assets/photos/inUse/about/vinyasa-720.webp" alt="Vinyasa" class="style-tile-image" id="vinyasa-image" loading="lazy">
+                        </picture>
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name">Vinyasa</h3>
+                                <p class="style-description">Fluye a través de secuencias de posturas sincronizadas con la respiración, creando una práctica dinámica y meditativa que genera calor y enfoque. El Yoga Vinyasa se trata de fluidez; rejuvenece el cuerpo y restaura la gracia interior.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hatha Yoga Tile -->
+                    <div class="style-tile" data-style="hatha">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/hatha-1200.webp">
+                            <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/hatha-1080.webp">
+                            <img src="/assets/photos/inUse/about/hatha-720.webp" alt="Hatha" class="style-tile-image" id="hatha-image" loading="lazy">
+                        </picture>
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name">Hatha</h3>
+                                <p class="style-description">Construye una base sólida con el Hatha Yoga tradicional - una práctica que te ayuda a encontrar equilibrio en un mundo de dualidades. Hatha es un estilo de yoga increíblemente equilibrado y versátil, haciéndolo ideal para principiantes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kundalini Yoga Tile -->
+                    <div class="style-tile" data-style="kundalini">
+                        <picture>
+                            <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/kundalini-1200.webp">
+                            <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/kundalini-1080.webp">
+                            <img src="/assets/photos/inUse/about/kundalini-720.webp" alt="Kundalini" class="style-tile-image" id="kundalini-image" loading="lazy">
+                        </picture>
+                        <div class="style-overlay">
+                            <div class="style-content">
+                                <h3 class="style-name">Kundalini</h3>
+                                <p class="style-description">Despierta a tu ser interior con el Kundalini Yoga - una práctica que se enfoca en el trabajo energético y la autotransformación. Kundalini es un estilo de yoga increíblemente profundo, perfecto para aquellos que quieren elevar su práctica a un nuevo nivel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Section 3: Our Teachers -->
+        <section id="teachers" class="teachers-section section-padding">
+            <div class="container">
+                <h2 class="section-title">Conoce a Nuestro Equipo</h2>
+                <p class="section-subtitle">Todos nuestros maestros están certificados y son experimentados - ¡y personas increíbles además de eso! Cada uno de ellos tiene un conocimiento profundo de la práctica, y será un guía fantástico para ti - sin importar dónde te encuentres en tu viaje de yoga.</p>
+            </div>
+            
+            <!-- Scroll Indicators -->
+            <button class="teachers-scroll-indicator left" aria-label="Scroll left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="teachers-scroll-indicator right" aria-label="Scroll right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            
+            <!-- Full-width scrolling grid outside container -->
+            <div class="teachers-grid">
+                    <!-- Teacher 1 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="/assets/photos/inUse/about/harjeet.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Harjeet</h3>
+                            <span class="teacher-specialty">Kundalini Yoga</span>
+                            <p>Harjeet es un maestro experimentado de Kundalini Yoga certificado por KRI que se especializa en filosofía de yoga y crecimiento espiritual. Sus clases son altamente valoradas por los estudiantes por su profundidad y variedad. Irradia una sensación de calma y paz; te ayudará a sanar, crecer y transformarte.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 2 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="/assets/photos/inUse/about/camila.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Camila</h3>
+                            <span class="teacher-specialty">Vinyasa y Yoga Aéreo</span>
+                            <p>Camila es una apasionada maestra de Yoga Aéreo y Vinyasa con un profundo amor por la práctica. Su conocimiento experto de alineación corporal te ayudará a llevar tu práctica al siguiente nivel, permitiéndote lograr posturas que antes pensabas imposibles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 3 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="/assets/photos/inUse/about/dani.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Dani</h3>
+                            <span class="teacher-specialty">Yoga Aéreo</span>
+                            <p>Dani es una maestra estelar de Yoga Aéreo con excelente habilidad técnica. Su personalidad alegre y a la vez calmada asegura que sus clases sean siempre interesantes y agradables. Te ayudará a crecer rápidamente, empujándote a explorar tus límites desde la primera clase.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 4 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="/assets/photos/inUse/about/aro.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Aro</h3>
+                            <span class="teacher-specialty">Hatha y Yoga Aéreo</span>
+                            <p>Aro enseña tanto Hatha como Yoga Aéreo. Su personalidad cálida te hará sentir como en casa desde la primera clase. Te dará un dominio sólido de los fundamentos, ayudándote a encontrar equilibrio y armonía interior.</p>
+                        </div>
+                    </div>
+
+                    <!-- Teacher 5 -->
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="/assets/photos/inUse/about/itzel.webp" alt="Teacher Name" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3>Itzel</h3>
+                            <span class="teacher-specialty">Yoga Aéreo</span>
+                            <p>Itzel es una maestra de Yoga Aéreo con una fuerza de carácter y determinación sin precedentes. Sus clases te llevarán a través de los momentos más difíciles; te enseñará cómo usar tu práctica para sanar y crecer - física y mentalmente.</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Our Spaces -->
+        <section id="spaces" class="spaces-section">
+            <div class="spaces-gallery-grid">
+                <!-- Space 1: Hari Om -->
+                <div class="space-tile" data-space="hariom">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/hariom-1200.webp">
+                        <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/hariom-1080.webp">
+                        <img src="/assets/photos/inUse/about/hariom-720.webp" alt="Hari Om" class="space-tile-image" id="hariom-image" loading="lazy">
+                    </picture>
+                    <div class="space-overlay">
+                        <div class="space-content">
+                            <h3 class="space-name">Hari Om</h3>
+                            <div class="space-address">
+                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <span>Calle Tres Zapotes 128, Letran Valle, Benito Juárez CDMX</span>
+                            </div>
+                            <p class="space-description">Nuestro espacio en Letran Valle es pequeño pero acogedor y tranquilo. Está ubicado cerca del Parque de los Venados en un distrito residencial tranquilo y seguro. Hay muchos cafés cercanos si te apetece descansar después de una clase.</p>
+                            <a href="https://www.google.com/maps/place/Tres+Zapotes+128,+Letran+Valle,+Benito+Ju%C3%A1rez,+03650+Ciudad+de+M%C3%A9xico,+CDMX,+Meksyk/@19.373788,-99.1543038,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ffae03053455:0x67f0ddbbff3461f8!8m2!3d19.373788!4d-99.1517289!16s%2Fg%2F11c1f7209z?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" class="btn-space" target="_blank" rel="noopener noreferrer">Ver en Mapa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Space 2: Aguacate -->
+                <div class="space-tile" data-space="aguacate">
+                    <picture>
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/inUse/about/aguacate-1200.webp">
+                        <source media="(min-width: 800px)" srcset="/assets/photos/inUse/about/aguacate-1080.webp">
+                        <img src="/assets/photos/inUse/about/aguacate-720.webp" alt="Aguacate" class="space-tile-image" id="aguacate-image" loading="lazy">
+                    </picture>
+                    <div class="space-overlay">
+                        <div class="space-content">
+                            <h3 class="space-name">Aguacate</h3>
+                            <div class="space-address">
+                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <span>Callejón de Aguacate 3, Santa Catarina, Coyoacán, CDMX</span>
+                            </div>
+                            <p class="space-description">Nuestro espacio en Coyoacán es grande y hermoso. Con mucha altura, es perfecto para clases de yoga aéreo. Está muy cerca del Parque de los Viveros, pero debido a su ubicación resguardada, también es muy tranquilo y silencioso.</p>
+                            <a href="https://www.google.com/maps/place/Aguacate+3,+Santa+Catarina,+Coyoac%C3%A1n,+04010+Ciudad+de+M%C3%A9xico,+CDMX,+Meksyk/@19.3484531,-99.1713639,19.88z/data=!4m14!1m7!3m6!1s0x85d1ff30a5e96dcb:0xb738dc6e87fe52e4!2sCallej%C3%B3n+del+Aguacate!8m2!3d19.3486591!4d-99.170932!16s%2Fg%2F11g1lw16vp!3m5!1s0x85d1ffe62fbda1f3:0xfc86176f630b0f8!8m2!3d19.3484063!4d-99.1711183!16s%2Fg%2F11c0z29lmt?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" class="btn-space" target="_blank" rel="noopener noreferrer">Ver en Mapa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <!-- Logo and Mission Section -->
+                    <div class="footer-column footer-logo-section">
+                        <a href="/es/index.html" class="footer-logo-link">
+                            <img src="/assets/logo/logoMain.png" alt="SGP Yoga Logo" class="footer-logo">
+                        </a>
+                        <h3>Nuestra Misión</h3>
+                        <p class="footer-mission-text">Guiando almas para descubrir su luz interior a través de la práctica transformadora del yoga.</p>
+                    </div>
+
+                    <!-- Site Map Section -->
+                    <div class="footer-column footer-sitemap">
+                        <h3>Mapa del Sitio</h3>
+                        <ul>
+                            <li><a href="/es/index.html">Inicio</a></li>
+                            <li><a href="/es/about.html">Acerca De</a></li>
+                            <li><a href="/es/classes.html">Clases</a></li>
+                            <li><a href="/es/events.html">Eventos</a></li>
+                            <li><a href="/blog/dist/">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bottom Row: Contact and Social -->
+                    <div class="footer-bottom-row">
+                        <!-- Contact Section -->
+                        <div class="footer-column footer-contact">
+                            <h3>Contáctanos</h3>
+                            <div class="footer-contact-item">
+                                <i data-lucide="mail"></i>
+                                <div>
+                                    <span>Correo</span>:
+                                    <a href="mailto:satgurprasaadyoga@gmail.com">satgurprasaadyoga@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i data-lucide="phone"></i>
+                                <div>
+                                    <span>Teléfono</span>:
+                                    <a href="tel:+525539061305">+52 55 3906 1305</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Section -->
+                        <div class="footer-column footer-social">
+                            <h3>Síguenos</h3>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100035570391956" class="footer-social-link" aria-label="Facebook" >
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/satgurprasaad_yoga/" class="footer-social-link" aria-label="Instagram" >
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@satgurprasaadyoga" class="footer-social-link" aria-label="YouTube" >
+                                    <i data-lucide="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copyright">
+                <p>© 2025 SAT GUR PRASAAD YOGA LLC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="/js/i18n.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/about.js"></script>
+</body>
+</html>

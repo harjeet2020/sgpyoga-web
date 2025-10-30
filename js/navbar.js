@@ -181,6 +181,14 @@ function focusPreviousOption(currentIndex) {
  * Select a language and update the UI
  */
 function selectLanguage(langCode) {
+    // Use i18n.js to handle the language change if available
+    if (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.changeLanguage) {
+        window.SGPi18n.changeLanguage(langCode);
+        closeLanguageDropdown();
+        return;
+    }
+    
+    // Fallback if i18n not available yet
     const currentFlag = document.getElementById('currentFlag');
     const currentLangCode = document.getElementById('currentLangCode');
     
@@ -221,7 +229,10 @@ function selectLanguage(langCode) {
     closeLanguageDropdown();
     
     // Return focus to the toggle button
-    document.getElementById('languageToggle').focus();
+    const toggleBtn = document.getElementById('languageToggle');
+    if (toggleBtn) {
+        toggleBtn.focus();
+    }
 }
 
 /**
@@ -240,11 +251,48 @@ function setActiveNavLink() {
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
         
-        // Handle root path and index.html
-        const normalizedLinkPath = linkPath === '/' || linkPath.endsWith('/index.html') ? 'index.html' : linkPath.split('/').pop();
-        const normalizedCurrentPath = currentPath === '/' || currentPath.endsWith('/index.html') ? 'index.html' : currentPath.split('/').pop();
+        // Special handling for blog - match if current path starts with /blog/dist/
+        if (linkPath.includes('/blog/dist/')) {
+            if (currentPath.includes('/blog/dist/')) {
+                link.classList.add('active');
+            }
+            return;
+        }
         
+        // For non-blog pages, match exact paths or normalized paths
+        // Normalize: treat '/', '/index.html', '/es/index.html' properly
+        let normalizedLinkPath = linkPath;
+        let normalizedCurrentPath = currentPath;
+        
+        // Remove trailing slashes for comparison
+        if (normalizedLinkPath.endsWith('/')) {
+            normalizedLinkPath = normalizedLinkPath.slice(0, -1);
+        }
+        if (normalizedCurrentPath.endsWith('/')) {
+            normalizedCurrentPath = normalizedCurrentPath.slice(0, -1);
+        }
+        
+        // Exact match
         if (normalizedLinkPath === normalizedCurrentPath) {
+            link.classList.add('active');
+            return;
+        }
+        
+        // Handle index.html variations
+        const linkIsIndex = normalizedLinkPath === '' || normalizedLinkPath === '/index.html' || normalizedLinkPath === '/es/index.html';
+        const currentIsIndex = normalizedCurrentPath === '' || normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/es/index.html';
+        
+        // Match index pages
+        if (linkIsIndex && currentIsIndex && normalizedLinkPath === normalizedCurrentPath) {
+            link.classList.add('active');
+            return;
+        }
+        
+        // Match other pages by filename
+        const linkFilename = normalizedLinkPath.split('/').pop();
+        const currentFilename = normalizedCurrentPath.split('/').pop();
+        
+        if (linkFilename && linkFilename === currentFilename && linkFilename !== 'index.html') {
             link.classList.add('active');
         }
     });

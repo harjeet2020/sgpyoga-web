@@ -1,0 +1,12 @@
+{
+  "name": "sgpyoga-website",
+  "version": "1.0.0",
+  "description": "SGP Yoga website with multilingual support",
+  "scripts": {
+    "build:i18n": "node build-i18n.js",
+    "watch:i18n": "node build-i18n.js && echo 'Watching for changes... (Ctrl+C to stop)' && fswatch -o index.html about.html classes.html events.html locales/ | xargs -n1 -I{} node build-i18n.js"
+  },
+  "keywords": ["yoga", "i18n", "multilingual"],
+  "author": "SGP Yoga",
+  "license": "ISC"
+}
