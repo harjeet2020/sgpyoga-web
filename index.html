@@ -31,11 +31,24 @@
     <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/es/index.html">
     <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/index.html">
     
+    <!-- Performance: Preconnect to external resources -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Performance: Preload critical assets -->
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="css/navbar.css" as="style">
+    <link rel="preload" href="assets/logo/logoMain.png" as="image">
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- Performance: Prefetch likely next pages -->
+    <link rel="prefetch" href="classes.html">
+    <link rel="prefetch" href="events.html">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>

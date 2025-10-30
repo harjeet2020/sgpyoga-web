@@ -40,6 +40,18 @@
     
     <title>{{ title }} | SGP Yoga Blog</title>
     
+    {# Resource Hints - Performance Optimization #}
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    {# Preload critical CSS #}
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="/css/navbar.css" as="style">
+    <link rel="preload" href="/css/blog.css" as="style">
+    
+    {# Preload critical images #}
+    <link rel="preload" href="/assets/logo/logoMain.png" as="image">
+    
     {# Main site CSS - using copied assets from dist/ #}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
