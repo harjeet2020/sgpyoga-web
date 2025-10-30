@@ -5,7 +5,13 @@
    Displays featured blog posts in Spanish only
    ======================================================================== #}
 
-{% set featuredSlides = collections.featuredPosts | selectattr("data.lang", "equalto", "es") %}
+{# Filter featured posts for Spanish language manually #}
+{% set featuredSlides = [] %}
+{% for post in collections.featuredPosts %}
+  {% if post.data.lang == "es" %}
+    {% set featuredSlides = (featuredSlides.push(post), featuredSlides) %}
+  {% endif %}
+{% endfor %}
 
 {# Only render if we have Spanish featured posts #}
 {% if featuredSlides | length > 0 %}

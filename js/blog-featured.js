@@ -36,20 +36,15 @@ class FeaturedPostsSlideshow {
      * Setup slideshow elements and event listeners
      */
     setup() {
-        this.allSlides = document.querySelectorAll('.featured-slide');
+        this.slides = document.querySelectorAll('.featured-slide');
+        this.totalSlides = this.slides.length;
         
-        if (this.allSlides.length === 0) {
+        if (this.totalSlides === 0) {
             console.log('No featured posts slideshow found on this page');
             return;
         }
 
-        // Filter slides by current language
-        this.filterSlidesByLanguage();
-        
-        if (this.totalSlides === 0) {
-            console.log('No featured posts for current language');
-            return;
-        }
+        console.log(`Showing ${this.totalSlides} featured post(s)`);
 
         this.setupElements();
         this.setupEventListeners();
@@ -64,104 +59,6 @@ class FeaturedPostsSlideshow {
                 this.startAutoPlay();
             }
         });
-        
-        // Listen for language changes
-        if (window.i18next) {
-            window.i18next.on('languageChanged', () => {
-                this.handleLanguageChange();
-            });
-        }
-    }
-    
-    /**
-     * Filter slides by current language
-     */
-    filterSlidesByLanguage() {
-        const currentLang = (typeof i18next !== 'undefined' && i18next.language) ? i18next.language : 'en';
-        
-        console.log('Filtering featured posts for language:', currentLang);
-        
-        // Hide all slides first
-        this.allSlides.forEach(slide => {
-            slide.style.display = 'none';
-        });
-        
-        // Show only slides matching current language
-        this.slides = Array.from(this.allSlides).filter(slide => {
-            const slideLang = slide.getAttribute('data-lang');
-            if (slideLang === currentLang) {
-                slide.style.display = '';
-                return true;
-            }
-            return false;
-        });
-        
-        this.totalSlides = this.slides.length;
-        console.log(`Showing ${this.totalSlides} featured post(s) in ${currentLang}`);
-        
-        // Show/hide slideshow and message based on available posts
-        this.updateVisibility();
-    }
-    
-    /**
-     * Handle language change
-     */
-    handleLanguageChange() {
-        console.log('Language changed - updating featured posts');
-        
-        // Pause autoplay
-        this.pauseAutoPlay();
-        
-        // Re-filter slides
-        this.filterSlidesByLanguage();
-        
-        if (this.totalSlides === 0) {
-            console.log('No featured posts for current language');
-            // Visibility already updated by filterSlidesByLanguage
-            return;
-        }
-        
-        // Remove active class from all slides first
-        this.slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        
-        // Reset to first slide
-        this.currentSlide = 0;
-        
-        // Add active class to first slide
-        if (this.slides[0]) {
-            this.slides[0].classList.add('active');
-        }
-        
-        // Recreate dots
-        this.createDots();
-        
-        // Update navigation buttons
-        this.updateNavigationButtons();
-        
-        // Restart autoplay if it was playing
-        if (this.isPlaying) {
-            this.startAutoPlay();
-        }
-    }
-    
-    /**
-     * Update visibility of slideshow vs no-posts message
-     */
-    updateVisibility() {
-        const slideshowContainer = document.getElementById('featuredPostsSlideshow');
-        const noPostsMessage = document.getElementById('noFeaturedPosts');
-        
-        if (this.totalSlides === 0) {
-            // No posts for current language - show message
-            if (slideshowContainer) slideshowContainer.style.display = 'none';
-            if (noPostsMessage) noPostsMessage.style.display = 'block';
-        } else {
-            // Have posts - show slideshow
-            if (slideshowContainer) slideshowContainer.style.display = '';
-            if (noPostsMessage) noPostsMessage.style.display = 'none';
-        }
     }
 
     /**
