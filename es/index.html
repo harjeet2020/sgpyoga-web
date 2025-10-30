@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <meta name="description" content="Find your inner peace in the heart of Mexico City" data-i18n="home:hero.subtitle">
+    <title>SGP Yoga - Yoga Classes in Mexico City | CDMX Studio</title>
+    <meta name="description" content="Transformative yoga classes in Mexico City. Expert-led Kundalini, Vinyasa, Hatha & Aerial Yoga in CDMX. Join workshops, retreats & teacher trainings. Book your class today!" data-i18n="home:meta.description">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -31,11 +31,24 @@
     <link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/es/index.html">
     <link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/index.html">
     
+    <!-- Performance: Preconnect to external resources -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Performance: Preload critical assets -->
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="/css/navbar.css" as="style">
+    <link rel="preload" href="/assets/logo/logoMain.png" as="image">
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/testimonials.css">
     <link rel="stylesheet" href="/css/footer.css">
+    
+    <!-- Performance: Prefetch likely next pages -->
+    <link rel="prefetch" href="classes.html">
+    <link rel="prefetch" href="events.html">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -43,6 +56,133 @@
     <!-- i18next for language support -->
     <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    
+    <!-- LocalBusiness Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/SportsActivityLocation",
+      "name": "SGP Yoga",
+      "alternateName": "Sat Gur Prasaad Yoga",
+      "description": "Mobile yoga studio offering transformative Vinyasa, Hatha, Kundalini, and Aerial Yoga classes throughout Mexico City. We bring expert instruction to various studios and venues across CDMX.",
+      "url": "https://www.sgpyoga.co",
+      "logo": "https://www.sgpyoga.co/assets/logo/logoMain.png",
+      "image": [
+        "https://www.sgpyoga.co/assets/photos/home/hero-1280.webp",
+        "https://www.sgpyoga.co/assets/photos/home/classes-1200.webp",
+        "https://www.sgpyoga.co/assets/photos/home/events-1200.webp"
+      ],
+      "telephone": "+525539061305",
+      "email": "satgurprasaadyoga@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mexico City",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Mexico City",
+          "sameAs": "https://en.wikipedia.org/wiki/Mexico_City"
+        },
+        {
+          "@type": "Place",
+          "name": "Benito Juárez",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Letran Valle",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Coyoacán",
+          "containedInPlace": {
+            "@type": "City",
+            "name": "Mexico City"
+          }
+        }
+      ],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100035570391956",
+        "https://www.instagram.com/satgurprasaad_yoga/",
+        "https://www.youtube.com/@satgurprasaadyoga"
+      ],
+      "knowsLanguage": ["en", "es"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Yoga Classes and Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vinyasa Yoga Classes",
+              "description": "Dynamic flow-based yoga classes suitable for all levels"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kundalini Yoga Classes",
+              "description": "Spiritual practice combining breathwork, meditation, and movement"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerial Yoga Classes",
+              "description": "Yoga practice using suspended hammocks for enhanced flexibility"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hatha Yoga Classes",
+              "description": "Traditional yoga focusing on physical postures and breathing"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sound Healing Sessions",
+              "description": "Therapeutic sound healing sessions for deep relaxation and balance"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoga Philosophy Workshops",
+              "description": "Educational workshops exploring the philosophical foundations of yoga"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerial Yoga Teacher Training",
+              "description": "Comprehensive teacher training programs for aerial yoga certification"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -99,7 +239,7 @@
             <picture class="hero-image">
                 <source media="(min-width: 2048px)" srcset="/assets/photos/home/hero-2560.webp">
                 <source media="(min-width: 1440px)" srcset="/assets/photos/home/hero-1920.webp">
-                <img src="/assets/photos/home/hero-1280.webp" alt="SGP Yoga Studio" loading="eager">
+                <img src="/assets/photos/home/hero-1280.webp" alt="Harjeet, SGP Yoga Founder & Kundalini Yoga teacher sitting in a contemplative posture in front of a lake in Hidalgo, Mexico" loading="eager">
             </picture>
             
             <!-- Hero content positioned in upper-left -->
@@ -128,7 +268,7 @@
                         <picture>
                             <source media="(min-width: 1200px)" srcset="/assets/photos/home/classes-1200.webp">
                             <source media="(min-width: 800px)" srcset="/assets/photos/home/classes-1080.webp">
-                            <img src="/assets/photos/home/classes-720.webp" alt="Yoga Classes" loading="lazy">
+                            <img src="/assets/photos/home/classes-720.webp" alt="A male yogi in triangle pose, a mountain stream and lush, green forest in the background" loading="lazy">
                         </picture>
                     </div>
                 </div>
@@ -144,7 +284,7 @@
                         <picture>
                             <source media="(min-width: 1200px)" srcset="/assets/photos/home/events-1200.webp">
                             <source media="(min-width: 800px)" srcset="/assets/photos/home/events-1080.webp">
-                            <img src="/assets/photos/home/events-720.webp" alt="Yoga Events" loading="lazy">
+                            <img src="/assets/photos/home/events-720.webp" alt="A female yogi entering a hand stand on a beach during sunset" loading="lazy">
                         </picture>
                     </div>
                     
@@ -186,7 +326,7 @@
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="/assets/photos/testimonials/testimonial1-1200.webp">
                                     <source media="(min-width: 800px)" srcset="/assets/photos/testimonials/testimonial1-1080.webp">
-                                    <img src="/assets/photos/testimonials/testimonial1-720.webp" alt="Ramzi Anh Do" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial1-720.webp" alt="Ramzi Anh Do portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -210,7 +350,7 @@ Como meditador experimentado, recomiendo de todo corazón a Harjeet tanto para p
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="/assets/photos/testimonials/testimonial2-720.webp" alt="Agnieszka Malek" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial2-720.webp" alt="Agnieszka Malek portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -234,7 +374,7 @@ Harjeet, eres como un vaso de agua en un desierto. Muchas gracias por eso.</p>
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="/assets/photos/testimonials/testimonial3-720.webp" alt="Marcin Topolski" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial3-720.webp" alt="Marcin Topolski portait image - Harjeet's first Kundalini Yoga teacher" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -258,7 +398,7 @@ Lo que enseña se basa en conocimiento sólido, pero resulta principalmente de s
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="/assets/photos/testimonials/testimonial4-1200.webp">
                                     <source media="(min-width: 800px)" srcset="/assets/photos/testimonials/testimonial4-1080.webp">
-                                    <img src="/assets/photos/testimonials/testimonial4-720.webp" alt="Lena Tiedmann" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial4-720.webp" alt="Lena Tiedmann portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -280,7 +420,7 @@ Kundalini es un estilo de yoga poderoso y profundo, y Harjeet un maestro pacient
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="/assets/photos/testimonials/testimonial5-1200.webp">
                                     <source media="(min-width: 800px)" srcset="/assets/photos/testimonials/testimonial5-1080.webp">
-                                    <img src="/assets/photos/testimonials/testimonial5-720.webp" alt="Svetlana Epifanova" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial5-720.webp" alt="Svetlana Epifanova portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -300,7 +440,7 @@ Kundalini es un estilo de yoga poderoso y profundo, y Harjeet un maestro pacient
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="/assets/photos/testimonials/testimonial6-720.webp" alt="Rosario Hernández Nieves" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial6-720.webp" alt="Rosario Hernández Nieves portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -320,7 +460,7 @@ Kundalini es un estilo de yoga poderoso y profundo, y Harjeet un maestro pacient
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="/assets/photos/testimonials/testimonial7-720.webp" alt="Rafał Duran" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial7-720.webp" alt="Rafał Duran portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -342,7 +482,7 @@ Harjeet es un maestro muy calmado y paciente. Su gran valor es un enfoque indivi
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="/assets/photos/testimonials/testimonial8-720.webp" alt="Julián Alonso" loading="lazy">
+                                    <img src="/assets/photos/testimonials/testimonial8-720.webp" alt="Julián Alonso portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -452,6 +592,137 @@ El profundo conocimiento de Kundalini de Harjeet nos permite tener una práctica
             </div>
         </div>
     </footer>
+
+    <!-- Review/Testimonial Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "SGP Yoga",
+      "url": "https://www.sgpyoga.co",
+      "telephone": "+525539061305",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mexico City",
+        "addressRegion": "CDMX",
+        "addressCountry": "MX"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "8",
+        "bestRating": "5",
+        "worstRating": "5"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Ramzi Anh Do"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "I had the pleasure of meeting Harjeet through a mutual acquaintance during his stay in Cambodia. Intrigued by his Kundalini teachings, I soon found myself attending his classes. Each session proved to be a rejuvenating experience, leaving me feeling energized, grounded, and in sync with my body. His clear and effective teaching style, coupled with his ability to provide tailored recommendations for specific issues, truly sets him apart. Harjeet's intelligence, patience, and deep attunement to his students make every interaction meaningful. The kindness in his disposition and the warmth of his smile instantly puts one at ease. As a seasoned meditator, I wholeheartedly recommend Harjeet for both beginners and those looking to further their spiritual journey. Rest assured, you will reap tremendous benefits."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Agnieszka Malek"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Kundalini Yoga entered my life suddenly. Despite initial resistance from the mind, I felt that it was, and is, the right way… the way of finding your true self. Working with Harjeet was an amazing experience. With understanding, patience and calmness, and at the same time intense passion, Harjeet guides you into a state of extraordinary focus; working with him allowed me to see both my strengths and weaknesses and thus to value who I am. Harjeet, you are like a glass of water in a desert. Thank you so much for that."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Marcin Topolski"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "I've known Harjeet for several years. I was his first Kundalini Yoga teacher. From the very beginning he showed great commitment and devotion to the practice. I watched his process of deepening his knowledge and becoming a teacher and I can say that he had the opportunity to prove himself in many different situations. What he teaches is based on solid knowledge, but results primarily from his own experience. Thanks to this, his guidance and teachings retain their authenticity and can reach each and every heart. I can wholeheartedly recommend Harjeet and his teachings. Sat Nam."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Lena Tiedmann"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "I tried out many different yoga styles and even more yoga teachers, and to me a great practice experience really relies on the perfect combination of both. To me, classes with Harjeet absolutely fulfill this expectation. Kundalini is a powerful and deep yoga style, and Harjeet a patient teacher radiating the best energy and teaching with just the right amount of instructions - always making sure you know what to do but not talking too much. If you look for a recharging yoga experience, you'll find it here."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Svetlana Epifanova"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Harjeet is the one who planted the kundalini seed in me. His classes helped me go through a hectic period in my life. After each practice I felt more grounded and peaceful, highly thanks to his individual approach. Kundalini yoga made me realise who I am and how to deal with energy. I highly recommend him as a teacher, especially if you're just starting your yoga journey."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Rosario Hernández Nieves"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "I attended classes with Harjeet and truly felt a shift in my state of being. I found myself less reactive and overall more peaceful within. Harjeet is empathetic, understanding and patient; and provides a safe, non-judgemental space for the diving into the mind-body connection to release anything that keeps us from our inherent peace."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Rafał Duran"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Before practicing with Harjeet I never had any experience with yoga and was rather hesistant to try. After two years of regular practice I found it significantly improved both my physical and mental state of being. I was able to do things I had thought impossible before and my overall mental comfort also perked up, in spite of occasional tough periods. Harjeet is a very calm and patient teacher. His great value is an individual aproach to his every student. He can guide you in the right direction and make you believe in yourself even when you are in doubt. He is also very knowledgable about Kundalini Yoga, always explaining the origins and benefits of every practice and making you understand how all the pieces come together. Definitely recommend!"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Julián Alonso"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "I have been practicing Kundalini Yoga with Harjeet for the last 2 years and it's been an amazing experience! I realise how much my skills have improved since we started, until I've reached a point where I have confidence to do, or at least try, any type of exercise or practice. Harjeet's deep Kundalini knowledge allows us to have a different practice each week, always based on how I feel and what I want to achieve each session. Definitely recommend him both for experienced students but also newcomers who want to improve their mental and physical condition!"
+        }
+      ]
+    }
+    </script>
 
     <!-- JavaScript Files -->
     <script src="/js/i18n.js"></script>

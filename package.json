@@ -4,7 +4,7 @@
   "description": "SGP Yoga website with multilingual support",
   "scripts": {
     "build:i18n": "node build-i18n.js",
-    "build:blog": "cd blog && npm run build",
+    "build:blog": "cd blog && npm ci && npm run build",
     "build": "npm run build:i18n && npm run build:blog",
     "watch:i18n": "node build-i18n.js && echo 'Watching for changes... (Ctrl+C to stop)' && fswatch -o index.html about.html classes.html events.html locales/ | xargs -n1 -I{} node build-i18n.js"
   },
