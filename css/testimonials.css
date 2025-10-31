@@ -370,11 +370,11 @@
     }
 
     .testimonials-header h2 {
-        font-size: 1.75rem;
+        font-size: 1.9rem;
     }
 
     .testimonials-header p {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
 
     .testimonial-photo {
@@ -382,7 +382,7 @@
     }
 
     .testimonial-content {
-        padding: var(--spacing-md) var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
     }
 
     .testimonial-text {
