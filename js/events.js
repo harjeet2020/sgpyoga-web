@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize events scroll indicators
         initEventsScrollIndicators();
         
-        // Initialize event type tiles tap-to-toggle for touch devices
-        initEventTypeTilesToggle();
+        // Initialize event type tiles intersection observer for mobile
+        initEventTypeTilesIntersectionObserver();
         
         console.log('Events page initialized successfully');
     });
@@ -750,46 +750,86 @@ function initEventsScrollIndicators() {
 }
 
 // =============================================================================
-// EVENT TYPE TILES TAP-TO-TOGGLE
+// EVENT TYPE TILES INTERSECTION OBSERVER
 // =============================================================================
 /**
- * Initialize event type tiles tap-to-toggle for touch devices
- * On mobile/tablet, tap to expand/collapse tiles instead of hover
+ * Initialize Intersection Observer for event type tiles on mobile
+ * Purpose: Automatically show/hide overlays when tiles enter/leave trigger point
+ * Only ONE tile can show its overlay at a time - entering the trigger hides all others
+ * Only runs on mobile devices (768px and below)
  */
-function initEventTypeTilesToggle() {
+function initEventTypeTilesIntersectionObserver() {
+    // Only run on mobile devices
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    
+    if (!isMobile) {
+        return; // Exit early on desktop - we use :hover instead
+    }
+    
     const eventTypeTiles = document.querySelectorAll('.event-type-tile');
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
-    if (!isTouchDevice) return;
+    if (!eventTypeTiles.length) {
+        return;
+    }
     
-    eventTypeTiles.forEach(tile => {
-        tile.addEventListener('click', function(e) {
-            // Check if this tile is already active
-            const isActive = this.classList.contains('active');
-            
-            // Close all other tiles
-            eventTypeTiles.forEach(otherTile => {
-                if (otherTile !== this) {
-                    otherTile.classList.remove('active');
-                }
-            });
-            
-            // Toggle this tile
-            if (isActive) {
-                this.classList.remove('active');
+    // Configure Intersection Observer to trigger as tiles approach the top
+    // Same settings as yoga styles/spaces for consistency
+    const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: '40% 0px -60% 0px', // Trigger when tile approaches the top third of viewport
+        threshold: 0 // Trigger as soon as tile crosses the threshold
+    };
+    
+    // Helper function to hide all overlays
+    function hideAllOverlays() {
+        eventTypeTiles.forEach(tile => {
+            const overlay = tile.querySelector('.event-type-overlay');
+            overlay.classList.remove('auto-visible');
+        });
+    }
+    
+    // Callback function that handles intersection changes
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // A tile entered the trigger point
+                // First, hide all other overlays to ensure only one is visible
+                hideAllOverlays();
+                
+                // Then show this tile's overlay
+                const overlay = entry.target.querySelector('.event-type-overlay');
+                overlay.classList.add('auto-visible');
             } else {
-                this.classList.add('active');
+                // Tile left the trigger point - hide its overlay
+                const overlay = entry.target.querySelector('.event-type-overlay');
+                overlay.classList.remove('auto-visible');
             }
         });
+    };
+    
+    // Create the observer instance
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Start observing all event type tiles
+    eventTypeTiles.forEach(tile => {
+        observer.observe(tile);
+        
+        // Store observer reference on tile for potential cleanup
+        tile._eventTypeObserver = observer;
     });
     
-    // Close active tile when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.event-type-tile')) {
-            eventTypeTiles.forEach(tile => {
-                tile.classList.remove('active');
-            });
-        }
+    // Reinitialize on window resize to handle orientation changes
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
+            
+            // If switching between mobile/desktop, reload the page or reinitialize
+            if (newIsMobile !== isMobile) {
+                location.reload();
+            }
+        }, 250);
     });
 }
 

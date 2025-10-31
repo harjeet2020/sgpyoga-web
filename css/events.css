@@ -491,6 +491,26 @@
     opacity: 0.95; /* Slightly softer than the heading */
 }
 
+/* Mobile-Specific: Intersection Observer for Event Type Tiles
+   ========================================================================
+   Purpose: On mobile devices, automatically show/hide overlays based on scroll position
+   Desktop hover behavior remains unchanged */
+
+@media (max-width: 768px) {
+    /* Automatic visibility when tile crosses trigger point near top of viewport
+       This class is added/removed by JavaScript Intersection Observer
+       Only ONE tile shows its overlay at a time */
+    .event-type-overlay.auto-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    /* Smooth transitions for scroll-based overlay reveal */
+    .event-type-overlay {
+        transition: opacity 0.6s ease-out;
+    }
+}
+
 /* ==========================================================================
    EVENT DETAILS MODAL
    ========================================================================== */
