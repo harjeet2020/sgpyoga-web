@@ -670,16 +670,27 @@
     
     /* Legend section mobile */
     .legend-section {
-        padding: var(--spacing-xxl) 0;
+        padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-xxl) var(--spacing-xs);
+        overflow-x: visible; /* Disable horizontal scroll on mobile */
     }
     
     .legend-scroll-container {
         padding: 0 var(--spacing-md);
+        flex-direction: column; /* Stack cards vertically on mobile */
+        width: 100%; /* Full width container */
+        gap: var(--spacing-lg); /* Spacing between stacked cards */
     }
     
     .legend-item {
-        padding: var(--spacing-md);
-        min-width: 250px;
+        padding: var(--spacing-lg);
+        width: 100%; /* Full width cards */
+        min-width: unset; /* Remove minimum width constraint */
+        max-width: 100%; /* Ensure cards don't exceed viewport */
+    }
+    
+    /* Hide scroll indicators on mobile */
+    .legend-scroll-indicator {
+        display: none !important;
     }
     
     .legend-color {
