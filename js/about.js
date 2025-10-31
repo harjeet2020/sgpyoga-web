@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize scroll animations
     initScrollAnimations();
     
-    // Initialize style cards interaction (for touch devices)
-    initStyleCards();
+    // Initialize style cards intersection observer (for mobile scroll-based overlay)
+    initStyleTilesIntersectionObserver();
     
-    // Initialize space tiles interaction (for touch devices)
-    initSpaceTiles();
+    // Initialize space tiles intersection observer (for mobile scroll-based overlay)
+    initSpaceTilesIntersectionObserver();
     
     // Initialize yoga hero interactive elements
     initYogaHero();
@@ -186,65 +186,167 @@ function initScrollAnimations() {
 }
 
 /**
- * Initialize style tiles for touch devices
- * On mobile/tablet, tap to show/hide overlay instead of hover
+ * Initialize Intersection Observer for yoga style tiles on mobile
+ * Purpose: Automatically show/hide overlays when tiles enter/leave the "sweet spot" (40-60% of viewport)
+ * Only ONE tile can show its overlay at a time - entering the sweet spot hides all others
+ * Only runs on mobile devices (768px and below)
  */
-function initStyleCards() {
-    const styleTiles = document.querySelectorAll('.style-tile');
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+function initStyleTilesIntersectionObserver() {
+    // Only run on mobile devices
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
-    if (isTouchDevice) {
+    if (!isMobile) {
+        return; // Exit early on desktop - we use :hover instead
+    }
+    
+    const styleTiles = document.querySelectorAll('.style-tile');
+    
+    if (!styleTiles.length) {
+        return;
+    }
+    
+    // Configure Intersection Observer to trigger as tiles approach the top
+    // Positive top margin extends detection area upward, triggering earlier
+    // This creates a trigger point near the top of the viewport as tiles scroll up
+    const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: '40% 0px -60% 0px', // Trigger when tile approaches the top third of viewport
+        threshold: 0 // Trigger as soon as tile crosses the threshold
+    };
+    
+    // Helper function to hide all overlays
+    function hideAllOverlays() {
         styleTiles.forEach(tile => {
             const overlay = tile.querySelector('.style-overlay');
-            let isVisible = false;
-            
-            tile.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Toggle overlay visibility
-                if (isVisible) {
-                    overlay.style.opacity = '0';
-                    overlay.style.pointerEvents = 'none';
-                } else {
-                    overlay.style.opacity = '1';
-                    overlay.style.pointerEvents = 'auto';
-                }
-                
-                isVisible = !isVisible;
-            });
+            overlay.classList.remove('auto-visible');
         });
     }
+    
+    // Callback function that handles intersection changes
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // A tile entered the sweet spot
+                // First, hide all other overlays to ensure only one is visible
+                hideAllOverlays();
+                
+                // Then show this tile's overlay
+                const overlay = entry.target.querySelector('.style-overlay');
+                overlay.classList.add('auto-visible');
+            } else {
+                // Tile left the sweet spot - hide its overlay
+                const overlay = entry.target.querySelector('.style-overlay');
+                overlay.classList.remove('auto-visible');
+            }
+        });
+    };
+    
+    // Create the observer instance
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Start observing all style tiles
+    styleTiles.forEach(tile => {
+        observer.observe(tile);
+        
+        // Store observer reference on tile for potential cleanup
+        tile._styleObserver = observer;
+    });
+    
+    // Reinitialize on window resize to handle orientation changes
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
+            
+            // If switching between mobile/desktop, reload the page or reinitialize
+            if (newIsMobile !== isMobile) {
+                location.reload();
+            }
+        }, 250);
+    });
 }
 
+
 /**
- * Initialize space tiles for touch devices
- * On mobile/tablet, tap to show/hide overlay instead of hover
+ * Initialize Intersection Observer for yoga space tiles on mobile
+ * Purpose: Automatically show/hide overlays when tiles enter/leave trigger point
+ * Only ONE tile can show its overlay at a time - entering the trigger hides all others
+ * Only runs on mobile devices (768px and below)
  */
-function initSpaceTiles() {
-    const spaceTiles = document.querySelectorAll('.space-tile');
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+function initSpaceTilesIntersectionObserver() {
+    // Only run on mobile devices
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
     
-    if (isTouchDevice) {
+    if (!isMobile) {
+        return; // Exit early on desktop - we use :hover instead
+    }
+    
+    const spaceTiles = document.querySelectorAll('.space-tile');
+    
+    if (!spaceTiles.length) {
+        return;
+    }
+    
+    // Configure Intersection Observer to trigger as tiles approach the top
+    // Same settings as style tiles for consistent behavior
+    const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: '40% 0px -60% 0px', // Trigger when tile approaches the top third of viewport
+        threshold: 0 // Trigger as soon as tile crosses the threshold
+    };
+    
+    // Helper function to hide all overlays
+    function hideAllOverlays() {
         spaceTiles.forEach(tile => {
             const overlay = tile.querySelector('.space-overlay');
-            let isVisible = false;
-            
-            tile.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Toggle overlay visibility
-                if (isVisible) {
-                    overlay.style.opacity = '0';
-                    overlay.style.pointerEvents = 'none';
-                } else {
-                    overlay.style.opacity = '1';
-                    overlay.style.pointerEvents = 'auto';
-                }
-                
-                isVisible = !isVisible;
-            });
+            overlay.classList.remove('auto-visible');
         });
     }
+    
+    // Callback function that handles intersection changes
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // A tile entered the trigger point
+                // First, hide all other overlays to ensure only one is visible
+                hideAllOverlays();
+                
+                // Then show this tile's overlay
+                const overlay = entry.target.querySelector('.space-overlay');
+                overlay.classList.add('auto-visible');
+            } else {
+                // Tile left the trigger point - hide its overlay
+                const overlay = entry.target.querySelector('.space-overlay');
+                overlay.classList.remove('auto-visible');
+            }
+        });
+    };
+    
+    // Create the observer instance
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Start observing all space tiles
+    spaceTiles.forEach(tile => {
+        observer.observe(tile);
+        
+        // Store observer reference on tile for potential cleanup
+        tile._spaceObserver = observer;
+    });
+    
+    // Reinitialize on window resize to handle orientation changes
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
+            
+            // If switching between mobile/desktop, reload the page or reinitialize
+            if (newIsMobile !== isMobile) {
+                location.reload();
+            }
+        }, 250);
+    });
 }
 
 /**
