@@ -10,6 +10,12 @@ permalink: "/es/index.html"
 {# Additional CSS for featured posts #}
 <link rel="stylesheet" href="/css/blog-featured.css">
 
+{# Performance: Preload first featured post image for LCP optimization #}
+{% set firstFeaturedPostES = collections.featuredPosts | selectattr('data.lang', 'equalto', 'es') | first %}
+{% if firstFeaturedPostES and firstFeaturedPostES.data.image %}
+<link rel="preload" href="{{ firstFeaturedPostES.data.image }}" as="image" fetchpriority="high">
+{% endif %}
+
 <div class="blog-index" data-lang="es">
     {# Featured Posts Slideshow Section - Spanish only #}
     {% include "components/featured-posts-es.njk" %}

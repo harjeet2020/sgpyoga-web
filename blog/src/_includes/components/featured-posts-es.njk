@@ -44,6 +44,7 @@
                                 src="{{ post.data.image }}" 
                                 alt="{{ post.data.imageAlt or post.data.title }}"
                                 loading="{{ loadingStrategy }}"
+                                {% if isFirstSlide %}fetchpriority="high"{% endif %}
                                 class="featured-image"
                                 {% if post.data.imageFeaturedPosition %}style="object-position: {{ post.data.imageFeaturedPosition }};"{% endif %}>
                             {% endif %}

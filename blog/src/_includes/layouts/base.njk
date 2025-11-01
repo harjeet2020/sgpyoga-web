@@ -54,10 +54,22 @@
     {# Preload critical images #}
     <link rel="preload" href="/assets/logo/logoMain.png" as="image">
     
+    {# Performance: Preload critical fonts to prevent FOUT #}
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    
     {# Main site CSS - using copied assets from dist/ #}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    
+    {# Performance: Load below-the-fold CSS asynchronously to eliminate render blocking #}
+    <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
+    
+    {# Fallback for browsers with JavaScript disabled #}
+    <noscript>
+        <link rel="stylesheet" href="/css/footer.css">
+    </noscript>
+    
     <link rel="stylesheet" href="/css/blog.css">
     {% if layout == "layouts/post/standard.njk" %}
     <link rel="stylesheet" href="/css/blogPost.css">
@@ -67,15 +79,16 @@
     <link rel="stylesheet" href="/css/blogPost-longform.css">
     {% endif %}
     
+    {# Performance: Defer external scripts to eliminate render blocking #}
     {# Lucide Icons #}
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     {# i18next for language support #}
-    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
     
     {# Fuse.js for fuzzy search #}
-    <script src="https://unpkg.com/fuse.js@7.0.0/dist/fuse.min.js"></script>
+    <script defer src="https://unpkg.com/fuse.js@7.0.0/dist/fuse.min.js"></script>
 </head>
 <body>
     {# Navigation Bar - Full navbar from main site #}

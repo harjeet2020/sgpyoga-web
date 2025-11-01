@@ -41,18 +41,30 @@
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="css/navbar.css" as="style">
     
+    <!-- Performance: Preload critical fonts to prevent FOUT -->
+    <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/events.css">
-    <link rel="stylesheet" href="css/footer.css">
     
+    <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
+    <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+        <link rel="stylesheet" href="css/footer.css">
+    </noscript>
+    
+    <!-- Performance: Defer external scripts to eliminate render blocking -->
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- i18next for language support -->
-    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->

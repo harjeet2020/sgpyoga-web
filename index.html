@@ -42,22 +42,38 @@
     <link rel="preload" href="css/navbar.css" as="style">
     <link rel="preload" href="assets/logo/logoMain.png" as="image">
     
+    <!-- Performance: Preload LCP image with high priority -->
+    <link rel="preload" href="assets/photos/home/hero-1280.webp" as="image" fetchpriority="high">
+    
+    <!-- Performance: Preload critical fonts to prevent FOUT -->
+    <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/testimonials.css">
-    <link rel="stylesheet" href="css/footer.css">
+    
+    <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
+    <link rel="stylesheet" href="css/testimonials.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+        <link rel="stylesheet" href="css/testimonials.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </noscript>
     
     <!-- Performance: Prefetch likely next pages -->
     <link rel="prefetch" href="classes.html">
     <link rel="prefetch" href="events.html">
     
+    <!-- Performance: Defer external scripts to eliminate render blocking -->
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- i18next for language support -->
-    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
     
     <!-- LocalBusiness Structured Data for SEO -->
     <script type="application/ld+json">
@@ -241,7 +257,7 @@
             <picture class="hero-image">
                 <source media="(min-width: 2048px)" srcset="assets/photos/home/hero-2560.webp">
                 <source media="(min-width: 1440px)" srcset="assets/photos/home/hero-1920.webp">
-                <img src="assets/photos/home/hero-1280.webp" alt="Harjeet, SGP Yoga Founder & Kundalini Yoga teacher sitting in a contemplative posture in front of a lake in Hidalgo, Mexico" loading="eager">
+                <img src="assets/photos/home/hero-1280.webp" alt="Harjeet, SGP Yoga Founder & Kundalini Yoga teacher sitting in a contemplative posture in front of a lake in Hidalgo, Mexico" loading="eager" fetchpriority="high">
             </picture>
             
             <!-- Hero content positioned in upper-left -->
