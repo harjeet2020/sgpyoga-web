@@ -245,6 +245,15 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
   
+  /**
+   * Find post in collection by fileSlug (filename-based matching)
+   * Usage: {{ collections.postsES | findByFileSlug(currentPost.fileSlug) }}
+   */
+  eleventyConfig.addFilter("findByFileSlug", function(collection, fileSlug) {
+    if (!collection || !fileSlug) return null;
+    return collection.find(item => item.fileSlug === fileSlug) || null;
+  });
+  
   
   // ========================================================================
   // Server Configuration
