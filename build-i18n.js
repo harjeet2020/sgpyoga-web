@@ -177,6 +177,14 @@ function processHTML(html, translations, filename) {
         return match;
     });
     
+    // Inject Google Search Console verification meta tag if not present
+    if (!processed.includes('google-site-verification')) {
+        processed = processed.replace(
+            /(<meta name=["']viewport["'][^>]*>)/,
+            '$1\n    <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />'
+        );
+    }
+    
     // Update lang attribute
     processed = processed.replace(
         /<html[^>]*lang=["']en["'][^>]*>/,
