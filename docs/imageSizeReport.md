@@ -31,6 +31,7 @@ This report analyzes all images in the SGP Yoga website and provides optimizatio
 - QR codes should maintain sufficient resolution to be scannable (minimum 256×256)
 - Consider converting to SVG for perfect scalability if the QR code is simple
 - Current file is heavily oversized for web use
+- QR Code currently unused on the page, so we should skip image optimization
 
 ---
 
