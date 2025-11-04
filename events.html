@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
+    
     <title data-i18n="common:pageTitles.events">Yoga Workshops, Retreats & Teacher Training | SGP Yoga CDMX</title>
     <meta name="description" content="Join transformative yoga workshops, multi-day retreats & teacher training in Mexico City. Deepen your practice with SGP Yoga. Limited spots in CDMX. Register now!" data-i18n="events:meta.description">
     
@@ -40,6 +47,8 @@
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="css/navbar.css" as="style">
+    <link rel="preload" href="assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
     <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -72,7 +81,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="index.html" class="navbar-brand-link">
-                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                <picture>
+                    <source media="(min-width: 1025px)" srcset="assets/logo/logoMain-300.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/logo/logoMain-150.webp">
+                    <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                </picture>
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -161,7 +174,9 @@
                 <div class="event-type-tile" data-type="workshops">
                     <picture>
                         <source media="(min-width: 1200px)" srcset="assets/photos/events/workshops-1200.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/events/workshops-1080.webp">
+                        <source media="(min-width: 900px)" srcset="assets/photos/events/workshops-900.webp">
+                        <source media="(min-width: 641px)" srcset="assets/photos/events/workshops-720.webp">
+                        <source media="(max-width: 640px)" srcset="assets/photos/events/workshops-480.webp">
                         <img src="assets/photos/events/workshops-720.webp" alt="A close up on a yogi playing a tibetan sound bowl during a sound healing session" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -176,7 +191,9 @@
                 <div class="event-type-tile" data-type="retreats">
                     <picture>
                         <source media="(min-width: 1200px)" srcset="assets/photos/events/retreats-1200.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/events/retreats-1080.webp">
+                        <source media="(min-width: 900px)" srcset="assets/photos/events/retreats-900.webp">
+                        <source media="(min-width: 641px)" srcset="assets/photos/events/retreats-720.webp">
+                        <source media="(max-width: 640px)" srcset="assets/photos/events/retreats-480.webp">
                         <img src="assets/photos/events/retreats-720.webp" alt="A female yogi performing a hanstand with legs spread out on a beach during sunset" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -190,8 +207,10 @@
                 <!-- Teacher Trainings Tile -->
                 <div class="event-type-tile" data-type="trainings">
                     <picture>
-                        <source media="(min-width: 1200px)" srcset="assets/photos/events/teacher-trainings-1080.webp">
-                        <source media="(min-width: 800px)" srcset="assets/photos/events/teacher-trainings-1080.webp">
+                        <source media="(min-width: 1200px)" srcset="assets/photos/events/teacher-trainings-1200.webp">
+                        <source media="(min-width: 900px)" srcset="assets/photos/events/teacher-trainings-900.webp">
+                        <source media="(min-width: 641px)" srcset="assets/photos/events/teacher-trainings-720.webp">
+                        <source media="(max-width: 640px)" srcset="assets/photos/events/teacher-trainings-480.webp">
                         <img src="assets/photos/events/teacher-trainings-720.webp" alt="A group of teacher training students standing in a cricle and holding hands, eyes closed, meditating together" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -273,7 +292,10 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="index.html" class="footer-logo-link">
-                            <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            <picture>
+                                <source srcset="assets/logo/logoMain-300.webp">
+                                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            </picture>
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
                         <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga.</p>

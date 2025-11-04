@@ -17,10 +17,14 @@ featuredOrder: 2
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 
 # Featured Image
-image: "/assets/photos/blog/ourTeam.webp"
+image: "/assets/photos/blog/ourTeam-960.webp"
+imageMobile: "/assets/photos/blog/ourTeam-640.webp"
+imageTablet: "/assets/photos/blog/ourTeam-960.webp"
+imageDesktop: "/assets/photos/blog/ourTeam-1280.webp"
+imageHigh: "/assets/photos/blog/ourTeam-1920.webp"
 imageAlt: "Aerial Yoga Teacher Training Advert"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center 40%'

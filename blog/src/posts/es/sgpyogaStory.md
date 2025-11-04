@@ -17,10 +17,14 @@ featuredOrder: 1
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 
 # Featured Image
-image: "/assets/photos/blog/ourStory.webp"
+image: "/assets/photos/blog/ourStory-960.webp"
+imageMobile: "/assets/photos/blog/ourStory-640.webp"
+imageTablet: "/assets/photos/blog/ourStory-960.webp"
+imageDesktop: "/assets/photos/blog/ourStory-1280.webp"
+imageHigh: "/assets/photos/blog/ourStory-1920.webp"
 imageAlt: "Un hombre parado en la cima de una montaña, un cielo azul claro de fondo, algunas nubes flotando en el cielo"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'

@@ -38,15 +38,29 @@
                 <div class="featured-slide {% if isFirstSlide %}active{% endif %}">
                     <!-- Photo Section -->
                     <div class="featured-photo">
-                        <a href="{{ post.url | url }}" class="featured-photo-link" aria-label="Leer {{ post.data.title }}">
+                        <a href="{{ post.url | url }}" class="featured-photo-link" aria-label="Read {{ post.data.title }}">
                             {% if post.data.image %}
-                            <img 
-                                src="{{ post.data.image }}" 
-                                alt="{{ post.data.imageAlt or post.data.title }}"
-                                loading="{{ loadingStrategy }}"
-                                {% if isFirstSlide %}fetchpriority="high"{% endif %}
-                                class="featured-image"
-                                {% if post.data.imageFeaturedPosition %}style="object-position: {{ post.data.imageFeaturedPosition }};"{% endif %}>
+                            <picture>
+                                {% if post.data.imageHigh %}
+                                <source media="(min-width: 1920px)" srcset="{{ post.data.imageHigh }}">
+                                {% endif %}
+                                {% if post.data.imageDesktop %}
+                                <source media="(min-width: 1280px)" srcset="{{ post.data.imageDesktop }}">
+                                {% endif %}
+                                {% if post.data.imageTablet %}
+                                <source media="(min-width: 769px)" srcset="{{ post.data.imageTablet }}">
+                                {% endif %}
+                                {% if post.data.imageMobile %}
+                                <source media="(max-width: 768px)" srcset="{{ post.data.imageMobile }}">
+                                {% endif %}
+                                <img 
+                                    src="{{ post.data.image }}" 
+                                    alt="{{ post.data.imageAlt or post.data.title }}"
+                                    loading="{{ loadingStrategy }}"
+                                    {% if isFirstSlide %}fetchpriority="high"{% endif %}
+                                    class="featured-image"
+                                    {% if post.data.imageFeaturedPosition %}style="object-position: {{ post.data.imageFeaturedPosition }};"{% endif %}>
+                            </picture>
                             {% endif %}
                         </a>
                     </div>

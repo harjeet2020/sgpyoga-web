@@ -99,21 +99,39 @@
     padding-top: 120px; /* Extra padding for anchor nav */
     padding-bottom: var(--spacing-xxl);
     
-    /* Background image - zen stones (base resolution) */
-    background: url('../assets/photos/about/hero-2560.webp') center/cover no-repeat;
+    /* Background image - mobile first approach */
+    background: url('../assets/photos/about/hero-640.webp') center/cover no-repeat;
     background-attachment: fixed; /* Parallax effect */
 }
 
-/* Higher resolution variants for larger screens */
-@media (min-width: 1440px) {
+/* Responsive background images - mobile first */
+@media (min-width: 768px) {
     .yoga-hero-section {
-        background-image: url('../assets/photos/about/hero-1080.webp');
+        background-image: url('../assets/photos/about/hero-768.webp');
     }
 }
 
-@media (min-width: 2048px) {
+@media (min-width: 960px) {
+    .yoga-hero-section {
+        background-image: url('../assets/photos/about/hero-960.webp');
+    }
+}
+
+@media (min-width: 1280px) {
+    .yoga-hero-section {
+        background-image: url('../assets/photos/about/hero-1280.webp');
+    }
+}
+
+@media (min-width: 1920px) {
     .yoga-hero-section {
         background-image: url('../assets/photos/about/hero-1920.webp');
+    }
+}
+
+@media (min-width: 2560px) {
+    .yoga-hero-section {
+        background-image: url('../assets/photos/about/hero-2560.webp');
     }
 }
 

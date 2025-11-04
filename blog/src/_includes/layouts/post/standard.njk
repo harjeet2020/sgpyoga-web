@@ -34,8 +34,22 @@ layout: layouts/base.njk
         {% set displayMode = imageDisplay or 'both' %}
         {% if image and (displayMode == 'blog-post' or displayMode == 'both') %}
         <figure class="post-hero">
-            <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="lazy"
-                {% if imagePostPosition %}style="object-position: {{ imagePostPosition }};"{% endif %}>
+            <picture>
+                {% if imageHigh %}
+                <source media="(min-width: 1920px)" srcset="{{ imageHigh }}">
+                {% endif %}
+                {% if imageDesktop %}
+                <source media="(min-width: 1280px)" srcset="{{ imageDesktop }}">
+                {% endif %}
+                {% if imageTablet %}
+                <source media="(min-width: 769px)" srcset="{{ imageTablet }}">
+                {% endif %}
+                {% if imageMobile %}
+                <source media="(max-width: 768px)" srcset="{{ imageMobile }}">
+                {% endif %}
+                <img src="{{ image }}" alt="{{ imageAlt or title }}" loading="lazy"
+                    {% if imagePostPosition %}style="object-position: {{ imagePostPosition }};"{% endif %}>
+            </picture>
             {% if imageCaption %}
                 <figcaption>{{ imageCaption }}</figcaption>
             {% endif %}

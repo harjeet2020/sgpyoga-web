@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />
     <meta name="theme-color" content="#ffffff">
+    
+    {# Favicon #}
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
+    
     <meta name="description" content="{{ description or 'SGP Yoga Blog - Insights on yoga practice, philosophy, and community' }}">
     
     {# Open Graph / Facebook #}
@@ -52,7 +59,8 @@
     <link rel="preload" href="/css/blog.css" as="style">
     
     {# Preload critical images #}
-    <link rel="preload" href="/assets/logo/logoMain.png" as="image">
+    <link rel="preload" href="/assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="/assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
     
     {# Performance: Preload critical fonts to prevent FOUT #}
     <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -95,7 +103,11 @@
     <nav class="navbar">
         <div class="navbar-left">
             <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="navbar-brand-link">
-                <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                <picture>
+                    <source media="(min-width: 1025px)" srcset="/assets/logo/logoMain-300.webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/logo/logoMain-150.webp">
+                    <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                </picture>
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -146,7 +158,10 @@
                     {# Logo and Mission Section #}
                     <div class="footer-column footer-logo-section">
                         <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="footer-logo-link">
-                            <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            <picture>
+                                <source srcset="/assets/logo/logoMain-300.webp">
+                                <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            </picture>
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
                         <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>

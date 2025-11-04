@@ -17,10 +17,14 @@ featuredOrder: 3
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 
 # Featured Image
-image: "/assets/photos/blog/yogaStyles.webp"
+image: "/assets/photos/blog/yogaStyles-960.webp"
+imageMobile: "/assets/photos/blog/yogaStyles-640.webp"
+imageTablet: "/assets/photos/blog/yogaStyles-960.webp"
+imageDesktop: "/assets/photos/blog/yogaStyles-1280.webp"
+imageHigh: "/assets/photos/blog/yogaStyles-1920.webp"
 imageAlt: "Un yogui en una postura de yoga del pez"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'

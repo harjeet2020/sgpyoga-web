@@ -26,6 +26,7 @@ const eventsData = [
         category: 'workshop',
         startDate: '2025-10-10',
         endDate: '2025-10-10',
+        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-480.webp',
         image: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
         imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
         cardImagePosition: 'center 20%',
@@ -36,6 +37,7 @@ const eventsData = [
         category: 'workshop',
         startDate: '2025-10-17',
         endDate: '2025-10-17',
+        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-480.webp',
         image: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp',
         imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp',
         cardImagePosition: 'center 70%',
@@ -57,11 +59,12 @@ const eventsData = [
         startDate: '2025-11-01',
         endDate: '2025-11-01',
         
-        // Image path for the event card
-        // Can be unique per event or use category defaults
+        // Image paths for responsive loading
+        // Mobile variant for devices ≤640px
+        imageMobile: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-480.webp',
+        // Standard image for event card (tablet+)
         image: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-720.webp',
-        
-        // Optional: Higher resolution image for modal or larger displays
+        // High resolution image for modal or larger displays
         imageHigh: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-1080.webp',
         
         // Optional: CSS object-position value for image positioning
@@ -76,6 +79,7 @@ const eventsData = [
         category: 'retreat',
         startDate: '2025-11-14',
         endDate: '2025-11-17',
+        imageMobile: '/assets/photos/events/unique/yoga-retreat_nov2025-480.webp',
         image: '/assets/photos/events/unique/yoga-retreat_nov2025-720.webp',
         imageHigh: '/assets/photos/events/unique/yoga-retreat_nov2025-1080.webp',
         cardImagePosition: 'center top',
@@ -87,6 +91,7 @@ const eventsData = [
         category: 'training',
         startDate: '2025-06-21',
         endDate: '2025-09-27',
+        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_jun2025-480.webp',
         image: '/assets/photos/events/unique/aerial-teacher-training_jun2025-720.webp',
         imageHigh: '/assets/photos/events/unique/aerial-teacher-training_jun2025-1080.webp',
         cardImagePosition: 'center',
@@ -98,6 +103,7 @@ const eventsData = [
         category: 'training',
         startDate: '2025-11-08',
         endDate: '2025-12-14',
+        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_nov2025-480.webp',
         image: '/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp',
         imageHigh: '/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp',
         cardImagePosition: 'center',
@@ -126,16 +132,19 @@ const eventsData = [
  */
 const categoryDefaults = {
     workshop: {
+        imageMobile: '/assets/photos/events/workshops-480.webp',
         image: '/assets/photos/events/workshops-720.webp',
-        imageHigh: '/assets/photos/events/workshops-1080.webp'
+        imageHigh: '/assets/photos/events/workshops-900.webp'
     },
     retreat: {
+        imageMobile: '/assets/photos/events/retreats-480.webp',
         image: '/assets/photos/events/retreats-720.webp',
-        imageHigh: '/assets/photos/events/retreats-1080.webp'
+        imageHigh: '/assets/photos/events/retreats-900.webp'
     },
     training: {
+        imageMobile: '/assets/photos/events/teacher-trainings-480.webp',
         image: '/assets/photos/events/teacher-trainings-720.webp',
-        imageHigh: '/assets/photos/events/teacher-trainings-1080.webp'
+        imageHigh: '/assets/photos/events/teacher-trainings-900.webp'
     }
 };
 
@@ -148,10 +157,11 @@ const categoryDefaults = {
  * 
  * @param {object} event - Event object from eventsData
  * @param {boolean} highRes - Whether to get high-res version (for modal)
+ * @param {boolean} mobile - Whether to get mobile version (for small screens)
  * @returns {string} Image path
  */
-function getEventImage(event, highRes = false) {
-    const imageKey = highRes ? 'imageHigh' : 'image';
+function getEventImage(event, highRes = false, mobile = false) {
+    const imageKey = mobile ? 'imageMobile' : (highRes ? 'imageHigh' : 'image');
     
     // If event has custom image, use it
     if (event[imageKey]) {

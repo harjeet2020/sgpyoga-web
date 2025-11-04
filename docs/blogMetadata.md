@@ -94,20 +94,60 @@ authorName: "Harjeet"
 
 ### `authorImage`
 **Type:** String (URL/path)  
-**Description:** Path to the author's profile image/avatar. Should be an absolute path starting from the site root. Image will be displayed next to the author name.  
+**Description:** Path to the author's profile image/avatar. Should be an absolute path starting from the site root. Image will be displayed next to the author name. Use the 300px variant for optimal performance (e.g., `harjeet-300.webp`) as the avatar displays at a small size.  
 **Example:**
 ```yaml
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 ```
 
 ---
 
 ### `image`
 **Type:** String (URL/path)  
-**Description:** Path to a hero/featured image for the post. Displayed prominently at the top of the post content area. Should be an absolute path from site root.  
+**Description:** Path to a hero/featured image for the post. This is the default/fallback image used across all contexts (blog cards, post heroes, featured slideshow). Should be an absolute path from site root. For optimal mobile performance, also provide responsive variants using `imageMobile`, `imageTablet`, `imageDesktop`, and `imageHigh` properties.  
 **Example:**
 ```yaml
-image: "/assets/photos/blog/chakras-hero.webp"
+image: "/assets/photos/blog/chakras-768.webp"
+```
+
+---
+
+### `imageMobile`
+**Type:** String (URL/path)  
+**Description:** Path to a mobile-optimized version of the featured image (typically ≤640px width). Used on small screens (≤768px) to reduce bandwidth and improve loading times. Part of the responsive image system.  
+**Example:**
+```yaml
+imageMobile: "/assets/photos/blog/chakras-512.webp"
+```
+
+---
+
+### `imageTablet`
+**Type:** String (URL/path)  
+**Description:** Path to a tablet-optimized version of the featured image (typically 768-960px width). Used on medium screens (769-1279px). Part of the responsive image system.  
+**Example:**
+```yaml
+imageTablet: "/assets/photos/blog/chakras-768.webp"
+```
+
+---
+
+### `imageDesktop`
+**Type:** String (URL/path)  
+**Description:** Path to a desktop-optimized version of the featured image (typically 1280px width). Used on large screens (≥1280px). Part of the responsive image system.  
+**Example:**
+```yaml
+imageDesktop: "/assets/photos/blog/chakras-1024.webp"
+```
+
+---
+
+### `imageHigh`
+**Type:** String (URL/path)  
+**Description:** Path to a high-resolution version of the featured image (typically 1920px width). Used on extra-large displays (≥1920px) and in the featured posts slideshow for maximum visual impact. Optional - only needed for posts with high-quality photography.  
+**Example:**
+```yaml
+imageHigh: "/assets/photos/blog/chakras-1920.webp"
 ```
 
 ---
@@ -284,8 +324,12 @@ visible: true
 featured: true
 featuredOrder: 1
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
-image: "/assets/photos/blog/sgpyoga-journey.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
+image: "/assets/photos/blog/ourStory-960.webp"
+imageMobile: "/assets/photos/blog/ourStory-640.webp"
+imageTablet: "/assets/photos/blog/ourStory-960.webp"
+imageDesktop: "/assets/photos/blog/ourStory-1280.webp"
+imageHigh: "/assets/photos/blog/ourStory-1920.webp"
 imageAlt: "SGP Yoga team teaching a class in Mexico City"
 imageCaption: "Our first joint workshop in Mexico City, 2024"
 imageDisplay: "both"
@@ -341,7 +385,7 @@ All collections are automatically sorted by date (newest first), except featured
 2. **Use descriptive titles and descriptions** - These are crucial for SEO and user engagement
 3. **Provide author information** - Helps build connection with readers
 4. **Add relevant tags** - Improves discoverability and organization
-5. **Optimize images** - Use WebP format for better performance, provide both high and low resolution versions
+5. **Optimize images** - Use WebP format for better performance, always provide responsive variants (imageMobile, imageTablet, imageDesktop, imageHigh) to optimize bandwidth for different screen sizes
 6. **Write meaningful alt text** - Essential for accessibility
 7. **Use featured posts strategically** - Limit to 3-6 most important posts to avoid clutter
 8. **Keep descriptions concise** - Aim for 50-160 characters for optimal SEO

@@ -70,8 +70,22 @@ permalink: "/es/index.html"
                         {% set displayMode = post.data.imageDisplay or 'both' %}
                         {% if post.data.image and (displayMode == 'blog-card' or displayMode == 'both') %}
                         <div class="post-card-image">
-                            <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy"
-                                {% if post.data.imageCardPosition %}style="object-position: {{ post.data.imageCardPosition }};"{% endif %}>
+                            <picture>
+                                {% if post.data.imageHigh %}
+                                <source media="(min-width: 1920px)" srcset="{{ post.data.imageHigh }}">
+                                {% endif %}
+                                {% if post.data.imageDesktop %}
+                                <source media="(min-width: 1280px)" srcset="{{ post.data.imageDesktop }}">
+                                {% endif %}
+                                {% if post.data.imageTablet %}
+                                <source media="(min-width: 769px)" srcset="{{ post.data.imageTablet }}">
+                                {% endif %}
+                                {% if post.data.imageMobile %}
+                                <source media="(max-width: 768px)" srcset="{{ post.data.imageMobile }}">
+                                {% endif %}
+                                <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy"
+                                    {% if post.data.imageCardPosition %}style="object-position: {{ post.data.imageCardPosition }};"{% endif %}>
+                            </picture>
                         </div>
                         {% endif %}
                         

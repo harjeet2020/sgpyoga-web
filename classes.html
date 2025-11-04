@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
+    
     <title data-i18n="common:pageTitles.classes">Yoga Classes Schedule Mexico City | SGP Yoga CDMX</title>
     <meta name="description" content="View our weekly yoga class schedule in Mexico City. Morning & evening Aerial, Vinyasa, Hatha & Kundalini sessions for all levels. Book your CDMX yoga class now!" data-i18n="classes:meta.description">
     
@@ -40,9 +47,13 @@
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="css/navbar.css" as="style">
+    <link rel="preload" href="assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
     
     <!-- Performance: CRITICAL - Preload LCP hero background image to fix NO_LCP error -->
-    <link rel="preload" href="assets/photos/classes/hero-1280.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/photos/classes/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
+    <link rel="preload" href="assets/photos/classes/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
+    <link rel="preload" href="assets/photos/classes/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
     <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -60,13 +71,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/photos/classes/hero-1280.webp') center 40%/cover no-repeat;
+            background: url('assets/photos/classes/hero-640.webp') center 40%/cover no-repeat;
             background-attachment: fixed;
         }
+        @media (min-width: 768px) {
+            .classes-hero { background-image: url('assets/photos/classes/hero-768.webp'); }
+        }
+        @media (min-width: 960px) {
+            .classes-hero { background-image: url('assets/photos/classes/hero-960.webp'); }
+        }
         @media (min-width: 1280px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-1920.webp'); }
+            .classes-hero { background-image: url('assets/photos/classes/hero-1280.webp'); }
         }
         @media (min-width: 1920px) {
+            .classes-hero { background-image: url('assets/photos/classes/hero-1920.webp'); }
+        }
+        @media (min-width: 2560px) {
             .classes-hero { background-image: url('assets/photos/classes/hero-2560.webp'); }
         }
         .classes-hero-overlay {
@@ -117,7 +137,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="index.html" class="navbar-brand-link">
-                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                <picture>
+                    <source media="(min-width: 1025px)" srcset="assets/logo/logoMain-300.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/logo/logoMain-150.webp">
+                    <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                </picture>
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -217,7 +241,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img src="assets/photos/classes/aro.webp" alt="Aro, Hatha & Aerial Yoga teacher" class="teacher-photo">
+                                <picture>
+                                    <source media="(min-width: 600px)" srcset="assets/photos/classes/aro-600.webp">
+                                    <source media="(min-width: 300px)" srcset="assets/photos/classes/aro-300.webp">
+                                    <img src="assets/photos/classes/aro-200.webp" alt="Aro, Hatha & Aerial Yoga teacher" class="teacher-photo">
+                                </picture>
                                 <span class="teacher-name" data-i18n="classes:teachers.aro">Aro</span>
                             </div>
                         </div>
@@ -247,7 +275,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img src="assets/photos/classes/itzel.webp" alt="Itzel, Aerial Yoga teacher" class="teacher-photo">
+                                <picture>
+                                    <source media="(min-width: 600px)" srcset="assets/photos/classes/itzel-600.webp">
+                                    <source media="(min-width: 300px)" srcset="assets/photos/classes/itzel-300.webp">
+                                    <img src="assets/photos/classes/itzel-200.webp" alt="Itzel, Aerial Yoga teacher" class="teacher-photo">
+                                </picture>
                                 <span class="teacher-name" data-i18n="classes:teachers.itzel">Itzel</span>
                             </div>
                         </div>
@@ -291,7 +323,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img src="assets/photos/classes/dani.webp" alt="Dani, Aerial Yoga teacher" class="teacher-photo">
+                                <picture>
+                                    <source media="(min-width: 600px)" srcset="assets/photos/classes/dani-600.webp">
+                                    <source media="(min-width: 300px)" srcset="assets/photos/classes/dani-300.webp">
+                                    <img src="assets/photos/classes/dani-200.webp" alt="Dani, Aerial Yoga teacher" class="teacher-photo">
+                                </picture>
                                 <span class="teacher-name" data-i18n="classes:teachers.dani">Dani</span>
                             </div>
                         </div>
@@ -317,7 +353,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img src="assets/photos/classes/dani.webp" alt="Dani, Aerial Yoga teacher" class="teacher-photo">
+                                <picture>
+                                    <source media="(min-width: 600px)" srcset="assets/photos/classes/dani-600.webp">
+                                    <source media="(min-width: 300px)" srcset="assets/photos/classes/dani-300.webp">
+                                    <img src="assets/photos/classes/dani-200.webp" alt="Dani, Aerial Yoga teacher" class="teacher-photo">
+                                </picture>
                                 <span class="teacher-name" data-i18n="classes:teachers.dani">Dani</span>
                             </div>
                         </div>
@@ -339,7 +379,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img src="assets/photos/classes/aro.webp" alt="Aro, Hatha & Aerial Yoga teacher" class="teacher-photo">
+                                <picture>
+                                    <source media="(min-width: 600px)" srcset="assets/photos/classes/aro-600.webp">
+                                    <source media="(min-width: 300px)" srcset="assets/photos/classes/aro-300.webp">
+                                    <img src="assets/photos/classes/aro-200.webp" alt="Aro, Hatha & Aerial Yoga teacher" class="teacher-photo">
+                                </picture>
                                 <span class="teacher-name" data-i18n="classes:teachers.aro">Aro</span>
                             </div>
                         </div>
@@ -428,7 +472,10 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="index.html" class="footer-logo-link">
-                            <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            <picture>
+                                <source srcset="assets/logo/logoMain-300.webp">
+                                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            </picture>
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
                         <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga.</p>

@@ -17,10 +17,13 @@ featuredOrder: 5
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 
 # Featured Image
-image: "/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp"
+image: "/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp"
+imageMobile: "/assets/photos/events/unique/aerial-teacher-training_nov2025-480.webp"
+imageTablet: "/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp"
+imageDesktop: "/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp"
 imageAlt: "Aerial Yoga Teacher Training Advert"
 imageDisplay: 'both'
 imageCardPosition: 'center 40%'

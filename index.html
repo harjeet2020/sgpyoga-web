@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
+    
     <title data-i18n="common:pageTitles.home">SGP Yoga - Yoga Classes in Mexico City | CDMX Studio</title>
     <meta name="description" content="Transformative yoga classes in Mexico City. Expert-led Kundalini, Vinyasa, Hatha & Aerial Yoga in CDMX. Join workshops, retreats & teacher trainings. Book your class today!" data-i18n="home:meta.description">
     
@@ -40,10 +47,13 @@
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="css/navbar.css" as="style">
-    <link rel="preload" href="assets/logo/logoMain.png" as="image">
+    <link rel="preload" href="assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
     
     <!-- Performance: Preload LCP image with high priority -->
-    <link rel="preload" href="assets/photos/home/hero-1280.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="assets/photos/home/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
+    <link rel="preload" href="assets/photos/home/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
+    <link rel="preload" href="assets/photos/home/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
     <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -208,7 +218,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="index.html" class="navbar-brand-link">
-                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                <picture>
+                    <source media="(min-width: 1025px)" srcset="assets/logo/logoMain-300.webp">
+                    <source media="(max-width: 1024px)" srcset="assets/logo/logoMain-150.webp">
+                    <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                </picture>
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -257,7 +271,10 @@
             <picture class="hero-image">
                 <source media="(min-width: 2048px)" srcset="assets/photos/home/hero-2560.webp">
                 <source media="(min-width: 1440px)" srcset="assets/photos/home/hero-1920.webp">
-                <img src="assets/photos/home/hero-1280.webp" alt="Harjeet, SGP Yoga Founder & Kundalini Yoga teacher sitting in a contemplative posture in front of a lake in Hidalgo, Mexico" loading="eager" fetchpriority="high">
+                <source media="(min-width: 1280px)" srcset="assets/photos/home/hero-1280.webp">
+                <source media="(min-width: 960px)" srcset="assets/photos/home/hero-960.webp">
+                <source media="(min-width: 768px)" srcset="assets/photos/home/hero-768.webp">
+                <img src="assets/photos/home/hero-640.webp" alt="Harjeet, SGP Yoga Founder & Kundalini Yoga teacher sitting in a contemplative posture in front of a lake in Hidalgo, Mexico" loading="eager" fetchpriority="high">
             </picture>
             
             <!-- Hero content positioned in upper-left -->
@@ -285,8 +302,9 @@
                     <div class="classes-image">
                         <picture>
                             <source media="(min-width: 1200px)" srcset="assets/photos/home/classes-1200.webp">
-                            <source media="(min-width: 800px)" srcset="assets/photos/home/classes-1080.webp">
-                            <img src="assets/photos/home/classes-720.webp" alt="A male yogi in triangle pose, a mountain stream and lush, green forest in the background" loading="lazy">
+                            <source media="(min-width: 900px)" srcset="assets/photos/home/classes-900.webp">
+                            <source media="(min-width: 720px)" srcset="assets/photos/home/classes-720.webp">
+                            <img src="assets/photos/home/classes-480.webp" alt="A male yogi in triangle pose, a mountain stream and lush, green forest in the background" loading="lazy">
                         </picture>
                     </div>
                 </div>
@@ -301,8 +319,9 @@
                     <div class="events-image">
                         <picture>
                             <source media="(min-width: 1200px)" srcset="assets/photos/home/events-1200.webp">
-                            <source media="(min-width: 800px)" srcset="assets/photos/home/events-1080.webp">
-                            <img src="assets/photos/home/events-720.webp" alt="A female yogi entering a hand stand on a beach during sunset" loading="lazy">
+                            <source media="(min-width: 900px)" srcset="assets/photos/home/events-900.webp">
+                            <source media="(min-width: 720px)" srcset="assets/photos/home/events-720.webp">
+                            <img src="assets/photos/home/events-480.webp" alt="A female yogi entering a hand stand on a beach during sunset" loading="lazy">
                         </picture>
                     </div>
                     
@@ -345,8 +364,9 @@
                             <div class="testimonial-photo">
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial1-1200.webp">
-                                    <source media="(min-width: 800px)" srcset="assets/photos/testimonials/testimonial1-1080.webp">
-                                    <img src="assets/photos/testimonials/testimonial1-720.webp" alt="Ramzi Anh Do portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial1-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial1-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial1-480.webp" alt="Ramzi Anh Do portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -366,7 +386,10 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="assets/photos/testimonials/testimonial2-720.webp" alt="Agnieszka Malek portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial2-1200.webp">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial2-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial2-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial2-480.webp" alt="Agnieszka Malek portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -386,7 +409,10 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="assets/photos/testimonials/testimonial3-720.webp" alt="Marcin Topolski portait image - Harjeet's first Kundalini Yoga teacher" loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial3-1200.webp">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial3-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial3-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial3-480.webp" alt="Marcin Topolski portait image - Harjeet's first Kundalini Yoga teacher" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -407,8 +433,9 @@
                             <div class="testimonial-photo">
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial4-1200.webp">
-                                    <source media="(min-width: 800px)" srcset="assets/photos/testimonials/testimonial4-1080.webp">
-                                    <img src="assets/photos/testimonials/testimonial4-720.webp" alt="Lena Tiedmann portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial4-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial4-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial4-480.webp" alt="Lena Tiedmann portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -427,8 +454,9 @@
                             <div class="testimonial-photo">
                                 <picture>
                                     <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial5-1200.webp">
-                                    <source media="(min-width: 800px)" srcset="assets/photos/testimonials/testimonial5-1080.webp">
-                                    <img src="assets/photos/testimonials/testimonial5-720.webp" alt="Svetlana Epifanova portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial5-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial5-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial5-480.webp" alt="Svetlana Epifanova portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -448,7 +476,10 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="assets/photos/testimonials/testimonial6-720.webp" alt="Rosario Hernández Nieves portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial6-1200.webp">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial6-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial6-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial6-480.webp" alt="Rosario Hernández Nieves portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -468,7 +499,10 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="assets/photos/testimonials/testimonial7-720.webp" alt="Rafał Duran portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial7-1200.webp">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial7-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial7-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial7-480.webp" alt="Rafał Duran portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -488,7 +522,10 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-photo">
                                 <picture>
-                                    <img src="assets/photos/testimonials/testimonial8-720.webp" alt="Julián Alonso portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
+                                    <source media="(min-width: 1200px)" srcset="assets/photos/testimonials/testimonial8-1200.webp">
+                                    <source media="(min-width: 900px)" srcset="assets/photos/testimonials/testimonial8-900.webp">
+                                    <source media="(min-width: 720px)" srcset="assets/photos/testimonials/testimonial8-720.webp">
+                                    <img src="assets/photos/testimonials/testimonial8-480.webp" alt="Julián Alonso portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" loading="lazy">
                                 </picture>
                             </div>
                             <div class="testimonial-content">
@@ -532,7 +569,10 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="index.html" class="footer-logo-link">
-                            <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            <picture>
+                                <source srcset="assets/logo/logoMain-300.webp">
+                                <img src="assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            </picture>
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
                         <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga.</p>

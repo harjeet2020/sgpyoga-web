@@ -40,19 +40,33 @@
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="/css/main.css" as="style">
     <link rel="preload" href="/css/navbar.css" as="style">
+    <link rel="preload" href="/assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="/assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
+    
+    <!-- Performance: Preload critical fonts to prevent FOUT -->
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/events.css">
-    <link rel="stylesheet" href="/css/footer.css">
     
+    <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
+    <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for browsers with JavaScript disabled -->
+    <noscript>
+        <link rel="stylesheet" href="/css/footer.css">
+    </noscript>
+    
+    <!-- Performance: Defer external scripts to eliminate render blocking -->
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- i18next for language support -->
-    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -60,7 +74,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="/es/index.html" class="navbar-brand-link">
-                <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                <picture>
+                    <source media="(min-width: 1025px)" srcset="/assets/logo/logoMain-300.webp">
+                    <source media="(max-width: 1024px)" srcset="/assets/logo/logoMain-150.webp">
+                    <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
+                </picture>
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -149,7 +167,9 @@
                 <div class="event-type-tile" data-type="workshops">
                     <picture>
                         <source media="(min-width: 1200px)" srcset="/assets/photos/events/workshops-1200.webp">
-                        <source media="(min-width: 800px)" srcset="/assets/photos/events/workshops-1080.webp">
+                        <source media="(min-width: 900px)" srcset="/assets/photos/events/workshops-900.webp">
+                        <source media="(min-width: 641px)" srcset="/assets/photos/events/workshops-720.webp">
+                        <source media="(max-width: 640px)" srcset="/assets/photos/events/workshops-480.webp">
                         <img src="/assets/photos/events/workshops-720.webp" alt="A close up on a yogi playing a tibetan sound bowl during a sound healing session" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -164,7 +184,9 @@
                 <div class="event-type-tile" data-type="retreats">
                     <picture>
                         <source media="(min-width: 1200px)" srcset="/assets/photos/events/retreats-1200.webp">
-                        <source media="(min-width: 800px)" srcset="/assets/photos/events/retreats-1080.webp">
+                        <source media="(min-width: 900px)" srcset="/assets/photos/events/retreats-900.webp">
+                        <source media="(min-width: 641px)" srcset="/assets/photos/events/retreats-720.webp">
+                        <source media="(max-width: 640px)" srcset="/assets/photos/events/retreats-480.webp">
                         <img src="/assets/photos/events/retreats-720.webp" alt="A female yogi performing a hanstand with legs spread out on a beach during sunset" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -178,8 +200,10 @@
                 <!-- Teacher Trainings Tile -->
                 <div class="event-type-tile" data-type="trainings">
                     <picture>
-                        <source media="(min-width: 1200px)" srcset="/assets/photos/events/teacher-trainings-1080.webp">
-                        <source media="(min-width: 800px)" srcset="/assets/photos/events/teacher-trainings-1080.webp">
+                        <source media="(min-width: 1200px)" srcset="/assets/photos/events/teacher-trainings-1200.webp">
+                        <source media="(min-width: 900px)" srcset="/assets/photos/events/teacher-trainings-900.webp">
+                        <source media="(min-width: 641px)" srcset="/assets/photos/events/teacher-trainings-720.webp">
+                        <source media="(max-width: 640px)" srcset="/assets/photos/events/teacher-trainings-480.webp">
                         <img src="/assets/photos/events/teacher-trainings-720.webp" alt="A group of teacher training students standing in a cricle and holding hands, eyes closed, meditating together" class="event-type-image" loading="lazy">
                     </picture>
                     <div class="event-type-overlay">
@@ -261,7 +285,10 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="/es/index.html" class="footer-logo-link">
-                            <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            <picture>
+                                <source srcset="/assets/logo/logoMain-300.webp">
+                                <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
+                            </picture>
                         </a>
                         <h3>Nuestra Misión</h3>
                         <p class="footer-mission-text">Guiando almas para descubrir su luz interior a través de la práctica transformadora del yoga.</p>

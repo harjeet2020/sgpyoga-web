@@ -252,17 +252,22 @@ function renderEvents() {
     filteredEvents.forEach(event => {
         const eventId = event.id;
         const category = event.category;
-        const imagePath = getEventImage(event, false);
+        const imageMobilePath = getEventImage(event, false, true);
+        const imageTabletPath = getEventImage(event, false, false);
         const cardImagePosition = event.cardImagePosition || 'center'; // Default to 'center' if not specified
         
         // Add past-event class if viewing past events
         const pastClass = currentTimeView === 'past' ? 'past-event' : '';
         
-        // Create event card HTML
+        // Create event card HTML with responsive picture element
         const eventCardHTML = `
             <div class="event-card ${pastClass}" data-category="${category}" data-event="${eventId}">
                 <div class="event-card-image">
-                    <img src="${imagePath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy" style="object-position: ${cardImagePosition};">
+                    <picture>
+                        <source media="(min-width: 641px)" srcset="${imageTabletPath}">
+                        <source media="(max-width: 640px)" srcset="${imageMobilePath}">
+                        <img src="${imageTabletPath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy" style="object-position: ${cardImagePosition};">
+                    </picture>
                     <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
                 </div>
                 <div class="event-card-content">

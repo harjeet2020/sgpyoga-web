@@ -15,10 +15,13 @@ visible: true
 
 # Author Information
 authorName: "Harjeet"
-authorImage: "/assets/photos/about/harjeet.webp"
+authorImage: "/assets/photos/about/harjeet-300.webp"
 
 # Featured Image
-image: "/assets/photos/blog/chakras.webp"
+image: "/assets/photos/blog/chakras-768.webp"
+imageMobile: "/assets/photos/blog/chakras-512.webp"
+imageTablet: "/assets/photos/blog/chakras-768.webp"
+imageDesktop: "/assets/photos/blog/chakras-1024.webp"
 imageAlt: "Un gráfico que representa los 7 chakras principales fluyendo a lo largo de una montaña"
 imageDisplay: 'blog-card'
 imageCardPosition: 'center 5%'
