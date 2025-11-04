@@ -3,7 +3,10 @@
  * This script runs inline in the HTML <head> to detect language BEFORE any external JS loads
  * Purpose: Eliminate render-blocking from i18n.js and prevent language-related layout shifts
  * 
- * HOW TO USE: Copy the minified version of this script and paste it inline in the <head> section
+ * NOTE: This file is for reference only. The actual implementation is already embedded
+ * as a minified inline script in the HTML <head> of all pages. If you need to update
+ * the inline script, modify this file, minify it manually (using an online tool), and
+ * update all HTML files.
  */
 
 (function() {
