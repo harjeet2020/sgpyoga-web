@@ -3,19 +3,25 @@
  * Handles language dropdown interactions and navbar responsive behavior
  */
 
+// CRITICAL: Only initialize essential features on DOMContentLoaded
+// This prevents render-blocking and improves LCP
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
+    // Language dropdown functionality (critical for UX)
+    initializeLanguageDropdown();
+    
+    // Set active nav link based on current page (critical for navigation)
+    setActiveNavLink();
+});
+
+// DEFERRED: Initialize non-critical features after page load
+// This allows the hero section to render without waiting for these features
+window.addEventListener('load', function() {
+    // Initialize Lucide icons after page load (not needed for LCP)
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
     
-    // Language dropdown functionality
-    initializeLanguageDropdown();
-    
-    // Set active nav link based on current page
-    setActiveNavLink();
-    
-    // Initialize mobile scroll behavior
+    // Initialize mobile scroll behavior after page load (not needed for LCP)
     initMobileScrollBehavior();
 });
 
@@ -330,40 +336,44 @@ window.addEventListener('resize', function() {
 
 /**
  * Initialize mobile scroll behavior - hide navbar on scroll down, show on scroll up
+ * OPTIMIZED: Caches layout reads to prevent forced reflows
  */
 function initMobileScrollBehavior() {
-    // Only apply on mobile devices (640px and below)
-    const isMobile = () => window.innerWidth <= 640;
-    
-    if (!isMobile()) return;
-    
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
     
-    let lastScrollTop = 0;
-    let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
-    let isScrolling = false;
+    // Cache mobile state to avoid repeated layout reads
+    let cachedIsMobile = window.innerWidth <= 640;
     
+    // Early return if not mobile
+    if (!cachedIsMobile) return;
+    
+    let lastScrollTop = 0;
+    const scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+    let ticking = false;
+    
+    // OPTIMIZED: Use passive listener to improve scroll performance
     window.addEventListener('scroll', function() {
-        if (!isMobile()) return;
+        if (!cachedIsMobile) return;
         
-        // Use requestAnimationFrame for better performance
-        if (!isScrolling) {
+        // Only schedule one RAF callback at a time
+        if (!ticking) {
             window.requestAnimationFrame(function() {
+                // Batch all layout reads together
                 const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
                 // Ignore small scroll movements
                 if (Math.abs(currentScrollTop - lastScrollTop) < scrollThreshold) {
-                    isScrolling = false;
+                    ticking = false;
                     return;
                 }
                 
-                // Scrolling down - hide navbar
+                // Batch all DOM writes together (after all reads)
                 if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+                    // Scrolling down - hide navbar
                     navbar.classList.add('navbar-hidden');
-                } 
-                // Scrolling up - show navbar
-                else if (currentScrollTop < lastScrollTop) {
+                } else if (currentScrollTop < lastScrollTop) {
+                    // Scrolling up - show navbar
                     navbar.classList.remove('navbar-hidden');
                 }
                 
@@ -373,18 +383,27 @@ function initMobileScrollBehavior() {
                 }
                 
                 lastScrollTop = currentScrollTop;
-                isScrolling = false;
+                ticking = false;
             });
             
-            isScrolling = true;
+            ticking = true;
         }
-    });
+    }, { passive: true }); // CRITICAL: passive listener prevents scroll blocking
     
-    // Reset on window resize
+    // Update cached mobile state on resize
+    let resizeTimeout;
     window.addEventListener('resize', function() {
-        if (!isMobile()) {
-            navbar.classList.remove('navbar-hidden');
-        }
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            // Cache the new mobile state
+            const wasMobile = cachedIsMobile;
+            cachedIsMobile = window.innerWidth <= 640;
+            
+            // Reset navbar if switching from mobile to desktop
+            if (wasMobile && !cachedIsMobile) {
+                navbar.classList.remove('navbar-hidden');
+            }
+        }, 150);
     });
 }
 

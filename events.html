@@ -67,6 +67,12 @@
         <link rel="stylesheet" href="css/footer.css">
     </noscript>
     
+    <!-- CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency -->
+    <!-- This runs immediately and sets language before any external JS loads -->
+    <script>
+        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
+    </script>
+    
     <!-- Performance: Defer external scripts to eliminate render blocking -->
     <!-- Lucide Icons -->
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>

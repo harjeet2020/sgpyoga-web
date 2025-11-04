@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="d7JoYGZFD3j4ovz9GDIe_fN55bDYiExfHK_jAJeZy-g" />
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
+    
     <title>Yoga Workshops, Retreats & Teacher Training | SGP Yoga CDMX</title>
     <meta name="description" content="Join transformative yoga workshops, multi-day retreats & teacher training in Mexico City. Deepen your practice with SGP Yoga. Limited spots in CDMX. Register now!" data-i18n="events:meta.description">
     
@@ -59,6 +66,12 @@
     <noscript>
         <link rel="stylesheet" href="/css/footer.css">
     </noscript>
+    
+    <!-- CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency -->
+    <!-- This runs immediately and sets language before any external JS loads -->
+    <script>
+        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
+    </script>
     
     <!-- Performance: Defer external scripts to eliminate render blocking -->
     <!-- Lucide Icons -->
