@@ -137,6 +137,20 @@
   </url>
   
   <url>
+    <loc>https://www.sgpyoga.co/blog/dist/posts/en/ourTeam/</loc>
+    
+    
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/blog/dist/posts/es/ourTeam/"/>
+    
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.sgpyoga.co/blog/dist/posts/en/sgpyogaStory/</loc>
     
     
@@ -219,6 +233,20 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/blog/dist/posts/es/yogaStyles/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/blog/dist/posts/en/yogaStyles/"/>
     <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sgpyoga.co/blog/dist/posts/es/ourTeam/</loc>
+    
+    
+    
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.sgpyoga.co/blog/dist/posts/es/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
