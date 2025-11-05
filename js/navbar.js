@@ -306,18 +306,71 @@ function setActiveNavLink() {
 
 /**
  * Initialize language on page load
+ * FIXED: Detect URL language first to prevent infinite loop on blog pages
  */
 function initializeLanguageOnLoad() {
+    // First, detect the language from the current URL
+    const currentPath = window.location.pathname;
+    let urlLang = 'en'; // Default to English
+    
+    // Check if we're on a Spanish URL
+    if (currentPath.startsWith('/es/') || currentPath.includes('/blog/dist/es/')) {
+        urlLang = 'es';
+    }
+    
     // Check for stored language preference
     const storedLang = localStorage.getItem('selectedLanguage');
     
+    // If URL language matches stored language, just update UI without triggering events
+    if (urlLang === storedLang || (!storedLang && urlLang === 'en')) {
+        // Just update the UI display without triggering language change events
+        updateLanguageDisplay(urlLang);
+        return;
+    }
+    
+    // If there's a stored preference that doesn't match the URL, use selectLanguage
+    // (this will trigger navigation to the correct language URL)
     if (storedLang && (storedLang === 'en' || storedLang === 'es')) {
         selectLanguage(storedLang);
     } else {
-        // Detect browser language or default to English
+        // No stored preference - detect from browser and update display only
         const browserLang = navigator.language.toLowerCase();
         const defaultLang = browserLang.startsWith('es') ? 'es' : 'en';
-        selectLanguage(defaultLang);
+        
+        // If browser language matches URL, just update display
+        if (defaultLang === urlLang) {
+            updateLanguageDisplay(defaultLang);
+        } else {
+            // Browser language differs from URL - trigger navigation
+            selectLanguage(defaultLang);
+        }
+    }
+}
+
+/**
+ * Update language display in navbar without triggering events
+ * This is used when the page is already on the correct language URL
+ */
+function updateLanguageDisplay(langCode) {
+    const currentFlag = document.getElementById('currentFlag');
+    const currentLangCode = document.getElementById('currentLangCode');
+    
+    const languages = {
+        'en': {
+            flag: '🇺🇸',
+            code: 'EN'
+        },
+        'es': {
+            flag: '🇲🇽',
+            code: 'ES'
+        }
+    };
+    
+    const selectedLang = languages[langCode];
+    
+    if (selectedLang && currentFlag && currentLangCode) {
+        currentFlag.textContent = selectedLang.flag;
+        currentLangCode.textContent = selectedLang.code;
     }
 }
 
