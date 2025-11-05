@@ -292,8 +292,13 @@ class SGPi18n {
      * @param {string} languageCode - New language code
      */
     async changeLanguage(languageCode) {
+        console.log('🔄 changeLanguage called with:', languageCode, 'from current lang:', this.currentLanguage);
+        console.log('📍 Current path:', window.location.pathname);
+        console.log('🚦 isChangingLanguage flag:', this.isChangingLanguage);
+        
         // Guard against recursive calls
         if (this.isChangingLanguage) {
+            console.warn('⚠️ Blocked by isChangingLanguage guard');
             return;
         }
         
@@ -301,8 +306,6 @@ class SGPi18n {
             console.warn('Unsupported language:', languageCode);
             return;
         }
-        
-        this.isChangingLanguage = true;
 
         const currentPath = window.location.pathname;
         
@@ -317,10 +320,14 @@ class SGPi18n {
                 const isSpanishBlogPost = currentPath.includes('/posts/es/');
                 
                 if (isSpanishBlogIndex || isSpanishBlogPost) {
-                    // Already on Spanish blog - no redirect needed
+                    // Already on Spanish blog - just update UI, don't redirect
+                    console.log('✅ Already on Spanish blog - updating UI only');
                     await this.updateLanguageInPlace(languageCode);
                     return;
                 }
+                
+                // Will redirect - set flag
+                this.isChangingLanguage = true;
                 
                 // Need to switch to Spanish
                 // Handle blog index
@@ -341,10 +348,14 @@ class SGPi18n {
                 const isEnglishBlogPost = currentPath.includes('/posts/en/');
                 
                 if (isEnglishBlogIndex || isEnglishBlogPost) {
-                    // Already on English blog - no redirect needed
+                    // Already on English blog - just update UI, don't redirect
+                    console.log('✅ Already on English blog - updating UI only');
                     await this.updateLanguageInPlace(languageCode);
                     return;
                 }
+                
+                // Will redirect - set flag
+                this.isChangingLanguage = true;
                 
                 // Need to switch to English
                 // Handle blog index
@@ -364,43 +375,27 @@ class SGPi18n {
         // Regular page handling (non-blog)
         const filename = currentPath.split('/').pop() || 'index.html';
         
-        // Redirect to appropriate language version
-        if (languageCode === 'es') {
-            // Switching to Spanish - redirect to /es/ version
-            if (!currentPath.startsWith('/es/')) {
-                window.location.href = `/es/${filename}`;
-                return; // Exit early, page will reload
-            }
-        } else {
-            // Switching to English - redirect to root version
-            if (currentPath.startsWith('/es/')) {
-                window.location.href = `/${filename}`;
-                return; // Exit early, page will reload
-            }
+        // Check if already on correct language
+        const onSpanishPage = currentPath.startsWith('/es/');
+        const needsRedirect = (languageCode === 'es' && !onSpanishPage) || (languageCode === 'en' && onSpanishPage);
+        
+        if (!needsRedirect) {
+            // Already on correct language - just update UI
+            console.log('✅ Already on correct language page - updating UI only');
+            await this.updateLanguageInPlace(languageCode);
+            return;
         }
         
-        // If already on correct language URL, update in-place (for dynamic content)
-        const previousLang = this.currentLanguage;
-        this.currentLanguage = languageCode;
-
-        try {
-            // Update i18next if available
-            if (typeof i18next !== 'undefined' && i18next.isInitialized) {
-                await i18next.changeLanguage(languageCode);
-            }
-
-            // Update HTML attributes
-            document.documentElement.setAttribute('lang', languageCode);
-            document.documentElement.setAttribute('data-lang', languageCode);
-
-            // Update UI
-            this.updateNavbarLanguageDisplay();
-            this.updatePageContent();
-        } catch (error) {
-            console.error('Error changing language:', error);
-            this.currentLanguage = previousLang; // Revert on error
-        } finally {
-            this.isChangingLanguage = false;
+        // Will redirect - set flag
+        this.isChangingLanguage = true;
+        
+        // Redirect to appropriate language version
+        if (languageCode === 'es') {
+            window.location.href = `/es/${filename}`;
+            return;
+        } else {
+            window.location.href = `/${filename}`;
+            return;
         }
     }
 

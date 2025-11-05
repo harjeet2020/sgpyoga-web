@@ -187,12 +187,15 @@ function focusPreviousOption(currentIndex) {
  * Select a language and update the UI
  */
 function selectLanguage(langCode) {
+    console.log('🎯 navbar.js: selectLanguage called with:', langCode, 'Current path:', window.location.pathname);
     // Use i18n.js to handle the language change if available
     if (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.changeLanguage) {
+        console.log('✅ Calling SGPi18n.changeLanguage');
         window.SGPi18n.changeLanguage(langCode);
         closeLanguageDropdown();
         return;
     }
+    console.warn('⚠️ SGPi18n not available, using fallback');
     
     // Fallback if i18n not available yet
     const currentFlag = document.getElementById('currentFlag');
