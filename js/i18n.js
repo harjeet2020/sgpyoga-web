@@ -11,6 +11,7 @@ class SGPi18n {
         this.translations = {};
         this.fallbackTranslations = {};
         this.isInitialized = false;
+        this.isChangingLanguage = false; // Guard against recursive calls
     }
 
     /**
@@ -20,9 +21,6 @@ class SGPi18n {
      * @param {string} options.defaultLang - Default language
      */
     async init(options = {}) {
-        console.log('🚀 SGP i18n initializing...');
-        console.log('  URL:', window.location.href);
-        console.log('  Pathname:', window.location.pathname);
         
         const {
             namespaces = ['common'],
@@ -32,7 +30,6 @@ class SGPi18n {
         try {
             // Detect initial language
             this.currentLanguage = this.detectLanguage(defaultLang);
-            console.log('  Language detected:', this.currentLanguage);
             
             // Load initial namespaces
             await this.loadNamespaces(namespaces);
@@ -47,8 +44,6 @@ class SGPi18n {
             // Update navbar and content
             this.updateNavbarLanguageDisplay();
             this.updatePageContent();
-            
-            console.log('SGP i18n initialized successfully');
         } catch (error) {
             console.warn('SGP i18n initialization failed:', error);
             // Fall back to embedded translations if available
@@ -61,33 +56,26 @@ class SGPi18n {
      * First checks URL path, then localStorage, then browser language
      */
     detectLanguage(defaultLang) {
-        console.log('🔍 detectLanguage called');
-        console.log('  Path:', window.location.pathname);
-        console.log('  localStorage:', localStorage.getItem('selectedLanguage'));
         
         // Priority 1: Check if we're on a Spanish URL path
         if (window.location.pathname.startsWith('/es/')) {
-            console.log('  ✅ Detected from /es/ path');
             return 'es';
         }
         
         // Check for Spanish blog path
         if (window.location.pathname.includes('/blog/dist/es/')) {
-            console.log('  ✅ Detected from /blog/dist/es/ path');
             return 'es';
         }
         
         // Priority 2: Check localStorage
         const storedLang = localStorage.getItem('selectedLanguage');
         if (storedLang && this.supportedLanguages.includes(storedLang)) {
-            console.log('  ✅ Detected from localStorage:', storedLang);
             return storedLang;
         }
         
         // Priority 3: Check browser language
         const browserLang = navigator.language.toLowerCase();
         const detectedLang = browserLang.startsWith('es') ? 'es' : defaultLang;
-        console.log('  ✅ Detected from browser:', detectedLang);
         
         return this.supportedLanguages.includes(detectedLang) ? detectedLang : defaultLang;
     }
@@ -264,6 +252,17 @@ class SGPi18n {
      * @param {string} languageCode - New language code
      */
     async updateLanguageInPlace(languageCode) {
+        // Guard against recursive calls
+        if (this.isChangingLanguage) {
+            return;
+        }
+        
+        // If already on this language, no need to update
+        if (this.currentLanguage === languageCode) {
+            return;
+        }
+        
+        this.isChangingLanguage = true;
         const previousLang = this.currentLanguage;
         this.currentLanguage = languageCode;
 
@@ -280,11 +279,11 @@ class SGPi18n {
             // Update UI
             this.updateNavbarLanguageDisplay();
             this.updatePageContent();
-
-            console.log(`Language updated in-place from ${previousLang} to ${languageCode}`);
         } catch (error) {
             console.error('Error updating language:', error);
             this.currentLanguage = previousLang; // Revert on error
+        } finally {
+            this.isChangingLanguage = false;
         }
     }
 
@@ -293,57 +292,72 @@ class SGPi18n {
      * @param {string} languageCode - New language code
      */
     async changeLanguage(languageCode) {
-        console.log('🔄 changeLanguage called:', languageCode);
-        console.log('📍 Current path:', window.location.pathname);
+        // Guard against recursive calls
+        if (this.isChangingLanguage) {
+            return;
+        }
         
         if (!this.supportedLanguages.includes(languageCode)) {
             console.warn('Unsupported language:', languageCode);
             return;
         }
+        
+        this.isChangingLanguage = true;
 
         const currentPath = window.location.pathname;
         
         // Update localStorage for next visit
         localStorage.setItem('selectedLanguage', languageCode);
-        console.log('💾 Stored language in localStorage:', languageCode);
         
         // Special handling for blog pages
         if (currentPath.includes('/blog/dist/')) {
-            console.log('📚 Blog page detected');
             if (languageCode === 'es') {
-                // Switch to Spanish blog
-                if (!currentPath.includes('/blog/dist/es/')) {
-                    // Handle blog index
-                    if (currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html') {
-                        window.location.href = '/blog/dist/es/';
-                        return;
-                    }
-                    // Handle blog posts - posts already have language in their URL structure
-                    // e.g., /blog/dist/posts/en/... -> /blog/dist/posts/es/...
+                // Check if already on Spanish blog (index or post)
+                const isSpanishBlogIndex = currentPath.includes('/blog/dist/es/');
+                const isSpanishBlogPost = currentPath.includes('/posts/es/');
+                
+                if (isSpanishBlogIndex || isSpanishBlogPost) {
+                    // Already on Spanish blog - no redirect needed
+                    await this.updateLanguageInPlace(languageCode);
+                    return;
+                }
+                
+                // Need to switch to Spanish
+                // Handle blog index
+                if (currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html') {
+                    window.location.href = '/blog/dist/es/';
+                    return;
+                }
+                
+                // Handle blog posts - posts already have language in their URL structure
+                // e.g., /blog/dist/posts/en/... -> /blog/dist/posts/es/...
+                if (currentPath.includes('/posts/en/')) {
                     window.location.href = currentPath.replace('/posts/en/', '/posts/es/');
                     return;
                 }
-                // Already on Spanish blog - no redirect needed
-                console.log('✅ Already on Spanish blog, no redirect');
-                // Update in-place without redirecting
-                await this.updateLanguageInPlace(languageCode);
-                return;
             } else {
-                // Switch to English blog
+                // Switching to English
+                const isEnglishBlogIndex = currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html';
+                const isEnglishBlogPost = currentPath.includes('/posts/en/');
+                
+                if (isEnglishBlogIndex || isEnglishBlogPost) {
+                    // Already on English blog - no redirect needed
+                    await this.updateLanguageInPlace(languageCode);
+                    return;
+                }
+                
+                // Need to switch to English
+                // Handle blog index
                 if (currentPath.includes('/blog/dist/es/')) {
-                    // From Spanish blog index to English blog index
                     window.location.href = currentPath.replace('/blog/dist/es/', '/blog/dist/');
                     return;
                 }
+                
                 // Handle Spanish blog posts -> English blog posts
                 if (currentPath.includes('/posts/es/')) {
                     window.location.href = currentPath.replace('/posts/es/', '/posts/en/');
                     return;
                 }
-                // Already on English blog - no redirect needed
-                console.log('✅ Already on English blog, no redirect');
-                await this.updateLanguageInPlace(languageCode);
-                return;
             }
         }
         
@@ -382,11 +396,11 @@ class SGPi18n {
             // Update UI
             this.updateNavbarLanguageDisplay();
             this.updatePageContent();
-
-            console.log(`Language changed from ${previousLang} to ${languageCode}`);
         } catch (error) {
             console.error('Error changing language:', error);
             this.currentLanguage = previousLang; // Revert on error
+        } finally {
+            this.isChangingLanguage = false;
         }
     }
 
@@ -513,6 +527,12 @@ const sgpI18n = new SGPi18n();
  */
 function detectPageNamespace() {
     const path = window.location.pathname;
+    
+    // Blog pages don't use namespace-based translations (content is in markdown)
+    // Only load 'common' namespace for blog
+    if (path.includes('/blog/dist/')) {
+        return null; // Will only load 'common' namespace
+    }
     
     // Remove /es/ prefix if present for namespace detection
     const cleanPath = path.replace('/es/', '/');
