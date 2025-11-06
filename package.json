@@ -7,7 +7,9 @@
     "build:blog": "cd blog && npm install && npm run build",
     "build:copy": "mkdir -p _site/blog && cp -r *.html robots.txt sitemap.xml css js assets locales es _site/ && cp -r blog/dist _site/blog/",
     "build": "npm run build:i18n && npm run build:blog && npm run build:copy",
-    "watch:i18n": "node build-i18n.js && echo 'Watching for changes... (Ctrl+C to stop)' && fswatch -o index.html about.html classes.html events.html locales/ | xargs -n1 -I{} node build-i18n.js"
+    "watch:i18n": "node build-i18n.js && echo 'Watching for changes... (Ctrl+C to stop)' && fswatch -o index.html about.html classes.html events.html locales/ | xargs -n1 -I{} node build-i18n.js",
+    "validate": "node scripts/validate-seo-tags.js",
+    "validate:verbose": "node scripts/validate-seo-tags.js --verbose"
   },
   "keywords": ["yoga", "i18n", "multilingual"],
   "author": "SGP Yoga",

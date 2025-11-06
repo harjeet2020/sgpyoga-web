@@ -4,7 +4,7 @@
   "description": "Blog system for SGP Yoga website using Eleventy",
   "main": ".eleventy.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "npm run clean && eleventy",
     "dev": "eleventy --serve",
     "clean": "rm -rf dist",
     "serve": "cd .. && echo '\n🌐 Server running at http://localhost:8080\n📝 Blog: http://localhost:8080/blog/dist/\n' && python3 -m http.server 8080",
