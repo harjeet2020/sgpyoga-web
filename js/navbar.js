@@ -336,17 +336,13 @@ function initializeLanguageOnLoad() {
     if (storedLang && (storedLang === 'en' || storedLang === 'es')) {
         selectLanguage(storedLang);
     } else {
-        // No stored preference - detect from browser and update display only
-        const browserLang = navigator.language.toLowerCase();
-        const defaultLang = browserLang.startsWith('es') ? 'es' : 'en';
-        
-        // If browser language matches URL, just update display
-        if (defaultLang === urlLang) {
-            updateLanguageDisplay(defaultLang);
-        } else {
-            // Browser language differs from URL - trigger navigation
-            selectLanguage(defaultLang);
-        }
+        // No stored preference - just update display without auto-redirecting
+        // Auto-redirects based on browser language are bad for SEO and cause issues with:
+        // - Googlebot potentially getting redirected
+        // - PageSpeed Insights showing redirect warnings
+        // - Users sharing URLs that redirect unexpectedly
+        // Instead, we rely on hreflang tags to guide search engines to the correct version
+        updateLanguageDisplay(urlLang);
     }
 }
 
