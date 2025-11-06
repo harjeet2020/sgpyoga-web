@@ -195,29 +195,30 @@ function processHTML(html, translations, filename) {
         (match) => match.replace(/data-lang=["']en["']/, 'data-lang="es"')
     );
     
-    // Update canonical URL to point to Spanish version
+    // Keep canonical URL pointing to English version (Spanish is alternate)
+    // Spanish pages should canonical to their English equivalents for SEO
     processed = processed.replace(
-        /<link rel=["']canonical["'] href=["'](https:\/\/www\.sgpyoga\.co\/)([^"']+)["']>/g,
-        (match, domain, page) => `<link rel="canonical" href="${domain}es/${page}">`
+        /<link rel=["']canonical["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="canonical" href="https://sgpyoga.co/${page}">`
     );
     
     // Update hreflang tags for Spanish version
     // Update the hreflang="es" to point to /es/ version (but avoid double /es/es/)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']es["'] href=["'](https:\/\/www\.sgpyoga\.co\/)(?!es\/)([^"']+)["']>/g,
-        (match, domain, page) => `<link rel="alternate" hreflang="es" href="${domain}es/${page}">`
+        /<link rel=["']alternate["'] hreflang=["']es["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?!es\/)([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/${page}">`
     );
     
-    // Ensure hreflang="en" points to root version
+    // Ensure hreflang="en" points to root version (remove www if present)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']en["'] href=["'](https:\/\/www\.sgpyoga\.co\/)es\/([^"']+)["']>/g,
-        (match, domain, page) => `<link rel="alternate" hreflang="en" href="${domain}${page}">`
+        /<link rel=["']alternate["'] hreflang=["']en["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="en" href="https://sgpyoga.co/${page}">`
     );
     
-    // Ensure x-default points to root version (English)
+    // Ensure x-default points to root version (English, without www)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']x-default["'] href=["'](https:\/\/www\.sgpyoga\.co\/)es\/([^"']+)["']>/g,
-        (match, domain, page) => `<link rel="alternate" hreflang="x-default" href="${domain}${page}">`
+        /<link rel=["']alternate["'] hreflang=["']x-default["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']+)["']>/g,
+        (match, domain, page) => `<link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/${page}">`
     );
     
     // Convert relative paths to absolute paths for resources
