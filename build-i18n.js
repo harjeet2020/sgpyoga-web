@@ -195,11 +195,11 @@ function processHTML(html, translations, filename) {
         (match) => match.replace(/data-lang=["']en["']/, 'data-lang="es"')
     );
     
-    // Keep canonical URL pointing to English version (Spanish is alternate)
-    // Spanish pages should canonical to their English equivalents for SEO
+    // Update canonical URL to point to Spanish version
+    // Each language version should have a self-referencing canonical
     processed = processed.replace(
         /<link rel=["']canonical["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)([^"']+)["']>/g,
-        (match, domain, page) => `<link rel="canonical" href="https://sgpyoga.co/${page}">`
+        (match, domain, page) => `<link rel="canonical" href="https://sgpyoga.co/es/${page}">`
     );
     
     // Update hreflang tags for Spanish version

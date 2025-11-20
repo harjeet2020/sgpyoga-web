@@ -36,17 +36,17 @@ const pages = [
     { file: 'classes.html', canonical: 'https://sgpyoga.co/classes.html', lang: 'en', alternate: 'https://sgpyoga.co/es/classes.html' },
     { file: 'events.html', canonical: 'https://sgpyoga.co/events.html', lang: 'en', alternate: 'https://sgpyoga.co/es/events.html' },
     
-    // Main site Spanish pages (canonical should point to English)
-    { file: 'es/index.html', canonical: 'https://sgpyoga.co/index.html', lang: 'es', alternate: 'https://sgpyoga.co/es/index.html' },
-    { file: 'es/about.html', canonical: 'https://sgpyoga.co/about.html', lang: 'es', alternate: 'https://sgpyoga.co/es/about.html' },
-    { file: 'es/classes.html', canonical: 'https://sgpyoga.co/classes.html', lang: 'es', alternate: 'https://sgpyoga.co/es/classes.html' },
-    { file: 'es/events.html', canonical: 'https://sgpyoga.co/events.html', lang: 'es', alternate: 'https://sgpyoga.co/es/events.html' },
+    // Main site Spanish pages (self-referencing canonical)
+    { file: 'es/index.html', canonical: 'https://sgpyoga.co/es/index.html', lang: 'es', alternate: 'https://sgpyoga.co/es/index.html' },
+    { file: 'es/about.html', canonical: 'https://sgpyoga.co/es/about.html', lang: 'es', alternate: 'https://sgpyoga.co/es/about.html' },
+    { file: 'es/classes.html', canonical: 'https://sgpyoga.co/es/classes.html', lang: 'es', alternate: 'https://sgpyoga.co/es/classes.html' },
+    { file: 'es/events.html', canonical: 'https://sgpyoga.co/es/events.html', lang: 'es', alternate: 'https://sgpyoga.co/es/events.html' },
     
     // Blog English pages
     { file: 'blog/dist/index.html', canonical: 'https://sgpyoga.co/blog/dist/', lang: 'en', alternate: 'https://sgpyoga.co/blog/dist/es/' },
     
-    // Blog Spanish pages (canonical should point to English)
-    { file: 'blog/dist/es/index.html', canonical: 'https://sgpyoga.co/blog/dist/', lang: 'es', alternate: 'https://sgpyoga.co/blog/dist/es/' },
+    // Blog Spanish pages (self-referencing canonical)
+    { file: 'blog/dist/es/index.html', canonical: 'https://sgpyoga.co/blog/dist/es/', lang: 'es', alternate: 'https://sgpyoga.co/blog/dist/es/' },
 ];
 
 /**
@@ -283,14 +283,14 @@ function validateBlogPosts() {
                 const html = fs.readFileSync(postFile, 'utf-8');
                 validatedCount++;
                 
-                // Spanish posts should canonical to English version
+                // Spanish posts should have self-referencing canonical
                 const canonicalPattern = /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/;
                 const canonical = extractTag(html, canonicalPattern);
                 
                 if (!canonical) {
                     errors.push(`[${postSlug} ES] Missing canonical tag`);
-                } else if (!canonical.includes('/posts/en/')) {
-                    errors.push(`[${postSlug} ES] Canonical should point to English version (/posts/en/): ${canonical}`);
+                } else if (!canonical.includes('/posts/es/')) {
+                    errors.push(`[${postSlug} ES] Canonical should be self-referencing (/posts/es/): ${canonical}`);
                 }
                 
                 // Check for www

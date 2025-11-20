@@ -34,17 +34,8 @@
     <meta name="twitter:image" content="https://sgpyoga.co{{ image or '/assets/photos/social/og-blog.webp' }}">
     
     {# SEO: Canonical & Hreflang Tags #}
-    {% if lang == 'es' %}
-        {# Spanish blog pages - canonical should point to English version #}
-        {% if page.fileSlug == 'index-es' %}
-        <link rel="canonical" href="https://sgpyoga.co/blog/dist/">
-        {% else %}
-        <link rel="canonical" href="https://sgpyoga.co/blog/dist/posts/en/{{ page.fileSlug }}/">
-        {% endif %}
-    {% else %}
-        {# English blog pages - canonical points to self #}
-        <link rel="canonical" href="https://sgpyoga.co/blog/dist{{ page.url }}">
-    {% endif %}
+    {# All pages have self-referencing canonical #}
+    <link rel="canonical" href="https://sgpyoga.co/blog/dist{{ page.url }}">
     {% if lang == 'es' %}
         {# Spanish page - link to English equivalent #}
         {% if page.fileSlug == 'index-es' %}
