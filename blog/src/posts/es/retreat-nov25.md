@@ -12,8 +12,7 @@ lang: es
 # Post Organization
 tags: ["retreat", "yoga", "immersion"]
 visible: true
-featured: true
-featuredOrder: 4
+featured: false
 
 # Author Information
 authorName: "Harjeet"

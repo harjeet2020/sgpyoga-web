@@ -125,17 +125,16 @@ module.exports = function(eleventyConfig) {
   });
   
   /**
-   * Featured Posts Collection
-   * Displays posts marked with featured: true in frontmatter
+   * Featured Posts Collection - English
+   * Displays English posts marked with featured: true in frontmatter
    * Sorts by featuredOrder (if specified), then by date
-   * Enforces min/max limits with warnings
+   * Limits to 6 posts per language
    */
-  eleventyConfig.addCollection("featuredPosts", function(collectionApi) {
-    const MIN_FEATURED = 1;  // Minimum featured posts
-    const MAX_FEATURED = 6;  // Maximum featured posts to display
+  eleventyConfig.addCollection("featuredPostsEN", function(collectionApi) {
+    const MAX_FEATURED = 6;  // Maximum featured posts to display per language
     
     let featured = collectionApi
-      .getFilteredByGlob("src/posts/**/*.md")
+      .getFilteredByGlob("src/posts/en/*.md")  // Only English posts
       .filter(post => isPostVisible(post))  // Only visible posts can be featured
       .filter(post => post.data.featured === true)
       .sort((a, b) => {
@@ -153,17 +152,43 @@ module.exports = function(eleventyConfig) {
     
     // Enforce maximum limit
     if (featured.length > MAX_FEATURED) {
-      console.log(`ℹ️  Found ${featured.length} featured posts. Limiting to ${MAX_FEATURED}.`);
+      console.log(`ℹ️  Found ${featured.length} English featured posts. Limiting to ${MAX_FEATURED}.`);
       featured = featured.slice(0, MAX_FEATURED);
     }
     
-    // Warn if below minimum
-    if (featured.length > 0 && featured.length < MIN_FEATURED) {
-      console.warn(`⚠️  Only ${featured.length} featured post(s) found. Minimum recommended: ${MIN_FEATURED}`);
-    }
+    return featured;
+  });
+  
+  /**
+   * Featured Posts Collection - Spanish
+   * Displays Spanish posts marked with featured: true in frontmatter
+   * Sorts by featuredOrder (if specified), then by date
+   * Limits to 6 posts per language
+   */
+  eleventyConfig.addCollection("featuredPostsES", function(collectionApi) {
+    const MAX_FEATURED = 6;  // Maximum featured posts to display per language
     
-    if (featured.length === 0) {
-      console.warn(`⚠️  No featured posts found. Add 'featured: true' to post frontmatter.`);
+    let featured = collectionApi
+      .getFilteredByGlob("src/posts/es/*.md")  // Only Spanish posts
+      .filter(post => isPostVisible(post))  // Only visible posts can be featured
+      .filter(post => post.data.featured === true)
+      .sort((a, b) => {
+        // Sort by featuredOrder first (lower numbers appear first)
+        const orderA = a.data.featuredOrder || 999;
+        const orderB = b.data.featuredOrder || 999;
+        
+        if (orderA !== orderB) {
+          return orderA - orderB;
+        }
+        
+        // Fallback to date (newest first) if order is the same
+        return b.date - a.date;
+      });
+    
+    // Enforce maximum limit
+    if (featured.length > MAX_FEATURED) {
+      console.log(`ℹ️  Found ${featured.length} Spanish featured posts. Limiting to ${MAX_FEATURED}.`);
+      featured = featured.slice(0, MAX_FEATURED);
     }
     
     return featured;

@@ -12,6 +12,8 @@ lang: es
 # Post Organization
 tags: ["chakras", "energy", "kundalini yoga"]
 visible: true
+featured: true
+featuredOrder: 4
 
 # Author Information
 authorName: "Harjeet"

@@ -12,8 +12,7 @@ lang: es
 # Post Organization
 tags: ["teacher training", "aerial yoga"]
 visible: true
-featured: true
-featuredOrder: 5
+featured: false
 
 # Author Information
 authorName: "Harjeet"

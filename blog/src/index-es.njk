@@ -11,7 +11,7 @@ permalink: "/es/index.html"
 <link rel="stylesheet" href="/css/blog-featured.css">
 
 {# Performance: Preload first featured post image for LCP optimization #}
-{% set firstFeaturedPostES = collections.featuredPosts | selectattr('data.lang', 'equalto', 'es') | first %}
+{% set firstFeaturedPostES = collections.featuredPostsES | first %}
 {% if firstFeaturedPostES and firstFeaturedPostES.data.image %}
 <link rel="preload" href="{{ firstFeaturedPostES.data.image }}" as="image" fetchpriority="high">
 {% endif %}

@@ -12,6 +12,8 @@ lang: en
 # Post Organization
 tags: ["light bodies", "consciousness", "kundalini yoga"]
 visible: true
+featured: true
+featuredOrder: 5
 
 # Author Information
 authorName: "Harjeet"
