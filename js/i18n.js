@@ -54,21 +54,36 @@ class SGPi18n {
     /**
      * Detect the user's preferred language
      * First checks URL path, then localStorage, then browser language
+     * IMPORTANT: URL path is always the source of truth
      */
     detectLanguage(defaultLang) {
+        const currentPath = window.location.pathname;
         
         // Priority 1: Check if we're on a Spanish URL path
-        if (window.location.pathname.startsWith('/es/')) {
+        // If URL explicitly indicates language, trust it completely
+        if (currentPath.startsWith('/es/')) {
+            // We're on a Spanish URL, don't redirect
+            localStorage.setItem('selectedLanguage', 'es');
             return 'es';
         }
         
         // Check for Spanish blog path
-        if (window.location.pathname.includes('/blog/dist/es/')) {
+        if (currentPath.includes('/blog/dist/es/')) {
+            localStorage.setItem('selectedLanguage', 'es');
             return 'es';
         }
         
-        // Priority 2: Check localStorage
+        // Check for English blog path
+        if (currentPath.includes('/blog/dist/') && !currentPath.includes('/es/')) {
+            localStorage.setItem('selectedLanguage', 'en');
+            return 'en';
+        }
+        
+        // If we're on root (English) path, respect localStorage if available
+        // But don't redirect - let the user stay where they are
         const storedLang = localStorage.getItem('selectedLanguage');
+        
+        // Priority 2: Check localStorage
         if (storedLang && this.supportedLanguages.includes(storedLang)) {
             return storedLang;
         }
@@ -172,6 +187,9 @@ class SGPi18n {
                     order: ['localStorage', 'navigator', 'htmlTag'],
                     lookupLocalStorage: 'selectedLanguage',
                     caches: ['localStorage'],
+                },
+                interpolation: {
+                    escapeValue: false // Allow HTML in translations
                 },
                 resources
             });
@@ -462,17 +480,28 @@ class SGPi18n {
         const elementsToTranslate = document.querySelectorAll('[data-i18n]');
         elementsToTranslate.forEach(element => {
             const key = element.getAttribute('data-i18n');
+            const isHtml = element.hasAttribute('data-i18n-html');
             
-            // Check if key starts with [html] for HTML content
-            if (key.startsWith('[html]')) {
-                const cleanKey = key.replace('[html]', '');
-                const translatedText = this.t(cleanKey, element.innerHTML);
+            if (isHtml) {
+                const translatedText = this.t(key, element.innerHTML);
                 element.innerHTML = translatedText;
             } else {
                 const translatedText = this.t(key, element.textContent);
                 element.textContent = translatedText;
             }
         });
+
+            // Update elements with data-i18n-html attribute using i18next directly
+        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
+            const htmlElements = document.querySelectorAll('[data-i18n-html]');
+            htmlElements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translatedText = i18next.t(key);
+                if (translatedText && translatedText !== key) {
+                    element.innerHTML = translatedText;
+                }
+            });
+        }
 
         // Update page title
         const titleElement = document.querySelector('title[data-i18n]');
