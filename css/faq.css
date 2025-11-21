@@ -1,0 +1,265 @@
+/* ==========================================================================
+   SGP YOGA - FAQ ACCORDION STYLES
+   ========================================================================== */
+
+/* FAQ Section Layout
+   ========================================================================== */
+.faq-section {
+    background-color: white;
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* Section Header with Eyebrow Pattern
+   ========================================================================== */
+.faq-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Eyebrow text */
+.faq-header::before {
+    content: attr(data-eyebrow);
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent-2);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.faq-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.faq-header p {
+    font-size: 1.125rem;
+    color: var(--color-supplementary);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* FAQ Container - Single Column Layout with Scroll
+   ========================================================================== */
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: var(--spacing-xxl);
+}
+
+/* Scrollbar styling for webkit browsers */
+.faq-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.faq-container::-webkit-scrollbar-track {
+    background: var(--color-secondary);
+    border-radius: 4px;
+}
+
+.faq-container::-webkit-scrollbar-thumb {
+    background: var(--color-accent-2);
+    border-radius: 4px;
+}
+
+.faq-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-1);
+}
+
+/* Individual FAQ Item - Card Style
+   ========================================================================== */
+.faq-item {
+    background-color: white;
+    border: 2px solid var(--color-secondary);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    margin-bottom: var(--spacing-md);
+}
+
+.faq-item:last-child {
+    margin-bottom: 0;
+}
+
+.faq-item:hover {
+    background-color: var(--color-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-item.active {
+    background-color: var(--color-secondary);
+}
+
+/* Question Button - Clickable Header
+   ========================================================================== */
+.faq-question {
+    width: 100%;
+    padding: var(--spacing-lg);
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: color var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--color-accent-2);
+}
+
+.faq-question:focus {
+    outline: none;
+}
+
+/* Icon Styling - Plus/Minus Toggle
+   ========================================================================== */
+.faq-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent-1);
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Hide plus icon when active, show minus */
+.faq-item:not(.active) .faq-icon-minus {
+    display: none;
+}
+
+.faq-item.active .faq-icon-plus {
+    display: none;
+}
+
+/* Answer Container - Collapsible Content
+   ========================================================================== */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    opacity: 1;
+}
+
+/* Answer Text Styling
+   ========================================================================== */
+.faq-answer p {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-supplementary);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Links within Answers */
+.faq-answer a {
+    color: var(--color-accent-1);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.faq-answer a:hover {
+    color: var(--color-accent-2);
+}
+
+/* Responsive Design - Tablet
+   ========================================================================== */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 3rem 1rem;
+    }
+    
+    .faq-header {
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .faq-header h2 {
+        font-size: 2rem;
+    }
+    
+    .faq-header p {
+        font-size: 1rem;
+    }
+    
+    .faq-item {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .faq-container {
+        padding-right: 0;
+    }
+    
+    .faq-question {
+        font-size: 1.125rem;
+        padding: var(--spacing-md);
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+    }
+    
+    .faq-answer p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+/* Responsive Design - Mobile
+   ========================================================================== */
+@media (max-width: 480px) {
+    .faq-section {
+        padding: 2rem 1rem;
+    }
+    
+    .faq-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .faq-header p {
+        font-size: 0.95rem;
+    }
+    
+    .faq-question {
+        font-size: 1.05rem;
+        padding: var(--spacing-md) var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    
+    .faq-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+    }
+    
+    .faq-answer p {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+}

@@ -23,5 +23,64 @@
     "next": "Next",
     "pause": "Pause slideshow",
     "play": "Play slideshow"
+  },
+  "faq": {
+    "eyebrow": "QUESTIONS",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our yoga classes in CDMX",
+    "questions": [
+      {
+        "q": "What types of yoga classes do you offer in Mexico City?",
+        "a": "We offer a wide variety of yoga styles such as Hatha, Vinyasa, Aerial and Kundalini. We also regularly organise thematic workshops such as sound healing sessions or yoga philosophy classes. This variety ensures that everyone can find a class that resonates with their soul. See our current class schedule at: <a href='https://sgpyoga.co/classes' target='_blank' rel='noopener'>sgpyoga.co/classes</a>."
+      },
+      {
+        "q": "Where are your yoga classes located?",
+        "a": "Currently, we offer classes in two distinct locations in Mexico City - Hari Om and Aguacate. Hari Om is a small but cozy and quiet space in Letrán Valle, Benito Juárez (Calle Tres Zapotes 128), while Aguacate is a beautiful, larger studio in Coyoacán (Callejón de Aguacate 3), very close to Parque de los Viveros. You can find exact locations with Google Maps links on our about page: <a href='https://sgpyoga.co/about' target='_blank' rel='noopener'>sgpyoga.co/about</a>."
+      },
+      {
+        "q": "How much do your yoga classes in CDMX cost?",
+        "a": "First-time students can try any class for just 100 pesos! Regular drop-in rates are 250 pesos for 1-hour classes (Hatha, Vinyasa, Aerial) and 300 pesos for 1.5-hour classes (Kundalini). We also offer discounted monthly passes of 4 or 8 classes - contact us for more details on those. We pride ourselves on offering exceptional quality at an accessible price - yoga is meant for all of us, after all."
+      },
+      {
+        "q": "Are your yoga classes suitable for beginners?",
+        "a": "Yes. The level of each group is different, of course, but we often work with absolute beginners. If you have never done yoga before, or feel restricted in your body, don't worry - we've got you covered! Our teachers are trained to offer extra guidance and support to beginners - but if you're feeling unsure anyway, just reach out to us and ask which class in our schedule would be the best for you."
+      },
+      {
+        "q": "Which yoga style is best for beginners?",
+        "a": "Hatha Yoga is an excellent starting point for beginners due to its slower pace and focus on foundational poses. If you prefer something more dynamic, Vinyasa offers flowing sequences, and is also very accessible. For those seeking spiritual depth, Kundalini Yoga puts emphasis on breathwork, energy work and meditation, while Aerial Yoga provides a joyful, unique experience. We encourage you to try different styles before committing to one. Learn more in our blog: <a href='https://sgpyoga.co/blog/dist/posts/en/yogastyles/' target='_blank' rel='noopener'>sgpyoga.co/blog</a>"
+      },
+      {
+        "q": "What are the benefits of practicing yoga?",
+        "a": "Yoga offers holistic benefits for body, mind, and spirit. Regular practice helps you detoxify the body, increase flexibility and strength, relieve stress and anxiety, improve focus and mental clarity, regain energy, and develop mindfulness. All this makes yoga an excellent choice for those looking for a structured discipline focused on personal growth and overall wellbeing rather than just exercise."
+      },
+      {
+        "q": "How is yoga different from other forms of exercise?",
+        "a": "Contrary to popular belief, yoga is not a sport. It is a holistic practice that aims to improve your wellbeing through establishing harmony between body, mind and soul. It utilises a combination of physical postures (asanas) and breathing techniques (pranayama) to work with the body's energy system, which allows it to reach beyond the physical and work at the level of thoughts & emotions. The word yoga literally means 'union with the divine' - and it is this union, this inner sense of completeness, that yoga seeks to achieve."
+      },
+      {
+        "q": "How do I book my first class? Do I need to book in advance?",
+        "a": "For now, we manage all bookings through our WhatsApp (+52 55 3906 1305). Just send us a message telling us which class caught your eye, and we will coordinate the details with you. If you come regularly, we will add you to the WhatsApp group where we manage our bookings. It is important to let us know at least a few hours in advance so that we can reserve your spot."
+      },
+      {
+        "q": "What should I bring to my first yoga class?",
+        "a": "A yoga mat, comfortable clothing, and a bottle of water. If you don't have a mat yet, tell us and we will make sure there is a spare one you can use at the studio. Remember to silence your phone before the class and remove any jewelry that may interfere with your practice. Also, don't come with a full stomach - allow for at least 2 hours between the class and your last major meal."
+      },
+      {
+        "q": "Do your instructors teach in English and Spanish?",
+        "a": "All our instructors speak both English and Spanish at a sufficient level to lead a yoga class. While we don't have separate language-specific groups, teachers adapt seamlessly based on students' needs, often blending both languages. If you only speak English, do let your instructor know before class so that they know to adapt."
+      },
+      {
+        "q": "Do you offer private yoga sessions in Mexico City?",
+        "a": "Yes! Private yoga classes are perfect for personalized instruction, busy schedules, physical limitations, or specific goals. Sessions can be customized to your needs and held at our studios or your preferred location. Pricing varies based on class type, duration, location, and frequency. Contact us on WhatsApp (+52 55 3906 1305) for a personalized quote."
+      },
+      {
+        "q": "Do you offer yoga workshops, retreats, or teacher trainings?",
+        "a": "Yes! We regularly organize special yoga events & experiences beyond weekly classes. Our workshops in Mexico City span yoga philosophy, sound healing, kirtan and more. Retreats take place in remote locations across Mexico and internationally - each has a different theme and caters to different needs. Teacher trainings are available as intensive immersions or slower-paced weekend programmes. View our upcoming events at <a href='https://sgpyoga.co/events' target='_blank' rel='noopener'>sgpyoga.co/events</a>."
+      },
+      {
+        "q": "What is your cancellation policy? Do I need to cancel in advance?",
+        "a": "Yes, please cancel if you cannot attend, at least 24 hours in advance. Late cancellations incur the full class fee. This rule not only protects our business; it also ensures that our classes are available to other people who need them. Thank you for your understanding!"
+      }
+    ]
   }
 }

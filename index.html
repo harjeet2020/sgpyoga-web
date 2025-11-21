@@ -65,11 +65,13 @@
     
     <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
     <link rel="stylesheet" href="css/testimonials.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/faq.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'">
     
     <!-- Fallback for browsers with JavaScript disabled -->
     <noscript>
         <link rel="stylesheet" href="css/testimonials.css">
+        <link rel="stylesheet" href="css/faq.css">
         <link rel="stylesheet" href="css/footer.css">
     </noscript>
     
@@ -565,6 +567,176 @@
                 </div>
             </div>
         </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="faq-header" data-eyebrow="QUESTIONS">
+                    <h2 data-i18n="home:faq.title">Frequently Asked Questions</h2>
+                    <p data-i18n="home:faq.subtitle">Everything you need to know about our yoga classes in CDMX</p>
+                </div>
+
+                <!-- FAQ Accordion Container -->
+                <div class="faq-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                            <span data-i18n="home:faq.questions.0.q">What types of yoga classes do you offer in Mexico City?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-1">
+                            <p data-i18n="[html]home:faq.questions.0.a">We offer a wide variety of yoga styles such as Hatha, Vinyasa, Aerial and Kundalini. We also regularly organise thematic workshops such as sound healing sessions or yoga philosophy classes. This variety ensures that everyone can find a class that resonates with their soul.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                            <span data-i18n="home:faq.questions.1.q">Where are your yoga classes located?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-2">
+                            <p data-i18n="[html]home:faq.questions.1.a">Currently, we offer classes in two distinct locations in Mexico City - Hari Om and Aguacate.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                            <span data-i18n="home:faq.questions.2.q">How much do your yoga classes in CDMX cost?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-3">
+                            <p data-i18n="home:faq.questions.2.a">First-time students can try any class for just 100 pesos!</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                            <span data-i18n="home:faq.questions.3.q">Are your yoga classes suitable for beginners?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-4">
+                            <p data-i18n="home:faq.questions.3.a">Yes. The level of each group is different, of course, but we often work with absolute beginners.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                            <span data-i18n="home:faq.questions.4.q">Which yoga style is best for beginners?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-5">
+                            <p data-i18n="[html]home:faq.questions.4.a">Hatha Yoga is an excellent starting point for beginners due to its slower pace and focus on foundational poses.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
+                            <span data-i18n="home:faq.questions.5.q">What are the benefits of practicing yoga?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-6">
+                            <p data-i18n="home:faq.questions.5.a">Yoga offers holistic benefits for body, mind, and spirit.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+                            <span data-i18n="home:faq.questions.6.q">How is yoga different from other forms of exercise?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-7">
+                            <p data-i18n="home:faq.questions.6.a">Contrary to popular belief, yoga is not a sport.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
+                            <span data-i18n="home:faq.questions.7.q">How do I book my first class? Do I need to book in advance?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-8">
+                            <p data-i18n="home:faq.questions.7.a">For now, we manage all bookings through our WhatsApp (+52 55 3906 1305).</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
+                            <span data-i18n="home:faq.questions.8.q">What should I bring to my first yoga class?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-9">
+                            <p data-i18n="home:faq.questions.8.a">A yoga mat, comfortable clothing, and a bottle of water.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 10 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
+                            <span data-i18n="home:faq.questions.9.q">Do your instructors teach in English and Spanish?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-10">
+                            <p data-i18n="home:faq.questions.9.a">All our instructors speak both English and Spanish at a sufficient level to lead a yoga class.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 11 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-11">
+                            <span data-i18n="home:faq.questions.10.q">Do you offer private yoga sessions in Mexico City?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-11">
+                            <p data-i18n="home:faq.questions.10.a">Yes! Private yoga classes are perfect for personalized instruction, busy schedules, physical limitations, or specific goals.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 12 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-12">
+                            <span data-i18n="home:faq.questions.11.q">Do you offer yoga workshops, retreats, or teacher trainings?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-12">
+                            <p data-i18n="[html]home:faq.questions.11.a">Yes! We regularly organize special yoga events & experiences beyond weekly classes.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 13 -->
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-13">
+                            <span data-i18n="home:faq.questions.12.q">What is your cancellation policy? Do I need to cancel in advance?</span>
+                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
+                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                        </button>
+                        <div class="faq-answer" id="faq-answer-13">
+                            <p data-i18n="home:faq.questions.12.a">Yes, please cancel if you cannot attend, at least 24 hours in advance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -778,6 +950,7 @@
     <script src="js/i18n.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/testimonials.js"></script>
+    <script src="js/faq.js"></script>
     <script src="js/sectionObserver.js"></script>
 </body>
 </html>

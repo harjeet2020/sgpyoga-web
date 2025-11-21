@@ -462,8 +462,16 @@ class SGPi18n {
         const elementsToTranslate = document.querySelectorAll('[data-i18n]');
         elementsToTranslate.forEach(element => {
             const key = element.getAttribute('data-i18n');
-            const translatedText = this.t(key, element.textContent);
-            element.textContent = translatedText;
+            
+            // Check if key starts with [html] for HTML content
+            if (key.startsWith('[html]')) {
+                const cleanKey = key.replace('[html]', '');
+                const translatedText = this.t(cleanKey, element.innerHTML);
+                element.innerHTML = translatedText;
+            } else {
+                const translatedText = this.t(key, element.textContent);
+                element.textContent = translatedText;
+            }
         });
 
         // Update page title

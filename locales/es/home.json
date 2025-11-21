@@ -23,5 +23,64 @@
     "next": "Siguiente",
     "pause": "Pausar presentación",
     "play": "Reproducir presentación"
+  },
+  "faq": {
+    "eyebrow": "PREGUNTAS",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Todo lo que necesitas saber sobre nuestras clases de yoga en CDMX",
+    "questions": [
+      {
+        "q": "¿Qué tipos de clases de yoga ofrecen en la Ciudad de México?",
+        "a": "Ofrecemos una amplia variedad de estilos de yoga como Hatha, Vinyasa, Aéreo y Kundalini. También organizamos regularmente talleres temáticos como sesiones de sanación sonora o clases de filosofía del yoga. Esta variedad asegura que todos puedan encontrar una clase que resuene con su alma. Consulta nuestro horario actual de clases en: <a href='https://sgpyoga.co/classes' target='_blank' rel='noopener'>sgpyoga.co/classes</a>."
+      },
+      {
+        "q": "¿Dónde están ubicadas sus clases de yoga?",
+        "a": "Actualmente, ofrecemos clases en dos ubicaciones distintas en la Ciudad de México - Hari Om y Aguacate. Hari Om es un espacio pequeño pero acogedor y tranquilo en Letrán Valle, Benito Juárez (Calle Tres Zapotes 128), mientras que Aguacate es un hermoso estudio más grande en Coyoacán (Callejón de Aguacate 3), muy cerca del Parque de los Viveros. Puedes encontrar las ubicaciones exactas con enlaces de Google Maps en nuestra página sobre nosotros: <a href='https://sgpyoga.co/about' target='_blank' rel='noopener'>sgpyoga.co/about</a>."
+      },
+      {
+        "q": "¿Cuánto cuestan sus clases de yoga en CDMX?",
+        "a": "¡Los estudiantes primerizos pueden probar cualquier clase por solo 100 pesos! Las tarifas regulares son de 250 pesos para clases de 1 hora (Hatha, Vinyasa, Aéreo) y 300 pesos para clases de 1.5 horas (Kundalini). También ofrecemos pases mensuales con descuento de 4 u 8 clases - contáctanos para más detalles sobre estos. Nos enorgullecemos de ofrecer calidad excepcional a un precio accesible - después de todo, el yoga es para todos nosotros."
+      },
+      {
+        "q": "¿Sus clases de yoga son adecuadas para principiantes?",
+        "a": "Sí. El nivel de cada grupo es diferente, por supuesto, pero a menudo trabajamos con principiantes absolutos. Si nunca has hecho yoga antes, o te sientes limitado en tu cuerpo, no te preocupes - ¡te tenemos cubierto! Nuestros maestros están capacitados para ofrecer orientación y apoyo adicional a los principiantes - pero si aún te sientes inseguro, solo contáctanos y pregunta cuál clase de nuestro horario sería la mejor para ti."
+      },
+      {
+        "q": "¿Qué estilo de yoga es mejor para principiantes?",
+        "a": "Hatha Yoga es un excelente punto de partida para principiantes debido a su ritmo más lento y enfoque en posturas fundamentales. Si prefieres algo más dinámico, Vinyasa ofrece secuencias fluidas y también es muy accesible. Para aquellos que buscan profundidad espiritual, Kundalini Yoga pone énfasis en el trabajo de respiración, energía y meditación, mientras que Yoga Aéreo proporciona una experiencia alegre y única. Te animamos a probar diferentes estilos antes de comprometerte con uno. Aprende más en nuestro blog: <a href='https://sgpyoga.co/blog/dist/posts/es/yogastyles/' target='_blank' rel='noopener'>sgpyoga.co/blog</a>"
+      },
+      {
+        "q": "¿Cuáles son los beneficios de practicar yoga?",
+        "a": "El yoga ofrece beneficios holísticos para el cuerpo, la mente y el espíritu. La práctica regular te ayuda a desintoxicar el cuerpo, aumentar la flexibilidad y la fuerza, aliviar el estrés y la ansiedad, mejorar el enfoque y la claridad mental, recuperar energía y desarrollar atención plena. Todo esto hace del yoga una excelente opción para quienes buscan una disciplina estructurada enfocada en el crecimiento personal y el bienestar general en lugar de solo ejercicio."
+      },
+      {
+        "q": "¿En qué se diferencia el yoga de otras formas de ejercicio?",
+        "a": "Contrario a la creencia popular, el yoga no es un deporte. Es una práctica holística que busca mejorar tu bienestar mediante el establecimiento de armonía entre cuerpo, mente y alma. Utiliza una combinación de posturas físicas (asanas) y técnicas de respiración (pranayama) para trabajar con el sistema energético del cuerpo, lo que le permite ir más allá de lo físico y trabajar al nivel de pensamientos y emociones. La palabra yoga literalmente significa 'unión con lo divino' - y es esta unión, este sentido interno de plenitud, lo que el yoga busca lograr."
+      },
+      {
+        "q": "¿Cómo reservo mi primera clase? ¿Necesito reservar con anticipación?",
+        "a": "Por ahora, gestionamos todas las reservas a través de nuestro WhatsApp (+52 55 3906 1305). Solo envíanos un mensaje diciéndonos qué clase te llamó la atención, y coordinaremos los detalles contigo. Si vienes regularmente, te agregaremos al grupo de WhatsApp donde gestionamos nuestras reservas. Es importante que nos avises con al menos unas horas de anticipación para que podamos reservar tu lugar."
+      },
+      {
+        "q": "¿Qué debo llevar a mi primera clase de yoga?",
+        "a": "Un tapete de yoga, ropa cómoda y una botella de agua. Si aún no tienes tapete, avísanos y nos aseguraremos de que haya uno disponible que puedas usar en el estudio. Recuerda silenciar tu teléfono antes de la clase y quitarte cualquier joya que pueda interferir con tu práctica. Además, no vengas con el estómago lleno - permite al menos 2 horas entre la clase y tu última comida importante."
+      },
+      {
+        "q": "¿Sus instructores enseñan en inglés y español?",
+        "a": "Todos nuestros instructores hablan tanto inglés como español a un nivel suficiente para dirigir una clase de yoga. Aunque no tenemos grupos separados por idioma específico, los maestros se adaptan sin problemas según las necesidades de los estudiantes, a menudo mezclando ambos idiomas. Si solo hablas inglés, hazle saber a tu instructor antes de la clase para que sepa adaptarse."
+      },
+      {
+        "q": "¿Ofrecen sesiones privadas de yoga en la Ciudad de México?",
+        "a": "¡Sí! Las clases privadas de yoga son perfectas para instrucción personalizada, horarios ocupados, limitaciones físicas o metas específicas. Las sesiones pueden personalizarse según tus necesidades y realizarse en nuestros estudios o en tu ubicación preferida. Los precios varían según el tipo de clase, duración, ubicación y frecuencia. Contáctanos por WhatsApp (+52 55 3906 1305) para obtener una cotización personalizada."
+      },
+      {
+        "q": "¿Ofrecen talleres de yoga, retiros o formaciones de maestros?",
+        "a": "¡Sí! Organizamos regularmente eventos y experiencias especiales de yoga más allá de las clases semanales. Nuestros talleres en la Ciudad de México abarcan filosofía del yoga, sanación sonora, kirtan y más. Los retiros tienen lugar en ubicaciones remotas en México e internacionalmente - cada uno tiene un tema diferente y atiende diferentes necesidades. Las formaciones de maestros están disponibles como inmersiones intensivas o programas de fin de semana a ritmo más lento. Consulta nuestros próximos eventos en <a href='https://sgpyoga.co/events' target='_blank' rel='noopener'>sgpyoga.co/events</a>."
+      },
+      {
+        "q": "¿Cuál es su política de cancelación? ¿Necesito cancelar con anticipación?",
+        "a": "Sí, por favor cancela si no puedes asistir, con al menos 24 horas de anticipación. Las cancelaciones tardías incurren en el costo completo de la clase. Esta regla no solo protege nuestro negocio; también asegura que nuestras clases estén disponibles para otras personas que las necesitan. ¡Gracias por tu comprensión!"
+      }
+    ]
   }
 }
