@@ -27,6 +27,27 @@ let currentTimeView = 'upcoming'; // 'upcoming' or 'past'
 let currentCategoryFilter = 'all'; // 'all', 'workshop', 'retreat', or 'training'
 
 /**
+ * Purpose: Limit events to prevent overwhelming the UI
+ * 
+ * Why 12 events:
+ * - Provides good variety without cluttering the page
+ * - Prioritizes newest/soonest events
+ * - Older events are automatically excluded
+ * 
+ * Behavior:
+ * - For upcoming events: Shows 12 soonest events (earliest dates)
+ * - For past events: Shows 12 most recent events (latest dates)
+ * - Limit applies AFTER filtering by category and time view
+ * 
+ * Example:
+ * - 50 upcoming workshops exist
+ * - User filters to "Workshops"
+ * - System shows only the 12 soonest workshops
+ * - 38 older workshops are hidden
+ */
+const MAX_EVENTS_TO_DISPLAY = 12;
+
+/**
  * Purpose: Reference to time toggle button
  */
 let timeToggleBtn;
@@ -238,8 +259,14 @@ function renderEvents() {
     const sortAscending = currentTimeView === 'upcoming';
     filteredEvents = sortEventsByDate(filteredEvents, sortAscending);
     
+    // Limit to maximum 12 events (newest first)
+    // For upcoming: shows 12 soonest events
+    // For past: shows 12 most recent events
+    const eventsToRender = filteredEvents.slice(0, MAX_EVENTS_TO_DISPLAY);
+    const hiddenEventsCount = filteredEvents.length - eventsToRender.length;
+    
     // If no events found, show a message
-    if (filteredEvents.length === 0) {
+    if (eventsToRender.length === 0) {
         const noEventsMessage = currentTimeView === 'past' 
             ? 'No past events found' 
             : 'No upcoming events found';
@@ -248,8 +275,8 @@ function renderEvents() {
         return;
     }
     
-    // Render each filtered event
-    filteredEvents.forEach(event => {
+    // Render each event (limited to MAX_EVENTS_TO_DISPLAY)
+    eventsToRender.forEach(event => {
         const eventId = event.id;
         const category = event.category;
         const imageMobilePath = getEventImage(event, false, true);
@@ -302,7 +329,10 @@ function renderEvents() {
         lucide.createIcons();
     }
     
-    console.log(`Rendered ${filteredEvents.length} ${currentTimeView} events`);
+    console.log(`Rendered ${eventsToRender.length} of ${filteredEvents.length} ${currentTimeView} events (max: ${MAX_EVENTS_TO_DISPLAY})`);
+    if (hiddenEventsCount > 0) {
+        console.log(`  → ${hiddenEventsCount} older ${currentTimeView} events were filtered out and not displayed`);
+    }
 }
 
 // =============================================================================
