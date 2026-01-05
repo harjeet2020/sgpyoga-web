@@ -27,9 +27,11 @@
   },
   "styles": {
     "kundalini": "Kundalini Yoga",
-    "vinyasa": "Vinyasa Flow",
+    "vinyasa": "Vinyasa Yoga",
     "hatha": "Hatha Yoga",
-    "aerial": "Yoga Aéreo"
+    "aerial": "Yoga Aéreo",
+    "aerialFlow": "Yoga Aéreo Flow",
+    "aerialPilates": "Pilates Aéreo"
   },
   "teachers": {
     "harjeet": "Harjeet",
@@ -39,8 +41,9 @@
     "itzel": "Itzel"
   },
   "locations": {
-    "roma": "Estudio Hari Om",
-    "aguacate": "Estudio Aguacate"
+    "hariom": "Hari Om",
+    "aguacate": "Aguacate",
+    "aireLibre": "Aire Libre"
   },
   "duration": {
     "minutes": "{{count}} min",
