@@ -108,8 +108,20 @@ const eventsData = [
         imageHigh: '/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp',
         cardImagePosition: 'center',
         modalImagePosition: 'center 85%'
+    },
+    // Aerial Sound Healing Workshop, January 2026 (Harjeet & Camila)
+    {
+        id: 'aerial-yoga-sound-healing_30jan2026',
+        category: 'workshop',
+        startDate: '2026-01-30',
+        endDate: '2026-01-30',
+        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-480.webp',
+        image: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-1080.webp',
+        cardImagePosition: 'center bottom',
+        modalImagePosition: 'center bottom'
     }
-    
+
     // Add more events here following the same pattern
     // Example:
     // {

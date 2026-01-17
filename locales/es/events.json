@@ -83,6 +83,17 @@
       "fullDescription": "El yoga aéreo está ganando cada vez más popularidad, no solo porque se ve genial, sino también porque hace que posturas más avanzadas sean accesibles para principiantes desde el día 1. Nuestro programa híbrido de 50 horas es ideal para maestros de yoga que desean ampliar su repertorio, pero también puedes participar como principiante absoluto. Nuestras sesiones se llevarán a cabo los fines de semana en la hermosa Yoguitería en Calarca, Colombia. Aunque diseñada principalmente como una experiencia presencial, esta formación de maestros puede tomarse parcialmente en línea, pero se requieren dos fines de semana presenciales para obtener tu certificación de Yoga Alliance.",
       "instructor": "Camila y Harjeet",
       "price": "$2,000,000 COP ($10,000 MXN)"
+    },
+    "aerial-yoga-sound-healing_30jan2026": {
+      "title": "Sanación con Sonido y Yoga Aéreo",
+      "category": "Taller",
+      "date": "30 de enero, 2026",
+      "time": "19:30 - 20:30 PM",
+      "location": "Hari Om Studio, Ciudad de México",
+      "shortDescription": "Sumérgete en una sesión de yoga aéreo suave y restaurativo acompañado de una profunda sesión de sanación con sonido",
+      "fullDescription": "Esta sesión única es una mezcla de movimientos curativos de yoga aéreo y terapia de sonido. Comenzaremos con una secuencia suave de posturas utilizando hamacas de seda, y hacia el final escucharás cuencos de sonido y canto de mantras en vivo mientras estás suspendido en el aire.",
+      "instructor": "Harjeet y Camila",
+      "price": "$400 MXN"
     }
   },
   "eventTypes": {
