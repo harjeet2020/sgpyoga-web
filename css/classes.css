@@ -785,10 +785,6 @@
 
     .pricing-card--featured {
         transform: scale(1);
-        order: -1;
-        grid-column: span 2;
-        max-width: 340px;
-        justify-self: center;
     }
 
     .pricing-card--featured:hover {
@@ -925,7 +921,7 @@
 
     /* Pricing section mobile */
     .pricing-section {
-        padding: var(--spacing-xxl) var(--spacing-md);
+        padding: var(--spacing-xxl) var(--spacing-xl);
     }
 
     .pricing-header {
@@ -952,9 +948,7 @@
     }
 
     .pricing-card--featured {
-        order: -1;
-        grid-column: span 1;
-        max-width: none;
+        transform: scale(1);
     }
 
     .pricing-value {
