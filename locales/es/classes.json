@@ -69,6 +69,35 @@
       "description": "Libera el potencial de tu cuerpo con secuencias aéreas impresionantes realizadas en hamacas de seda"
     }
   },
+  "pricing": {
+    "title": "Precios y Paquetes",
+    "subtitle": "¡Mientras más practiques, más ahorras! Elige el paquete que mejor se adapte a tu camino en el yoga.",
+    "dropIn": {
+      "name": "Clase Suelta",
+      "description": "Perfecto para conocernos",
+      "perClass": "por clase"
+    },
+    "pack4": {
+      "name": "4 Clases",
+      "description": "Práctica una vez por semana",
+      "perClass": "$225 por clase",
+      "savings": "Ahorra $100 MXN"
+    },
+    "pack8": {
+      "name": "8 Clases",
+      "description": "Práctica dos veces por semana",
+      "perClass": "$200 por clase",
+      "savings": "Ahorra $400 MXN"
+    },
+    "pack12": {
+      "name": "12 Clases",
+      "description": "Práctica tres veces por semana",
+      "perClass": "$175 por clase",
+      "savings": "Ahorra $900 MXN",
+      "badge": "Mejor Valor"
+    },
+    "note": "Con nuestros paquetes, puedes asistir a clases regulares con todos nuestros maestros como se muestra en el horario arriba. Los paquetes son válidos por un mes calendario desde la fecha de compra. Las clases no utilizadas no se acumulan, ¡así que asegúrate de usarlas todas!"
+  },
   "cta": {
     "title": "¿Listo para Comenzar?",
     "text": "Contáctanos para aprender más sobre nuestras clases y próximos eventos. Para respuestas rápidas, es mejor enviarnos un mensaje por WhatsApp - pero también puedes enviarnos un correo electrónico.",
