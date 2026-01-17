@@ -1,15 +1,15 @@
 /**
  * SGP Yoga - Events Data Configuration
- * 
+ *
  * Purpose: Centralized event metadata for dynamic rendering
  * This file contains structural/technical data for events, while all
  * text content (titles, descriptions, etc.) comes from i18n translation files
- * 
+ *
  * How to add a new event:
  * 1. Add a new object to the eventsData array below
  * 2. Add corresponding translations to locales/en/events.json and locales/es/events.json
  * 3. That's it! The event will appear automatically on the page
- * 
+ *
  * How to remove an event:
  * 1. Remove the object from the eventsData array
  * 2. (Optional) Remove translations from JSON files
@@ -48,17 +48,17 @@ const eventsData = [
         // Unique identifier - must match the translation key in events.json
         // Format: {event-name}_{shortdate} for clarity and uniqueness
         id: 'aerial-yoga-photo_nov2025',
-        
+
         // Category: 'workshop', 'retreat', or 'training'
         // This determines filtering and badge styling
         category: 'workshop',
-        
+
         // Event dates in ISO format (YYYY-MM-DD)
         // For single-day events, startDate and endDate are the same
         // For multi-day events, use first and last day
         startDate: '2025-11-01',
         endDate: '2025-11-01',
-        
+
         // Image paths for responsive loading
         // Mobile variant for devices ≤640px
         imageMobile: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-480.webp',
@@ -66,7 +66,7 @@ const eventsData = [
         image: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-720.webp',
         // High resolution image for modal or larger displays
         imageHigh: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-1080.webp',
-        
+
         // Optional: CSS object-position value for image positioning
         // Examples: 'center', 'top', 'bottom', 'top left', '50% 25%'
         // If not specified, defaults to 'center'
@@ -120,6 +120,30 @@ const eventsData = [
         imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-1080.webp',
         cardImagePosition: 'center bottom',
         modalImagePosition: 'center bottom'
+    },
+    // 100-Hour Aerial Teacher Training, Mexico City, February-May 2026 (Camila & Harjeet)
+    {
+        id: 'aerial-teacher-training_feb2026',
+        category: 'training',
+        startDate: '2026-02-21',
+        endDate: '2026-05-02',
+        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_march2026-480.webp',
+        image: '/assets/photos/events/unique/aerial-teacher-training_march2026-720.webp',
+        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_march2026-1080.webp',
+        cardImagePosition: 'center bottom',
+        modalImagePosition: 'center top'
+    },
+    // Yoga For Healing Retreat, Guatemala, May 2026 (Harjeet & Camila)
+    {
+        id: 'yoga-healing-retreat_may2026',
+        category: 'retreat',
+        startDate: '2026-05-14',
+        endDate: '2026-05-18',
+        imageMobile: '/assets/photos/events/unique/yoga-retreat_may2026-480.webp',
+        image: '/assets/photos/events/unique/yoga-retreat_may2026-720.webp',
+        imageHigh: '/assets/photos/events/unique/yoga-retreat_may2026-1080.webp',
+        cardImagePosition: 'center 20%',
+        modalImagePosition: 'center 23%'
     }
 
     // Add more events here following the same pattern
@@ -166,7 +190,7 @@ const categoryDefaults = {
 
 /**
  * Purpose: Get the image path for an event, with fallback to category default
- * 
+ *
  * @param {object} event - Event object from eventsData
  * @param {boolean} highRes - Whether to get high-res version (for modal)
  * @param {boolean} mobile - Whether to get mobile version (for small screens)
@@ -174,12 +198,12 @@ const categoryDefaults = {
  */
 function getEventImage(event, highRes = false, mobile = false) {
     const imageKey = mobile ? 'imageMobile' : (highRes ? 'imageHigh' : 'image');
-    
+
     // If event has custom image, use it
     if (event[imageKey]) {
         return event[imageKey];
     }
-    
+
     // Otherwise fall back to category default
     const defaults = categoryDefaults[event.category];
     return defaults ? defaults[imageKey] : categoryDefaults.workshop[imageKey];
@@ -188,25 +212,25 @@ function getEventImage(event, highRes = false, mobile = false) {
 /**
  * Purpose: Determine if an event is in the past
  * An event is considered past if its end date has passed
- * 
+ *
  * @param {object} event - Event object from eventsData
  * @returns {boolean} True if event has ended
  */
 function isPastEvent(event) {
     if (!event.endDate) return false;
-    
+
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
-    
+
     const eventEndDate = new Date(event.endDate);
     eventEndDate.setHours(0, 0, 0, 0);
-    
+
     return eventEndDate < today;
 }
 
 /**
  * Purpose: Sort events by date
- * 
+ *
  * @param {Array} events - Array of event objects
  * @param {boolean} ascending - If true, sort earliest first. If false, latest first
  * @returns {Array} Sorted array of events
@@ -215,7 +239,7 @@ function sortEventsByDate(events, ascending = true) {
     return [...events].sort((a, b) => {
         const dateA = new Date(a.startDate);
         const dateB = new Date(b.startDate);
-        
+
         return ascending ? dateA - dateB : dateB - dateA;
     });
 }
