@@ -22,18 +22,21 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/html; charset=utf-8"
 
 # CSS files - always check for updates
 [[headers]]
   for = "/css/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/css; charset=utf-8"
 
 # JS files - always check for updates
 [[headers]]
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/javascript; charset=utf-8"
 
 # Static assets (images, fonts) - cache for 30 days
 [[headers]]
