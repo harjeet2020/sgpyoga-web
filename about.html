@@ -48,31 +48,31 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Performance: Preload critical assets -->
-    <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="css/navbar.css" as="style">
-    <link rel="preload" href="assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
-    <link rel="preload" href="assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="/css/navbar.css" as="style">
+    <link rel="preload" href="/assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="/assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
     
     <!-- Performance: Preload LCP background image with high priority -->
-    <link rel="preload" href="assets/photos/about/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
-    <link rel="preload" href="assets/photos/about/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
-    <link rel="preload" href="assets/photos/about/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
+    <link rel="preload" href="/assets/photos/about/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
+    <link rel="preload" href="/assets/photos/about/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
+    <link rel="preload" href="/assets/photos/about/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
-    <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/about.css">
     
     <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
-    <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
     
     <!-- Fallback for browsers with JavaScript disabled -->
     <noscript>
-        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="/css/footer.css">
     </noscript>
     
     <!-- CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency -->
@@ -95,11 +95,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="index.html" class="navbar-brand-link">
-                <img srcset="assets/logo/logoMain-150.webp 150w,
-                             assets/logo/logoMain-300.webp 300w,
-                             assets/logo/logoMain-600.webp 600w"
+                <img srcset="/assets/logo/logoMain-150.webp 150w,
+                             /assets/logo/logoMain-300.webp 300w,
+                             /assets/logo/logoMain-600.webp 600w"
                      sizes="100px"
-                     src="assets/logo/logoMain-150.webp"
+                     src="/assets/logo/logoMain-150.webp"
                      alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
                      class="navbar-logo"
                      width="150" height="150"
@@ -195,12 +195,12 @@
                     <div class="style-tile" data-style="aerial">
                         <picture>
                             <source type="image/webp"
-                                    srcset="assets/photos/about/aerial-480.webp 480w,
-                                            assets/photos/about/aerial-720.webp 720w,
-                                            assets/photos/about/aerial-900.webp 900w,
-                                            assets/photos/about/aerial-1200.webp 1200w"
+                                    srcset="/assets/photos/about/aerial-480.webp 480w,
+                                            /assets/photos/about/aerial-720.webp 720w,
+                                            /assets/photos/about/aerial-900.webp 900w,
+                                            /assets/photos/about/aerial-1200.webp 1200w"
                                     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                            <img src="assets/photos/about/aerial-480.webp" alt="A female yogi suspended in a silk hammock performing an aerial yoga pose" class="style-tile-image" id="aerial-image" width="480" height="480" loading="lazy">
+                            <img src="/assets/photos/about/aerial-480.webp" alt="A female yogi suspended in a silk hammock performing an aerial yoga pose" class="style-tile-image" id="aerial-image" width="480" height="480" loading="lazy">
                         </picture>
                         <div class="style-overlay">
                             <div class="style-content">
@@ -214,12 +214,12 @@
                     <div class="style-tile" data-style="vinyasa">
                         <picture>
                             <source type="image/webp"
-                                    srcset="assets/photos/about/vinyasa-480.webp 480w,
-                                            assets/photos/about/vinyasa-720.webp 720w,
-                                            assets/photos/about/vinyasa-900.webp 900w,
-                                            assets/photos/about/vinyasa-1200.webp 1200w"
+                                    srcset="/assets/photos/about/vinyasa-480.webp 480w,
+                                            /assets/photos/about/vinyasa-720.webp 720w,
+                                            /assets/photos/about/vinyasa-900.webp 900w,
+                                            /assets/photos/about/vinyasa-1200.webp 1200w"
                                     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                            <img src="assets/photos/about/vinyasa-480.webp" alt="A female yogi performing an elegant vinyasa headstand pose on a beach during early sunset" class="style-tile-image" id="vinyasa-image" width="480" height="480" loading="lazy">
+                            <img src="/assets/photos/about/vinyasa-480.webp" alt="A female yogi performing an elegant vinyasa headstand pose on a beach during early sunset" class="style-tile-image" id="vinyasa-image" width="480" height="480" loading="lazy">
                         </picture>
                         <div class="style-overlay">
                             <div class="style-content">
@@ -233,12 +233,12 @@
                     <div class="style-tile" data-style="hatha">
                         <picture>
                             <source type="image/webp"
-                                    srcset="assets/photos/about/hatha-480.webp 480w,
-                                            assets/photos/about/hatha-720.webp 720w,
-                                            assets/photos/about/hatha-900.webp 900w,
-                                            assets/photos/about/hatha-1200.webp 1200w"
+                                    srcset="/assets/photos/about/hatha-480.webp 480w,
+                                            /assets/photos/about/hatha-720.webp 720w,
+                                            /assets/photos/about/hatha-900.webp 900w,
+                                            /assets/photos/about/hatha-1200.webp 1200w"
                                     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                            <img src="assets/photos/about/hatha-480.webp" alt="A male yogi performing archer pose in a yoga studio, a red brick wall in the background" class="style-tile-image" id="hatha-image" width="480" height="480" loading="lazy">
+                            <img src="/assets/photos/about/hatha-480.webp" alt="A male yogi performing archer pose in a yoga studio, a red brick wall in the background" class="style-tile-image" id="hatha-image" width="480" height="480" loading="lazy">
                         </picture>
                         <div class="style-overlay">
                             <div class="style-content">
@@ -252,12 +252,12 @@
                     <div class="style-tile" data-style="kundalini">
                         <picture>
                             <source type="image/webp"
-                                    srcset="assets/photos/about/kundalini-480.webp 480w,
-                                            assets/photos/about/kundalini-720.webp 720w,
-                                            assets/photos/about/kundalini-900.webp 900w,
-                                            assets/photos/about/kundalini-1200.webp 1200w"
+                                    srcset="/assets/photos/about/kundalini-480.webp 480w,
+                                            /assets/photos/about/kundalini-720.webp 720w,
+                                            /assets/photos/about/kundalini-900.webp 900w,
+                                            /assets/photos/about/kundalini-1200.webp 1200w"
                                     sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                            <img src="assets/photos/about/kundalini-480.webp" alt="A male yogi performing a half wheel pose in front of a mountain stream, with a lush, green forest in the background" class="style-tile-image" id="kundalini-image" width="480" height="480" loading="lazy">
+                            <img src="/assets/photos/about/kundalini-480.webp" alt="A male yogi performing a half wheel pose in front of a mountain stream, with a lush, green forest in the background" class="style-tile-image" id="kundalini-image" width="480" height="480" loading="lazy">
                         </picture>
                         <div class="style-overlay">
                             <div class="style-content">
@@ -293,11 +293,11 @@
                     <!-- Teacher 1 -->
                     <div class="teacher-card">
                         <div class="teacher-photo">
-                            <img srcset="assets/photos/about/harjeet-200.webp 200w,
-                                         assets/photos/about/harjeet-300.webp 300w,
-                                         assets/photos/about/harjeet-600.webp 600w"
+                            <img srcset="/assets/photos/about/harjeet-200.webp 200w,
+                                         /assets/photos/about/harjeet-300.webp 300w,
+                                         /assets/photos/about/harjeet-600.webp 600w"
                                  sizes="(max-width: 767px) 150px, 200px"
-                                 src="assets/photos/about/harjeet-200.webp"
+                                 src="/assets/photos/about/harjeet-200.webp"
                                  alt="Harjeet, SGP Yoga Founder & KRI-certified Kundalini Yoga teacher"
                                  width="200" height="200"
                                  loading="lazy">
@@ -312,11 +312,11 @@
                     <!-- Teacher 2 -->
                     <div class="teacher-card">
                         <div class="teacher-photo">
-                            <img srcset="assets/photos/about/camila-200.webp 200w,
-                                         assets/photos/about/camila-300.webp 300w,
-                                         assets/photos/about/camila-600.webp 600w"
+                            <img srcset="/assets/photos/about/camila-200.webp 200w,
+                                         /assets/photos/about/camila-300.webp 300w,
+                                         /assets/photos/about/camila-600.webp 600w"
                                  sizes="(max-width: 767px) 150px, 200px"
-                                 src="assets/photos/about/camila-200.webp"
+                                 src="/assets/photos/about/camila-200.webp"
                                  alt="Camila, SGP Yoga co-founder & Aerial and Vinyasa Yoga teacher"
                                  width="200" height="200"
                                  loading="lazy">
@@ -331,11 +331,11 @@
                     <!-- Teacher 3 -->
                     <div class="teacher-card">
                         <div class="teacher-photo">
-                            <img srcset="assets/photos/about/dani-200.webp 200w,
-                                         assets/photos/about/dani-300.webp 300w,
-                                         assets/photos/about/dani-600.webp 600w"
+                            <img srcset="/assets/photos/about/dani-200.webp 200w,
+                                         /assets/photos/about/dani-300.webp 300w,
+                                         /assets/photos/about/dani-600.webp 600w"
                                  sizes="(max-width: 767px) 150px, 200px"
-                                 src="assets/photos/about/dani-200.webp"
+                                 src="/assets/photos/about/dani-200.webp"
                                  alt="Dani, Aerial Yoga teacher"
                                  width="200" height="200"
                                  loading="lazy">
@@ -350,11 +350,11 @@
                     <!-- Teacher 4 -->
                     <div class="teacher-card">
                         <div class="teacher-photo">
-                            <img srcset="assets/photos/about/aro-200.webp 200w,
-                                         assets/photos/about/aro-300.webp 300w,
-                                         assets/photos/about/aro-600.webp 600w"
+                            <img srcset="/assets/photos/about/aro-200.webp 200w,
+                                         /assets/photos/about/aro-300.webp 300w,
+                                         /assets/photos/about/aro-600.webp 600w"
                                  sizes="(max-width: 767px) 150px, 200px"
-                                 src="assets/photos/about/aro-200.webp"
+                                 src="/assets/photos/about/aro-200.webp"
                                  alt="Aro, Hatha & Aerial Yoga teacher"
                                  width="200" height="200"
                                  loading="lazy">
@@ -369,11 +369,11 @@
                     <!-- Teacher 5 -->
                     <div class="teacher-card">
                         <div class="teacher-photo">
-                            <img srcset="assets/photos/about/itzel-200.webp 200w,
-                                         assets/photos/about/itzel-300.webp 300w,
-                                         assets/photos/about/itzel-600.webp 600w"
+                            <img srcset="/assets/photos/about/itzel-200.webp 200w,
+                                         /assets/photos/about/itzel-300.webp 300w,
+                                         /assets/photos/about/itzel-600.webp 600w"
                                  sizes="(max-width: 767px) 150px, 200px"
-                                 src="assets/photos/about/itzel-200.webp"
+                                 src="/assets/photos/about/itzel-200.webp"
                                  alt="Itzel, Aerial Yoga teacher"
                                  width="200" height="200"
                                  loading="lazy">
@@ -394,12 +394,12 @@
                 <div class="space-tile" data-space="hariom">
                     <picture>
                         <source type="image/webp"
-                                srcset="assets/photos/about/hariom-480.webp 480w,
-                                        assets/photos/about/hariom-720.webp 720w,
-                                        assets/photos/about/hariom-900.webp 900w,
-                                        assets/photos/about/hariom-1200.webp 1200w"
+                                srcset="/assets/photos/about/hariom-480.webp 480w,
+                                        /assets/photos/about/hariom-720.webp 720w,
+                                        /assets/photos/about/hariom-900.webp 900w,
+                                        /assets/photos/about/hariom-1200.webp 1200w"
                                 sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                        <img src="assets/photos/about/hariom-480.webp" alt="Hari Om Yoga Studio in Letran Valle, CDMX" class="space-tile-image" id="hariom-image" width="480" height="480" loading="lazy">
+                        <img src="/assets/photos/about/hariom-480.webp" alt="Hari Om Yoga Studio in Letran Valle, CDMX" class="space-tile-image" id="hariom-image" width="480" height="480" loading="lazy">
                     </picture>
                     <div class="space-overlay">
                         <div class="space-content">
@@ -418,12 +418,12 @@
                 <div class="space-tile" data-space="aguacate">
                     <picture>
                         <source type="image/webp"
-                                srcset="assets/photos/about/aguacate-480.webp 480w,
-                                        assets/photos/about/aguacate-720.webp 720w,
-                                        assets/photos/about/aguacate-900.webp 900w,
-                                        assets/photos/about/aguacate-1200.webp 1200w"
+                                srcset="/assets/photos/about/aguacate-480.webp 480w,
+                                        /assets/photos/about/aguacate-720.webp 720w,
+                                        /assets/photos/about/aguacate-900.webp 900w,
+                                        /assets/photos/about/aguacate-1200.webp 1200w"
                                 sizes="(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 25vw">
-                        <img src="assets/photos/about/aguacate-480.webp" alt="Aguacate Yoga Studio in Coyoacán, CDMX" class="space-tile-image" id="aguacate-image" width="480" height="480" loading="lazy">
+                        <img src="/assets/photos/about/aguacate-480.webp" alt="Aguacate Yoga Studio in Coyoacán, CDMX" class="space-tile-image" id="aguacate-image" width="480" height="480" loading="lazy">
                     </picture>
                     <div class="space-overlay">
                         <div class="space-content">
@@ -449,11 +449,11 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="index.html" class="footer-logo-link">
-                            <img srcset="assets/logo/logoMain-150.webp 150w,
-                                         assets/logo/logoMain-300.webp 300w,
-                                         assets/logo/logoMain-600.webp 600w"
+                            <img srcset="/assets/logo/logoMain-150.webp 150w,
+                                         /assets/logo/logoMain-300.webp 300w,
+                                         /assets/logo/logoMain-600.webp 600w"
                                  sizes="150px"
-                                 src="assets/logo/logoMain-150.webp"
+                                 src="/assets/logo/logoMain-150.webp"
                                  alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
                                  class="footer-logo"
                                  width="150" height="150"
@@ -524,8 +524,8 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/i18n.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/about.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/about.js"></script>
 </body>
 </html>

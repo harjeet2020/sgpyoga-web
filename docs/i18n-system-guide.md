@@ -318,6 +318,38 @@ document.addEventListener('languageChanged', function(event) {
 
 ---
 
+## 📂 **Asset Paths in HTML Files**
+
+All HTML source files must use **absolute paths** for CSS, JavaScript, images, and other assets:
+
+```html
+<!-- Correct: Absolute paths -->
+<link rel="stylesheet" href="/css/main.css">
+<script src="/js/i18n.js"></script>
+<img src="/assets/photos/home/hero.webp" alt="...">
+<img srcset="/assets/logo/logo-150.webp 150w,
+             /assets/logo/logo-300.webp 300w" ...>
+
+<!-- Incorrect: Relative paths -->
+<link rel="stylesheet" href="css/main.css">
+<script src="js/i18n.js"></script>
+```
+
+**Why absolute paths?**
+
+The `build-i18n.js` script generates Spanish HTML files in the `/es/` subdirectory. With absolute paths:
+- Assets resolve correctly from both `/index.html` and `/es/index.html`
+- The build script copies paths as-is without needing complex regex transformations
+- Multi-line `srcset` attributes (which are hard to regex-match) work correctly
+
+**What to check:**
+- All `href="..."` for CSS and preload links
+- All `src="..."` for scripts and images
+- All `srcset="..."` including continuation lines in multi-line attributes
+- All `url('...')` in inline CSS styles
+
+---
+
 ## 🔍 **Troubleshooting**
 
 ### **Common Issues**

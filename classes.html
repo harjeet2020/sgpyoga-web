@@ -48,19 +48,19 @@
     <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Performance: Preload critical assets -->
-    <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="css/navbar.css" as="style">
-    <link rel="preload" href="assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
-    <link rel="preload" href="assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="/css/navbar.css" as="style">
+    <link rel="preload" href="/assets/logo/logoMain-150.webp" as="image" media="(max-width: 1024px)">
+    <link rel="preload" href="/assets/logo/logoMain-300.webp" as="image" media="(min-width: 1025px)">
 
     <!-- Performance: CRITICAL - Preload LCP hero background image to fix NO_LCP error -->
-    <link rel="preload" href="assets/photos/classes/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
-    <link rel="preload" href="assets/photos/classes/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
-    <link rel="preload" href="assets/photos/classes/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
+    <link rel="preload" href="/assets/photos/classes/hero-640.webp" as="image" fetchpriority="high" media="(max-width: 767px)">
+    <link rel="preload" href="/assets/photos/classes/hero-768.webp" as="image" fetchpriority="high" media="(min-width: 768px) and (max-width: 959px)">
+    <link rel="preload" href="/assets/photos/classes/hero-1280.webp" as="image" fetchpriority="high" media="(min-width: 960px)">
 
     <!-- Performance: Preload critical fonts to prevent FOUT -->
-    <link rel="preload" href="assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
 
     <!-- Performance: Inline critical hero CSS for fastest LCP -->
     <style>
@@ -74,23 +74,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: url('assets/photos/classes/hero-640.webp') center 40%/cover no-repeat;
+            background: url('/assets/photos/classes/hero-640.webp') center 40%/cover no-repeat;
             background-attachment: fixed;
         }
         @media (min-width: 768px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-768.webp'); }
+            .classes-hero { background-image: url('/assets/photos/classes/hero-768.webp'); }
         }
         @media (min-width: 960px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-960.webp'); }
+            .classes-hero { background-image: url('/assets/photos/classes/hero-960.webp'); }
         }
         @media (min-width: 1280px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-1280.webp'); }
+            .classes-hero { background-image: url('/assets/photos/classes/hero-1280.webp'); }
         }
         @media (min-width: 1920px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-1920.webp'); }
+            .classes-hero { background-image: url('/assets/photos/classes/hero-1920.webp'); }
         }
         @media (min-width: 2560px) {
-            .classes-hero { background-image: url('assets/photos/classes/hero-2560.webp'); }
+            .classes-hero { background-image: url('/assets/photos/classes/hero-2560.webp'); }
         }
         .classes-hero-overlay {
             position: relative;
@@ -114,16 +114,16 @@
     </style>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/classes.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/classes.css">
 
     <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
-    <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
 
     <!-- Fallback for browsers with JavaScript disabled -->
     <noscript>
-        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="/css/footer.css">
     </noscript>
 
     <!-- CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency -->
@@ -146,11 +146,11 @@
         <!-- Left Section: Logo and Studio Name -->
         <div class="navbar-left">
             <a href="index.html" class="navbar-brand-link">
-                <img srcset="assets/logo/logoMain-150.webp 150w,
-                             assets/logo/logoMain-300.webp 300w,
-                             assets/logo/logoMain-600.webp 600w"
+                <img srcset="/assets/logo/logoMain-150.webp 150w,
+                             /assets/logo/logoMain-300.webp 300w,
+                             /assets/logo/logoMain-600.webp 600w"
                      sizes="100px"
-                     src="assets/logo/logoMain-150.webp"
+                     src="/assets/logo/logoMain-150.webp"
                      alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
                      class="navbar-logo"
                      width="150" height="150"
@@ -254,11 +254,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/camila-200.webp 200w,
-                                             assets/photos/classes/camila-300.webp 300w,
-                                             assets/photos/classes/camila-600.webp 600w"
+                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
+                                             /assets/photos/classes/camila-300.webp 300w,
+                                             /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/camila-200.webp"
+                                     src="/assets/photos/classes/camila-200.webp"
                                      alt="Camila, Aerial Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -284,11 +284,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/camila-200.webp 200w,
-                                             assets/photos/classes/camila-300.webp 300w,
-                                             assets/photos/classes/camila-600.webp 600w"
+                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
+                                             /assets/photos/classes/camila-300.webp 300w,
+                                             /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/camila-200.webp"
+                                     src="/assets/photos/classes/camila-200.webp"
                                      alt="Camila, Aerial Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -332,11 +332,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/camila-200.webp 200w,
-                                             assets/photos/classes/camila-300.webp 300w,
-                                             assets/photos/classes/camila-600.webp 600w"
+                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
+                                             /assets/photos/classes/camila-300.webp 300w,
+                                             /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/camila-200.webp"
+                                     src="/assets/photos/classes/camila-200.webp"
                                      alt="Camila, Aerial Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -360,11 +360,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/camila-200.webp 200w,
-                                             assets/photos/classes/camila-300.webp 300w,
-                                             assets/photos/classes/camila-600.webp 600w"
+                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
+                                             /assets/photos/classes/camila-300.webp 300w,
+                                             /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/camila-200.webp"
+                                     src="/assets/photos/classes/camila-200.webp"
                                      alt="Camila, Vinyasa Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -392,11 +392,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/dani-200.webp 200w,
-                                             assets/photos/classes/dani-300.webp 300w,
-                                             assets/photos/classes/dani-600.webp 600w"
+                                <img srcset="/assets/photos/classes/dani-200.webp 200w,
+                                             /assets/photos/classes/dani-300.webp 300w,
+                                             /assets/photos/classes/dani-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/dani-200.webp"
+                                     src="/assets/photos/classes/dani-200.webp"
                                      alt="Dani, Aerial Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -422,11 +422,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/camila-200.webp 200w,
-                                             assets/photos/classes/camila-300.webp 300w,
-                                             assets/photos/classes/camila-600.webp 600w"
+                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
+                                             /assets/photos/classes/camila-300.webp 300w,
+                                             /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/camila-200.webp"
+                                     src="/assets/photos/classes/camila-200.webp"
                                      alt="Camila, Aerial Pilates teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -464,11 +464,11 @@
                                 </span>
                             </div>
                             <div class="teacher-banner">
-                                <img srcset="assets/photos/classes/harjeet-200.webp 200w,
-                                             assets/photos/classes/harjeet-300.webp 300w,
-                                             assets/photos/classes/harjeet-600.webp 600w"
+                                <img srcset="/assets/photos/classes/harjeet-200.webp 200w,
+                                             /assets/photos/classes/harjeet-300.webp 300w,
+                                             /assets/photos/classes/harjeet-600.webp 600w"
                                      sizes="50px"
-                                     src="assets/photos/classes/harjeet-200.webp"
+                                     src="/assets/photos/classes/harjeet-200.webp"
                                      alt="Harjeet, Kundalini Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
@@ -645,11 +645,11 @@
                     <!-- Logo and Mission Section -->
                     <div class="footer-column footer-logo-section">
                         <a href="index.html" class="footer-logo-link">
-                            <img srcset="assets/logo/logoMain-150.webp 150w,
-                                         assets/logo/logoMain-300.webp 300w,
-                                         assets/logo/logoMain-600.webp 600w"
+                            <img srcset="/assets/logo/logoMain-150.webp 150w,
+                                         /assets/logo/logoMain-300.webp 300w,
+                                         /assets/logo/logoMain-600.webp 600w"
                                  sizes="150px"
-                                 src="assets/logo/logoMain-150.webp"
+                                 src="/assets/logo/logoMain-150.webp"
                                  alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
                                  class="footer-logo"
                                  width="150" height="150"
@@ -720,8 +720,8 @@
     </footer>
 
     <!-- JavaScript Files -->
-    <script src="js/i18n.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/classes.js"></script>
+    <script src="/js/i18n.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/classes.js"></script>
 </body>
 </html>

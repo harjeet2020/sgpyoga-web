@@ -227,39 +227,6 @@ function processHTML(html, translations, filename) {
         (match, domain, page) => `<link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/${page}">`
     );
     
-    // Convert relative paths to absolute paths for resources
-    // This ensures CSS, JS, and images work correctly in /es/ subdirectory
-    
-    // CSS files: href="css/... -> href="/css/...
-    processed = processed.replace(
-        /(<link[^>]*href=["'])(?!\/|https?:\/\/)(css\/[^"']+)(["'][^>]*>)/g,
-        '$1/$2$3'
-    );
-    
-    // JavaScript files: src="js/... -> src="/js/...
-    processed = processed.replace(
-        /(<script[^>]*src=["'])(?!\/|https?:\/\/)(js\/[^"']+)(["'][^>]*>)/g,
-        '$1/$2$3'
-    );
-    
-    // Images: src="assets/... -> src="/assets/...
-    processed = processed.replace(
-        /(<img[^>]*src=["'])(?!\/|https?:\/\/)(assets\/[^"']+)(["'][^>]*>)/g,
-        '$1/$2$3'
-    );
-    
-    // Picture source elements: srcset="assets/... -> srcset="/assets/...
-    processed = processed.replace(
-        /(<source[^>]*srcset=["'])(?!\/|https?:\/\/)(assets\/[^"']+)(["'][^>]*>)/g,
-        '$1/$2$3'
-    );
-    
-    // Logo and other asset references
-    processed = processed.replace(
-        /(<[^>]*(?:src|href)=["'])(?!\/|https?:\/\/)(assets\/[^"']+)(["'][^>]*>)/g,
-        '$1/$2$3'
-    );
-    
     // Navigation links: href="index.html" -> href="/es/index.html"
     // Only for internal page links, not for external URLs or blog (which uses 11ty)
     processed = processed.replace(
