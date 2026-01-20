@@ -116,12 +116,17 @@
     "items": [
       {
         "quote": "Realizar la formación en aerial yoga fue cumplir con uno de mis propósitos. De la belleza del cuerpo suspendido nace la consciencia del equilibrio, la fuerza y la coordinación para prolongar el movimiento en el aire. Esta práctica me permite sentirme más segura de mí misma, aceptar la naturaleza de mi cuerpo y a su vez, trabajar la sensualidad de una manera sutil.\n\nNo dudé en tomar la certificación, porque sabía que tendría una gran maestra, quien me ha acompañado en este largo proceso y me ha permitido sembrar y florecer en el mundo del yoga, ella me sigue acompañando en los procesos y el hecho de que crea en mí y comparta su saber y sus experiencias, hace que mi ser también se expanda en alegría.",
-        "name": "Ika Hermenegilda",
+        "name": "Jenny",
         "location": "Colombia"
       },
       {
         "quote": "Para mí la certificación fue un proceso muy lindo, en el que pude confiar en mi, en mis capacidades. Gracias a todo lo que nos compartieron pude reflexionar muchas cosas sobre mi vida, sobre como me relaciono con el mundo, como atravieso las experiencias vividas. Todas la practicas que tuvimos me enseñaron mucho de mí misma, y también de abrirme a los demás, de observar, escuchar, recibir.\n\nPara mí la certificación llego en el momento correcto, por que estaba atravesando un montón de cosas que no lograba entender por qué, y el espacio que tuve en la certificación me ayudó mucho a direccionar ese ruido y poder digerirlo. Me sentí acompañada en todo momento, con una excelente guía. Me siento muy agradecida por haber podido ser parte de este aprendizaje que me hizo abrir mi panorama.",
         "name": "Dani",
+        "location": "México"
+      },
+      {
+        "quote": "Participar en esta formación ha sido un viaje de transformación que superó todas mis expectativas. Si bien el avance físico fue notable, el verdadero regalo fue el boost de confianza que experimenté en el proceso. Logré superar miedos que antes me paralizaban y alcancé metas que, honestamente, nunca creí que fueran posibles para mí.\n\nEsa seguridad que hoy habita en mí es el recurso más valioso que ahora puedo transmitirle a mis alumnas en cada clase. Durante todo el camino, me sentí profundamente acompañada y contenida por Cami y Harjeet; su calidez humana y la claridad con la que explican cada detalle hacen que lo complejo se vuelva sencillo. Me sentí en un espacio seguro para crecer.",
+        "name": "Aro",
         "location": "México"
       },
       {
@@ -133,11 +138,6 @@
         "quote": "Desde el primer entendí que el aéreo yoga no es solo colgarse de una tela. Mi sankalpa para esta experiencia fue: \"Quiero recordar mi poder, habitar mi cuerpo con presencia y guiar a otros a encontrar confianza en el suyo.\"\n\nCon la tela descubrí que soltar no siempre es caer, a veces soltar es sostenerme distinto.",
         "name": "Dani",
         "location": "Colombia"
-      },
-      {
-        "quote": "Participar en esta formación ha sido un viaje de transformación que superó todas mis expectativas. Si bien el avance físico fue notable, el verdadero regalo fue el boost de confianza que experimenté en el proceso. Logré superar miedos que antes me paralizaban y alcancé metas que, honestamente, nunca creí que fueran posibles para mí.\n\nEsa seguridad que hoy habita en mí es el recurso más valioso que ahora puedo transmitirle a mis alumnas en cada clase. Durante todo el camino, me sentí profundamente acompañada y contenida por Cami y Harjeet; su calidez humana y la claridad con la que explican cada detalle hacen que lo complejo se vuelva sencillo. Me sentí en un espacio seguro para crecer.",
-        "name": "Aro",
-        "location": "México"
       }
     ]
   },
