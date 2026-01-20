@@ -93,30 +93,8 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-
-  <!-- Certifications -->
-  <url>
-    <loc>https://sgpyoga.co/certifications/aerial-yoga-100.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/certifications/aerial-yoga-100.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/certifications/aerial-yoga-100.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/certifications/aerial-yoga-100.html"/>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://sgpyoga.co/es/certifications/aerial-yoga-100.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/certifications/aerial-yoga-100.html"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/certifications/aerial-yoga-100.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/certifications/aerial-yoga-100.html"/>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-
+  
+  
   <url>
     <loc>https://sgpyoga.co/blog/dist/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/"/>

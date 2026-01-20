@@ -125,11 +125,15 @@
     <nav class="navbar">
         <div class="navbar-left">
             <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="navbar-brand-link">
-                <picture>
-                    <source media="(min-width: 1025px)" srcset="/assets/logo/logoMain-300.webp">
-                    <source media="(max-width: 1024px)" srcset="/assets/logo/logoMain-150.webp">
-                    <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="navbar-logo">
-                </picture>
+                <img srcset="/assets/logo/logoMain-150.webp 150w,
+                             /assets/logo/logoMain-300.webp 300w,
+                             /assets/logo/logoMain-600.webp 600w"
+                     sizes="100px"
+                     src="/assets/logo/logoMain-150.webp"
+                     alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
+                     class="navbar-logo"
+                     width="150" height="150"
+                     loading="eager">
                 <span class="navbar-brand">SGP Yoga</span>
             </a>
         </div>
@@ -180,10 +184,15 @@
                     {# Logo and Mission Section #}
                     <div class="footer-column footer-logo-section">
                         <a href="{% if lang == 'es' %}/es/index.html{% else %}/index.html{% endif %}" class="footer-logo-link">
-                            <picture>
-                                <source srcset="/assets/logo/logoMain-300.webp">
-                                <img src="/assets/logo/logoMain.png" alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo" class="footer-logo">
-                            </picture>
+                            <img srcset="/assets/logo/logoMain-150.webp 150w,
+                                         /assets/logo/logoMain-300.webp 300w,
+                                         /assets/logo/logoMain-600.webp 600w"
+                                 sizes="150px"
+                                 src="/assets/logo/logoMain-150.webp"
+                                 alt="SGP Yoga - Sat Gur Prasaad Yoga studio logo"
+                                 class="footer-logo"
+                                 width="150" height="150"
+                                 loading="lazy">
                         </a>
                         <h3 data-i18n="common:footer.mission.title">Our Mission</h3>
                         <p class="footer-mission-text" data-i18n="common:footer.mission.text">Guiding souls to discover their inner light through the transformative practice of yoga in the heart of Mexico City.</p>

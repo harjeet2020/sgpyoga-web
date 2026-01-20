@@ -71,19 +71,10 @@ permalink: "/index.html"
                         {% if post.data.image and (displayMode == 'blog-card' or displayMode == 'both') %}
                         <div class="post-card-image">
                             <picture>
-                                {% if post.data.imageHigh %}
-                                <source media="(min-width: 1920px)" srcset="{{ post.data.imageHigh }}">
-                                {% endif %}
-                                {% if post.data.imageDesktop %}
-                                <source media="(min-width: 1280px)" srcset="{{ post.data.imageDesktop }}">
-                                {% endif %}
-                                {% if post.data.imageTablet %}
-                                <source media="(min-width: 769px)" srcset="{{ post.data.imageTablet }}">
-                                {% endif %}
-                                {% if post.data.imageMobile %}
-                                <source media="(max-width: 768px)" srcset="{{ post.data.imageMobile }}">
-                                {% endif %}
-                                <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" loading="lazy"
+                                <source type="image/webp"
+                                        srcset="{{ post.data.image }} 640w{% if post.data.imageMobile %}, {{ post.data.imageMobile }} 768w{% endif %}{% if post.data.imageTablet %}, {{ post.data.imageTablet }} 1024w{% endif %}{% if post.data.imageDesktop %}, {{ post.data.imageDesktop }} 1280w{% endif %}{% if post.data.imageHigh %}, {{ post.data.imageHigh }} 1920w{% endif %}"
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                                <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" width="640" height="427" loading="lazy"
                                     {% if post.data.imageCardPosition %}style="object-position: {{ post.data.imageCardPosition }};"{% endif %}>
                             </picture>
                         </div>
