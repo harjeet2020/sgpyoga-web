@@ -11,7 +11,13 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const HTML_FILES = ['index.html', 'about.html', 'classes.html', 'events.html'];
+const HTML_FILES = [
+    'index.html',
+    'about.html',
+    'classes.html',
+    'events.html',
+    'certifications/aerial-yoga-100.html'
+];
 const SOURCE_LANG = 'en';
 const TARGET_LANG = 'es';
 const OUTPUT_DIR = 'es';
@@ -260,6 +266,12 @@ function processHTML(html, translations, filename) {
         /(<a[^>]*href=["'])(?!\/|https?:\/\/|#)((?:index|about|classes|events)\.html)(["'][^>]*>)/g,
         '$1/es/$2$3'
     );
+
+    // Handle certifications directory links
+    processed = processed.replace(
+        /(<a[^>]*href=["'])(?!\/es\/)\/certifications\/([^"']+)(["'][^>]*>)/g,
+        '$1/es/certifications/$2$3'
+    );
     
     // Blog link needs special handling - point to language-specific blog index
     processed = processed.replace(
@@ -274,33 +286,33 @@ function processHTML(html, translations, filename) {
 
 /**
  * Generate Spanish HTML file
- * @param {string} filename - HTML filename to process
+ * @param {string} filename - HTML filename to process (can include subdirectory path)
  * @param {Object} translations - Loaded translations
  */
 function generateSpanishFile(filename, translations) {
     const sourcePath = path.join(__dirname, filename);
     const targetPath = path.join(__dirname, OUTPUT_DIR, filename);
-    
+
     log(`\nProcessing ${filename}...`, 'blue');
-    
+
     // Read source HTML
     if (!fs.existsSync(sourcePath)) {
         log(`  ✗ Source file not found: ${sourcePath}`, 'red');
         return;
     }
-    
+
     let html = fs.readFileSync(sourcePath, 'utf8');
-    
+
     // Process HTML
     const processed = processHTML(html, translations, filename);
-    
-    // Ensure output directory exists
-    const outputDir = path.join(__dirname, OUTPUT_DIR);
-    if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
-        log(`  ✓ Created directory: ${OUTPUT_DIR}`, 'green');
+
+    // Ensure output directory exists (including subdirectories)
+    const targetDir = path.dirname(targetPath);
+    if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+        log(`  ✓ Created directory: ${path.relative(__dirname, targetDir)}`, 'green');
     }
-    
+
     // Write processed HTML
     fs.writeFileSync(targetPath, processed, 'utf8');
     log(`  ✓ Generated ${OUTPUT_DIR}/${filename}`, 'green');

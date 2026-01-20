@@ -1,0 +1,153 @@
+{
+  "hero": {
+    "title": "Formación de Profesores de Yoga Aéreo - 100 Horas",
+    "subtitle": "Transforma tu práctica. Inspira a otros."
+  },
+  "intro": {
+    "title": "Descubre el Yoga Aéreo",
+    "paragraph1": "El yoga aéreo combina posturas tradicionales de yoga con el apoyo de una hamaca de seda suspendida del techo. Esta práctica única te permite explorar posturas desde una nueva perspectiva: flotando, invirtiéndote y estirándote de maneras que el yoga en el suelo simplemente no puede ofrecer. La hamaca soporta el peso de tu cuerpo, haciendo que las posturas desafiantes sean más accesibles mientras profundiza los estiramientos y fortalece el core.",
+    "paragraph2": "Nuestro programa de certificación de 100 horas va más allá de la práctica física. Aprenderás el arte de enseñar yoga aéreo de manera segura y efectiva, comprendiendo la mecánica corporal, los fundamentos del montaje y cómo guiar a estudiantes de todos los niveles a través de secuencias aéreas transformadoras. Ya seas un profesor de yoga que busca ampliar sus ofertas o un practicante dedicado listo para compartir tu pasión, esta formación te proporciona la base que necesitas.",
+    "audienceTitle": "Este Programa Es Para Ti Si...",
+    "audienceItems": [
+      "Eres un profesor de yoga certificado que desea agregar yoga aéreo a su repertorio de enseñanza",
+      "Eres un practicante dedicado de yoga listo para profundizar tu práctica e inspirar a otros",
+      "Tienes experiencia en artes del movimiento (danza, gimnasia, Pilates) y quieres enseñar yoga aéreo",
+      "Te apasiona el yoga y estás ansioso por comenzar tu camino como profesor"
+    ]
+  },
+  "curriculum": {
+    "title": "Lo Que Aprenderás",
+    "modules": {
+      "module1": {
+        "title": "Introducción al Yoga Aéreo",
+        "topics": [
+          "Historia y evolución de la práctica",
+          "Beneficios físicos, mentales y emocionales",
+          "Contraindicaciones y precauciones",
+          "Cómo atar la hamaca de seda"
+        ]
+      },
+      "module2": {
+        "title": "Filosofía Yóguica",
+        "topics": [
+          "El significado espiritual de la práctica",
+          "Chakras, nadis y el sistema energético humano",
+          "Bandhas, koshas, yamas y niyamas",
+          "Yoga sutras de Patanjali"
+        ]
+      },
+      "module3": {
+        "title": "Anatomía Yóguica",
+        "topics": [
+          "Articulaciones, músculos y fascia",
+          "El sistema nervioso",
+          "El sistema endocrino"
+        ]
+      },
+      "module4": {
+        "title": "Fundamentos del Yoga Aéreo",
+        "topics": [
+          "Posturas básicas",
+          "Agarres articulares",
+          "Alturas de la hamaca de seda",
+          "Ajustes y variaciones",
+          "Hamaca abierta y cerrada"
+        ]
+      },
+      "module5": {
+        "title": "Movilidad y Técnica",
+        "topics": [
+          "Estiramientos",
+          "Apertura de caderas",
+          "Arcos",
+          "Torsiones",
+          "Posturas invertidas"
+        ]
+      },
+      "module6": {
+        "title": "Secuencias y Fluidez",
+        "topics": [
+          "Vinyasa yoga en la hamaca de seda (saludos al sol/luna)",
+          "Cómo diseñar una secuencia equilibrada de yoga aéreo",
+          "Fluidez del movimiento aéreo",
+          "Variaciones y dinámicas",
+          "Transiciones seguras entre posturas"
+        ]
+      },
+      "module7": {
+        "title": "Pranayama, Mantra y Meditación",
+        "topics": [
+          "La importancia de la respiración en yoga y meditación",
+          "Ejercicios de respiración (pranayama)",
+          "Las cualidades terapéuticas del sonido",
+          "Apertura de garganta y práctica de mantras",
+          "El arte de la meditación",
+          "Aplicaciones en yoga aéreo"
+        ]
+      },
+      "module8": {
+        "title": "Metodología de Enseñanza",
+        "topics": [
+          "Cómo guiar una clase",
+          "Asistencia y ajustes en yoga aéreo",
+          "Preparación de clases con ajuste de nivel",
+          "Cómo adaptar tus clases a personas con limitaciones físicas"
+        ]
+      }
+    }
+  },
+  "instructors": {
+    "title": "Conoce a Tus Maestros",
+    "subtitle": "Aprende de practicantes experimentados de yoga aéreo"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Graduados",
+    "subtitle": "Escucha a estudiantes que completaron el programa",
+    "items": [
+      {
+        "quote": "Realizar la formación en aerial yoga fue cumplir con uno de mis propósitos. De la belleza del cuerpo suspendido nace la consciencia del equilibrio, la fuerza y la coordinación para prolongar el movimiento en el aire. Esta práctica me permite sentirme más segura de mí misma, aceptar la naturaleza de mi cuerpo y a su vez, trabajar la sensualidad de una manera sutil.\n\nNo dudé en tomar la certificación, porque sabía que tendría una gran maestra, quien me ha acompañado en este largo proceso y me ha permitido sembrar y florecer en el mundo del yoga, ella me sigue acompañando en los procesos y el hecho de que crea en mí y comparta su saber y sus experiencias, hace que mi ser también se expanda en alegría.",
+        "name": "Ika Hermenegilda",
+        "location": "Colombia"
+      },
+      {
+        "quote": "Para mí la certificación fue un proceso muy lindo, en el que pude confiar en mi, en mis capacidades. Gracias a todo lo que nos compartieron pude reflexionar muchas cosas sobre mi vida, sobre como me relaciono con el mundo, como atravieso las experiencias vividas. Todas la practicas que tuvimos me enseñaron mucho de mí misma, y también de abrirme a los demás, de observar, escuchar, recibir.\n\nPara mí la certificación llego en el momento correcto, por que estaba atravesando un montón de cosas que no lograba entender por qué, y el espacio que tuve en la certificación me ayudó mucho a direccionar ese ruido y poder digerirlo. Me sentí acompañada en todo momento, con una excelente guía. Me siento muy agradecida por haber podido ser parte de este aprendizaje que me hizo abrir mi panorama.",
+        "name": "Dani",
+        "location": "México"
+      },
+      {
+        "quote": "La formación para mí fue todo un reto físico y mental. Cami como maestra es excelente, me ayudó a no tenerle miedo a algunas posturas y sobretodo a desarrollar la fuerza y la confianza para realizarlas. Mis compañeras fueron un acompañamiento muy bonito y esencial durante toda la formación.\n\nLa parte teórica impartida por Harjeet fue muy extensa, es un maestro muy paciente y apasionado al momento de transmitir su conocimiento. Ambos nos tomaron de la mano de principio a fin, estoy muy agradecida por eso. La certificación me ayudó a que tuviera más confianza y seguridad y poder enseñar a nuevas personas lo bonito que es el aerial yoga.",
+        "name": "Itzel",
+        "location": "México"
+      },
+      {
+        "quote": "Desde el primer entendí que el aéreo yoga no es solo colgarse de una tela. Mi sankalpa para esta experiencia fue: \"Quiero recordar mi poder, habitar mi cuerpo con presencia y guiar a otros a encontrar confianza en el suyo.\"\n\nCon la tela descubrí que soltar no siempre es caer, a veces soltar es sostenerme distinto.",
+        "name": "Dani",
+        "location": "Colombia"
+      },
+      {
+        "quote": "Participar en esta formación ha sido un viaje de transformación que superó todas mis expectativas. Si bien el avance físico fue notable, el verdadero regalo fue el boost de confianza que experimenté en el proceso. Logré superar miedos que antes me paralizaban y alcancé metas que, honestamente, nunca creí que fueran posibles para mí.\n\nEsa seguridad que hoy habita en mí es el recurso más valioso que ahora puedo transmitirle a mis alumnas en cada clase. Durante todo el camino, me sentí profundamente acompañada y contenida por Cami y Harjeet; su calidez humana y la claridad con la que explican cada detalle hacen que lo complejo se vuelva sencillo. Me sentí en un espacio seguro para crecer.",
+        "name": "Aro",
+        "location": "México"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo Para Comenzar Tu Camino?",
+    "description": "Nuestra próxima formación es del 7 de Marzo al 10 de Mayo de 2026, los fines de semana en el Estudio Aguacate en la Ciudad de México. Contáctanos para reservar tu lugar o para conocer más sobre esta experiencia transformadora.",
+    "investment": {
+      "fullPayment": {
+        "title": "Pago Único",
+        "detail": "Pago completo por adelantado"
+      },
+      "paymentPlan": {
+        "title": "Plan de Pagos",
+        "detail": "Pago distribuido en 3 meses",
+        "breakdown": "($11,000 + $8,000 + $8,000)"
+      }
+    },
+    "buttons": {
+      "whatsapp": "WhatsApp",
+      "email": "Correo"
+    }
+  }
+}

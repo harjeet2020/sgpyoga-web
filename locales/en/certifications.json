@@ -1,0 +1,153 @@
+{
+  "hero": {
+    "title": "100-Hour Aerial Yoga Teacher Training",
+    "subtitle": "Transform your practice. Inspire others."
+  },
+  "intro": {
+    "title": "Discover Aerial Yoga",
+    "paragraph1": "Aerial yoga combines traditional yoga postures with the support of a silk hammock suspended from the ceiling. This unique practice allows you to explore poses from a new perspective—floating, inverting, and stretching in ways that ground-based yoga simply cannot offer. The hammock supports your body weight, making challenging poses more accessible while deepening stretches and building core strength.",
+    "paragraph2": "Our 100-hour certification program goes beyond the physical practice. You'll learn the art of teaching aerial yoga safely and effectively, understanding body mechanics, rigging fundamentals, and how to guide students of all levels through transformative aerial sequences. Whether you're a yoga teacher looking to expand your offerings or a dedicated practitioner ready to share your passion, this training provides the foundation you need.",
+    "audienceTitle": "This Program Is For You If...",
+    "audienceItems": [
+      "You're a certified yoga teacher wanting to add aerial yoga to your teaching repertoire",
+      "You're a dedicated yoga practitioner ready to deepen your practice and inspire others",
+      "You have a background in movement arts (dance, gymnastics, Pilates) and want to teach aerial yoga",
+      "You're passionate about yoga and eager to embark on your teaching journey"
+    ]
+  },
+  "curriculum": {
+    "title": "What You'll Learn",
+    "modules": {
+      "module1": {
+        "title": "Introduction to Aerial Yoga",
+        "topics": [
+          "History and evolution of the practice",
+          "Physical, mental and emotional benefits",
+          "Counterindications and precautions",
+          "Tying the silk hammock"
+        ]
+      },
+      "module2": {
+        "title": "Yogic Philosophy",
+        "topics": [
+          "The spiritual meaning of the practice",
+          "Chakras, nadis & the human energy system",
+          "Bandhas, koshas, yamas & niyamas",
+          "Patanjali yoga sutras"
+        ]
+      },
+      "module3": {
+        "title": "Yogic Anatomy",
+        "topics": [
+          "Joints, muscles & fascia",
+          "The nervous system",
+          "The endocrine system"
+        ]
+      },
+      "module4": {
+        "title": "Aerial Yoga Fundamentals",
+        "topics": [
+          "Basic postures",
+          "Joint grips",
+          "Silk hammock heights",
+          "Adjustments and variations",
+          "Open and close hammock"
+        ]
+      },
+      "module5": {
+        "title": "Mobility & Technique",
+        "topics": [
+          "Stretches",
+          "Hip opening",
+          "Arches",
+          "Twists",
+          "Inverted postures"
+        ]
+      },
+      "module6": {
+        "title": "Sequences & Fluidity",
+        "topics": [
+          "Vinyasa yoga in the silk hammock (sun/moon salutations)",
+          "How to design a balanced aerial yoga sequence",
+          "Fluidity of aerial movement",
+          "Variations & dynamics",
+          "Safe posture transitions"
+        ]
+      },
+      "module7": {
+        "title": "Pranayama, Mantra & Meditation",
+        "topics": [
+          "The importance of the breath in yoga & meditation",
+          "Breathwork exercises (pranayama)",
+          "The therapeutic qualities of sound",
+          "Throat opening & mantra practice",
+          "The art of meditation",
+          "Aerial yoga applications"
+        ]
+      },
+      "module8": {
+        "title": "Teaching Methodology",
+        "topics": [
+          "How to lead a class",
+          "Assistance & adjustments in aerial yoga",
+          "Class preparation with level adjustment",
+          "How to adapt your classes to people with physical limitations"
+        ]
+      }
+    }
+  },
+  "instructors": {
+    "title": "Meet Your Teachers",
+    "subtitle": "Learn from experienced aerial yoga practitioners"
+  },
+  "testimonials": {
+    "title": "What Our Graduates Say",
+    "subtitle": "Hear from students who completed the program",
+    "items": [
+      {
+        "quote": "Completing the aerial yoga training was fulfilling one of my life goals. From the beauty of the suspended body comes an awareness of balance, strength, and coordination to extend movement in the air. This practice allows me to feel more confident in myself, accept the nature of my body, and work on sensuality in a subtle way.\n\nI didn't hesitate to take the certification because I knew I would have a great teacher who has accompanied me through this long journey and allowed me to plant seeds and blossom in the world of yoga. She continues to support me through the process, and the fact that she believes in me and shares her knowledge and experiences makes my being expand with joy.",
+        "name": "Ika Hermenegilda",
+        "location": "Colombia"
+      },
+      {
+        "quote": "For me, the certification was a beautiful process in which I could trust myself and my abilities. Thanks to everything they shared with us, I was able to reflect on many things about my life—how I relate to the world, how I process lived experiences. All the practices taught me so much about myself, and also about opening up to others, observing, listening, receiving.\n\nThe certification came at the right moment for me because I was going through so many things I couldn't understand, and the space I had during the training helped me channel that noise and digest it. I felt accompanied at every moment, with excellent guidance. I'm deeply grateful to have been part of this learning experience that broadened my perspective.",
+        "name": "Dani",
+        "location": "Mexico"
+      },
+      {
+        "quote": "The training was a complete physical and mental challenge for me. Cami as a teacher is excellent—she helped me overcome my fear of certain postures and, above all, develop the strength and confidence to perform them. My classmates were a beautiful and essential support throughout the entire training.\n\nThe theoretical part taught by Harjeet was very comprehensive; he's a very patient teacher, passionate when transmitting his knowledge. Both of them held our hands from start to finish—I'm very grateful for that. The certification helped me gain more confidence and security to teach new people how beautiful aerial yoga is.",
+        "name": "Itzel",
+        "location": "Mexico"
+      },
+      {
+        "quote": "From day one, I understood that aerial yoga isn't just about hanging from a fabric. My sankalpa for this experience was: 'I want to remember my power, inhabit my body with presence, and guide others to find confidence in theirs.'\n\nWith the silk, I discovered that letting go doesn't always mean falling—sometimes letting go means holding myself differently.",
+        "name": "Dani",
+        "location": "Colombia"
+      },
+      {
+        "quote": "Participating in this training has been a transformative journey that exceeded all my expectations. While the physical progress was remarkable, the real gift was the boost of confidence I experienced in the process. I managed to overcome fears that used to paralyze me and reached goals that, honestly, I never thought were possible for me.\n\nThe confidence that now lives within me is the most valuable resource I can now share with my students in every class. Throughout the journey, I felt deeply accompanied and supported by Cami and Harjeet; their human warmth and the clarity with which they explain every detail make the complex feel simple. I felt in a safe space to grow.",
+        "name": "Aro",
+        "location": "Mexico"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Begin Your Journey?",
+    "description": "Our next training runs from March 7 to May 10, 2026, on weekends at Aguacate Studio in Mexico City. Reach out to reserve your spot or to learn more about this transformative experience.",
+    "investment": {
+      "fullPayment": {
+        "title": "Full Payment",
+        "detail": "Full, one-time payment upfront"
+      },
+      "paymentPlan": {
+        "title": "Payment Plan",
+        "detail": "Payment spread over 3 months",
+        "breakdown": "($11,000 + $8,000 + $8,000)"
+      }
+    },
+    "buttons": {
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    }
+  }
+}

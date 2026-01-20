@@ -1,0 +1,595 @@
+/* ==========================================================================
+   CERTIFICATIONS PAGE STYLES
+   ========================================================================== */
+
+/* Hero Section
+   ========================================================================== */
+.cert-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    max-height: 700px;
+    overflow: hidden;
+}
+
+.cert-hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cert-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cert-hero-overlay {
+    position: absolute;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(31, 33, 33, 0.3) 0%,
+        rgba(31, 33, 33, 0.5) 50%,
+        rgba(31, 33, 33, 0.7) 100%
+    );
+}
+
+.cert-hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+    width: 90%;
+    max-width: 800px;
+}
+
+.cert-hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    color: white;
+}
+
+.cert-hero-content p {
+    font-family: var(--font-body);
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Introduction Section
+   ========================================================================== */
+.cert-intro {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-background);
+}
+
+.cert-intro .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.cert-intro h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.cert-intro-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cert-intro-content p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cert-intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Curriculum Section
+   ========================================================================== */
+.cert-curriculum {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+}
+
+.cert-curriculum h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.curriculum-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(31, 33, 33, 0.1);
+}
+
+.accordion-item:first-child {
+    border-top: 1px solid rgba(31, 33, 33, 0.1);
+}
+
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color var(--transition-fast);
+}
+
+.accordion-header:hover {
+    background-color: rgba(64, 104, 154, 0.03);
+}
+
+.accordion-header:focus {
+    outline: 2px solid var(--color-accent-1);
+    outline-offset: -2px;
+}
+
+.module-number {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent-1);
+    min-width: 40px;
+}
+
+.module-title {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-primary);
+}
+
+.accordion-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-supplementary);
+    transition: transform var(--transition-fast);
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.accordion-header[aria-expanded="true"] + .accordion-content {
+    max-height: 500px;
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.module-topics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: calc(40px + var(--spacing-md));
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+}
+
+@media (min-width: 640px) {
+    .module-topics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm) var(--spacing-xl);
+    }
+}
+
+.module-topics li {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-supplementary);
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) calc(var(--spacing-lg) + var(--spacing-sm));
+    margin-left: var(--spacing-sm);
+    position: relative;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+    cursor: default;
+}
+
+.module-topics li::before {
+    content: '✓';
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent-2);
+    transition: all var(--transition-fast);
+}
+
+.module-topics li:hover {
+    background-color: rgba(64, 104, 154, 0.08);
+    color: var(--color-primary);
+}
+
+.module-topics li:hover::before {
+    color: var(--color-accent-1);
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Instructors Section
+   ========================================================================== */
+.cert-instructors {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-background);
+}
+
+.cert-instructors-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.cert-instructors-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cert-instructors-header p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-supplementary);
+}
+
+.cert-instructors-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: var(--spacing-xl) auto;
+}
+
+.instructor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.instructor-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+    .instructor-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .instructor-card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+.instructor-photo {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-circle);
+    overflow: hidden;
+}
+
+.instructor-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.instructor-info {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .instructor-info {
+        text-align: left;
+    }
+}
+
+.instructor-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.instructor-specialty {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-accent-1);
+    margin-bottom: var(--spacing-md);
+}
+
+.instructor-bio {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-supplementary);
+}
+
+/* Testimonials Section (Certification-specific overrides)
+   ========================================================================== */
+.cert-testimonials {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+}
+
+.cert-testimonials-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.cert-testimonials-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cert-testimonials-header p {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--color-supplementary);
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Placeholder initials for testimonial photos */
+.testimonial-initials {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 400;
+    border-radius: var(--border-radius-circle);
+}
+
+/* CTA Section
+   ========================================================================== */
+.cert-cta {
+    padding: var(--spacing-xxl) 0 0 0;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.cert-cta h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.7rem);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-description {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-primary);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-xl);
+}
+
+.cta-pricing-cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    min-width: 260px;
+    max-width: 320px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pricing-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card-header {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-accent-1);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pricing-card-amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-currency {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-supplementary);
+}
+
+.pricing-card-detail {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-supplementary);
+}
+
+.pricing-card-breakdown {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--color-supplementary);
+    margin-top: var(--spacing-xs);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    padding-bottom: var(--spacing-xxl);
+}
+
+.cert-cta .cta-buttons .btn-elegant {
+    background-color: var(--color-supplementary);
+    color: var(--color-secondary);
+}
+
+.cert-cta .cta-buttons .btn-elegant:hover {
+    background-color: var(--color-accent-2);
+    color: var(--color-secondary);
+}
+
+.cert-cta .cta-buttons .btn-elegant i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Ensure no gap between CTA and footer */
+.cert-cta + .footer,
+.cert-cta ~ footer {
+    margin-top: 0;
+}
+
+/* Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+    .cert-hero {
+        height: 60vh;
+        min-height: 350px;
+    }
+
+    .cert-hero-content {
+        bottom: 15%;
+    }
+
+    .cert-intro,
+    .cert-curriculum,
+    .cert-instructors,
+    .cert-testimonials {
+        padding: var(--spacing-xxl) 0;
+    }
+
+    .cert-cta {
+        padding: var(--spacing-xxl) 0 0 0;
+    }
+
+    .instructor-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .module-number {
+        font-size: 1rem;
+        min-width: 30px;
+    }
+
+    .module-title {
+        font-size: 1.1rem;
+    }
+
+    .module-topics {
+        padding-left: calc(30px + var(--spacing-md));
+    }
+
+    .cta-content {
+        gap: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-hero {
+        height: 50vh;
+    }
+
+    .accordion-header {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .cta-pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        min-width: 100%;
+        max-width: 300px;
+    }
+
+    .pricing-card-amount {
+        font-size: 1.75rem;
+    }
+
+    .cert-cta .cta-buttons .btn-elegant {
+        width: 100%;
+        justify-content: center;
+    }
+}

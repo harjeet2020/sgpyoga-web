@@ -391,28 +391,29 @@ class SGPi18n {
         }
         
         // Regular page handling (non-blog)
-        const filename = currentPath.split('/').pop() || 'index.html';
-        
         // Check if already on correct language
         const onSpanishPage = currentPath.startsWith('/es/');
         const needsRedirect = (languageCode === 'es' && !onSpanishPage) || (languageCode === 'en' && onSpanishPage);
-        
+
         if (!needsRedirect) {
             // Already on correct language - just update UI
             console.log('✅ Already on correct language page - updating UI only');
             await this.updateLanguageInPlace(languageCode);
             return;
         }
-        
+
         // Will redirect - set flag
         this.isChangingLanguage = true;
-        
-        // Redirect to appropriate language version
+
+        // Redirect to appropriate language version, preserving full path structure
         if (languageCode === 'es') {
-            window.location.href = `/es/${filename}`;
+            // Add /es/ prefix to current path
+            window.location.href = `/es${currentPath}`;
             return;
         } else {
-            window.location.href = `/${filename}`;
+            // Remove /es/ prefix from current path
+            const englishPath = currentPath.replace(/^\/es/, '');
+            window.location.href = englishPath || '/';
             return;
         }
     }
@@ -570,6 +571,11 @@ function detectPageNamespace() {
     const cleanPath = path.replace('/es/', '/');
     const filename = cleanPath.split('/').pop() || 'index.html';
     
+    // Handle certifications subdirectory
+    if (cleanPath.includes('/certifications/')) {
+        return 'certifications';
+    }
+
     // Map filenames to namespaces (support both with and without .html extension)
     const pageNamespaceMap = {
         'index.html': 'home',

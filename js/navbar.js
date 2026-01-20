@@ -8,7 +8,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Language dropdown functionality (critical for UX)
     initializeLanguageDropdown();
-    
+
+    // Navigation dropdown functionality (for Certifications)
+    initializeNavDropdown();
+
     // Set active nav link based on current page (critical for navigation)
     setActiveNavLink();
 });
@@ -245,21 +248,127 @@ function selectLanguage(langCode) {
 }
 
 /**
+ * Initialize the navigation dropdown functionality (for Certifications menu)
+ */
+function initializeNavDropdown() {
+    const dropdownTriggers = document.querySelectorAll('.has-dropdown .dropdown-trigger');
+
+    dropdownTriggers.forEach(trigger => {
+        const parentLi = trigger.closest('.has-dropdown');
+        const dropdown = parentLi.querySelector('.nav-dropdown');
+        const dropdownItems = dropdown ? dropdown.querySelectorAll('.nav-dropdown-item') : [];
+
+        // Mobile: tap to toggle dropdown
+        trigger.addEventListener('click', function(e) {
+            // Only handle tap on mobile (desktop uses hover)
+            if (window.innerWidth <= 640) {
+                e.preventDefault();
+                e.stopPropagation();
+                parentLi.classList.toggle('active');
+            }
+        });
+
+        // Keyboard navigation for dropdown trigger
+        trigger.addEventListener('keydown', function(e) {
+            switch (e.key) {
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                    if (parentLi.classList.contains('active') && dropdownItems.length > 0) {
+                        dropdownItems[0].focus();
+                    }
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    parentLi.classList.add('active');
+                    if (dropdownItems.length > 0) {
+                        dropdownItems[0].focus();
+                    }
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    parentLi.classList.remove('active');
+                    trigger.focus();
+                    break;
+            }
+        });
+
+        // Keyboard navigation for dropdown items
+        dropdownItems.forEach((item, index) => {
+            item.addEventListener('keydown', function(e) {
+                switch (e.key) {
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        if (index < dropdownItems.length - 1) {
+                            dropdownItems[index + 1].focus();
+                        }
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        if (index > 0) {
+                            dropdownItems[index - 1].focus();
+                        } else {
+                            trigger.focus();
+                        }
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        parentLi.classList.remove('active');
+                        trigger.focus();
+                        break;
+                    case 'Tab':
+                        // Close dropdown when tabbing out
+                        if (!e.shiftKey && index === dropdownItems.length - 1) {
+                            parentLi.classList.remove('active');
+                        }
+                        break;
+                }
+            });
+        });
+    });
+
+    // Close dropdown when clicking outside (mobile)
+    document.addEventListener('click', function(e) {
+        const openDropdowns = document.querySelectorAll('.has-dropdown.active');
+        openDropdowns.forEach(dropdown => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+    });
+}
+
+/**
  * Set the active navigation link based on current page
  */
 function setActiveNavLink() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-link');
-    
+
     // Remove active class from all links
     navLinks.forEach(link => {
         link.classList.remove('active');
     });
-    
+
+    // Remove parent-active class from dropdown parents
+    const dropdownParents = document.querySelectorAll('.has-dropdown');
+    dropdownParents.forEach(parent => {
+        parent.classList.remove('parent-active');
+    });
+
+    // Check if on a certification page and set parent-active on dropdown
+    if (currentPath.includes('/certifications/')) {
+        const certDropdown = document.querySelector('.has-dropdown');
+        if (certDropdown) {
+            certDropdown.classList.add('parent-active');
+        }
+    }
+
     // Add active class to current page link
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
-        
+
         // Special handling for blog - match if current path starts with /blog/dist/
         if (linkPath.includes('/blog/dist/')) {
             if (currentPath.includes('/blog/dist/')) {
@@ -267,12 +376,12 @@ function setActiveNavLink() {
             }
             return;
         }
-        
+
         // For non-blog pages, match exact paths or normalized paths
         // Normalize: treat '/', '/index.html', '/es/index.html' properly
         let normalizedLinkPath = linkPath;
         let normalizedCurrentPath = currentPath;
-        
+
         // Remove trailing slashes for comparison
         if (normalizedLinkPath.endsWith('/')) {
             normalizedLinkPath = normalizedLinkPath.slice(0, -1);
@@ -280,27 +389,27 @@ function setActiveNavLink() {
         if (normalizedCurrentPath.endsWith('/')) {
             normalizedCurrentPath = normalizedCurrentPath.slice(0, -1);
         }
-        
+
         // Exact match
         if (normalizedLinkPath === normalizedCurrentPath) {
             link.classList.add('active');
             return;
         }
-        
+
         // Handle index.html variations
         const linkIsIndex = normalizedLinkPath === '' || normalizedLinkPath === '/index.html' || normalizedLinkPath === '/es/index.html';
         const currentIsIndex = normalizedCurrentPath === '' || normalizedCurrentPath === '/index.html' || normalizedCurrentPath === '/es/index.html';
-        
+
         // Match index pages
         if (linkIsIndex && currentIsIndex && normalizedLinkPath === normalizedCurrentPath) {
             link.classList.add('active');
             return;
         }
-        
+
         // Match other pages by filename
         const linkFilename = normalizedLinkPath.split('/').pop();
         const currentFilename = normalizedCurrentPath.split('/').pop();
-        
+
         if (linkFilename && linkFilename === currentFilename && linkFilename !== 'index.html') {
             link.classList.add('active');
         }

@@ -4,13 +4,18 @@
     "about": "About",
     "classes": "Classes",
     "events": "Events",
+    "certifications": "Certifications",
+    "certificationsDropdown": {
+      "aerial100": "100-Hour Aerial Yoga Teacher Training"
+    },
     "blog": "Blog"
   },
   "pageTitles": {
     "home": "SGP Yoga - Yoga Classes in Mexico City | CDMX Studio",
     "about": "About SGP Yoga - Kundalini, Vinyasa & Aerial Yoga CDMX",
     "classes": "Yoga Classes Schedule Mexico City | SGP Yoga CDMX",
-    "events": "Yoga Workshops, Retreats & Teacher Training | SGP Yoga CDMX"
+    "events": "Yoga Workshops, Retreats & Teacher Training | SGP Yoga CDMX",
+    "certificationsAerial100": "100-Hour Aerial Yoga Teacher Training | SGP Yoga"
   },
   "buttons": {
     
@@ -26,6 +31,7 @@
       "about": "About",
       "classes": "Classes",
       "events": "Events",
+      "certifications": "Certifications",
       "blog": "Blog"
     },
     "contact": {
