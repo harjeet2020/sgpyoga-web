@@ -98,7 +98,17 @@
   },
   "instructors": {
     "title": "Meet Your Teachers",
-    "subtitle": "Learn from experienced aerial yoga practitioners"
+    "subtitle": "Learn from experienced aerial yoga practitioners",
+    "camila": {
+      "name": "Camila",
+      "role": "Lead Trainer",
+      "bio": "Camila is a passionate Aerial and Vinyasa Yoga teacher who serves as the lead trainer for our Aerial Yoga Teacher Training program. With deep expertise in body alignment and aerial technique, she guides students through the practical aspects of the certification—from foundational poses to advanced sequences. Her patient teaching style and technical precision will help you master the art of aerial yoga."
+    },
+    "harjeet": {
+      "name": "Harjeet",
+      "role": "Supporting Trainer",
+      "bio": "Harjeet is an experienced, KRI certified Kundalini Yoga teacher who serves as the supporting trainer for the Aerial Yoga Teacher Training. He leads the program's theoretical modules, covering yogic philosophy, pranayama, mantra, and meditation practices. His depth of knowledge and calm presence create a foundation for understanding the spiritual dimensions of the practice."
+    }
   },
   "testimonials": {
     "title": "What Our Graduates Say",
