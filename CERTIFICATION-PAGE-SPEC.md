@@ -433,7 +433,7 @@ new TestimonialsSlideshow({
 | Button | Link | Notes |
 |--------|------|-------|
 | WhatsApp | `https://wa.me/525539061305` | Opens WhatsApp chat |
-| Email | `mailto:satgurprasaadyoga@gmail.com` | Opens email client |
+| Email | `mailto:team@sgpyoga.co` | Opens email client |
 
 **Button Styles**: Use existing `.btn-elegant` class
 
