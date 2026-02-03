@@ -540,7 +540,44 @@
     }
 
     .cert-cta {
-        padding: var(--spacing-xxl) 0 0 0;
+        padding: var(--spacing-xxl) var(--spacing-lg) 0 var(--spacing-lg);
+    }
+
+    /* Accordion: larger titles & more vertical padding */
+    .module-number {
+        font-size: 1.1rem;
+        min-width: 30px;
+    }
+
+    .module-title {
+        font-size: 1.2rem;
+    }
+
+    .accordion-header {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    /* Accordion topics: two-column layout with smaller font */
+    .module-topics {
+        padding-left: calc(30px + var(--spacing-md));
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xs) var(--spacing-md);
+    }
+
+    .module-topics li {
+        font-size: 0.85rem;
+        padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) calc(var(--spacing-md) + var(--spacing-xs));
+        margin-left: 0;
+    }
+
+    .module-topics li::before {
+        font-size: 0.75rem;
+        left: var(--spacing-xs);
+    }
+
+    /* Instructor cards: more horizontal padding */
+    .instructor-card {
+        margin: 0 var(--spacing-md);
     }
 
     .instructor-photo {
@@ -548,17 +585,15 @@
         height: 150px;
     }
 
-    .module-number {
+    /* CTA section: add horizontal padding */
+    .cert-cta h2 {
+        font-size: clamp(1.5rem, 5vw, 2.7rem);
+        padding: 0 var(--spacing-sm);
+    }
+
+    .cta-description {
         font-size: 1rem;
-        min-width: 30px;
-    }
-
-    .module-title {
-        font-size: 1.1rem;
-    }
-
-    .module-topics {
-        padding-left: calc(30px + var(--spacing-md));
+        padding: 0 var(--spacing-sm);
     }
 
     .cta-content {
@@ -575,9 +610,20 @@
         padding: var(--spacing-md) var(--spacing-sm);
     }
 
+    /* Accordion topics: keep two columns, tighter spacing */
+    .module-topics {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xs);
+    }
+
+    .module-topics li {
+        font-size: 0.8rem;
+    }
+
     .cta-pricing-cards {
         flex-direction: column;
         align-items: center;
+        padding: 0 var(--spacing-sm);
     }
 
     .pricing-card {
@@ -590,7 +636,17 @@
     }
 
     .cert-cta .cta-buttons .btn-elegant {
-        width: 100%;
+        width: auto;
+        max-width: 300px;
         justify-content: center;
+    }
+
+    .cta-buttons {
+        padding: 0 var(--spacing-md) var(--spacing-xxl);
+    }
+
+    /* Instructor cards: horizontal padding on small screens */
+    .instructor-card {
+        margin: 0 var(--spacing-sm);
     }
 }
