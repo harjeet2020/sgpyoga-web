@@ -5,8 +5,8 @@
   },
   "intro": {
     "title": "Descubre el Yoga Aéreo",
-    "paragraph1": "El yoga aéreo combina posturas tradicionales de yoga con el apoyo de una hamaca de seda suspendida del techo. Esta práctica única te permite explorar posturas desde una nueva perspectiva: flotando, invirtiéndote y estirándote de maneras que el yoga en el suelo simplemente no puede ofrecer. La hamaca soporta el peso de tu cuerpo, haciendo que las posturas desafiantes sean más accesibles mientras profundiza los estiramientos y fortalece el core.",
-    "paragraph2": "Nuestro programa de certificación de 100 horas va más allá de la práctica física. Aprenderás el arte de enseñar yoga aéreo de manera segura y efectiva, comprendiendo la mecánica corporal, los fundamentos del montaje y cómo guiar a estudiantes de todos los niveles a través de secuencias aéreas transformadoras. Ya seas un profesor de yoga que busca ampliar sus ofertas o un practicante dedicado listo para compartir tu pasión, esta formación te proporciona la base que necesitas.",
+    "paragraph1": "El yoga aéreo combina posturas tradicionales con el apoyo del columpio. Esta práctica te permite explorar posturas desde una nueva perspectiva: flotando, invirtiéndote y estirándote de maneras que yoga convencional simplemente no puede ofrecer. Es una fusión de asana, pilates y performance. El columpio soporta el peso de tu cuerpo, haciendo que las posturas desafiantes sean más accesibles. Profundiza los estiramientos, fortalece el core, y alarga la columna vertebral.",
+    "paragraph2": "Nuestro programa de certificación de 100 horas va más allá de la práctica física. Aprenderás el arte de enseñar yoga aéreo de manera segura y efectiva, comprendiendo la mecánica corporal, el montaje del columpio, y cómo guiar a estudiantes de todos los niveles a través de secuencias aéreas. Ya seas un profesor de yoga que busca ampliar sus ofertas o un practicante dedicado listo para compartir tu pasión, esta formación te proporciona los fundamentos que necesitas.",
     "audienceTitle": "Este Programa Es Para Ti Si...",
     "audienceItems": [
       "Eres un profesor de yoga certificado que desea agregar yoga aéreo a su repertorio de enseñanza",
@@ -24,7 +24,7 @@
           "Historia y evolución de la práctica",
           "Beneficios físicos, mentales y emocionales",
           "Contraindicaciones y precauciones",
-          "Cómo atar la hamaca de seda"
+          "Cómo atar el columpio"
         ]
       },
       "module2": {
@@ -49,9 +49,9 @@
         "topics": [
           "Posturas básicas",
           "Agarres articulares",
-          "Alturas de la hamaca de seda",
+          "Alturas del columpio",
           "Ajustes y variaciones",
-          "Hamaca abierta y cerrada"
+          "Tela abierta y cerrada"
         ]
       },
       "module5": {
@@ -67,7 +67,7 @@
       "module6": {
         "title": "Secuencias y Fluidez",
         "topics": [
-          "Vinyasa yoga en la hamaca de seda (saludos al sol/luna)",
+          "Vinyasa yoga en el columpio (saludos al sol/luna)",
           "Cómo diseñar una secuencia equilibrada de yoga aéreo",
           "Fluidez del movimiento aéreo",
           "Variaciones y dinámicas",
@@ -101,13 +101,13 @@
     "subtitle": "Aprende de practicantes experimentados de yoga aéreo",
     "camila": {
       "name": "Camila",
-      "role": "Entrenadora Principal",
-      "bio": "Camila es una apasionada maestra de Yoga Aéreo y Vinyasa que funge como entrenadora principal de nuestro programa de Certificación de Yoga Aéreo. Con profunda experiencia en alineación corporal y técnica aérea, guía a los estudiantes a través de los aspectos prácticos de la certificación—desde posturas fundamentales hasta secuencias avanzadas. Su estilo de enseñanza paciente y precisión técnica te ayudarán a dominar el arte del yoga aéreo."
+      "role": "Maestra Principal",
+      "bio": "Camila es una apasionada maestra de Yoga Aéreo y Vinyasa que funge como maestra principal de nuestro programa de Certificación de Yoga Aéreo. Con profunda experiencia en alineación corporal y técnica aérea, guía a los estudiantes a través de los aspectos prácticos de la certificación—desde posturas fundamentales hasta secuencias avanzadas. Su estilo de enseñanza paciente y precisión técnica te ayudarán a dominar el arte del yoga aéreo."
     },
     "harjeet": {
       "name": "Harjeet",
-      "role": "Entrenador de Apoyo",
-      "bio": "Harjeet es un maestro experimentado de Kundalini Yoga certificado por KRI que funge como entrenador de apoyo para la Certificación de Yoga Aéreo. Él dirige los módulos teóricos del programa, cubriendo filosofía yóguica, pranayama, mantra y prácticas de meditación. Su profundidad de conocimiento y presencia tranquila crean una base para comprender las dimensiones espirituales de la práctica."
+      "role": "Maestro de Apoyo",
+      "bio": "Harjeet es un maestro experimentado de Kundalini Yoga certificado por KRI que funge como maestro de apoyo para la Certificación de Yoga Aéreo. Él dirige los módulos teóricos del programa, cubriendo filosofía yóguica, pranayama, mantra y prácticas de meditación. Su profundidad de conocimiento y presencia tranquila crean una base para comprender las dimensiones espirituales de la práctica."
     }
   },
   "testimonials": {
@@ -143,7 +143,7 @@
   },
   "cta": {
     "title": "¿Listo Para Comenzar Tu Camino?",
-    "description": "Nuestra próxima formación es del 7 de Marzo al 10 de Mayo de 2026, los fines de semana en el Estudio Aguacate en la Ciudad de México. Contáctanos para reservar tu lugar o para conocer más sobre esta experiencia transformadora.",
+    "description": "Nuestra próxima formación es del 7 de Marzo al 10 de Mayo de 2026, los fines de semana en los estudios Aguacate y Hari Om en la Ciudad de México. Contáctanos para reservar tu lugar o para conocer más sobre esta experiencia transformadora.",
     "investment": {
       "fullPayment": {
         "title": "Pago Único",
