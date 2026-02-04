@@ -21,66 +21,72 @@
       "module1": {
         "title": "Introduction to Aerial Yoga",
         "topics": [
-          "History and evolution of the practice",
-          "Physical, mental and emotional benefits",
-          "Counterindications and precautions",
-          "Tying the silk hammock"
+          "History and evolution of aerial yoga",
+          "Physical, mental, and emotional benefits",
+          "Contraindications and precautions",
+          "Hammock setup (types of hammocks)"
         ]
       },
       "module2": {
-        "title": "Yogic Philosophy",
+        "title": "Aerial Yoga Practice Fundamentals",
         "topics": [
-          "The spiritual meaning of the practice",
-          "Chakras, nadis & the human energy system",
-          "Bandhas, koshas, yamas & niyamas",
-          "Patanjali yoga sutras"
+          "Basic aerial yoga postures (manual)",
+          "Hammock familiarization: Joint grips, fabric height (low-medium-high), posture adjustments and variations, open and closed fabric",
+          "Using the hammock for spinal decompression",
+          "Specific therapeutic applications for each posture",
+          "Fabric entries and exits"
         ]
       },
       "module3": {
-        "title": "Yogic Anatomy",
+        "title": "Yoga Philosophy",
         "topics": [
-          "Joints, muscles & fascia",
-          "The nervous system",
-          "The endocrine system"
+          "Yamas and Niyamas",
+          "Chakras and Nadis",
+          "Koshas",
+          "Patanjali's Yoga Sutras"
         ]
       },
       "module4": {
-        "title": "Aerial Yoga Fundamentals",
+        "title": "Yoga Anatomy",
         "topics": [
-          "Basic postures",
-          "Joint grips",
-          "Silk hammock heights",
-          "Adjustments and variations",
-          "Open and close hammock"
+          "Joints",
+          "Major muscles",
+          "Fascia",
+          "The nervous system",
+          "The endocrine system",
+          "Deep muscles: Bandhas and aerial Pilates"
         ]
       },
       "module5": {
         "title": "Mobility & Technique",
         "topics": [
-          "Stretches",
-          "Hip opening",
-          "Arches",
-          "Twists",
-          "Inverted postures"
+          "Advanced inversions and progressions",
+          "Introduction to drops (controlled falls)",
+          "Spins",
+          "Advanced wraps (wrapping techniques)",
+          "Progressions from basic to advanced postures",
+          "Stretches, hip opening, backbends, twists"
         ]
       },
       "module6": {
-        "title": "Sequences & Fluidity",
+        "title": "Sequences & Flow",
         "topics": [
-          "Vinyasa yoga in the silk hammock (sun/moon salutations)",
-          "How to design a balanced aerial yoga sequence",
-          "Fluidity of aerial movement",
-          "Variations & dynamics",
-          "Safe posture transitions"
+          "Vinyasa: Sun and moon salutations",
+          "How to design a balanced sequence",
+          "Principles of aerial movement fluidity",
+          "Variations and dynamics",
+          "Safe posture transitions",
+          "Aerial Yoga Nidra",
+          "Deep relaxation sequences"
         ]
       },
       "module7": {
-        "title": "Pranayama, Mantra & Meditation",
+        "title": "Pranayama & Mantra",
         "topics": [
-          "The importance of the breath in yoga & meditation",
+          "The importance of breath in yoga and meditation",
           "Breathwork exercises (pranayama)",
           "The therapeutic qualities of sound",
-          "Throat opening & mantra practice",
+          "Throat opening and mantra practice",
           "The art of meditation",
           "Aerial yoga applications"
         ]
@@ -88,10 +94,15 @@
       "module8": {
         "title": "Teaching Methodology",
         "topics": [
-          "How to lead a class",
-          "Assistance & adjustments in aerial yoga",
-          "Class preparation with level adjustment",
-          "How to adapt your classes to people with physical limitations"
+          "How to lead a class: Voice use, projection, rhythm, clarity, and body language",
+          "Assistance and adjustments in aerial yoga",
+          "Class creation for different levels and group management",
+          "Adaptations for people with physical limitations",
+          "How to demonstrate while teaching",
+          "Verbal vs. physical communication",
+          "How to create ambiance (music, lighting, temperature)",
+          "Class time management",
+          "Handling new students (medical history, contraindications)"
         ]
       }
     }

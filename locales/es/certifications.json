@@ -21,61 +21,67 @@
       "module1": {
         "title": "Introducción al Yoga Aéreo",
         "topics": [
-          "Historia y evolución de la práctica",
+          "Historia y evolución del yoga aéreo",
           "Beneficios físicos, mentales y emocionales",
           "Contraindicaciones y precauciones",
-          "Cómo atar el columpio"
+          "Montaje del columpio (tipo de columpio)"
         ]
       },
       "module2": {
-        "title": "Filosofía Yóguica",
+        "title": "Fundamentos de la Práctica del Yoga Aéreo",
         "topics": [
-          "El significado espiritual de la práctica",
-          "Chakras, nadis y el sistema energético humano",
-          "Bandhas, koshas, yamas y niyamas",
-          "Yoga sutras de Patanjali"
+          "Posturas básicas del yoga aéreo (manual)",
+          "Familiarización con el columpio: Agarres con articulaciones, altura de la tela (baja-media-alta), ajustes o variaciones de las posturas, tela abierta y tela cerrada",
+          "Uso de la hamaca para descompresión espinal",
+          "Aplicaciones terapéuticas específicas en cada postura",
+          "Entradas y salidas de la tela"
         ]
       },
       "module3": {
-        "title": "Anatomía Yóguica",
+        "title": "Filosofía del Yoga",
         "topics": [
-          "Articulaciones, músculos y fascia",
-          "El sistema nervioso",
-          "El sistema endocrino"
+          "Yamas y Niyamas",
+          "Chakras y Nadis",
+          "Koshas",
+          "Yoga Sutras de Patanjali"
         ]
       },
       "module4": {
-        "title": "Fundamentos del Yoga Aéreo",
+        "title": "Anatomía del Yoga",
         "topics": [
-          "Posturas básicas",
-          "Agarres articulares",
-          "Alturas del columpio",
-          "Ajustes y variaciones",
-          "Tela abierta y cerrada"
+          "Articulaciones",
+          "Músculos principales",
+          "Fascia",
+          "El sistema nervioso",
+          "El sistema endocrino",
+          "Músculos profundos: Bandhas y Pilates aéreo"
         ]
       },
       "module5": {
         "title": "Movilidad y Técnica",
         "topics": [
-          "Estiramientos",
-          "Apertura de caderas",
-          "Arcos",
-          "Torsiones",
-          "Posturas invertidas"
+          "Inversiones avanzadas y progresiones",
+          "Introducción a drops (caídas controladas)",
+          "Spins (giros)",
+          "Wraps avanzados (técnicas de envolver)",
+          "Progresiones de posturas básicas a avanzadas",
+          "Estiramientos, apertura de cadera, arcos, torsiones"
         ]
       },
       "module6": {
-        "title": "Secuencias y Fluidez",
+        "title": "Secuencias y Fluidez en la Práctica",
         "topics": [
-          "Vinyasa yoga en el columpio (saludos al sol/luna)",
-          "Cómo diseñar una secuencia equilibrada de yoga aéreo",
-          "Fluidez del movimiento aéreo",
+          "Vinyasa: Saludos al sol y a la luna",
+          "Cómo diseñar una secuencia equilibrada",
+          "Principios de fluidez del movimiento aéreo",
           "Variaciones y dinámicas",
-          "Transiciones seguras entre posturas"
+          "Transiciones seguras entre posturas",
+          "Yoga Nidra aéreo",
+          "Secuencias de relajación profunda"
         ]
       },
       "module7": {
-        "title": "Pranayama, Mantra y Meditación",
+        "title": "Pranayama y Mantra",
         "topics": [
           "La importancia de la respiración en yoga y meditación",
           "Ejercicios de respiración (pranayama)",
@@ -86,12 +92,17 @@
         ]
       },
       "module8": {
-        "title": "Metodología de Enseñanza",
+        "title": "Metodología y Enseñanza",
         "topics": [
-          "Cómo guiar una clase",
+          "Cómo guiar una clase: Uso de la voz, proyección, ritmo, claridad y lenguaje corporal",
           "Asistencia y ajustes en yoga aéreo",
-          "Preparación de clases con ajuste de nivel",
-          "Cómo adaptar tus clases a personas con limitaciones físicas"
+          "Creación de clase para distintos niveles y manejo de grupo",
+          "Adaptación para personas con limitaciones físicas",
+          "Cómo demostrar mientras enseñas",
+          "Comunicación verbal vs. física",
+          "Cómo crear ambiente (música, iluminación, temperatura)",
+          "Gestión del tiempo de clase",
+          "Manejo con nuevos alumnos (historial médico, contraindicaciones)"
         ]
       }
     }
