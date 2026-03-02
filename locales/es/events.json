@@ -95,10 +95,10 @@
       "instructor": "Harjeet y Camila",
       "price": "$400 MXN"
     },
-    "aerial-teacher-training_feb2026": {
+    "aerial-teacher-training_apr2026": {
       "title": "Formación de Maestros de Yoga Aéreo 100 Horas",
       "category": "Formación de Maestros",
-      "date": "21 de febrero - 2 de mayo, 2026",
+      "date": "11 de abril - 14 de junio, 2026",
       "time": "Fines de semana (Sábados y Domingos)",
       "location": "Aguacate Studio, Ciudad de México",
       "shortDescription": "Convértete en maestro de yoga aéreo con nuestro programa de formación especializado.",
@@ -106,16 +106,16 @@
       "instructor": "Camila y Harjeet",
       "price": "$27,000 MXN"
     },
-    "yoga-healing-retreat_may2026": {
+    "yoga-healing-retreat_aug2026": {
       "title": "Yoga Para Sanar",
       "category": "Retiro",
-      "date": "14-18 de mayo, 2026",
-      "time": "3 Días Completos",
+      "date": "6-13 de agosto, 2026",
+      "time": "7 Días Completos",
       "location": "Lago de Atitlán, Guatemala",
       "shortDescription": "Un retiro transformador enfocado en la sanación y la conexión interior en el místico Lago de Atitlán.",
-      "fullDescription": "Este retiro enfocado en la sanación está diseñado para ayudarte a reconectarte contigo mismo y restaurar el equilibrio interior. Con el impresionante telón de fondo del Lago de Atitlán, uno de los lugares más sagrados y místicos de Guatemala, practicaremos Kundalini yoga, experimentaremos sesiones de sanación con sonido y exploraremos técnicas de meditación para profundizar tu viaje interior. La comida, el alojamiento y el transporte desde el aeropuerto hasta el centro de retiro y de regreso están incluidos. Para las almas aventureras que quieran explorar más de Guatemala, es posible extender el retiro por 3 días para una desafiante caminata al Volcán Acatenango y Fuego con un costo adicional.",
+      "fullDescription": "Este retiro enfocado en la sanación está diseñado para ayudarte a reconectarte contigo mismo y restaurar el equilibrio interior. Con el impresionante telón de fondo del Lago de Atitlán, uno de los lugares más sagrados y místicos de Guatemala, practicaremos Kundalini yoga, experimentaremos sesiones de sanación con sonido y exploraremos técnicas de meditación para profundizar tu viaje interior. La comida, el alojamiento y el transporte desde el aeropuerto hasta el centro de retiro y de regreso están incluidos. Pasaremos 3 días completos practicando yoga; el 4º día será un día de descanso para turismo y transporte, y los 2 días restantes están reservados para una espectacular caminata al Volcán Acatenango y Fuego. También es posible reservar una estadía más corta sin la caminata al volcán a un costo reducido.",
       "instructor": "Harjeet y Camila",
-      "price": "Por confirmar"
+      "price": "$20,000 MXN"
     }
   },
   "eventTypes": {

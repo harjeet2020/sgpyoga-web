@@ -121,24 +121,24 @@ const eventsData = [
         cardImagePosition: 'center bottom',
         modalImagePosition: 'center bottom'
     },
-    // 100-Hour Aerial Teacher Training, Mexico City, February-May 2026 (Camila & Harjeet)
+    // 100-Hour Aerial Teacher Training, Mexico City, April-June 2026 (Camila & Harjeet)
     {
-        id: 'aerial-teacher-training_feb2026',
+        id: 'aerial-teacher-training_apr2026',
         category: 'training',
-        startDate: '2026-02-21',
-        endDate: '2026-05-02',
+        startDate: '2026-04-11',
+        endDate: '2026-06-14',
         imageMobile: '/assets/photos/events/unique/aerial-teacher-training_march2026-480.webp',
         image: '/assets/photos/events/unique/aerial-teacher-training_march2026-720.webp',
         imageHigh: '/assets/photos/events/unique/aerial-teacher-training_march2026-1080.webp',
         cardImagePosition: 'center bottom',
         modalImagePosition: 'center top'
     },
-    // Yoga For Healing Retreat, Guatemala, May 2026 (Harjeet & Camila)
+    // Yoga For Healing Retreat, Guatemala, August 2026 (Harjeet & Camila)
     {
-        id: 'yoga-healing-retreat_may2026',
+        id: 'yoga-healing-retreat_aug2026',
         category: 'retreat',
-        startDate: '2026-05-14',
-        endDate: '2026-05-18',
+        startDate: '2026-08-06',
+        endDate: '2026-08-13',
         imageMobile: '/assets/photos/events/unique/yoga-retreat_may2026-480.webp',
         image: '/assets/photos/events/unique/yoga-retreat_may2026-720.webp',
         imageHigh: '/assets/photos/events/unique/yoga-retreat_may2026-1080.webp',
