@@ -220,22 +220,30 @@ const eventsData = [
 /**
  * Purpose: Provide fallback images when an event doesn't specify a custom image
  * These are used if you don't provide an 'image' property for an event
+ *
+ * Each size key maps to a width variant (encoded in the filename suffix):
+ * imageMobile (480w), image (720w), imageHigh (900w), imageMax (1200w).
+ * All variants of a category feed getEventImageSrcset() so the browser can
+ * pick a DPR-appropriate resolution.
  */
 const categoryDefaults = {
   workshop: {
     imageMobile: "/assets/photos/events/workshops-480.webp",
     image: "/assets/photos/events/workshops-720.webp",
     imageHigh: "/assets/photos/events/workshops-900.webp",
+    imageMax: "/assets/photos/events/workshops-1200.webp",
   },
   retreat: {
     imageMobile: "/assets/photos/events/retreats-480.webp",
     image: "/assets/photos/events/retreats-720.webp",
     imageHigh: "/assets/photos/events/retreats-900.webp",
+    imageMax: "/assets/photos/events/retreats-1200.webp",
   },
   course: {
     imageMobile: "/assets/photos/events/teacher-trainings-480.webp",
     image: "/assets/photos/events/teacher-trainings-720.webp",
     imageHigh: "/assets/photos/events/teacher-trainings-900.webp",
+    imageMax: "/assets/photos/events/teacher-trainings-1200.webp",
   },
 };
 
@@ -268,6 +276,53 @@ function getEventImage(event, highRes = false, mobile = false) {
   return defaults
     ? defaults[imageKey]
     : categoryDefaults.workshop[imageKey];
+}
+
+/**
+ * Purpose: Build a width-descriptor srcset string for an event's images,
+ * so the browser can pick a resolution matching both viewport and pixel
+ * density (retina screens need ~2x the CSS width in image pixels).
+ *
+ * How it works:
+ * 1. Gathers every image variant defined for the event, or (if the event
+ *    defines no custom images) its category defaults. Variants are never
+ *    mixed between the two sources — they would be different photos.
+ * 2. Reads each variant's pixel width from the filename suffix
+ *    (e.g. "workshops-720.webp" -> 720).
+ * 3. Returns them as "path 480w, path 720w, ..." sorted small-to-large.
+ *
+ * This handles both variant families automatically: category defaults use
+ * 480/720/900/1200 widths, unique per-event images use 480/720/1080.
+ *
+ * @param {object} event - Event object from eventsData (needs at least `category`)
+ * @returns {string} srcset value, e.g. "/a-480.webp 480w, /a-720.webp 720w"
+ */
+function getEventImageSrcset(event) {
+  const sizeKeys = ["imageMobile", "image", "imageHigh", "imageMax"];
+
+  // Use the event's own variants if it defines any, else category defaults
+  const hasCustomImages = sizeKeys.some(key => event[key]);
+  const source = hasCustomImages
+    ? event
+    : categoryDefaults[event.category] || categoryDefaults.workshop;
+
+  const candidates = sizeKeys
+    .map(key => source[key])
+    .filter(Boolean)
+    .map(path => {
+      // Width is encoded in the filename suffix, e.g. "-720.webp"
+      const match = path.match(/-(\d+)\.webp$/);
+      return match ? { path, width: Number(match[1]) } : null;
+    })
+    .filter(Boolean);
+
+  // Dedupe by width (duplicate descriptors make the srcset invalid) and sort ascending
+  const seenWidths = new Set();
+  return candidates
+    .filter(({ width }) => !seenWidths.has(width) && seenWidths.add(width))
+    .sort((a, b) => a.width - b.width)
+    .map(({ path, width }) => `${path} ${width}w`)
+    .join(", ");
 }
 
 /**

@@ -37,7 +37,7 @@
                             {% if post.data.image %}
                             <picture>
                                 <source type="image/webp"
-                                        srcset="{{ post.data.image }} 640w{% if post.data.imageMobile %}, {{ post.data.imageMobile }} 768w{% endif %}{% if post.data.imageTablet %}, {{ post.data.imageTablet }} 1024w{% endif %}{% if post.data.imageDesktop %}, {{ post.data.imageDesktop }} 1280w{% endif %}{% if post.data.imageHigh %}, {{ post.data.imageHigh }} 1920w{% endif %}"
+                                        srcset="{{ [post.data.image, post.data.imageMobile, post.data.imageTablet, post.data.imageDesktop, post.data.imageHigh] | imageSrcset }}"
                                         sizes="(max-width: 768px) 100vw, 60vw">
                                 <img
                                     src="{{ post.data.image }}"

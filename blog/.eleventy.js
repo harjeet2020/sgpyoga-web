@@ -278,6 +278,41 @@ module.exports = function(eleventyConfig) {
     if (!collection || !fileSlug) return null;
     return collection.find(item => item.fileSlug === fileSlug) || null;
   });
+
+  /**
+   * Build a width-descriptor srcset string from image paths whose filenames
+   * end in "-<width>.<ext>" (e.g. "chakras-768.webp" -> "chakras-768.webp 768w").
+   *
+   * Why: the width descriptors must match the file's real pixel width or the
+   * browser picks the wrong resolution (blurry on retina). Deriving them from
+   * the filename keeps templates self-maintaining — new posts just need
+   * correctly named variants in front matter.
+   *
+   * Skips missing entries, dedupes by path and width (posts sometimes reuse
+   * one file for two front-matter fields; duplicate descriptors are a srcset
+   * parse error), and sorts small-to-large. Returns "" if nothing matches,
+   * in which case the <img src> fallback still renders.
+   *
+   * Usage: srcset="{{ [imageMobile, image, imageHigh] | imageSrcset }}"
+   */
+  eleventyConfig.addFilter("imageSrcset", function(paths) {
+    const seenPaths = new Set();
+    const seenWidths = new Set();
+    return (paths || [])
+      .filter(Boolean)
+      .map(path => {
+        const match = path.match(/-(\d+)\.\w+$/);
+        return match ? { path, width: Number(match[1]) } : null;
+      })
+      .filter(entry =>
+        entry &&
+        !seenPaths.has(entry.path) && seenPaths.add(entry.path) &&
+        !seenWidths.has(entry.width) && seenWidths.add(entry.width)
+      )
+      .sort((a, b) => a.width - b.width)
+      .map(({ path, width }) => `${path} ${width}w`)
+      .join(", ");
+  });
   
   
   // ========================================================================

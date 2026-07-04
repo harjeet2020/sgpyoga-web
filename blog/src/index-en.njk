@@ -72,7 +72,7 @@ permalink: "/index.html"
                         <div class="post-card-image">
                             <picture>
                                 <source type="image/webp"
-                                        srcset="{{ post.data.image }} 640w{% if post.data.imageMobile %}, {{ post.data.imageMobile }} 768w{% endif %}{% if post.data.imageTablet %}, {{ post.data.imageTablet }} 1024w{% endif %}{% if post.data.imageDesktop %}, {{ post.data.imageDesktop }} 1280w{% endif %}{% if post.data.imageHigh %}, {{ post.data.imageHigh }} 1920w{% endif %}"
+                                        srcset="{{ [post.data.image, post.data.imageMobile, post.data.imageTablet, post.data.imageDesktop, post.data.imageHigh] | imageSrcset }}"
                                         sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
                                 <img src="{{ post.data.image }}" alt="{{ post.data.imageAlt or post.data.title }}" width="640" height="427" loading="lazy"
                                     {% if post.data.imageCardPosition %}style="object-position: {{ post.data.imageCardPosition }};"{% endif %}>

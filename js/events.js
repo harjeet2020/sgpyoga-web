@@ -279,22 +279,24 @@ function renderEvents() {
     eventsToRender.forEach(event => {
         const eventId = event.id;
         const category = event.category;
-        const imageMobilePath = getEventImage(event, false, true);
-        const imageTabletPath = getEventImage(event, false, false);
+        const imageSrc = getEventImage(event);
+        const imageSrcset = getEventImageSrcset(event);
         const cardImagePosition = event.cardImagePosition || 'center'; // Default to 'center' if not specified
-        
+
         // Add past-event class if viewing past events
         const pastClass = currentTimeView === 'past' ? 'past-event' : '';
-        
-        // Create event card HTML with responsive picture element
+
+        // Create event card HTML with a DPR-aware responsive image.
+        // The sizes attribute mirrors the fixed .event-card widths in
+        // css/events.css (360px desktop, 320px <=768px, 300px <=480px) —
+        // keep them in sync if those card widths ever change.
         const eventCardHTML = `
             <div class="event-card ${pastClass}" data-category="${category}" data-event="${eventId}">
                 <div class="event-card-image">
-                    <picture>
-                        <source media="(min-width: 641px)" srcset="${imageTabletPath}">
-                        <source media="(max-width: 640px)" srcset="${imageMobilePath}">
-                        <img src="${imageTabletPath}" alt="${t(`events:events.${eventId}.title`)}" loading="lazy" style="object-position: ${cardImagePosition};">
-                    </picture>
+                    <img src="${imageSrc}"
+                         srcset="${imageSrcset}"
+                         sizes="(max-width: 480px) 300px, (max-width: 768px) 320px, 360px"
+                         alt="${t(`events:events.${eventId}.title`)}" loading="lazy" width="720" height="720" style="object-position: ${cardImagePosition};">
                     <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
                 </div>
                 <div class="event-card-content">
@@ -574,36 +576,32 @@ function openModal(eventId) {
     
     // Find the event in eventsData to get its image and position
     let imagePath = '';
+    let imageSrcset = '';
     let modalImagePosition = 'center'; // Default position
-    
+
     if (typeof eventsData !== 'undefined') {
         const eventConfig = eventsData.find(e => e.id === eventId);
         if (eventConfig) {
             // Use high-res image for modal if available
             imagePath = getEventImage(eventConfig, true);
+            imageSrcset = getEventImageSrcset(eventConfig);
             // Get custom image position for modal if specified
             modalImagePosition = eventConfig.modalImagePosition || 'center';
         }
     }
-    
-    // Fallback to category default if no image found
+
+    // Fallback to category defaults if the event has no eventsData entry
     if (!imagePath) {
-        switch(category) {
-            case 'workshop':
-                imagePath = 'assets/photos/events/workshops-1080.webp';
-                break;
-            case 'retreat':
-                imagePath = 'assets/photos/events/retreats-1080.webp';
-                break;
-            case 'course':
-                imagePath = 'assets/photos/events/teacher-trainings-1080.webp';
-                break;
-            default:
-                imagePath = 'assets/photos/events/workshops-1080.webp';
-        }
+        imagePath = getEventImage({ category }, true);
+        imageSrcset = getEventImageSrcset({ category });
     }
-    
+
+    // Set src, srcset and sizes together on every open so a previous
+    // event's srcset never lingers on the shared modal image element.
+    // sizes mirrors .modal-container's max-width (900px) in css/events.css.
     modalContent.image.src = imagePath;
+    modalContent.image.srcset = imageSrcset;
+    modalContent.image.sizes = '(max-width: 900px) 100vw, 900px';
     modalContent.image.alt = event.title;
     modalContent.image.style.objectPosition = modalImagePosition;
     
