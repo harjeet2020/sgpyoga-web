@@ -303,7 +303,7 @@
 }
 
 /* Event Category Badge
-   Purpose: Pill badge displaying event type (Workshop/Retreat/Training) */
+   Purpose: Pill badge displaying event type (Workshop/Retreat/Course) */
 .event-badge {
     position: absolute;
     top: var(--spacing-md);
@@ -327,7 +327,7 @@
     background-color: rgba(160, 103, 137, 0.9); /* Accent-2: Chinese Violet */
 }
 
-.event-badge.training {
+.event-badge.course {
     background-color: rgba(31, 33, 33, 0.9); /* Primary: Eerie Black */
 }
 

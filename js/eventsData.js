@@ -20,143 +20,198 @@
 // =============================================================================
 
 const eventsData = [
-    // Aerial Sound Healing Workshop, October 2025 (Harjeet & Camila)
-    {
-        id: 'aerial-yoga-sound-healing_10oct2025',
-        category: 'workshop',
-        startDate: '2025-10-10',
-        endDate: '2025-10-10',
-        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-480.webp',
-        image: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp',
-        cardImagePosition: 'center 20%',
-        modalImagePosition: 'center 13%'
-    },
-    {
-        id: 'aerial-yoga-sound-healing_17oct2025',
-        category: 'workshop',
-        startDate: '2025-10-17',
-        endDate: '2025-10-17',
-        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-480.webp',
-        image: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp',
-        cardImagePosition: 'center 70%',
-        modalImagePosition: 'center 20%'
-    },
-    // Aerial Yoga Photo Session, Colombia, November 2025 (Dani & Itzel)
-    {
-        // Unique identifier - must match the translation key in events.json
-        // Format: {event-name}_{shortdate} for clarity and uniqueness
-        id: 'aerial-yoga-photo_nov2025',
+  // Aerial Sound Healing Workshop, October 2025 (Harjeet & Camila)
+  {
+    id: "aerial-yoga-sound-healing_10oct2025",
+    category: "workshop",
+    startDate: "2025-10-10",
+    endDate: "2025-10-10",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_10oct2025-1080.webp",
+    cardImagePosition: "center 20%",
+    modalImagePosition: "center 13%",
+  },
+  {
+    id: "aerial-yoga-sound-healing_17oct2025",
+    category: "workshop",
+    startDate: "2025-10-17",
+    endDate: "2025-10-17",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing_17oct2025-1080.webp",
+    cardImagePosition: "center 70%",
+    modalImagePosition: "center 20%",
+  },
+  // Aerial Yoga Photo Session, Colombia, November 2025 (Dani & Itzel)
+  {
+    // Unique identifier - must match the translation key in events.json
+    // Format: {event-name}_{shortdate} for clarity and uniqueness
+    id: "aerial-yoga-photo_nov2025",
 
-        // Category: 'workshop', 'retreat', or 'training'
-        // This determines filtering and badge styling
-        category: 'workshop',
+    // Category: 'workshop', 'retreat', or 'course'
+    // This determines filtering and badge styling
+    category: "workshop",
 
-        // Event dates in ISO format (YYYY-MM-DD)
-        // For single-day events, startDate and endDate are the same
-        // For multi-day events, use first and last day
-        startDate: '2025-11-01',
-        endDate: '2025-11-01',
+    // Event dates in ISO format (YYYY-MM-DD)
+    // For single-day events, startDate and endDate are the same
+    // For multi-day events, use first and last day
+    startDate: "2025-11-01",
+    endDate: "2025-11-01",
 
-        // Image paths for responsive loading
-        // Mobile variant for devices ≤640px
-        imageMobile: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-480.webp',
-        // Standard image for event card (tablet+)
-        image: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-720.webp',
-        // High resolution image for modal or larger displays
-        imageHigh: '/assets/photos/events/unique/aerial-yoga-photo_nov2025-1080.webp',
+    // Image paths for responsive loading
+    // Mobile variant for devices ≤640px
+    imageMobile:
+      "/assets/photos/events/unique/aerial-yoga-photo_nov2025-480.webp",
+    // Standard image for event card (tablet+)
+    image:
+      "/assets/photos/events/unique/aerial-yoga-photo_nov2025-720.webp",
+    // High resolution image for modal or larger displays
+    imageHigh:
+      "/assets/photos/events/unique/aerial-yoga-photo_nov2025-1080.webp",
 
-        // Optional: CSS object-position value for image positioning
-        // Examples: 'center', 'top', 'bottom', 'top left', '50% 25%'
-        // If not specified, defaults to 'center'
-        cardImagePosition: 'center 37%',
-        modalImagePosition: 'center 20%'
-    },
-    // Yoga Retreat, Colombia, November 2025 (Harjeet & Camila)
-    {
-        id: 'yoga-retreat_nov2025',
-        category: 'retreat',
-        startDate: '2025-11-14',
-        endDate: '2025-11-17',
-        imageMobile: '/assets/photos/events/unique/yoga-retreat_nov2025-480.webp',
-        image: '/assets/photos/events/unique/yoga-retreat_nov2025-720.webp',
-        imageHigh: '/assets/photos/events/unique/yoga-retreat_nov2025-1080.webp',
-        cardImagePosition: 'center top',
-        modalImagePosition: 'center 62%'
-    },
-     // 100-Hour Aerial Teacher Training, Mexico City, June 2025 (Camila & Harjeet)
-    {
-        id: 'aerial-teacher-training_jun2025',
-        category: 'training',
-        startDate: '2025-06-21',
-        endDate: '2025-09-27',
-        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_jun2025-480.webp',
-        image: '/assets/photos/events/unique/aerial-teacher-training_jun2025-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_jun2025-1080.webp',
-        cardImagePosition: 'center',
-        modalImagePosition: 'center 85%'
-    },
-    // 50-Hour Aerial Teacher Training, Colombia, November 2025 (Camila & Harjeet)
-    {
-        id: 'aerial-teacher-training_nov2025',
-        category: 'training',
-        startDate: '2025-11-08',
-        endDate: '2025-12-14',
-        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_nov2025-480.webp',
-        image: '/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp',
-        cardImagePosition: 'center',
-        modalImagePosition: 'center 85%'
-    },
-    // Aerial Sound Healing Workshop, January 2026 (Harjeet & Camila)
-    {
-        id: 'aerial-yoga-sound-healing_30jan2026',
-        category: 'workshop',
-        startDate: '2026-01-30',
-        endDate: '2026-01-30',
-        imageMobile: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-480.webp',
-        image: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-1080.webp',
-        cardImagePosition: 'center bottom',
-        modalImagePosition: 'center bottom'
-    },
-    // 100-Hour Aerial Teacher Training, Mexico City, April-June 2026 (Camila & Harjeet)
-    {
-        id: 'aerial-teacher-training_apr2026',
-        category: 'training',
-        startDate: '2026-04-11',
-        endDate: '2026-06-14',
-        imageMobile: '/assets/photos/events/unique/aerial-teacher-training_march2026-480.webp',
-        image: '/assets/photos/events/unique/aerial-teacher-training_march2026-720.webp',
-        imageHigh: '/assets/photos/events/unique/aerial-teacher-training_march2026-1080.webp',
-        cardImagePosition: 'center bottom',
-        modalImagePosition: 'center top'
-    },
-    // Yoga For Healing Retreat, Guatemala, August 2026 (Harjeet & Camila)
-    {
-        id: 'yoga-healing-retreat_aug2026',
-        category: 'retreat',
-        startDate: '2026-08-06',
-        endDate: '2026-08-13',
-        imageMobile: '/assets/photos/events/unique/yoga-retreat_may2026-480.webp',
-        image: '/assets/photos/events/unique/yoga-retreat_may2026-720.webp',
-        imageHigh: '/assets/photos/events/unique/yoga-retreat_may2026-1080.webp',
-        cardImagePosition: 'center 20%',
-        modalImagePosition: 'center 23%'
-    }
+    // Optional: CSS object-position value for image positioning
+    // Examples: 'center', 'top', 'bottom', 'top left', '50% 25%'
+    // If not specified, defaults to 'center'
+    cardImagePosition: "center 37%",
+    modalImagePosition: "center 20%",
+  },
+  // Yoga Retreat, Colombia, November 2025 (Harjeet & Camila)
+  {
+    id: "yoga-retreat_nov2025",
+    category: "retreat",
+    startDate: "2025-11-14",
+    endDate: "2025-11-17",
+    imageMobile:
+      "/assets/photos/events/unique/yoga-retreat_nov2025-480.webp",
+    image: "/assets/photos/events/unique/yoga-retreat_nov2025-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/yoga-retreat_nov2025-1080.webp",
+    cardImagePosition: "center top",
+    modalImagePosition: "center 62%",
+  },
+  // 100-Hour Aerial Teacher Training, Mexico City, June 2025 (Camila & Harjeet)
+  {
+    id: "aerial-teacher-training_jun2025",
+    category: "course",
+    startDate: "2025-06-21",
+    endDate: "2025-09-27",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-teacher-training_jun2025-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-teacher-training_jun2025-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-teacher-training_jun2025-1080.webp",
+    cardImagePosition: "center",
+    modalImagePosition: "center 85%",
+  },
+  // 50-Hour Aerial Teacher Training, Colombia, November 2025 (Camila & Harjeet)
+  {
+    id: "aerial-teacher-training_nov2025",
+    category: "course",
+    startDate: "2025-11-08",
+    endDate: "2025-12-14",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-teacher-training_nov2025-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-teacher-training_nov2025-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-teacher-training_nov2025-1080.webp",
+    cardImagePosition: "center",
+    modalImagePosition: "center 85%",
+  },
+  // Aerial Sound Healing Workshop, January 2026 (Harjeet & Camila)
+  {
+    id: "aerial-yoga-sound-healing_30jan2026",
+    category: "workshop",
+    startDate: "2026-01-30",
+    endDate: "2026-01-30",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-yoga-sound-healing-30jan2026-1080.webp",
+    cardImagePosition: "center bottom",
+    modalImagePosition: "center bottom",
+  },
+  // 100-Hour Aerial Teacher Training, Mexico City, April-June 2026 (Camila & Harjeet)
+  {
+    id: "aerial-teacher-training_apr2026",
+    category: "course",
+    startDate: "2026-04-11",
+    endDate: "2026-06-14",
+    imageMobile:
+      "/assets/photos/events/unique/aerial-teacher-training_march2026-480.webp",
+    image:
+      "/assets/photos/events/unique/aerial-teacher-training_march2026-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/aerial-teacher-training_march2026-1080.webp",
+    cardImagePosition: "center bottom",
+    modalImagePosition: "center top",
+  },
+  // Chakras Workshop, Mexico City, July 2026 (Harjeet)
+  {
+    id: "chakras-workshop_jul2026",
+    category: "workshop",
+    startDate: "2026-07-12",
+    endDate: "2026-07-12",
+    imageMobile:
+      "/assets/photos/events/unique/taller-chakras_12-07-26-480.webp",
+    image: "/assets/photos/events/unique/taller-chakras_12-07-26-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/taller-chakras_12-07-26-1080.webp",
+    cardImagePosition: "center top",
+    modalImagePosition: "center center",
+  },
+  // Restorative Aerial Yoga Course, Mexico City, August 2026 (Camila & Harjeet)
+  {
+    id: "restorative-aerial-course_aug2026",
+    category: "course",
+    startDate: "2026-08-08",
+    endDate: "2026-08-30",
+    imageMobile:
+      "/assets/photos/events/unique/curso-restaurativo_08-26-480.webp",
+    image:
+      "/assets/photos/events/unique/curso-restaurativo_08-26-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/curso-restaurativo_08-26-1080.webp",
+    cardImagePosition: "center top",
+    modalImagePosition: "center 6%",
+  },
+  // 100-Hour Aerial Teacher Training, Mexico City, October-December 2026 (Camila & Harjeet)
+  // NOTE: exact start/end weekends TBD - using month bounds until confirmed
+  {
+    id: "aerial-teacher-training_oct2026",
+    category: "course",
+    startDate: "2026-10-01",
+    endDate: "2026-12-31",
+    imageMobile:
+      "/assets/photos/events/unique/formacion-mexico_10-26-480.webp",
+    image: "/assets/photos/events/unique/formacion-mexico_10-26-720.webp",
+    imageHigh:
+      "/assets/photos/events/unique/formacion-mexico_10-26-1080.webp",
+    cardImagePosition: "center top",
+    modalImagePosition: "center 71%",
+  },
 
-    // Add more events here following the same pattern
-    // Example:
-    // {
-    //     id: 'breathwork-fundamentals_dec2025',
-    //     category: 'workshop',
-    //     startDate: '2025-12-15',
-    //     endDate: '2025-12-15',
-    //     image: '/assets/photos/events/my-custom-event.webp',
-    //     cardImagePosition: 'center',
-    //     modalImagePosition: 'center'
-    // }
+  // Add more events here following the same pattern
+  // Example:
+  // {
+  //     id: 'breathwork-fundamentals_dec2025',
+  //     category: 'workshop',
+  //     startDate: '2025-12-15',
+  //     endDate: '2025-12-15',
+  //     image: '/assets/photos/events/my-custom-event.webp',
+  //     cardImagePosition: 'center',
+  //     modalImagePosition: 'center'
+  // }
 ];
 
 // =============================================================================
@@ -167,21 +222,21 @@ const eventsData = [
  * These are used if you don't provide an 'image' property for an event
  */
 const categoryDefaults = {
-    workshop: {
-        imageMobile: '/assets/photos/events/workshops-480.webp',
-        image: '/assets/photos/events/workshops-720.webp',
-        imageHigh: '/assets/photos/events/workshops-900.webp'
-    },
-    retreat: {
-        imageMobile: '/assets/photos/events/retreats-480.webp',
-        image: '/assets/photos/events/retreats-720.webp',
-        imageHigh: '/assets/photos/events/retreats-900.webp'
-    },
-    training: {
-        imageMobile: '/assets/photos/events/teacher-trainings-480.webp',
-        image: '/assets/photos/events/teacher-trainings-720.webp',
-        imageHigh: '/assets/photos/events/teacher-trainings-900.webp'
-    }
+  workshop: {
+    imageMobile: "/assets/photos/events/workshops-480.webp",
+    image: "/assets/photos/events/workshops-720.webp",
+    imageHigh: "/assets/photos/events/workshops-900.webp",
+  },
+  retreat: {
+    imageMobile: "/assets/photos/events/retreats-480.webp",
+    image: "/assets/photos/events/retreats-720.webp",
+    imageHigh: "/assets/photos/events/retreats-900.webp",
+  },
+  course: {
+    imageMobile: "/assets/photos/events/teacher-trainings-480.webp",
+    image: "/assets/photos/events/teacher-trainings-720.webp",
+    imageHigh: "/assets/photos/events/teacher-trainings-900.webp",
+  },
 };
 
 // =============================================================================
@@ -197,16 +252,22 @@ const categoryDefaults = {
  * @returns {string} Image path
  */
 function getEventImage(event, highRes = false, mobile = false) {
-    const imageKey = mobile ? 'imageMobile' : (highRes ? 'imageHigh' : 'image');
+  const imageKey = mobile
+    ? "imageMobile"
+    : highRes
+      ? "imageHigh"
+      : "image";
 
-    // If event has custom image, use it
-    if (event[imageKey]) {
-        return event[imageKey];
-    }
+  // If event has custom image, use it
+  if (event[imageKey]) {
+    return event[imageKey];
+  }
 
-    // Otherwise fall back to category default
-    const defaults = categoryDefaults[event.category];
-    return defaults ? defaults[imageKey] : categoryDefaults.workshop[imageKey];
+  // Otherwise fall back to category default
+  const defaults = categoryDefaults[event.category];
+  return defaults
+    ? defaults[imageKey]
+    : categoryDefaults.workshop[imageKey];
 }
 
 /**
@@ -217,15 +278,15 @@ function getEventImage(event, highRes = false, mobile = false) {
  * @returns {boolean} True if event has ended
  */
 function isPastEvent(event) {
-    if (!event.endDate) return false;
+  if (!event.endDate) return false;
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
 
-    const eventEndDate = new Date(event.endDate);
-    eventEndDate.setHours(0, 0, 0, 0);
+  const eventEndDate = new Date(event.endDate);
+  eventEndDate.setHours(0, 0, 0, 0);
 
-    return eventEndDate < today;
+  return eventEndDate < today;
 }
 
 /**
@@ -236,10 +297,10 @@ function isPastEvent(event) {
  * @returns {Array} Sorted array of events
  */
 function sortEventsByDate(events, ascending = true) {
-    return [...events].sort((a, b) => {
-        const dateA = new Date(a.startDate);
-        const dateB = new Date(b.startDate);
+  return [...events].sort((a, b) => {
+    const dateA = new Date(a.startDate);
+    const dateB = new Date(b.startDate);
 
-        return ascending ? dateA - dateB : dateB - dateA;
-    });
+    return ascending ? dateA - dateB : dateB - dateA;
+  });
 }

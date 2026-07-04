@@ -1,16 +1,16 @@
 {
   "meta": {
     "title": "SGP Yoga - Eventos",
-    "description": "Únete a nuestros talleres de yoga transformadores, retiros y programas de formación de maestros en la Ciudad de México"
+    "description": "Únete a nuestros talleres de yoga transformadores, retiros y cursos integrales en la Ciudad de México"
   },
   "upcomingEvents": {
     "title": "Próximos Eventos",
-    "subtitle": "Ofrecemos regularmente talleres temáticos, retiros transformadores y formaciones integrales de maestros",
+    "subtitle": "Ofrecemos regularmente talleres temáticos, retiros transformadores y cursos integrales",
     "filters": {
       "all": "Todos los Eventos",
       "workshop": "Talleres",
       "retreat": "Retiros",
-      "training": "Formación de Maestros"
+      "course": "Cursos"
     },
     "timeToggle": {
       "showPast": "Mostrar Eventos Pasados",
@@ -106,16 +106,38 @@
       "instructor": "Camila y Harjeet",
       "price": "$27,000 MXN"
     },
-    "yoga-healing-retreat_aug2026": {
-      "title": "Yoga Para Sanar",
-      "category": "Retiro",
-      "date": "6-13 de agosto, 2026",
-      "time": "7 Días Completos",
-      "location": "Lago de Atitlán, Guatemala",
-      "shortDescription": "Un retiro transformador enfocado en la sanación y la conexión interior en el místico Lago de Atitlán.",
-      "fullDescription": "Este retiro enfocado en la sanación está diseñado para ayudarte a reconectarte contigo mismo y restaurar el equilibrio interior. Con el impresionante telón de fondo del Lago de Atitlán, uno de los lugares más sagrados y místicos de Guatemala, practicaremos Kundalini yoga, experimentaremos sesiones de sanación con sonido y exploraremos técnicas de meditación para profundizar tu viaje interior. La comida, el alojamiento y el transporte desde el aeropuerto hasta el centro de retiro y de regreso están incluidos. Pasaremos 3 días completos practicando yoga; el 4º día será un día de descanso para turismo y transporte, y los 2 días restantes están reservados para una espectacular caminata al Volcán Acatenango y Fuego. También es posible reservar una estadía más corta sin la caminata al volcán a un costo reducido.",
-      "instructor": "Harjeet y Camila",
-      "price": "$20,000 MXN"
+    "chakras-workshop_jul2026": {
+      "title": "Taller de Chakras",
+      "category": "Taller",
+      "date": "12 de julio, 2026",
+      "time": "10:00 AM - 2:00 PM",
+      "location": "Estudio Aguacate, Ciudad de México",
+      "shortDescription": "Una inmersión profunda de 4 horas en los chakras y el sistema energético humano, con test de diagnóstico incluido.",
+      "fullDescription": "En este taller de 4 horas haremos una inmersión profunda en los chakras y el sistema energético humano. Hablaremos de cómo el estado de nuestro sistema energético afecta nuestro bienestar mental y emocional, y cubriremos en gran detalle cada uno de los chakras principales, incluyendo los bloqueos y desarmonías que pueden surgir en cada uno de ellos. También realizarás un completo test de diagnóstico de autoevaluación que te ayudará a entender el estado actual de tus chakras y en qué deberías trabajar.",
+      "instructor": "Harjeet",
+      "price": "$400 MXN"
+    },
+    "restorative-aerial-course_aug2026": {
+      "title": "Curso de Yoga Aéreo Restaurativo (20 Horas)",
+      "category": "Curso",
+      "date": "8, 22 y 30 de agosto, 2026",
+      "time": "Sábados y domingo, 10:00 AM - 4:00 PM",
+      "location": "Estudio Aguacate, Ciudad de México",
+      "shortDescription": "Descubre el arte del yoga aéreo lento y restaurativo con la hamaca baja.",
+      "fullDescription": "Este curso de 20 horas está abierto tanto a principiantes absolutos como a yoguis aéreos con experiencia. Ya sea que descubras el yoga aéreo por primera vez o quieras ampliar tu práctica existente, aprenderás a trabajar con la hamaca en su posición baja, explorando secuencias de ritmo lento enfocadas en la relajación y el estiramiento profundo. Un complemento perfecto para los estilos más dinámicos del yoga aéreo, y una práctica profundamente nutritiva por sí misma.",
+      "instructor": "Camila y Harjeet",
+      "price": "$6,500 MXN ($5,000 MXN pago anticipado)"
+    },
+    "aerial-teacher-training_oct2026": {
+      "title": "Formación de Maestros de Yoga Aéreo 100 Horas",
+      "category": "Formación de Maestros",
+      "date": "Octubre - Diciembre 2026",
+      "time": "Fines de semana (Sábados y Domingos)",
+      "location": "Estudios Aguacate y Hari Om, Ciudad de México",
+      "shortDescription": "Convértete en maestro de yoga aéreo con nuestro programa de formación especializado.",
+      "fullDescription": "El yoga aéreo está ganando cada vez más popularidad, no solo porque se ve genial, sino también porque hace que posturas más avanzadas sean accesibles para principiantes desde el día 1. Nuestro programa presencial de 100 horas es ideal para maestros de yoga que desean ampliar su repertorio, pero también puedes participar como principiante absoluto. Cubriremos todos los módulos esenciales como alineación, anatomía, filosofía y más. Nuestras sesiones se llevarán a cabo los fines de semana en los estudios Aguacate y Hari Om, Ciudad de México.",
+      "instructor": "Camila y Harjeet",
+      "price": "$27,000 MXN ($25,000 MXN pago anticipado)"
     }
   },
   "eventTypes": {
@@ -127,9 +149,9 @@
       "title": "Retiros",
       "description": "Para nosotros, un retiro es un paso atrás de la realidad agitada de nuestra vida diaria. Nuestros retiros están diseñados para ayudarte a sanar y transformarte, al mismo tiempo que te dan espacio para descansar y recuperar el equilibrio."
     },
-    "trainings": {
-      "title": "Formación de Maestros",
-      "description": "La mayor alegría de un maestro es ver a sus estudiantes convertirse en maravillosos yoguis. Nuestras formaciones de maestros te brindan todas las herramientas que necesitas para comenzar a compartir la práctica del yoga con el mundo. Todos nuestros programas vienen con una certificación de Yoga Alliance reconocida internacionalmente y cubren todos los módulos esenciales como alineación, anatomía, filosofía y más."
+    "courses": {
+      "title": "Cursos",
+      "description": "Nuestros cursos son programas de varias sesiones que te permiten profundizar en un aspecto del yoga: desde la práctica aérea restaurativa hasta formaciones completas de maestros. Nuestras formaciones de maestros vienen con una certificación de Yoga Alliance reconocida internacionalmente y cubren todos los módulos esenciales como alineación, anatomía, filosofía y más."
     }
   },
   "modal": {

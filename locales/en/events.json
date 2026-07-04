@@ -1,16 +1,16 @@
 {
   "meta": {
     "title": "SGP Yoga - Events",
-    "description": "Join our transformative yoga workshops, retreats, and teacher training programs"
+    "description": "Join our transformative yoga workshops, retreats, and in-depth courses in Mexico City"
   },
   "upcomingEvents": {
     "title": "Upcoming Events",
-    "subtitle": "We regularly offer themed workshops, transformative retreats, and comprehensive teacher trainings",
+    "subtitle": "We regularly offer themed workshops, transformative retreats, and in-depth courses",
     "filters": {
       "all": "All Events",
       "workshop": "Workshops",
       "retreat": "Retreats",
-      "training": "Teacher Trainings"
+      "course": "Courses"
     },
     "timeToggle": {
       "showPast": "Show Past Events",
@@ -106,16 +106,38 @@
       "instructor": "Camila & Harjeet",
       "price": "$27,000 MXN"
     },
-    "yoga-healing-retreat_aug2026": {
-      "title": "Yoga For Healing",
-      "category": "Retreat",
-      "date": "August 6-13, 2026",
-      "time": "7 Full Days",
-      "location": "Lake Atitlán, Guatemala",
-      "shortDescription": "A transformative retreat focused on healing and inner connection at the mystical Lake Atitlán.",
-      "fullDescription": "This healing-focused retreat is designed to help you reconnect with yourself and restore inner balance. Set against the breathtaking backdrop of Lake Atitlán, one of Guatemala's most sacred and mystical places, we will practice Kundalini yoga, experience sound healing sessions, and explore meditation techniques to deepen your inner journey. Food, accommodation, and transportation from the airport to the retreat center and back are all included. We will spend 3 full days practicing yoga; the 4th day will be a rest day for sightseeing & transportation, and the remaining 2 days are reserved for a breathtaking hike to Volcano Acatenango & Fuego. It is also possible to book a shorter stay without the volcano hike at a reduced cost.",
-      "instructor": "Harjeet & Camila",
-      "price": "$20,000 MXN"
+    "chakras-workshop_jul2026": {
+      "title": "Chakras Workshop",
+      "category": "Workshop",
+      "date": "July 12, 2026",
+      "time": "10:00 AM - 2:00 PM",
+      "location": "Aguacate Studio, Mexico City",
+      "shortDescription": "A 4-hour deep dive into the chakras and the human energy system, including a diagnostic self-assessment.",
+      "fullDescription": "In this 4-hour workshop we will take a deep dive into the chakras and the human energy system. We will discuss how the state of our energy system affects our mental and emotional wellbeing, and cover each of the major chakras in great detail - including the blockages and disharmonies that can arise in each of them. You will also complete a comprehensive self-assessment diagnostic test that will help you understand the current state of your chakras and what to work on going forward.",
+      "instructor": "Harjeet",
+      "price": "$400 MXN"
+    },
+    "restorative-aerial-course_aug2026": {
+      "title": "Course in Restorative Aerial Yoga (20 Hours)",
+      "category": "Course",
+      "date": "August 8, 22 & 30, 2026",
+      "time": "Saturdays & Sunday, 10:00 AM - 4:00 PM",
+      "location": "Aguacate Studio, Mexico City",
+      "shortDescription": "Discover the art of slow, restorative aerial yoga with the low hammock.",
+      "fullDescription": "This 20-hour course is open to total beginners and experienced aerial yogis alike. Whether you are discovering aerial yoga for the first time or expanding your existing practice, you will learn to work with the hammock in its low setting, exploring slower-paced sequences focused on relaxation and deep stretching. A perfect complement to the more dynamic styles of aerial yoga - and a deeply nourishing practice in its own right.",
+      "instructor": "Camila & Harjeet",
+      "price": "$6,500 MXN ($5,000 MXN early payment)"
+    },
+    "aerial-teacher-training_oct2026": {
+      "title": "100-Hour Aerial Yoga Teacher Training",
+      "category": "Teacher Training",
+      "date": "October - December 2026",
+      "time": "Weekends (Saturdays & Sundays)",
+      "location": "Aguacate & Hari Om Studios, Mexico City",
+      "shortDescription": "Become an aerial yoga teacher with our specialized training program.",
+      "fullDescription": "Aerial yoga is getting increasingly popular, not only because it looks great, but also because it makes more advanced poses accessible to beginners from day 1. Our 100-Hour in-person program is ideal for yoga teachers who want to expand their repertoire, but you can also participate as an absolute beginner. We will cover all the essential modules such as alignment, anatomy, philosophy, and more. Our sessions will take place on weekends at Aguacate and Hari Om studios, Mexico City.",
+      "instructor": "Camila & Harjeet",
+      "price": "$27,000 MXN ($25,000 MXN early payment)"
     }
   },
   "eventTypes": {
@@ -127,9 +149,9 @@
       "title": "Retreats",
       "description": "To us, a retreat is a step back from the hectic reality of our daily lives. Our retreats are tailored to help you heal & transform, at the same time giving you space to rest and regain balance."
     },
-    "trainings": {
-      "title": "Teacher Trainings",
-      "description": "The highest joy of a teacher is to see their students become wonderful yogis. Our teacher trainings give you all the tools you need to begin sharing the practice of yoga with the world. All our programmes come with an internationally-recognized Yoga Alliance certification and cover all the essential modules such as alignment, anatomy, philosophy, and more."
+    "courses": {
+      "title": "Courses",
+      "description": "Our courses are multi-session programs that let you go deep into one aspect of yoga - from restorative aerial practice to full teacher trainings. Our teacher training programmes come with an internationally-recognized Yoga Alliance certification and cover all the essential modules such as alignment, anatomy, philosophy, and more."
     }
   },
   "modal": {

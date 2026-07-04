@@ -24,7 +24,7 @@ let eventsGrid;
  * Purpose: Track current view state
  */
 let currentTimeView = 'upcoming'; // 'upcoming' or 'past'
-let currentCategoryFilter = 'all'; // 'all', 'workshop', 'retreat', or 'training'
+let currentCategoryFilter = 'all'; // 'all', 'workshop', 'retreat', or 'course'
 
 /**
  * Purpose: Limit events to prevent overwhelming the UI
@@ -595,7 +595,7 @@ function openModal(eventId) {
             case 'retreat':
                 imagePath = 'assets/photos/events/retreats-1080.webp';
                 break;
-            case 'training':
+            case 'course':
                 imagePath = 'assets/photos/events/teacher-trainings-1080.webp';
                 break;
             default:
