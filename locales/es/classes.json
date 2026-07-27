@@ -32,14 +32,16 @@
     "aerial": "Yoga Aéreo",
     "aerialFlow": "Yoga Aéreo Flow",
     "aerialPilates": "Pilates Aéreo",
-    "aerialBeginners": "Yoga Aéreo Principiantes"
+    "aerialBeginners": "Yoga Aéreo Principiantes",
+    "aerialRestorative": "Yoga Aéreo Restaurativo"
   },
   "teachers": {
     "harjeet": "Harjeet",
     "camila": "Camila",
     "dani": "Dani",
     "aro": "Aro",
-    "itzel": "Itzel"
+    "itzel": "Itzel",
+    "rox": "Rox"
   },
   "locations": {
     "hariom": "Hari Om",

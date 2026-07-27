@@ -18,9 +18,11 @@
     background-color: var(--color-primary);
 }
 
-/* Classes hero framing: keep the aerial hammock subject in view */
+/* Classes hero framing: the yogini rests on the mat in the bottom third of the
+   photo, so anchor the crop to the bottom edge. Centre/top framing cuts off her
+   head and shoulders on wide viewports, where `cover` overflows vertically. */
 .classes-hero .hero-image img {
-    object-position: center 40%;
+    object-position: center bottom;
 }
 
 .classes-hero-overlay {
