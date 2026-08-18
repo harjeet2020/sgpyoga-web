@@ -210,11 +210,11 @@
     transform: translateY(-2px) scale(1.02);
 }
 .class-card--kundalini {
-    background-color: hsla(26, 100%, 94%, 0.8);
+    background-color: hsla(213, 41%, 43%, 0.9);
 }
 .class-card--kundalini:hover,
 .class-card--kundalini.active {
-    background-color: hsla(26, 100%, 94%, 0.8);
+    background-color: hsla(213, 41%, 43%, 0.9);
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
                 inset 0 0 60px rgba(255, 255, 255, 0.08);
@@ -226,18 +226,6 @@
 .class-card--vinyasa:hover,
 .class-card--vinyasa.active {
     background-color: hsla(146, 28%, 45%, 0.9);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 0 60px rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px) scale(1.02);
-}
-
-.class-card--hatha {
-    background-color: hsla(213, 41%, 43%, 0.9);
-}
-.class-card--hatha:hover,
-.class-card--hatha.active {
-    background-color: hsla(213, 41%, 43%, 0.9);
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
                 inset 0 0 60px rgba(255, 255, 255, 0.08);
@@ -380,23 +368,11 @@
 }
 
 .legend-item--kundalini {
-    background-color: var(--color-secondary);
-}
-
-.legend-item--kundalini .legend-content h3 {
-    color: var(--color-primary);
-}
-
-.legend-item--kundalini .legend-content p {
-    color: var(--color-primary);
+    background-color: var(--color-accent-1);
 }
 
 .legend-item--vinyasa {
     background-color: hsla(146, 28%, 45%, 1);
-}
-
-.legend-item--hatha {
-    background-color: var(--color-accent-1);
 }
 
 .legend-item--aerial {
@@ -503,15 +479,21 @@
     font-weight: 300;
 }
 
+/* The five packages sit in a 3 + 2 arrangement. The grid is six columns and
+   every card spans two of them, so a full row holds three cards; nudging the
+   fourth card one column to the right centres the trailing pair beneath the
+   row above. If a package is ever added or removed, the :nth-child rules that
+   do the centring (here and in the tablet breakpoint) need revisiting. */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: var(--spacing-lg);
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .pricing-card {
+    grid-column: span 2;
     background-color: var(--color-secondary);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-xl);
@@ -520,6 +502,10 @@
     position: relative;
     transition: all var(--transition-normal);
     border: 2px solid transparent;
+}
+
+.pricing-card:nth-child(4) {
+    grid-column: 2 / span 2;
 }
 
 .pricing-card:hover {
@@ -770,10 +756,20 @@
         font-size: 2.5rem;
     }
 
+    /* Two cards per row (a four-column grid with each card spanning two),
+       leaving the fifth card alone on the last row - centre it. */
     .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: var(--spacing-xl);
         max-width: 700px;
+    }
+
+    .pricing-card:nth-child(4) {
+        grid-column: span 2;
+    }
+
+    .pricing-card:nth-child(5) {
+        grid-column: 2 / span 2;
     }
 
     .pricing-card--featured {
@@ -930,10 +926,17 @@
         padding: 0 var(--spacing-sm);
     }
 
+    /* Single column - reset the spans so cards don't create implicit columns */
     .pricing-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
         max-width: 400px;
+    }
+
+    .pricing-card,
+    .pricing-card:nth-child(4),
+    .pricing-card:nth-child(5) {
+        grid-column: auto;
     }
 
     .pricing-card {

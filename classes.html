@@ -269,7 +269,7 @@
                     <!-- Saturday -->
                     <div class="grid-cell">
                         <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name" data-i18n="classes:styles.aerialFlow">Aerial Yoga Flow</h3>
+                            <h3 class="class-name" data-i18n="classes:styles.aerial">Aerial Yoga</h3>
                             <div class="class-meta">
                                 <span class="class-duration">
                                     <i data-lucide="clock"></i>
@@ -365,7 +365,33 @@
                     <!-- Saturday -->
                     <div class="grid-cell"></div>
                     <!-- Sunday -->
-                    <div class="grid-cell"></div>
+                    <div class="grid-cell">
+                        <div class="class-card class-card--kundalini" data-style="kundalini">
+                            <h3 class="class-name" data-i18n="classes:styles.kundalini">Kundalini Yoga</h3>
+                            <div class="class-meta">
+                                <span class="class-duration">
+                                    <i data-lucide="clock"></i>
+                                    <span>90 min</span>
+                                </span>
+                                <span class="class-location">
+                                    <i data-lucide="map-pin"></i>
+                                    <span data-i18n="classes:locations.viveros">Viveros Park</span>
+                                </span>
+                            </div>
+                            <div class="teacher-banner">
+                                <img srcset="/assets/photos/classes/harjeet-200.webp 200w,
+                                             /assets/photos/classes/harjeet-300.webp 300w,
+                                             /assets/photos/classes/harjeet-600.webp 600w"
+                                     sizes="50px"
+                                     src="/assets/photos/classes/harjeet-200.webp"
+                                     alt="Harjeet, Kundalini Yoga teacher"
+                                     class="teacher-photo"
+                                     width="200" height="200"
+                                     loading="lazy">
+                                <span class="teacher-name" data-i18n="classes:teachers.harjeet">Harjeet</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- 10:30 AM Row -->
                     <!-- Time -->
@@ -421,7 +447,7 @@
                     <!-- Wednesday -->
                     <div class="grid-cell">
                         <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name" data-i18n="classes:styles.aerialFlow">Aerial Yoga Flow</h3>
+                            <h3 class="class-name" data-i18n="classes:styles.aerial">Aerial Yoga</h3>
                             <div class="class-meta">
                                 <span class="class-duration">
                                     <i data-lucide="clock"></i>
@@ -438,7 +464,7 @@
                                              /assets/photos/classes/camila-600.webp 600w"
                                      sizes="50px"
                                      src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga Flow teacher"
+                                     alt="Camila, Aerial Yoga teacher"
                                      class="teacher-photo"
                                      width="200" height="200"
                                      loading="lazy">
@@ -543,24 +569,10 @@
             </button>
 
             <div class="legend-scroll-container">
-                 <div class="legend-item legend-item--aerial">
+                <div class="legend-item legend-item--aerial">
                     <div class="legend-content">
                         <h3 data-i18n="classes:legend.aerial.name">Aerial Yoga</h3>
                         <p data-i18n="classes:legend.aerial.description">Unleash your body's potential with breathtaking aerial sequences performed in silk hammocks</p>
-                    </div>
-                </div>
-
-                <div class="legend-item legend-item--vinyasa">
-                    <div class="legend-content">
-                        <h3 data-i18n="classes:legend.vinyasa.name">Vinyasa Flow</h3>
-                        <p data-i18n="classes:legend.vinyasa.description">Tap into your inner flow with dynamic sequences that improve circulation and help you regain grace and balance</p>
-                    </div>
-                </div>
-
-                <div class="legend-item legend-item--hatha">
-                    <div class="legend-content">
-                        <h3 data-i18n="classes:legend.hatha.name">Hatha Yoga</h3>
-                        <p data-i18n="classes:legend.hatha.description">Build a strong foundation with a versatile yoga style with deep roots in tradition</p>
                     </div>
                 </div>
 
@@ -571,7 +583,14 @@
                     </div>
                 </div>
 
+                <div class="legend-item legend-item--vinyasa">
+                    <div class="legend-content">
+                        <h3 data-i18n="classes:legend.vinyasa.name">Vinyasa Flow</h3>
+                        <p data-i18n="classes:legend.vinyasa.description">Tap into your inner flow with dynamic sequences that improve circulation and help you regain grace and balance</p>
+                    </div>
+                </div>
             </div>
+
         </section>
 
         <!-- Pricing Section -->
@@ -633,9 +652,8 @@
                         </div>
                     </div>
 
-                    <!-- 12 Classes Card - Best Value -->
-                    <div class="pricing-card pricing-card--featured">
-                        <div class="pricing-badge" data-i18n="classes:pricing.pack12.badge">Best Value</div>
+                    <!-- 12 Classes Card -->
+                    <div class="pricing-card">
                         <div class="pricing-card-header">
                             <h3 data-i18n="classes:pricing.pack12.name">12 Classes</h3>
                             <p class="pricing-card-description" data-i18n="classes:pricing.pack12.description">Three times a week practice</p>
@@ -647,7 +665,25 @@
                                 <span class="pricing-unit">MXN</span>
                             </div>
                             <p class="pricing-per-class" data-i18n="classes:pricing.pack12.perClass">$175 per class</p>
-                            <span class="pricing-savings pricing-savings--featured" data-i18n="classes:pricing.pack12.savings">Save $900 MXN</span>
+                            <span class="pricing-savings" data-i18n="classes:pricing.pack12.savings">Save $900 MXN</span>
+                        </div>
+                    </div>
+
+                    <!-- 16 Classes Card - Best Value -->
+                    <div class="pricing-card pricing-card--featured">
+                        <div class="pricing-badge" data-i18n="classes:pricing.pack16.badge">Best Value</div>
+                        <div class="pricing-card-header">
+                            <h3 data-i18n="classes:pricing.pack16.name">16 Classes</h3>
+                            <p class="pricing-card-description" data-i18n="classes:pricing.pack16.description">Four times a week practice</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <div class="pricing-amount">
+                                <span class="pricing-currency">$</span>
+                                <span class="pricing-value">2,600</span>
+                                <span class="pricing-unit">MXN</span>
+                            </div>
+                            <p class="pricing-per-class" data-i18n="classes:pricing.pack16.perClass">$162.50 per class</p>
+                            <span class="pricing-savings pricing-savings--featured" data-i18n="classes:pricing.pack16.savings">Save $1,400 MXN</span>
                         </div>
                     </div>
                 </div>

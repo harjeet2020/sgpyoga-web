@@ -30,7 +30,6 @@
     "vinyasa": "Vinyasa Yoga",
     "hatha": "Hatha Yoga",
     "aerial": "Aerial Yoga",
-    "aerialFlow": "Aerial Yoga Flow",
     "aerialPilates": "Aerial Pilates",
     "aerialBeginners": "Aerial Yoga Beginners",
     "aerialRestorative": "Restorative Aerial Yoga"
@@ -46,6 +45,7 @@
   "locations": {
     "hariom": "Hari Om",
     "aguacate": "Aguacate",
+    "viveros": "Viveros",
     "aireLibre": "Open Air"
   },
   "duration": {
@@ -96,7 +96,13 @@
       "name": "12 Classes",
       "description": "Three times a week practice",
       "perClass": "$175 per class",
-      "savings": "Save $900 MXN",
+      "savings": "Save $900 MXN"
+    },
+    "pack16": {
+      "name": "16 Classes",
+      "description": "Four times a week practice",
+      "perClass": "$162.50 per class",
+      "savings": "Save $1,400 MXN",
       "badge": "Best Value"
     },
     "note": "With our packages, you can attend regular classes with all of our teachers as shown in the schedule above. Packages are valid for one calendar month from purchase date. Unused classes do not roll over, so make sure to use them all!"

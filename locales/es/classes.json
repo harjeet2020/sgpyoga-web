@@ -30,7 +30,6 @@
     "vinyasa": "Vinyasa Yoga",
     "hatha": "Hatha Yoga",
     "aerial": "Yoga Aéreo",
-    "aerialFlow": "Yoga Aéreo Flow",
     "aerialPilates": "Pilates Aéreo",
     "aerialBeginners": "Yoga Aéreo Principiantes",
     "aerialRestorative": "Yoga Aéreo Restaurativo"
@@ -46,6 +45,7 @@
   "locations": {
     "hariom": "Hari Om",
     "aguacate": "Aguacate",
+    "viveros": "Viveros",
     "aireLibre": "Aire Libre"
   },
   "duration": {
@@ -96,7 +96,13 @@
       "name": "12 Clases",
       "description": "Práctica tres veces por semana",
       "perClass": "$175 por clase",
-      "savings": "Ahorra $900 MXN",
+      "savings": "Ahorra $900 MXN"
+    },
+    "pack16": {
+      "name": "16 Clases",
+      "description": "Práctica cuatro veces por semana",
+      "perClass": "$162.50 por clase",
+      "savings": "Ahorra $1,400 MXN",
       "badge": "Mejor Valor"
     },
     "note": "Con nuestros paquetes, puedes asistir a clases regulares con todos nuestros maestros como se muestra en el horario arriba. Los paquetes son válidos por un mes calendario desde la fecha de compra. Las clases no utilizadas no se acumulan, ¡así que asegúrate de usarlas todas!"
