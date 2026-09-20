@@ -72,6 +72,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/classes.css">
+    <link rel="stylesheet" href="/css/schedule-colours.css">
 
     <!-- Performance: Load below-the-fold CSS asynchronously to eliminate render blocking -->
     <link rel="stylesheet" href="/css/footer.css" media="print" onload="this.media='all'">
@@ -187,410 +188,326 @@
         </section>
 
         <!-- Schedule Section -->
-        <section class="schedule-section">
-            <div class="schedule-container">
-                <div class="schedule-grid">
-                    <!-- Header Row -->
-                    <div class="grid-corner"></div>
-                    <div class="day-header">Lun</div>
-                    <div class="day-header">Mar</div>
-                    <div class="day-header">Mié</div>
-                    <div class="day-header">Jue</div>
-                    <div class="day-header">Vie</div>
-                    <div class="day-header">Sáb</div>
-                    <div class="day-header">Dom</div>
+        <section class="schedule" id="schedule">
+            <div class="container">
+            <header class="schedule__head">
+                <h2>Horario Semanal</h2>
+                <p class="schedule__subtitle">Únete a cualquier clase del horario — sin reserva previa, solo tráete a ti.</p>
+            </header>
 
-
-                    <!-- 9:00 AM Row -->
-                    <!-- Time -->
-                    <div class="time-label">9:00</div>
-                    <!-- Monday -->
-                    <div class="grid-cell"></div>
-                    <!-- Tuesday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Wednesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Thursday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Friday -->
-                    <div class="grid-cell"></div>
-                    <!-- Saturday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sunday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10:00 AM Row -->
-                    <!-- Time -->
-                    <div class="time-label">10:00</div>
-                    <!-- Monday -->
-                    <div class="grid-cell"></div>
-                    <!-- Tuesday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo Restaurativo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Restorative Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Wednesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Thursday -->
-                    <div class="grid-cell"></div>
-                    <!-- Friday -->
-                    <div class="grid-cell"></div>
-                    <!-- Saturday -->
-                    <div class="grid-cell"></div>
-                    <!-- Sunday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--kundalini" data-style="kundalini">
-                            <h3 class="class-name">Kundalini Yoga</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>90 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Viveros</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/harjeet-200.webp 200w,
-                                             /assets/photos/classes/harjeet-300.webp 300w,
-                                             /assets/photos/classes/harjeet-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/harjeet-200.webp"
-                                     alt="Harjeet, Kundalini Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Harjeet</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10:30 AM Row -->
-                    <!-- Time -->
-                    <div class="time-label">10:30</div>
-                    <!-- Monday -->
-                    <div class="grid-cell"></div>
-                    <!-- Tuesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Wednesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Thursday -->
-                    <div class="grid-cell"></div>
-                    <!-- Friday -->
-                    <div class="grid-cell"></div>
-                    <!-- Saturday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo Principiantes</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Hari Om</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/rox-200.webp 200w,
-                                             /assets/photos/classes/rox-300.webp 300w,
-                                             /assets/photos/classes/rox-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/rox-200.webp"
-                                     alt="Rox, Aerial Yoga Beginners teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Rox</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sunday -->
-                    <div class="grid-cell"></div>
-
-                    <!-- 7:00 PM (19:00) Row -->
-                    <!-- Time -->
-                    <div class="time-label">19:00</div>
-                    <!-- Monday -->
-                    <div class="grid-cell"></div>
-                    <!-- Tuesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Wednesday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Hari Om</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Thursday -->
-                    <div class="grid-cell"></div>
-                    <!-- Friday -->
-                    <div class="grid-cell"></div>
-                    <!-- Saturday -->
-                    <div class="grid-cell"></div>
-                    <!-- Sunday -->
-                    <div class="grid-cell"></div>
-
-                    <!-- 8:00 PM (20:00) Row -->
-                    <!-- Time -->
-                    <div class="time-label">20:00</div>
-                    <!-- Monday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tuesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Wednesday -->
-                    <div class="grid-cell"></div>
-                    <!-- Thursday -->
-                    <div class="grid-cell">
-                        <div class="class-card class-card--aerial" data-style="aerial">
-                            <h3 class="class-name">Yoga Aéreo</h3>
-                            <div class="class-meta">
-                                <span class="class-duration">
-                                    <i data-lucide="clock"></i>
-                                    <span>60 min</span>
-                                </span>
-                                <span class="class-location">
-                                    <i data-lucide="map-pin"></i>
-                                    <span>Aguacate</span>
-                                </span>
-                            </div>
-                            <div class="teacher-banner">
-                                <img srcset="/assets/photos/classes/camila-200.webp 200w,
-                                             /assets/photos/classes/camila-300.webp 300w,
-                                             /assets/photos/classes/camila-600.webp 600w"
-                                     sizes="50px"
-                                     src="/assets/photos/classes/camila-200.webp"
-                                     alt="Camila, Aerial Yoga teacher"
-                                     class="teacher-photo"
-                                     width="200" height="200"
-                                     loading="lazy">
-                                <span class="teacher-name">Camila</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Friday -->
-                    <div class="grid-cell"></div>
-                    <!-- Saturday -->
-                    <div class="grid-cell"></div>
-                    <!-- Sunday -->
-                    <div class="grid-cell"></div>
+            <div class="schedule__filters">
+                <span class="schedule__filters-label">Mostrar</span>
+                <div class="schedule__chips" role="group"  aria-label="Mostrar">
+                <button type="button" class="chip is-active" data-filter="all">Todas las clases</button>
+                <button type="button" class="chip" data-filter="teacher:camila">Camila</button>
+                <button type="button" class="chip" data-filter="teacher:harjeet">Harjeet</button>
+                <button type="button" class="chip" data-filter="teacher:rox">Rox</button>
+                <span class="schedule__chip-rule" aria-hidden="true"></span>
+                <button type="button" class="chip" data-filter="location:aguacate">Aguacate</button>
+                <button type="button" class="chip" data-filter="location:hariom">Hari Om</button>
+                <button type="button" class="chip" data-filter="location:viveros">Viveros</button>
                 </div>
+            </div>
+
+            <ol class="schedule__week">
+            <li class="schedule-day" data-day="1">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Lunes</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="20:00">20:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day" data-day="2">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Martes</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="09:00">09:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                    <li class="class-card" data-style="aerial-restorative" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="10:00">10:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo Restaurativo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day" data-day="3">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Miércoles</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="hariom" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="19:00">19:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Hari Om</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day" data-day="4">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Jueves</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="09:00">09:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="20:00">20:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day is-empty" data-day="5">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Viernes</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes"></ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day" data-day="6">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Sábado</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="09:00">09:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                    <li class="class-card" data-style="aerial-beginners" data-family="aerial" data-teacher="rox" data-location="hariom" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="10:30">10:30</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo Principiantes</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Hari Om</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <span class="class-card__avatar class-card__avatar--initials" aria-hidden="true">R</span>
+                            <span>Rox</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            <li class="schedule-day" data-day="7">
+                <div class="schedule-day__head">
+                    <h3 class="schedule-day__name">Domingo</h3>
+                    <span class="schedule-day__today">Hoy</span>
+                </div>
+                <ol class="schedule-day__classes">
+                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="09:00">09:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Yoga Aéreo</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Aguacate</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/camila-200.webp 200w,
+                                    /assets/photos/classes/camila-300.webp 300w,
+                                    /assets/photos/classes/camila-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/camila-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Camila</span>
+                        </p>
+                    </li>
+                    <li class="class-card" data-style="kundalini" data-family="kundalini" data-teacher="harjeet" data-location="viveros" style="--style-accent: var(--style-kundalini);">
+                        <p class="class-card__when">
+                            <time class="class-card__time" datetime="10:00">10:00</time>
+                            <span class="class-card__dot" aria-hidden="true">·</span>
+                            <span class="class-card__duration"><span class="class-card__duration-value">90</span>&nbsp;<span>min</span></span>
+                        </p>
+                        <h4 class="class-card__name">Kundalini Yoga</h4>
+                        <p class="class-card__where">
+                            <i data-lucide="map-pin" aria-hidden="true"></i>
+                            <span>Viveros</span>
+                        </p>
+                        <p class="class-card__teacher">
+                            <img class="class-card__avatar"
+                             srcset="/assets/photos/classes/harjeet-200.webp 200w,
+                                    /assets/photos/classes/harjeet-300.webp 300w,
+                                    /assets/photos/classes/harjeet-600.webp 600w"
+                             sizes="36px"
+                             src="/assets/photos/classes/harjeet-200.webp"
+                             alt="" width="200" height="200" loading="lazy">
+                            <span>Harjeet</span>
+                        </p>
+                    </li>
+                </ol>
+                <p class="schedule-day__empty">Sin clases</p>
+            </li>
+            </ol>
             </div>
         </section>
 
         <!-- Legend Section -->
-        <section class="legend-section">
-            <!-- Scroll Indicators -->
-            <button class="legend-scroll-indicator left" aria-label="Scroll left">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
-            <button class="legend-scroll-indicator right" aria-label="Scroll right">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
-
-            <div class="legend-scroll-container">
-                <div class="legend-item legend-item--aerial">
-                    <div class="legend-content">
-                        <h3>Yoga Aéreo</h3>
-                        <p>Libera el potencial de tu cuerpo con secuencias aéreas impresionantes realizadas en hamacas de seda</p>
-                    </div>
-                </div>
-
-                <div class="legend-item legend-item--kundalini">
-                    <div class="legend-content">
-                        <h3>Kundalini Yoga</h3>
-                        <p>Embárcate en un viaje transformador de autodescubrimiento y crecimiento espiritual a través de una práctica intensa enfocada en el trabajo energético</p>
-                    </div>
-                </div>
-
-                <div class="legend-item legend-item--vinyasa">
-                    <div class="legend-content">
-                        <h3>Vinyasa Yoga</h3>
-                        <p>Conéctate con tu flujo interior con secuencias dinámicas que mejoran la circulación y te ayudan a recuperar la gracia y el equilibrio</p>
-                    </div>
-                </div>
+        <section class="legend">
+            <div class="container">
+                <header class="legend__head">
+                    <h2>Tipos de Clases</h2>
+                    <p class="legend__subtitle">Cada tipo de clase ofrece una experiencia única</p>
+                </header>
+                <ul class="legend__list">
+                <li class="legend__item" style="--style-accent: var(--style-aerial);">
+                    <h3 class="legend__name">Yoga Aéreo</h3>
+                    <p class="legend__text">Libera el potencial de tu cuerpo con secuencias aéreas impresionantes realizadas en hamacas de seda</p>
+                </li>
+                <li class="legend__item" style="--style-accent: var(--style-kundalini);">
+                    <h3 class="legend__name">Kundalini Yoga</h3>
+                    <p class="legend__text">Embárcate en un viaje transformador de autodescubrimiento y crecimiento espiritual a través de una práctica intensa enfocada en el trabajo energético</p>
+                </li>
+                </ul>
             </div>
-
         </section>
 
         <!-- Pricing Section -->

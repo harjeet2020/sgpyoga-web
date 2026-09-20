@@ -615,6 +615,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (pageNamespace === 'home') {
         namespaces.push('testimonials');
     }
+
+    // The classes page's schedule is generated from the database, and its
+    // strings live in their own namespace so that build-i18n.js never has to
+    // merge generated keys into hand-written classes.json. See C1 in
+    // MIGRATION.md.
+    if (pageNamespace === 'classes') {
+        namespaces.push('schedule');
+    }
     
     console.log('Initializing i18n with namespaces:', namespaces);
     

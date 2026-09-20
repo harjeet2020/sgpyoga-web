@@ -1,0 +1,31 @@
+/* ==========================================================================
+   SCHEDULE STYLE COLOURS
+   --------------------------------------------------------------------------
+   One custom property per top-level class style, keyed by slug.
+
+   GENERATED FROM SUPABASE IN PHASE 4 — this hand-written copy is a stand-in
+   that exists so the phase-3b prototype consumes the colour through exactly
+   the contract the generator will emit. See "The website build pipeline" in
+   MIGRATION.md.
+
+   Variants do not appear here. `aerial-beginners` and `aerial-restorative`
+   are Aerial Yoga taught a particular way and resolve to `--style-aerial`
+   through their parent; a card must never key its colour off its own slug.
+
+   Every value clears 3:1 against white, which is the threshold that applies
+   to the non-text roles these are used in — rules, dots and swatches. Text
+   never takes these colours: several of them sit between 3:1 and 4.5:1 and
+   would fail AA at the sizes the card uses.
+   ========================================================================== */
+
+:root {
+    --style-aerial: #a06789;     /* Chinese Violet — brand accent 2 · 4.4:1 */
+    --style-kundalini: #40689a;  /* Lapis Lazuli  — brand accent 1 · 5.7:1 */
+    --style-vinyasa: #53936e;    /* Sage                          · 3.7:1 */
+    --style-hatha: #b2603f;      /* Terracotta                    · 4.5:1 */
+
+    /* The neutral a card falls back to if a style somehow arrives with no
+       colour. The database forbids it, so this is belt and braces rather
+       than a supported state. */
+    --style-default: #8a8580;
+}

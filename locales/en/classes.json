@@ -49,28 +49,11 @@
     "aireLibre": "Open Air"
   },
   "duration": {
-    "minutes": "{{count}} min",
-    "minutes_plural": "{{count}} min"
+    "unit": "min"
   },
   "legend": {
     "title": "Class Types",
-    "subtitle": "Each class type offers a unique experience",
-    "kundalini": {
-      "name": "Kundalini Yoga",
-      "description": "Embark on a transformative journey of self-discovery and spiritual growth through an intense practice focused on energy work"
-    },
-    "vinyasa": {
-      "name": "Vinyasa Yoga",
-      "description": "Tap into your inner flow with dynamic sequences that improve circulation and help you regain grace and balance"
-    },
-    "hatha": {
-      "name": "Hatha Yoga",
-      "description": "Build a strong foundation with a versatile yoga style with deep roots in tradition"
-    },
-    "aerial": {
-      "name": "Aerial Yoga",
-      "description": "Unleash your body's potential with breathtaking aerial sequences performed in silk hammocks"
-    }
+    "subtitle": "Each class type offers a unique experience"
   },
   "pricing": {
     "title": "Pricing & Packages",
@@ -112,5 +95,15 @@
     "text": "Contact us to learn more about our classes and upcoming events. For quick responses, it's best to drop us a message on WhatsApp - but you can also send us an email.",
     "whatsapp": "WhatsApp",
     "contact": "Email"
+  },
+  "schedule": {
+    "title": "Weekly Schedule",
+    "subtitle": "Drop in to any class on the timetable — no booking required, just bring yourself.",
+    "noClasses": "No classes",
+    "today": "Today",
+    "filterLabel": "Show",
+    "filterAll": "All classes",
+    "withTeacher": "with {teacher}",
+    "noneMatch": "No classes match that filter. Try another."
   }
 }
