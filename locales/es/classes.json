@@ -16,37 +16,7 @@
     "thursday": "Jueves",
     "friday": "Viernes",
     "saturday": "Sábado",
-    "sunday": "Domingo",
-    "mon": "Lun",
-    "tue": "Mar",
-    "wed": "Mié",
-    "thu": "Jue",
-    "fri": "Vie",
-    "sat": "Sáb",
-    "sun": "Dom"
-  },
-  "styles": {
-    "kundalini": "Kundalini Yoga",
-    "vinyasa": "Vinyasa Yoga",
-    "hatha": "Hatha Yoga",
-    "aerial": "Yoga Aéreo",
-    "aerialPilates": "Pilates Aéreo",
-    "aerialBeginners": "Yoga Aéreo Principiantes",
-    "aerialRestorative": "Yoga Aéreo Restaurativo"
-  },
-  "teachers": {
-    "harjeet": "Harjeet",
-    "camila": "Camila",
-    "dani": "Dani",
-    "aro": "Aro",
-    "itzel": "Itzel",
-    "rox": "Rox"
-  },
-  "locations": {
-    "hariom": "Hari Om",
-    "aguacate": "Aguacate",
-    "viveros": "Viveros",
-    "aireLibre": "Aire Libre"
+    "sunday": "Domingo"
   },
   "duration": {
     "unit": "min"
@@ -101,9 +71,11 @@
     "subtitle": "Únete a cualquier clase del horario — sin reserva previa, solo tráete a ti.",
     "noClasses": "Sin clases",
     "today": "Hoy",
-    "filterLabel": "Mostrar",
-    "filterAll": "Todas las clases",
-    "withTeacher": "con {teacher}",
-    "noneMatch": "Ninguna clase coincide con ese filtro. Prueba otro."
+    "noneMatch": "Ninguna clase coincide con ese filtro. Prueba otro.",
+    "filterTeacher": "Profesor",
+    "filterAllTeachers": "Todos los profesores",
+    "filterSpace": "Espacio",
+    "filterAllSpaces": "Todos los espacios",
+    "filterClear": "Quitar"
   }
 }

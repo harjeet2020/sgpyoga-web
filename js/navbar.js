@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set active nav link based on current page (critical for navigation)
     setActiveNavLink();
+
+    // Publish the navbar's height, which anything sticky underneath has to know
+    publishNavbarHeight();
 });
 
 // DEFERRED: Initialize non-critical features after page load
@@ -367,6 +370,16 @@ function setActiveNavLink() {
 
     // Add active class to current page link
     navLinks.forEach(link => {
+        // The Certifications item is a dropdown toggle: it carries `.navbar-link`
+        // but no href, so `new URL(undefined)` threw here and took the rest of
+        // this function — and the rest of the DOMContentLoaded handler it is
+        // called from — with it. Silent until something was added after it,
+        // which is why it survived: the only visible symptom was the blog link
+        // never lighting up, on every page of the site.
+        if (!link.getAttribute('href')) {
+            return;
+        }
+
         const linkPath = new URL(link.href).pathname;
 
         // Special handling for blog - match if current path starts with /blog/dist/
@@ -568,12 +581,58 @@ function initMobileScrollBehavior() {
     });
 }
 
+/**
+ * Publishes the navbar's rendered height as `--navbar-height` on the document.
+ *
+ * Anything sticky below the navbar needs this number, and hardcoding it is
+ * wrong at three of the four widths the navbar has: `navbar.css` declares 80px,
+ * then 75px below 1024, 70px below 768, and `auto` below 640 where the bar
+ * stacks into a column. The classes page's sticky day heading was pinned at
+ * `top: 80px` and so sat in the wrong place on exactly the screens where the
+ * sticky behaviour matters.
+ *
+ * Measured rather than derived, because the 640px layout has no height to read
+ * off the stylesheet at all, and re-measured on resize since that is the only
+ * time it changes. Consumers should still carry a fallback in the `var()`, for
+ * the window between first paint and this running.
+ *
+ * @returns {void}
+ */
+function publishNavbarHeight() {
+    const navbar = document.querySelector('.navbar');
+
+    if (!navbar) {
+        return;
+    }
+
+    /**
+     * Writes the current height onto the root element.
+     *
+     * @returns {void}
+     */
+    function measure() {
+        document.documentElement.style.setProperty(
+            '--navbar-height',
+            navbar.offsetHeight + 'px'
+        );
+    }
+
+    measure();
+
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(measure, 150);
+    });
+}
+
 // Export functions for potential use in other scripts
 if (typeof window !== 'undefined') {
     window.SGPNavbar = {
         selectLanguage,
         toggleLanguageDropdown,
         setActiveNavLink,
-        initMobileScrollBehavior
+        initMobileScrollBehavior,
+        publishNavbarHeight
     };
 }

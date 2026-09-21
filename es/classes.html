@@ -195,19 +195,37 @@
                 <p class="schedule__subtitle">Únete a cualquier clase del horario — sin reserva previa, solo tráete a ti.</p>
             </header>
 
+            <!-- Two axes, combining. The options are written out here rather than built by
+                 script so that both translation paths reach them: `build-i18n.js` bakes the
+                 Spanish page from these very attributes, and `js/i18n.js` swaps them again when
+                 somebody uses the in-page switcher. Phase 4 emits this list from the distinct
+                 teachers and locations across the slots; `js/classes.js` drops any option that
+                 matches no card, so a stale one can never offer an empty week. -->
             <div class="schedule__filters">
-                <span class="schedule__filters-label">Mostrar</span>
-                <div class="schedule__chips" role="group"  aria-label="Mostrar">
-                <button type="button" class="chip is-active" data-filter="all">Todas las clases</button>
-                <button type="button" class="chip" data-filter="teacher:camila">Camila</button>
-                <button type="button" class="chip" data-filter="teacher:harjeet">Harjeet</button>
-                <button type="button" class="chip" data-filter="teacher:rox">Rox</button>
-                <span class="schedule__chip-rule" aria-hidden="true"></span>
-                <button type="button" class="chip" data-filter="location:aguacate">Aguacate</button>
-                <button type="button" class="chip" data-filter="location:hariom">Hari Om</button>
-                <button type="button" class="chip" data-filter="location:viveros">Viveros</button>
+                <div class="schedule__filter">
+                    <label class="schedule__filter-label" for="filter-teacher">Profesor</label>
+                    <select class="schedule__filter-select" id="filter-teacher" data-filter-field="teacher">
+                        <option value="">Todos los profesores</option>
+                        <option value="camila">Camila</option>
+                        <option value="harjeet">Harjeet</option>
+                        <option value="rox">Rox</option>
+                    </select>
                 </div>
+                <div class="schedule__filter">
+                    <label class="schedule__filter-label" for="filter-location">Espacio</label>
+                    <select class="schedule__filter-select" id="filter-location" data-filter-field="location">
+                        <option value="">Todos los espacios</option>
+                        <option value="aguacate">Aguacate</option>
+                        <option value="hariom">Hari Om</option>
+                        <option value="viveros">Viveros</option>
+                    </select>
+                </div>
+                <button type="button" class="schedule__filter-clear" hidden>Quitar</button>
             </div>
+
+            <!-- Shown only when a combination matches nothing at all. Present in the markup, and so
+                 translated by the build, because script-injected text is invisible to it. -->
+            <p class="schedule__none" hidden>Ninguna clase coincide con ese filtro. Prueba otro.</p>
 
             <ol class="schedule__week">
             <li class="schedule-day" data-day="1">

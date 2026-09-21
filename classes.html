@@ -195,19 +195,37 @@
                 <p class="schedule__subtitle" data-i18n="classes:schedule.subtitle">Drop in to any class on the timetable — no booking required, just bring yourself.</p>
             </header>
 
+            <!-- Two axes, combining. The options are written out here rather than built by
+                 script so that both translation paths reach them: `build-i18n.js` bakes the
+                 Spanish page from these very attributes, and `js/i18n.js` swaps them again when
+                 somebody uses the in-page switcher. Phase 4 emits this list from the distinct
+                 teachers and locations across the slots; `js/classes.js` drops any option that
+                 matches no card, so a stale one can never offer an empty week. -->
             <div class="schedule__filters">
-                <span class="schedule__filters-label" data-i18n="classes:schedule.filterLabel">Show</span>
-                <div class="schedule__chips" role="group" data-i18n-aria-label="classes:schedule.filterLabel" aria-label="Show">
-                <button type="button" class="chip is-active" data-filter="all" data-i18n="classes:schedule.filterAll">All classes</button>
-                <button type="button" class="chip" data-filter="teacher:camila" data-i18n="schedule:teachers.camila">Camila</button>
-                <button type="button" class="chip" data-filter="teacher:harjeet" data-i18n="schedule:teachers.harjeet">Harjeet</button>
-                <button type="button" class="chip" data-filter="teacher:rox" data-i18n="schedule:teachers.rox">Rox</button>
-                <span class="schedule__chip-rule" aria-hidden="true"></span>
-                <button type="button" class="chip" data-filter="location:aguacate" data-i18n="schedule:locations.aguacate">Aguacate</button>
-                <button type="button" class="chip" data-filter="location:hariom" data-i18n="schedule:locations.hariom">Hari Om</button>
-                <button type="button" class="chip" data-filter="location:viveros" data-i18n="schedule:locations.viveros">Viveros</button>
+                <div class="schedule__filter">
+                    <label class="schedule__filter-label" for="filter-teacher" data-i18n="classes:schedule.filterTeacher">Teacher</label>
+                    <select class="schedule__filter-select" id="filter-teacher" data-filter-field="teacher">
+                        <option value="" data-i18n="classes:schedule.filterAllTeachers">All teachers</option>
+                        <option value="camila" data-i18n="schedule:teachers.camila">Camila</option>
+                        <option value="harjeet" data-i18n="schedule:teachers.harjeet">Harjeet</option>
+                        <option value="rox" data-i18n="schedule:teachers.rox">Rox</option>
+                    </select>
                 </div>
+                <div class="schedule__filter">
+                    <label class="schedule__filter-label" for="filter-location" data-i18n="classes:schedule.filterSpace">Space</label>
+                    <select class="schedule__filter-select" id="filter-location" data-filter-field="location">
+                        <option value="" data-i18n="classes:schedule.filterAllSpaces">All spaces</option>
+                        <option value="aguacate" data-i18n="schedule:locations.aguacate">Aguacate</option>
+                        <option value="hariom" data-i18n="schedule:locations.hariom">Hari Om</option>
+                        <option value="viveros" data-i18n="schedule:locations.viveros">Viveros</option>
+                    </select>
+                </div>
+                <button type="button" class="schedule__filter-clear" data-i18n="classes:schedule.filterClear" hidden>Clear</button>
             </div>
+
+            <!-- Shown only when a combination matches nothing at all. Present in the markup, and so
+                 translated by the build, because script-injected text is invisible to it. -->
+            <p class="schedule__none" data-i18n="classes:schedule.noneMatch" hidden>No classes match that filter. Try another.</p>
 
             <ol class="schedule__week">
             <li class="schedule-day" data-day="1">

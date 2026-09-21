@@ -16,37 +16,7 @@
     "thursday": "Thursday",
     "friday": "Friday",
     "saturday": "Saturday",
-    "sunday": "Sunday",
-    "mon": "Mon",
-    "tue": "Tue",
-    "wed": "Wed",
-    "thu": "Thu",
-    "fri": "Fri",
-    "sat": "Sat",
-    "sun": "Sun"
-  },
-  "styles": {
-    "kundalini": "Kundalini Yoga",
-    "vinyasa": "Vinyasa Yoga",
-    "hatha": "Hatha Yoga",
-    "aerial": "Aerial Yoga",
-    "aerialPilates": "Aerial Pilates",
-    "aerialBeginners": "Aerial Yoga Beginners",
-    "aerialRestorative": "Restorative Aerial Yoga"
-  },
-  "teachers": {
-    "harjeet": "Harjeet",
-    "camila": "Camila",
-    "dani": "Dani",
-    "aro": "Aro",
-    "itzel": "Itzel",
-    "rox": "Rox"
-  },
-  "locations": {
-    "hariom": "Hari Om",
-    "aguacate": "Aguacate",
-    "viveros": "Viveros",
-    "aireLibre": "Open Air"
+    "sunday": "Sunday"
   },
   "duration": {
     "unit": "min"
@@ -101,9 +71,11 @@
     "subtitle": "Drop in to any class on the timetable — no booking required, just bring yourself.",
     "noClasses": "No classes",
     "today": "Today",
-    "filterLabel": "Show",
-    "filterAll": "All classes",
-    "withTeacher": "with {teacher}",
-    "noneMatch": "No classes match that filter. Try another."
+    "noneMatch": "No classes match that filter. Try another.",
+    "filterTeacher": "Teacher",
+    "filterAllTeachers": "All teachers",
+    "filterSpace": "Space",
+    "filterAllSpaces": "All spaces",
+    "filterClear": "Clear"
   }
 }

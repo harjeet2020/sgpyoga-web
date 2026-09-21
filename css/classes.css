@@ -146,68 +146,95 @@
    would sort the week into one pile and one card. Teacher and venue are the
    axes that actually divide this timetable, and "is there one near me" is a
    real first question that the old card hid behind a hover.
+
+   Two selects rather than the row of pills this replaced, and the school's
+   size is the whole argument. The pills were hand-written and covered three
+   teachers of six; generated honestly they become eleven, wrapping to three
+   rows before the week starts and to four on a phone — and the list grows
+   every time somebody is hired. A select takes one line however long its
+   options get, and two of them read as two separate questions rather than as
+   one row of alternatives.
    -------------------------------------------------------------------------- */
 
 .schedule__filters {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    gap: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-sm) var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
 }
 
-.schedule__filters-label {
+.schedule__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 11rem;
+}
+
+.schedule__filter-label {
     font-size: 0.75rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-supplementary);
 }
 
-.schedule__chips {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-}
-
-.schedule__chip-rule {
-    width: 1px;
-    height: 1.25rem;
-    background-color: rgba(31, 33, 33, 0.15);
-}
-
-.chip {
+.schedule__filter-select {
     font-family: var(--font-body);
-    font-size: 0.875rem;
-    line-height: 1;
-    padding: 0.5rem 0.95rem;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    padding: 0.55rem 0.75rem;
     border: 1px solid rgba(31, 33, 33, 0.18);
-    border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.65);
-    color: var(--color-supplementary);
+    border-radius: var(--border-radius-sm);
+    background-color: white;
+    color: var(--color-primary);
     cursor: pointer;
-    transition: color var(--transition-fast),
-                background-color var(--transition-fast),
-                border-color var(--transition-fast);
+    transition: border-color var(--transition-fast);
 }
 
-.chip:hover {
-    color: var(--color-primary);
-    background-color: white;
+.schedule__filter-select:hover {
     border-color: var(--color-accent-2);
 }
 
-.chip.is-active {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-    color: white;
-}
-
-.chip:focus-visible {
+.schedule__filter-select:focus-visible {
     outline: 2px solid var(--color-accent-1);
     outline-offset: 2px;
+}
+
+/* Revealed by script once something is selected, so it is never an affordance
+   for undoing nothing. */
+.schedule__filter-clear {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    padding: 0.55rem 0;
+    border: 0;
+    background: none;
+    color: var(--color-accent-1);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.schedule__filter-clear:hover {
+    color: var(--color-accent-2);
+}
+
+.schedule__filter-clear:focus-visible {
+    outline: 2px solid var(--color-accent-1);
+    outline-offset: 2px;
+}
+
+/* The whole week matching nothing is a different statement from one day
+   matching nothing, and it is the one worth making loudly — seven "no
+   classes" columns read as a broken page rather than as an answer. */
+.schedule__none {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-supplementary);
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px dashed rgba(31, 33, 33, 0.18);
+    border-radius: var(--border-radius-md);
 }
 
 /* The week
@@ -454,6 +481,21 @@
     .schedule__week {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    /* More room at the edge than the global container gives, and written as a literal rather than
+       as a token because the token is the problem: `main.css` shrinks `--spacing-md` to 0.75rem
+       below 768px and drops `.container` to `--spacing-sm` below 480px, so a card ends up eight
+       pixels from the edge of a phone exactly where it has least room to breathe.
+
+       Scoped to these two sections rather than fixed globally. The global rule is arguably wrong
+       for every page, but every page is not in front of us and is not being checked — a change
+       that reflows eight pages to fix one is a wider bet than this is. Both selectors out-specify
+       `.container` on their own, so the order relative to `main.css` does not matter. */
+    .schedule .container,
+    .legend .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
 
 @media (max-width: 679px) {
@@ -476,11 +518,16 @@
         gap: var(--spacing-lg);
     }
 
-    /* 80px is the sticky navbar. The heading follows the column down so that
-       a card is never on screen without the day it belongs to. */
+    /* The heading follows the column down so that a card is never on screen
+       without the day it belongs to. The offset is the navbar's measured
+       height, published as `--navbar-height` by `js/navbar.js`: this used to
+       be a hardcoded 80px, which is the navbar's *desktop* height and wrong at
+       every width where this rule actually applies — below 640px the bar
+       stacks into a column and has no fixed height at all. The fallback is for
+       the moment before the script runs. */
     .schedule-day__head {
         position: sticky;
-        top: 80px;
+        top: var(--navbar-height, 80px);
         z-index: 5;
         margin-bottom: var(--spacing-sm);
         padding-top: var(--spacing-sm);
@@ -580,10 +627,24 @@
     list-style: none;
 }
 
+/* Filled with the style's own colour rather than accented by it, which is the one place on this
+   page colour carries text. A class type is a thing with an identity — the card is the school
+   saying "this is what aerial looks like" — where a schedule card is one class among ten and wants
+   to stay quiet. Those are different jobs, so they are drawn differently on purpose.
+
+   The fill is the accent mixed 85% with black, and the mix is load-bearing rather than taste.
+   White on the raw accent fails AA for text this size on four of the ten palette colours: Chinese
+   Violet is 4.38:1, Sage 3.64:1, Ochre 3.55:1 and Moss 4.42:1, all short of 4.5:1. Deepened this
+   far the worst of the ten is 4.68:1 and the best 8.26:1, while the hue stays recognisably itself.
+
+   The plain declaration above it is the fallback for a browser without `color-mix`, and the first
+   of the two is also what a print stylesheet would take. Note the mix happens here, from the same
+   single custom property the build emits — so `css/schedule-colours.css` stays one hex per style
+   and the Phase 4 generator knows nothing about any of this. */
 .legend__item {
     padding: var(--spacing-lg);
-    background-color: var(--color-secondary);
-    border-top: 3px solid var(--style-accent, var(--style-default));
+    background-color: var(--style-accent, var(--style-default));
+    background-color: color-mix(in srgb, var(--style-accent, var(--style-default)) 85%, #000);
     border-radius: var(--border-radius-md);
 }
 
@@ -591,15 +652,18 @@
     font-family: var(--font-heading);
     font-size: 1.35rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: white;
     margin-bottom: var(--spacing-sm);
 }
 
+/* Pure white rather than a translucent one. Fading the body text to 90% would buy a little
+   hierarchy and hand back most of the contrast the mix above just paid for — on Ochre it drops
+   4.68:1 to roughly 4.3:1, back under AA. Hierarchy comes from size and weight instead. */
 .legend__text {
     font-size: 0.95rem;
     line-height: 1.7;
     font-weight: 300;
-    color: var(--color-supplementary);
+    color: white;
 }
 
 /* Pricing Section
@@ -950,11 +1014,6 @@
 
     
 
-    .legend-color {
-        width: 36px;
-        height: 36px;
-    }
-
     
 
     
@@ -1081,7 +1140,8 @@
     .navbar,
     .footer,
     .cta-section,
-    .schedule__filters {
+    .schedule__filters,
+    .schedule__none {
         display: none;
     }
 
