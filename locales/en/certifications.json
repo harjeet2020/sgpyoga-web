@@ -154,18 +154,7 @@
   },
   "cta": {
     "title": "Ready to Begin Your Journey?",
-    "description": "Our next training runs from April 11 to June 14, 2026, on weekends at Aguacate and Hari Om studios in Mexico City. Reach out to reserve your spot or to learn more about this transformative experience.",
-    "investment": {
-      "fullPayment": {
-        "title": "Full Payment",
-        "detail": "Full, one-time payment upfront"
-      },
-      "paymentPlan": {
-        "title": "Payment Plan",
-        "detail": "Payment spread over 3 months",
-        "breakdown": "($11,000 + $8,000 + $8,000)"
-      }
-    },
+    "description": "Reach out to hear about upcoming training dates, ask us anything, or reserve your spot.",
     "buttons": {
       "whatsapp": "WhatsApp",
       "email": "Email"

@@ -428,69 +428,6 @@
     margin: 0 auto var(--spacing-xl);
 }
 
-.cta-pricing-cards {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-    flex-wrap: wrap;
-}
-
-.pricing-card {
-    background-color: white;
-    border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
-    min-width: 260px;
-    max-width: 320px;
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.pricing-card:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-}
-
-.pricing-card-header {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--color-accent-1);
-    margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.pricing-card-amount {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-}
-
-.pricing-currency {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--color-supplementary);
-}
-
-.pricing-card-detail {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--color-supplementary);
-}
-
-.pricing-card-breakdown {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-style: italic;
-    color: var(--color-supplementary);
-    margin-top: var(--spacing-xs);
-}
-
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -618,21 +555,6 @@
 
     .module-topics li {
         font-size: 0.8rem;
-    }
-
-    .cta-pricing-cards {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 var(--spacing-sm);
-    }
-
-    .pricing-card {
-        min-width: 100%;
-        max-width: 300px;
-    }
-
-    .pricing-card-amount {
-        font-size: 1.75rem;
     }
 
     .cert-cta .cta-buttons .btn-elegant {
