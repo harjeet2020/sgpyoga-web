@@ -195,31 +195,58 @@
                 <p class="schedule__subtitle" data-i18n="classes:schedule.subtitle">Drop in to any class on the timetable — no booking required, just bring yourself.</p>
             </header>
 
-            <!-- Two axes, combining. The options are written out here rather than built by
-                 script so that both translation paths reach them: `build-i18n.js` bakes the
-                 Spanish page from these very attributes, and `js/i18n.js` swaps them again when
-                 somebody uses the in-page switcher. `scripts/content` emits each list from the
+            <!-- Two axes, each a dropdown of checkboxes. Ticking several values on one axis
+                 shows any of them; the axes combine, so "Harjeet and Rox, at Aguacate" is one
+                 question. The options are written out here rather than built by script so that
+                 both translation paths reach them: `build-i18n.js` bakes the Spanish page from
+                 these very attributes, and `js/i18n.js` swaps them again when somebody uses the
+                 in-page switcher. That is also why every `data-i18n` sits on a leaf `<span>` and
+                 never on the `<label>` around a checkbox: both paths replace an element's whole
+                 content, and would delete the input. `scripts/content` emits each list from the
                  distinct teachers and locations across the slots; `js/classes.js` drops any option
                  that matches no card, so a stale one can never offer an empty week.
+
+                 The bar starts `hidden` and `js/classes.js` reveals it: without script these
+                 controls could do nothing, and the full week below is already the right answer.
 
                  The options, the week and the legend below are generated from Supabase by
                  `npm run build:content`, which renders `templates/classes.html` (where they are
                  `BUILD:` markers) into the gitignored `/classes.html`. Edit the template, never
                  the output. -->
-            <div class="schedule__filters">
-                <div class="schedule__filter">
-                    <label class="schedule__filter-label" for="filter-teacher" data-i18n="classes:schedule.filterTeacher">Teacher</label>
-                    <select class="schedule__filter-select" id="filter-teacher" data-filter-field="teacher">
-                        <option value="" data-i18n="classes:schedule.filterAllTeachers">All teachers</option>
-                        <!-- BUILD:schedule-teacher-options -->
-                    </select>
+            <div class="schedule__filters" hidden>
+                <div class="schedule__filter" data-filter-field="teacher">
+                    <span class="schedule__filter-label" id="filter-teacher-label" data-i18n="classes:schedule.filterTeacher">Teacher</span>
+                    <button type="button" class="schedule__filter-trigger" id="filter-teacher" aria-expanded="false" aria-controls="filter-teacher-panel" aria-labelledby="filter-teacher-label filter-teacher-summary">
+                        <span class="schedule__filter-summary" id="filter-teacher-summary">
+                            <span class="schedule__filter-all" data-i18n="classes:schedule.filterAllTeachers">All teachers</span>
+                            <span class="schedule__filter-picked" hidden></span>
+                        </span>
+                        <span class="schedule__filter-count" aria-hidden="true" hidden></span>
+                        <svg class="schedule__filter-chevron" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="schedule__filter-panel" id="filter-teacher-panel" hidden>
+                        <fieldset class="schedule__filter-options">
+                            <legend class="sr-only" data-i18n="classes:schedule.filterTeacher">Teacher</legend>
+                            <!-- BUILD:schedule-teacher-options -->
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="schedule__filter">
-                    <label class="schedule__filter-label" for="filter-location" data-i18n="classes:schedule.filterSpace">Space</label>
-                    <select class="schedule__filter-select" id="filter-location" data-filter-field="location">
-                        <option value="" data-i18n="classes:schedule.filterAllSpaces">All spaces</option>
-                        <!-- BUILD:schedule-location-options -->
-                    </select>
+                <div class="schedule__filter" data-filter-field="location">
+                    <span class="schedule__filter-label" id="filter-location-label" data-i18n="classes:schedule.filterSpace">Space</span>
+                    <button type="button" class="schedule__filter-trigger" id="filter-location" aria-expanded="false" aria-controls="filter-location-panel" aria-labelledby="filter-location-label filter-location-summary">
+                        <span class="schedule__filter-summary" id="filter-location-summary">
+                            <span class="schedule__filter-all" data-i18n="classes:schedule.filterAllSpaces">All spaces</span>
+                            <span class="schedule__filter-picked" hidden></span>
+                        </span>
+                        <span class="schedule__filter-count" aria-hidden="true" hidden></span>
+                        <svg class="schedule__filter-chevron" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="schedule__filter-panel" id="filter-location-panel" hidden>
+                        <fieldset class="schedule__filter-options">
+                            <legend class="sr-only" data-i18n="classes:schedule.filterSpace">Space</legend>
+                            <!-- BUILD:schedule-location-options -->
+                        </fieldset>
+                    </div>
                 </div>
                 <button type="button" class="schedule__filter-clear" data-i18n="classes:schedule.filterClear" hidden>Clear</button>
             </div>

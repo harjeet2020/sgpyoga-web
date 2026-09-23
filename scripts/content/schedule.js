@@ -308,8 +308,14 @@ function buildSchedule(rows, { publicPrefix, warn }) {
   const usedLocations = distinct('location');
   const usedFamilies = distinct('family');
 
+  // One checkbox per option. The `data-i18n` sits on the inner <span>, never on the <label>: both
+  // translation paths replace an element's entire content, and on the label that would delete the
+  // checkbox along with the English name.
   const optionLines = (list, group) =>
-    list.map((row) => `<option value="${row.slug}" data-i18n="schedule:${group}.${row.slug}">${escapeHtml(row.name_en)}</option>`);
+    list.map(
+      (row) =>
+        `<label class="schedule__option"><input type="checkbox" class="schedule__option-input" value="${row.slug}"><span class="schedule__option-label" data-i18n="schedule:${group}.${row.slug}">${escapeHtml(row.name_en)}</span></label>`,
+    );
 
   // The legend: top-level, active, described, and taught this week (C1).
   const legendStyles = usedFamilies.filter((style) => style.is_active && style.description_en && style.description_en.trim());
@@ -377,8 +383,8 @@ function buildSchedule(rows, { publicPrefix, warn }) {
 
   return {
     markup: {
-      teacherOptions: indentBlock(optionLines(usedTeachers, 'teachers'), 24),
-      locationOptions: indentBlock(optionLines(usedLocations, 'locations'), 24),
+      teacherOptions: indentBlock(optionLines(usedTeachers, 'teachers'), 28),
+      locationOptions: indentBlock(optionLines(usedLocations, 'locations'), 28),
       week: indentBlock(week, 12),
       legend: indentBlock(legendLines, 16),
     },
