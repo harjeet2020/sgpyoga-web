@@ -1,18 +1,21 @@
 /**
  * @module scripts/content/events
  *
- * Turns `school_events` into the two artefacts the events page already reads: the `eventsData` array and the `eventContent` locale namespace.
+ * Turns `school_events` into everything the events page reads: the pre-rendered cards, the `eventsData` array and the `eventContent` locale namespace.
  *
  * @remarks
- * **Both shapes are frozen by C2**, because `js/events.js` and `js/eventSchema.js` read them and may not be modified. `eventsData` keeps `id · category · startDate · endDate · imageMobile · image · imageHigh · cardImagePosition · modalImagePosition`; each `eventContent` entry keeps `title · category · date · time · location · shortDescription · fullDescription · instructor · price`.
+ * **The cards are static HTML**, rendered by {@link module:scripts/content/eventCards} into `/events.html`, so the page no longer builds them in the browser. See that module for why.
  *
- * **Where the content ends up at runtime.** Those two frozen scripts look text up as `events:events.<id>.title`, from the authored `events` namespace. `eventContent.json` is kept a separate file, so a build never rewrites hand-written copy (C1), and `js/i18n.js` grafts it into the `events` namespace in memory when the events page loads. See {@link buildEvents}.
+ * **The two data shapes are still fixed by C2**, now because `js/eventSchema.js` reads them to write the page's structured data. `eventsData` keeps `id · category · startDate · endDate · imageMobile · image · imageHigh · cardImagePosition · modalImagePosition`; each `eventContent` entry keeps `title · category · date · time · location · shortDescription · fullDescription · instructor · price`.
+ *
+ * **Where the content ends up at runtime.** `js/eventSchema.js` looks text up as `events:events.<id>.title`, from the authored `events` namespace. `eventContent.json` is kept a separate file, so a build never rewrites hand-written copy (C1), and `js/i18n.js` grafts it into the `events` namespace in memory when the events page loads. The cards read the same file directly as `eventContent:<id>.*`. See {@link buildEvents}.
  *
  * **Dates are derived, except where a row overrides them.** `date` comes from `start_date`/`end_date` via {@link module:scripts/content/dates}, unless `date_label_en`/`_es` is set. `category` works the same way with `category_label_en`/`_es`. Two events override their date and four their category; see Data model in `MIGRATION.md` for why.
  */
 
 const { derivedDateLabel, derivedCategoryLabel } = require('./dates');
 const { assertPlainText } = require('./html');
+const { renderEventCards, CATEGORY_IMAGES } = require('./eventCards');
 
 /** The widths an event image is stored at, per C4, in the order `eventsData` names them. */
 const EVENT_WIDTHS = { imageMobile: 480, image: 720, imageHigh: 1080 };
@@ -37,6 +40,8 @@ const PROSE_FIELDS = [
  *
  * @typedef {object} EventsOutput
  * @property {string} dataArray - The JavaScript array literal for the `/* BUILD:events-data *\/` marker.
+ * @property {string} categoryDefaults - The JavaScript object literal for the `/* BUILD:category-defaults *\/` marker.
+ * @property {string} cards - The card markup for the `<!-- BUILD:events-cards -->` marker in `templates/events.html`.
  * @property {{en: object, es: object}} namespace - The `eventContent` locale namespace per language.
  * @property {string[]} imageStems - Storage stems of every event image referenced.
  */
@@ -61,7 +66,7 @@ function objectPosition(point, where) {
  * Picks the text for one field in one language.
  *
  * @remarks
- * A missing Spanish value falls back to English, with a warning, rather than to an empty string — a half-translated event is better than a Spanish card with no title. A field empty in both languages becomes `""`, never `null`: `js/events.js` calls `t()` for every field, and a key i18next cannot find is printed as the key itself.
+ * A missing Spanish value falls back to English, with a warning, rather than to an empty string — a half-translated event is better than a Spanish card with no title. A field empty in both languages becomes `""`, never `null`: the card renderer would print `null`, and at runtime a key i18next cannot find is printed as the key itself.
  *
  * @param {object} row - The `school_events` row.
  * @param {string} column - The column's base name, such as `short_description`.
@@ -80,26 +85,50 @@ function pick(row, column, lang, warn) {
 }
 
 /**
- * One `eventsData` entry as source text, in the file's existing style.
+ * One row reduced to what both the card and `eventsData` need.
  *
  * @remarks
- * Values go through `JSON.stringify`, which produces a valid, correctly escaped JavaScript string literal whatever an admin typed. Image keys are omitted entirely when the event has no image, which is what `getEventImage()` and `getEventImageSrcset()` already treat as "use the category's stock photograph".
+ * `images` is empty when the event has no image of its own. `eventsData` then omits the image keys entirely, which is what `getEventImage()` treats as "use the category's stock photograph", and the card renderer makes the same substitution.
  *
  * @param {object} row - The `school_events` row.
  * @param {string} publicPrefix - URL prefix the downloaded images are served from.
+ * @returns {import('./eventCards').EventCardEntry} The entry.
+ * @throws {Error} When a focal point is out of range.
+ */
+function toEntry(row, publicPrefix) {
+  return {
+    id: row.slug,
+    category: row.category,
+    startDate: row.start_date,
+    endDate: row.end_date,
+    images: row.image_path
+      ? Object.fromEntries(
+          Object.entries(EVENT_WIDTHS).map(([key, width]) => [key, `${publicPrefix}/${row.image_path}-${width}.webp`])
+        )
+      : {},
+    cardImagePosition: objectPosition(row.card_focal_point, `school_events.card_focal_point (${row.slug})`),
+    modalImagePosition: objectPosition(row.modal_focal_point, `school_events.modal_focal_point (${row.slug})`),
+  };
+}
+
+/**
+ * One `eventsData` entry as source text, in the file's existing style.
+ *
+ * @remarks
+ * Values go through `JSON.stringify`, which produces a valid, correctly escaped JavaScript string literal whatever an admin typed.
+ *
+ * @param {import('./eventCards').EventCardEntry} entry - The event.
  * @returns {string} The object literal, indented for the array.
  */
-function dataEntry(row, publicPrefix) {
+function dataEntry(entry) {
   const fields = [
-    ['id', row.slug],
-    ['category', row.category],
-    ['startDate', row.start_date],
-    ['endDate', row.end_date],
-    ...(row.image_path
-      ? Object.entries(EVENT_WIDTHS).map(([key, width]) => [key, `${publicPrefix}/${row.image_path}-${width}.webp`])
-      : []),
-    ['cardImagePosition', objectPosition(row.card_focal_point, `school_events.card_focal_point (${row.slug})`)],
-    ['modalImagePosition', objectPosition(row.modal_focal_point, `school_events.modal_focal_point (${row.slug})`)],
+    ['id', entry.id],
+    ['category', entry.category],
+    ['startDate', entry.startDate],
+    ['endDate', entry.endDate],
+    ...Object.entries(entry.images),
+    ['cardImagePosition', entry.cardImagePosition],
+    ['modalImagePosition', entry.modalImagePosition],
   ];
   return ['  {', ...fields.map(([key, value]) => `    ${key}: ${JSON.stringify(value)},`), '  },'].join('\n');
 }
@@ -108,11 +137,11 @@ function dataEntry(row, publicPrefix) {
  * Builds both event artefacts from the published rows.
  *
  * @param {object[]} rows - `school_events`, published rows only (RLS filters the rest).
- * @param {{publicPrefix: string, warn: (message: string) => void}} options - Image URL prefix and a warning sink.
- * @returns {EventsOutput} The array literal, the namespaces and the images to download.
+ * @param {{publicPrefix: string, today: string, warn: (message: string) => void}} options - Image URL prefix, today's date at the school as `YYYY-MM-DD` (which decides the cards visible before any script runs), and a warning sink.
+ * @returns {EventsOutput} The cards, the two script literals, the namespaces and the images to download.
  * @throws {Error} When there are no published events, or any row holds markup or an impossible value.
  */
-function buildEvents(rows, { publicPrefix, warn }) {
+function buildEvents(rows, { publicPrefix, today, warn }) {
   if (rows.length === 0) {
     throw new Error(
       'school_events returned no published events. Refusing to publish an empty events page — ' +
@@ -120,7 +149,8 @@ function buildEvents(rows, { publicPrefix, warn }) {
     );
   }
 
-  // Stable order: the page sorts by date itself, but a deterministic file makes diffs readable.
+  // Date order is load-bearing now: it is the order the cards are rendered in, which `js/events.js`
+  // treats as "soonest first". The slug breaks ties so the output is deterministic.
   const events = [...rows].sort((a, b) => a.start_date.localeCompare(b.start_date) || a.slug.localeCompare(b.slug));
 
   for (const row of events) {
@@ -157,9 +187,14 @@ function buildEvents(rows, { publicPrefix, warn }) {
     };
   };
 
+  const entries = events.map((row) => toEntry(row, publicPrefix));
+  const namespaces = { en: namespace('en'), es: namespace('es') };
+
   return {
-    dataArray: ['[', ...events.map((row) => dataEntry(row, publicPrefix)), ']'].join('\n'),
-    namespace: { en: namespace('en'), es: namespace('es') },
+    dataArray: ['[', ...entries.map(dataEntry), ']'].join('\n'),
+    categoryDefaults: JSON.stringify(CATEGORY_IMAGES, null, 2),
+    cards: renderEventCards(entries, namespaces, today),
+    namespace: namespaces,
     imageStems: events.filter((row) => row.image_path).map((row) => row.image_path),
   };
 }

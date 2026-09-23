@@ -5,7 +5,7 @@
  * `npm run build:content`: fetches the school's schedule and events from Supabase and writes every generated file the site serves.
  *
  * @remarks
- * **Where this sits.** It is the first step of `npm run build`, before `build-i18n.js`. The later steps don't know it exists: they find a `classes.html`, a `js/eventsData.js` and some locale JSON exactly where they always have, and translate and copy them as before. See "The website build pipeline" in `MIGRATION.md`.
+ * **Where this sits.** It is the first step of `npm run build`, before `build-i18n.js`. The later steps don't know it exists: they find a `classes.html`, an `events.html`, a `js/eventsData.js` and some locale JSON exactly where they always have, and translate and copy them as before. See "The website build pipeline" in `MIGRATION.md`.
  *
  * **Order is fetch → build → download → write, and nothing is written until everything has succeeded.** A failure anywhere leaves the previous run's files alone and exits non-zero, which fails the Netlify build and keeps the last good deploy serving. That is deliberate: a red build is a nuisance, and a green build that published an empty timetable is an outage nobody notices.
  *
@@ -22,6 +22,7 @@ const { TEMPLATES, OUTPUTS, MEDIA, ROOT_DIR, loadSupabaseConfig } = require('./c
 const { fetchTable, downloadAll } = require('./supabase');
 const { buildSchedule, TEACHER_WIDTHS } = require('./schedule');
 const { buildEvents, EVENT_WIDTHS } = require('./events');
+const { schoolToday } = require('./eventCards');
 const { fillMarkers } = require('./html');
 
 /** Terminal colours, matching `build-i18n.js`. */
@@ -87,7 +88,7 @@ async function buildContent() {
   const warnings = [];
   const options = { publicPrefix: MEDIA.publicPrefix, warn: (message) => warnings.push(message) };
   const schedule = buildSchedule({ styles, teachers, locations, slots }, options);
-  const eventOutput = buildEvents(events, options);
+  const eventOutput = buildEvents(events, { ...options, today: schoolToday() });
 
   const classesTemplate = fs.readFileSync(TEMPLATES.classes.source, 'utf8');
   const classesHtml = fillMarkers(
@@ -101,11 +102,21 @@ async function buildContent() {
     'templates/classes.html'
   );
 
-  const eventsTemplate = fs.readFileSync(TEMPLATES.eventsData.source, 'utf8');
+  const eventsDataTemplate = fs.readFileSync(TEMPLATES.eventsData.source, 'utf8');
   const eventsDataJs = fillMarkers(
-    eventsTemplate,
-    { '/* BUILD:events-data */': eventOutput.dataArray },
+    eventsDataTemplate,
+    {
+      '/* BUILD:events-data */': eventOutput.dataArray,
+      '/* BUILD:category-defaults */': eventOutput.categoryDefaults,
+    },
     'templates/eventsData.js'
+  );
+
+  const eventsTemplate = fs.readFileSync(TEMPLATES.events.source, 'utf8');
+  const eventsHtml = fillMarkers(
+    eventsTemplate,
+    { '<!-- BUILD:events-cards -->': eventOutput.cards },
+    'templates/events.html'
   );
 
   // Download every image into a fresh directory, so an image removed in the admin disappears too.
@@ -128,6 +139,7 @@ async function buildContent() {
   // Everything succeeded; only now touch the files the rest of the build reads.
   log('\nWriting generated files...', 'blue');
   writeOutput(TEMPLATES.classes.output, classesHtml);
+  writeOutput(TEMPLATES.events.output, eventsHtml);
   writeOutput(TEMPLATES.eventsData.output, eventsDataJs);
   writeOutput(OUTPUTS.scheduleColours, schedule.coloursCss);
   for (const lang of ['en', 'es']) {

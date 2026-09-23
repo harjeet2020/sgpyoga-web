@@ -244,8 +244,11 @@
     transform: translateY(-8px);
 }
 
-/* Hide cards that don't match filter */
-.event-card.hidden {
+/* Hide cards that don't match the filter or the time view. The cards are in
+   the served HTML and `js/events.js` hides them with the `hidden` attribute;
+   `display: flex` above would otherwise beat the browser's own `[hidden]`
+   rule and leave every card showing. */
+.event-card[hidden] {
     display: none;
 }
 

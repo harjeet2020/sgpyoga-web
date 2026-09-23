@@ -1,878 +1,455 @@
 /**
- * SGP Yoga - Events Page JavaScript
- * Handles event filtering, modal functionality, and interactive features
+ * @module js/events
+ *
+ * Events page behaviour: the category filter, the past/upcoming toggle, the
+ * detail modal, and the sideways-scroll arrows.
+ *
+ * @remarks
+ * **The cards are already in the HTML.** `npm run build:content` renders
+ * every event into `events.html` (see `scripts/content/eventCards.js`), so
+ * this file never builds a card. It used to: it waited for i18next and six
+ * locale files, then wrote the cards with `innerHTML`, which on a real
+ * connection left the grid empty for a few hundred milliseconds and then
+ * pushed the rest of the page down. Now filtering and switching views only
+ * toggle `hidden` on existing cards and reorder them, and the modal copies its
+ * text out of the card that was clicked. Nothing here waits for a
+ * translation, so nothing here can arrive late.
+ *
+ * **It runs as soon as it is parsed, not on `DOMContentLoaded`.** The script
+ * sits at the end of `<body>`, after everything it touches, and
+ * `DOMContentLoaded` would make it wait for the three deferred CDN scripts in
+ * `<head>`. The first thing it does is re-check which cards are past against
+ * the visitor's own date, and that should happen before the first paint, not
+ * after the CDN has answered.
+ *
+ * **Language needs no handling here.** Every card, label and message carries
+ * `data-i18n`, so `js/i18n.js` translates them with the rest of the page, and
+ * the language switcher navigates between `/events.html` and
+ * `/es/events.html` anyway.
  */
 
-// =============================================================================
-// EVENT DATA STRUCTURE
-// =============================================================================
 /**
- * Purpose: Store complete event details for populating the modal
- * Structure: Maps event IDs to their full data from translation files
- * 
- * Why we do this: Event cards show limited info, but modal needs complete details.
- * This data structure is populated from i18next translations after they load.
- */
-const eventData = {};
-
-/**
- * Purpose: Reference to the events grid container for dynamic rendering
- */
-let eventsGrid;
-
-/**
- * Purpose: Track current view state
- */
-let currentTimeView = 'upcoming'; // 'upcoming' or 'past'
-let currentCategoryFilter = 'all'; // 'all', 'workshop', 'retreat', or 'course'
-
-/**
- * Purpose: Limit events to prevent overwhelming the UI
- * 
- * Why 12 events:
- * - Provides good variety without cluttering the page
- * - Prioritizes newest/soonest events
- * - Older events are automatically excluded
- * 
- * Behavior:
- * - For upcoming events: Shows 12 soonest events (earliest dates)
- * - For past events: Shows 12 most recent events (latest dates)
- * - Limit applies AFTER filtering by category and time view
- * 
- * Example:
- * - 50 upcoming workshops exist
- * - User filters to "Workshops"
- * - System shows only the 12 soonest workshops
- * - 38 older workshops are hidden
+ * How many cards one view shows.
+ *
+ * @remarks
+ * The twelve soonest upcoming, or the twelve most recent past, after the
+ * category filter. Kept in step with `MAX_VISIBLE` in
+ * `scripts/content/eventCards.js`, which applies the same limit to the served
+ * HTML; if they disagree, the number of cards changes on load.
  */
 const MAX_EVENTS_TO_DISPLAY = 12;
 
 /**
- * Purpose: Reference to time toggle button
+ * What the visitor is currently looking at.
+ *
+ * @typedef {object} EventsView
+ * @property {'upcoming'|'past'} time - Which side of today.
+ * @property {string} category - A category enum value, or `all`.
  */
-let timeToggleBtn;
 
-// =============================================================================
-// DOM ELEMENT REFERENCES
-// =============================================================================
-/**
- * Purpose: Cache DOM element references for better performance
- * We store these once on page load instead of querying repeatedly
- */
-let filterButtons;
-let eventCards;
-let modal;
-let modalClose;
-let modalContent = {};
+/** @type {EventsView} */
+const view = { time: 'upcoming', category: 'all' };
 
-// =============================================================================
-// INITIALIZATION
-// =============================================================================
+initEventsPage();
+
 /**
- * Purpose: Set up all event listeners and initialize features when DOM is ready
- * This runs after the page HTML has fully loaded
+ * Wires up the page, or defers until the DOM exists if the script was ever
+ * moved into `<head>`.
+ *
+ * @returns {void}
  */
-document.addEventListener('DOMContentLoaded', function() {
-    // Cache DOM elements for performance
-    initializeDOMReferences();
-    
-    // Wait for i18n to be ready, then render events and initialize features
-    waitForI18n().then(() => {
-        // Render events dynamically from eventsData.js
-        renderEvents();
-        
-        // Load full event data from translations for modal
-        loadEventDataFromTranslations();
-        
-        // Set up event filtering functionality
-        initializeFilters();
-        
-        // Set up time toggle functionality
-        initializeTimeToggle();
-        
-        // Set up modal functionality
-        initializeModal();
-        
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+function initEventsPage() {
+    const grid = document.getElementById('eventsGrid');
+
+    if (!grid) {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEventsPage, { once: true });
         }
-        
-        // Initialize events scroll indicators
-        initEventsScrollIndicators();
-        
-        // Initialize event type tiles intersection observer for mobile
-        initEventTypeTilesIntersectionObserver();
-        
-        console.log('Events page initialized successfully');
-    });
-});
-
-// =============================================================================
-// DOM REFERENCES INITIALIZATION
-// =============================================================================
-/**
- * Purpose: Cache all DOM element references in one place
- * This improves performance by querying the DOM once instead of repeatedly
- */
-function initializeDOMReferences() {
-    // Filter buttons
-    filterButtons = document.querySelectorAll('.filter-btn');
-    
-    // Time toggle button
-    timeToggleBtn = document.getElementById('timeToggleBtn');
-    
-    // Events grid container (for dynamic rendering)
-    eventsGrid = document.getElementById('eventsGrid');
-    
-    // Event cards (will be queried after rendering)
-    eventCards = document.querySelectorAll('.event-card');
-    
-    // Modal elements
-    modal = document.getElementById('eventModal');
-    modalClose = document.getElementById('modalClose');
-    
-    // Modal content elements (for populating with event data)
-    modalContent = {
-        image: document.getElementById('modalEventImage'),
-        badge: document.getElementById('modalEventBadge'),
-        title: document.getElementById('modalEventTitle'),
-        description: document.getElementById('modalEventDescription'),
-        instructor: document.getElementById('modalEventInstructor'),
-        dateTime: document.getElementById('modalEventDateTime'),
-        location: document.getElementById('modalEventLocation'),
-        price: document.getElementById('modalEventPrice'),
-        registerBtn: document.getElementById('modalRegisterBtn')
-    };
-}
-
-// =============================================================================
-// I18N READINESS CHECK
-// =============================================================================
-/**
- * Purpose: Wait for i18next to be fully initialized before rendering
- * This ensures translations are available when we create event cards
- * 
- * @returns {Promise} Resolves when i18n is ready
- * 
- * Why: We need translations to be loaded before rendering event cards,
- * otherwise they'll show translation keys instead of actual text
- */
-function waitForI18n() {
-    return new Promise((resolve) => {
-        let attempts = 0;
-        const maxAttempts = 50; // 5 seconds max wait
-        
-        const checkI18n = setInterval(() => {
-            attempts++;
-            
-            // Check if either i18next or SGPi18n is ready
-            const i18nReady = (typeof i18next !== 'undefined' && i18next.isInitialized) ||
-                              (typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized);
-            
-            if (i18nReady || attempts >= maxAttempts) {
-                clearInterval(checkI18n);
-                
-                if (!i18nReady) {
-                    console.warn('i18n not fully ready after timeout');
-                }
-                
-                resolve();
-            }
-        }, 100);
-    });
-}
-
-// =============================================================================
-// DYNAMIC EVENT RENDERING
-// =============================================================================
-/**
- * Purpose: Dynamically render event cards from eventsData array
- * This is the core function that creates HTML for all events
- * 
- * How it works:
- * 1. Clears existing events
- * 2. Filters events based on time view (upcoming/past) and category
- * 3. Sorts events by date
- * 4. Loops through filtered events
- * 5. Creates HTML for each event using template literals
- * 6. Fetches translations from i18n
- * 7. Inserts HTML into events grid
- * 8. Updates eventCards reference
- * 9. Reinitializes Lucide icons
- */
-function renderEvents() {
-    if (!eventsGrid) {
-        console.error('Events grid container not found');
         return;
     }
-    
-    // Check if eventsData exists
-    if (typeof eventsData === 'undefined' || !eventsData.length) {
-        console.error('eventsData not found or empty');
-        return;
-    }
-    
-    // Debug: Check i18n status
-    console.log('renderEvents - i18n status:', {
-        i18nextAvailable: typeof i18next !== 'undefined',
-        i18nextInitialized: typeof i18next !== 'undefined' && i18next.isInitialized,
-        SGPi18nAvailable: typeof window.SGPi18n !== 'undefined',
-        SGPi18nInitialized: typeof window.SGPi18n !== 'undefined' && window.SGPi18n.isInitialized
-    });
-    
-    // Clear existing events
-    eventsGrid.innerHTML = '';
-    
-    // Get translation function
-    const t = (key) => {
-        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
-            return i18next.t(key);
-        } else if (typeof window.SGPi18n !== 'undefined') {
-            const result = window.SGPi18n.t(key);
-            // Debug first translation only
-            if (key.includes('aerial-teacher-training_nov2025.title')) {
-                console.log(`Translation test for ${key}:`, result);
-            }
-            return result;
-        }
-        console.warn(`i18n not available for key: ${key}`);
-        return key; // Fallback to key itself
-    };
-    
-    // Filter events based on time view (upcoming vs past)
-    let filteredEvents = eventsData.filter(event => {
-        const isPast = isPastEvent(event);
-        return currentTimeView === 'past' ? isPast : !isPast;
-    });
-    
-    // Filter by category if not 'all'
-    if (currentCategoryFilter !== 'all') {
-        filteredEvents = filteredEvents.filter(event => 
-            event.category === currentCategoryFilter
+
+    // The build wrote the cards soonest first, so this list is the canonical
+    // upcoming order; the past view is simply its reverse.
+    const cards = Array.from(grid.querySelectorAll('.event-card'));
+    const scrollIndicators = initEventsScrollIndicators(grid);
+
+    /**
+     * Shows the cards the current view asks for, and everything that follows
+     * from them: order, past styling, the empty message and the toggle label.
+     *
+     * @returns {void}
+     */
+    function applyView() {
+        const today = localToday();
+        const isPastView = view.time === 'past';
+
+        const matching = cards.filter((card) =>
+            isPastCard(card, today) === isPastView &&
+            (view.category === 'all' || card.dataset.category === view.category)
         );
-    }
-    
-    // Sort events by date
-    // Upcoming events: earliest first (ascending)
-    // Past events: most recent first (descending)
-    const sortAscending = currentTimeView === 'upcoming';
-    filteredEvents = sortEventsByDate(filteredEvents, sortAscending);
-    
-    // Limit to maximum 12 events (newest first)
-    // For upcoming: shows 12 soonest events
-    // For past: shows 12 most recent events
-    const eventsToRender = filteredEvents.slice(0, MAX_EVENTS_TO_DISPLAY);
-    const hiddenEventsCount = filteredEvents.length - eventsToRender.length;
-    
-    // If no events found, show a message
-    if (eventsToRender.length === 0) {
-        const noEventsMessage = currentTimeView === 'past' 
-            ? 'No past events found' 
-            : 'No upcoming events found';
-        eventsGrid.innerHTML = `<p class="no-events-message">${noEventsMessage}</p>`;
-        console.log(`No ${currentTimeView} events to display`);
-        return;
-    }
-    
-    // Render each event (limited to MAX_EVENTS_TO_DISPLAY)
-    eventsToRender.forEach(event => {
-        const eventId = event.id;
-        const category = event.category;
-        const imageSrc = getEventImage(event);
-        const imageSrcset = getEventImageSrcset(event);
-        const cardImagePosition = event.cardImagePosition || 'center'; // Default to 'center' if not specified
+        const ordered = isPastView ? matching.slice().reverse() : matching;
+        const shown = new Set(ordered.slice(0, MAX_EVENTS_TO_DISPLAY));
 
-        // Add past-event class if viewing past events
-        const pastClass = currentTimeView === 'past' ? 'past-event' : '';
+        cards.forEach((card) => {
+            card.hidden = !shown.has(card);
+            card.classList.toggle('past-event', isPastView);
+        });
 
-        // Create event card HTML with a DPR-aware responsive image.
-        // The sizes attribute mirrors the fixed .event-card widths in
-        // css/events.css (360px desktop, 320px <=768px, 300px <=480px) —
-        // keep them in sync if those card widths ever change.
-        const eventCardHTML = `
-            <div class="event-card ${pastClass}" data-category="${category}" data-event="${eventId}">
-                <div class="event-card-image">
-                    <img src="${imageSrc}"
-                         srcset="${imageSrcset}"
-                         sizes="(max-width: 480px) 300px, (max-width: 768px) 320px, 360px"
-                         alt="${t(`events:events.${eventId}.title`)}" loading="lazy" width="720" height="720" style="object-position: ${cardImagePosition};">
-                    <span class="event-badge ${category}" data-i18n="events:events.${eventId}.category">${t(`events:events.${eventId}.category`)}</span>
-                </div>
-                <div class="event-card-content">
-                    <h3 class="event-card-title" data-i18n="events:events.${eventId}.title">${t(`events:events.${eventId}.title`)}</h3>
-                    <div class="event-card-meta">
-                        <div class="event-meta-item">
-                            <i data-lucide="calendar" class="meta-icon"></i>
-                            <span data-i18n="events:events.${eventId}.date">${t(`events:events.${eventId}.date`)}</span>
-                        </div>
-                        <div class="event-meta-item">
-                            <i data-lucide="map-pin" class="meta-icon"></i>
-                            <span data-i18n="events:events.${eventId}.location">${t(`events:events.${eventId}.location`)}</span>
-                        </div>
-                    </div>
-                    <p class="event-card-description" data-i18n="events:events.${eventId}.shortDescription">${t(`events:events.${eventId}.shortDescription`)}</p>
-                </div>
-            </div>
-        `;
-        
-        // Insert event card into grid
-        eventsGrid.insertAdjacentHTML('beforeend', eventCardHTML);
-    });
-    
-    // Update eventCards reference after rendering
-    eventCards = document.querySelectorAll('.event-card');
-    
-    // Re-attach modal click handlers to newly rendered cards
-    attachModalHandlers();
-    
-    // Reinitialize Lucide icons for newly rendered content
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    console.log(`Rendered ${eventsToRender.length} of ${filteredEvents.length} ${currentTimeView} events (max: ${MAX_EVENTS_TO_DISPLAY})`);
-    if (hiddenEventsCount > 0) {
-        console.log(`  → ${hiddenEventsCount} older ${currentTimeView} events were filtered out and not displayed`);
-    }
-}
-
-// =============================================================================
-// EVENT DATA LOADING
-// =============================================================================
-/**
- * Purpose: Load event data from i18next translations
- * This ensures we have all event details available for the modal
- * 
- * Why: Dynamically rendered cards show basic info, but modal needs complete details.
- * Full details (description, instructor, price, etc.) come from translations.
- */
-function loadEventDataFromTranslations() {
-    // Get translation function
-    const t = (key) => {
-        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
-            return i18next.t(key);
-        } else if (typeof window.SGPi18n !== 'undefined') {
-            return window.SGPi18n.t(key);
+        // Most recent first in the past view. Moving the nodes, rather than
+        // using CSS `order`, keeps the tab and screen-reader order matching
+        // what is on screen. `append` moves nodes that are already in the grid.
+        const inDomOrder = Array.from(grid.querySelectorAll('.event-card'));
+        const wanted = isPastView ? cards.slice().reverse() : cards;
+        if (inDomOrder.some((card, index) => card !== wanted[index])) {
+            grid.append(...wanted);
         }
-        return key; // Fallback to key itself
-    };
-    
-    // Load data for all events from eventsData array
-    if (typeof eventsData !== 'undefined') {
-        eventsData.forEach(event => {
-            const eventId = event.id;
-            
-            eventData[eventId] = {
-                title: t(`events:events.${eventId}.title`),
-                category: t(`events:events.${eventId}.category`),
-                date: t(`events:events.${eventId}.date`),
-                time: t(`events:events.${eventId}.time`),
-                location: t(`events:events.${eventId}.location`),
-                shortDescription: t(`events:events.${eventId}.shortDescription`),
-                fullDescription: t(`events:events.${eventId}.fullDescription`),
-                instructor: t(`events:events.${eventId}.instructor`),
-                price: t(`events:events.${eventId}.price`)
-            };
+
+        grid.querySelectorAll('[data-empty-in]').forEach((message) => {
+            message.hidden = message.dataset.emptyIn !== view.time || shown.size > 0;
         });
-        
-        console.log('Event data loaded from translations:', eventData);
-    } else {
-        console.error('eventsData not found');
-    }
-}
 
-// =============================================================================
-// FILTER FUNCTIONALITY
-// =============================================================================
-/**
- * Purpose: Set up event category filtering (All, Workshops, Retreats, Trainings)
- * Users can click filter buttons to show only events of a specific type
- * 
- * Updated: Now stores filter state and re-renders events instead of hiding/showing
- */
-function initializeFilters() {
-    // Add click event to each filter button
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Get the filter category from data attribute
-            const filterCategory = this.getAttribute('data-filter');
-            
-            // Update active button state
-            updateActiveFilter(this);
-            
-            // Update filter state and re-render
-            currentCategoryFilter = filterCategory;
-            renderEvents();
-        });
-    });
-}
-
-/**
- * Purpose: Update which filter button appears active
- * Removes 'active' class from all buttons, adds it to the clicked button
- * 
- * @param {HTMLElement} activeButton - The filter button that was clicked
- */
-function updateActiveFilter(activeButton) {
-    // Remove 'active' class from all buttons
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    
-    // Add 'active' class to clicked button
-    activeButton.classList.add('active');
-}
-
-// =============================================================================
-// TIME TOGGLE FUNCTIONALITY
-// =============================================================================
-/**
- * Purpose: Set up the past/upcoming events toggle button
- * Allows users to switch between viewing upcoming and past events
- */
-function initializeTimeToggle() {
-    if (!timeToggleBtn) {
-        console.error('Time toggle button not found');
-        return;
-    }
-    
-    timeToggleBtn.addEventListener('click', function() {
-        // Toggle between upcoming and past views
-        currentTimeView = currentTimeView === 'upcoming' ? 'past' : 'upcoming';
-        
-        // Update button text
         updateTimeToggleButton();
-        
-        // Re-render events with new time filter
-        renderEvents();
-        
-        console.log(`Switched to ${currentTimeView} events view`);
+        scrollIndicators.update();
+    }
+
+    initializeFilters(applyView);
+    initializeTimeToggle(applyView, grid);
+    initializeModal(grid);
+    initEventTypeTilesIntersectionObserver();
+
+    applyView();
+}
+
+/**
+ * Today's date in the visitor's timezone, as `YYYY-MM-DD`.
+ *
+ * @returns {string} The local calendar date.
+ */
+function localToday() {
+    const now = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
+/**
+ * Whether a card's event has finished.
+ *
+ * @remarks
+ * `YYYY-MM-DD` strings compare correctly as text, so the dates are never
+ * parsed. Parsing them is how the old code got this wrong: `new Date()` reads
+ * `2026-09-23` as UTC midnight, which is the evening of the 22nd in Mexico
+ * City, so an event showed as past on its own last day.
+ *
+ * @param {HTMLElement} card - An `.event-card`.
+ * @param {string} today - `YYYY-MM-DD`.
+ * @returns {boolean} True once the visitor's date is after the event's end.
+ */
+function isPastCard(card, today) {
+    return card.dataset.end < today;
+}
+
+// =============================================================================
+// FILTERS AND TIME TOGGLE
+// =============================================================================
+
+/**
+ * Makes the category buttons filter the grid.
+ *
+ * @param {() => void} applyView - Re-applies the view after a change.
+ * @returns {void}
+ */
+function initializeFilters(applyView) {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+            filterButtons.forEach((other) => other.classList.remove('active'));
+            button.classList.add('active');
+
+            view.category = button.dataset.filter;
+            applyView();
+        });
     });
 }
 
 /**
- * Purpose: Update the time toggle button text based on current view
- * Button shows opposite action: "Show Past" when viewing upcoming, "Show Upcoming" when viewing past
+ * Makes the toggle switch between upcoming and past events.
+ *
+ * @param {() => void} applyView - Re-applies the view after a change.
+ * @param {HTMLElement} grid - The cards' container, scrolled back to the start
+ *   so the new view opens on its first card.
+ * @returns {void}
+ */
+function initializeTimeToggle(applyView, grid) {
+    const toggle = document.getElementById('timeToggleBtn');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', function () {
+        view.time = view.time === 'upcoming' ? 'past' : 'upcoming';
+        applyView();
+        grid.scrollLeft = 0;
+    });
+}
+
+/**
+ * Shows the toggle label for the current view.
+ *
+ * @remarks
+ * Both labels are in the markup, translated by both i18n paths, and this only
+ * picks one. The button offers the other view: "Show Past Events" while
+ * looking at upcoming ones.
+ *
+ * @returns {void}
  */
 function updateTimeToggleButton() {
-    if (!timeToggleBtn) return;
-    
-    // Get translation function
-    const t = (key) => {
-        if (typeof i18next !== 'undefined' && i18next.isInitialized) {
-            return i18next.t(key);
-        } else if (typeof window.SGPi18n !== 'undefined') {
-            return window.SGPi18n.t(key);
-        }
-        return key;
-    };
-    
-    // Update button text and data-i18n attribute
-    if (currentTimeView === 'upcoming') {
-        timeToggleBtn.textContent = t('events:upcomingEvents.timeToggle.showPast');
-        timeToggleBtn.setAttribute('data-i18n', 'events:upcomingEvents.timeToggle.showPast');
-    } else {
-        timeToggleBtn.textContent = t('events:upcomingEvents.timeToggle.showUpcoming');
-        timeToggleBtn.setAttribute('data-i18n', 'events:upcomingEvents.timeToggle.showUpcoming');
-    }
+    const toggle = document.getElementById('timeToggleBtn');
+    if (!toggle) return;
+
+    toggle.setAttribute('aria-pressed', String(view.time === 'past'));
+    toggle.querySelectorAll('[data-shown-in]').forEach((label) => {
+        label.hidden = label.dataset.shownIn !== view.time;
+    });
 }
 
 // =============================================================================
-// MODAL FUNCTIONALITY
+// MODAL
 // =============================================================================
+
 /**
- * Purpose: Set up modal (popup) functionality for displaying event details
- * Modal opens when user clicks an event card, closes via X button, overlay click, or ESC key
+ * Wires the detail modal: open on a card, close on the X, the overlay or
+ * Escape, and register through WhatsApp.
+ *
+ * @remarks
+ * One delegated listener on the grid rather than one per card, so it keeps
+ * working however the cards are hidden or reordered.
+ *
+ * @param {HTMLElement} grid - The cards' container.
+ * @returns {void}
  */
-function initializeModal() {
-    // Attach click handlers to event cards
-    attachModalHandlers();
-    
-    // Close modal when X button is clicked
+function initializeModal(grid) {
+    const modal = document.getElementById('eventModal');
+    const modalClose = document.getElementById('modalClose');
+    const registerBtn = document.getElementById('modalRegisterBtn');
+
+    if (!modal) return;
+
+    grid.addEventListener('click', function (event) {
+        const card = event.target.closest('.event-card');
+        if (card) {
+            openModal(modal, card);
+        }
+    });
+
     if (modalClose) {
-        modalClose.addEventListener('click', closeModal);
+        modalClose.addEventListener('click', () => closeModal(modal));
     }
-    
-    // Close modal when clicking outside the modal container (on the dark overlay)
-    if (modal) {
-        modal.addEventListener('click', function(event) {
-            // Only close if clicking the overlay itself, not the modal content
-            if (event.target === modal) {
-                closeModal();
-            }
+
+    // Only the dark overlay itself, not a click inside the dialog.
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal(modal);
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal(modal);
+        }
+    });
+
+    if (registerBtn) {
+        registerBtn.addEventListener('click', function () {
+            const eventTitle = document.getElementById('modalEventTitle').textContent;
+            const message = encodeURIComponent(`Hi! I would like to register for ${eventTitle}. Please provide me with more information about registration process, availability, and payment options. Thank you!`);
+
+            // +52 55 3906 1305, in the format wa.me expects.
+            window.open(`https://wa.me/525539061305?text=${message}`, '_blank', 'noopener');
         });
     }
-    
-    // Close modal when ESC key is pressed (accessibility feature)
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-    
-    // Set up register button functionality
-    initializeRegisterButton();
 }
 
 /**
- * Purpose: Attach click handlers to event cards for opening modal
- * This function can be called multiple times after re-rendering events
- * 
- * Why separate function: When events are re-rendered (filter/toggle change),
- * new DOM elements are created, so we need to re-attach click handlers
+ * Fills the modal from a card and shows it.
+ *
+ * @remarks
+ * Every value is read from the card: the visible text, the `hidden` details
+ * block the build put inside it, and the modal image on its data attributes.
+ * Reading `textContent` means the modal shows whatever language the card is
+ * currently in, and it never interprets event text as HTML.
+ *
+ * @param {HTMLElement} modal - The `#eventModal` overlay.
+ * @param {HTMLElement} card - The `.event-card` that was clicked.
+ * @returns {void}
  */
-function attachModalHandlers() {
-    // Add click event to each event card to open modal
-    eventCards.forEach(card => {
-        // Remove any existing listeners to prevent duplicates
-        // Using a named function stored as a property allows us to remove it
-        if (card.modalClickHandler) {
-            card.removeEventListener('click', card.modalClickHandler);
-        }
-        
-        // Create and store the handler function
-        card.modalClickHandler = function() {
-            const eventId = this.getAttribute('data-event');
-            openModal(eventId);
-        };
-        
-        // Attach the handler
-        card.addEventListener('click', card.modalClickHandler);
-    });
-}
+function openModal(modal, card) {
+    const field = (name) => {
+        const element = card.querySelector(`[data-field="${name}"]`);
+        return element ? element.textContent.trim() : '';
+    };
+    const setText = (id, text) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = text;
+    };
 
-/**
- * Purpose: Open modal and populate it with event details
- * 
- * @param {string} eventId - The ID of the event to display (e.g., 'event1', 'event2')
- * 
- * How it works:
- * 1. Get event data from eventData object
- * 2. Populate all modal fields with event information
- * 3. Set appropriate event image based on category
- * 4. Show the modal
- * 5. Prevent body scrolling while modal is open
- */
-function openModal(eventId) {
-    const event = eventData[eventId];
-    
-    if (!event) {
-        console.error(`Event data not found for: ${eventId}`);
-        return;
-    }
-    
-    // Populate modal with event data
-    modalContent.title.textContent = event.title;
-    modalContent.badge.textContent = event.category;
-    modalContent.description.textContent = event.fullDescription;
-    modalContent.instructor.textContent = event.instructor;
-    // Display date and time on separate lines
-    modalContent.dateTime.innerHTML = `${event.date}<br>${event.time}`;
-    modalContent.location.textContent = event.location;
-    modalContent.price.textContent = event.price;
-    
-    // Set event image based on eventsData configuration
-    const eventCard = document.querySelector(`[data-event="${eventId}"]`);
-    const category = eventCard.getAttribute('data-category');
-    
-    // Find the event in eventsData to get its image and position
-    let imagePath = '';
-    let imageSrcset = '';
-    let modalImagePosition = 'center'; // Default position
+    setText('modalEventTitle', field('title'));
+    setText('modalEventBadge', field('category'));
+    setText('modalEventDescription', field('fullDescription'));
+    setText('modalEventInstructor', field('instructor'));
+    setText('modalEventLocation', field('location'));
+    setText('modalEventPrice', field('price'));
 
-    if (typeof eventsData !== 'undefined') {
-        const eventConfig = eventsData.find(e => e.id === eventId);
-        if (eventConfig) {
-            // Use high-res image for modal if available
-            imagePath = getEventImage(eventConfig, true);
-            imageSrcset = getEventImageSrcset(eventConfig);
-            // Get custom image position for modal if specified
-            modalImagePosition = eventConfig.modalImagePosition || 'center';
-        }
+    // Date and time on separate lines, built from nodes so neither is parsed as HTML.
+    const dateTime = document.getElementById('modalEventDateTime');
+    if (dateTime) {
+        dateTime.replaceChildren(field('date'), document.createElement('br'), field('time'));
     }
 
-    // Fallback to category defaults if the event has no eventsData entry
-    if (!imagePath) {
-        imagePath = getEventImage({ category }, true);
-        imageSrcset = getEventImageSrcset({ category });
+    // Set src, srcset and sizes together on every open, so a previous event's
+    // srcset never lingers on the shared element. `sizes` mirrors
+    // .modal-container's max-width (900px) in css/events.css.
+    const image = document.getElementById('modalEventImage');
+    const cardImage = card.querySelector('.event-card-image img');
+    if (image) {
+        image.src = card.dataset.modalImage;
+        image.srcset = cardImage ? cardImage.getAttribute('srcset') : '';
+        image.sizes = '(max-width: 900px) 100vw, 900px';
+        image.alt = field('title');
+        image.style.objectPosition = card.dataset.modalPosition || 'center';
     }
 
-    // Set src, srcset and sizes together on every open so a previous
-    // event's srcset never lingers on the shared modal image element.
-    // sizes mirrors .modal-container's max-width (900px) in css/events.css.
-    modalContent.image.src = imagePath;
-    modalContent.image.srcset = imageSrcset;
-    modalContent.image.sizes = '(max-width: 900px) 100vw, 900px';
-    modalContent.image.alt = event.title;
-    modalContent.image.style.objectPosition = modalImagePosition;
-    
-    // Show modal
     modal.classList.add('active');
-    
-    // Prevent body scroll when modal is open (improves UX)
     document.body.style.overflow = 'hidden';
-    
-    // Reinitialize Lucide icons for modal content
+
+    // navbar.js swaps the modal's icon placeholders on `load`; this covers a
+    // visitor quick enough to open a card before then.
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
 }
 
 /**
- * Purpose: Close the modal and restore normal page behavior
- * 
- * How it works:
- * 1. Hide the modal by removing 'active' class
- * 2. Re-enable body scrolling
+ * Hides the modal and gives the page its scrolling back.
+ *
+ * @param {HTMLElement} modal - The `#eventModal` overlay.
+ * @returns {void}
  */
-function closeModal() {
+function closeModal(modal) {
     modal.classList.remove('active');
-    
-    // Re-enable body scroll
     document.body.style.overflow = '';
-}
-
-// =============================================================================
-// LANGUAGE CHANGE HANDLING
-// =============================================================================
-/**
- * Purpose: Re-render events and reload data when language changes
- * This ensures everything displays in the correct language after user switches languages
- * 
- * Why: When user changes language, we need to:
- * 1. Re-render all event cards with new translations
- * 2. Reload eventData for modal with new translations
- */
-document.addEventListener('languageChanged', function() {
-    // Wait a moment for translations to fully update
-    setTimeout(() => {
-        // Re-render events with new language
-        renderEvents();
-        
-        // Reload event data for modal
-        loadEventDataFromTranslations();
-        
-        // Update time toggle button text
-        updateTimeToggleButton();
-        
-        // Re-initialize filters and modal for newly rendered cards
-        initializeFilters();
-        initializeModal();
-        
-        console.log('Events re-rendered for language change');
-    }, 100);
-});
-
-// =============================================================================
-// REGISTER BUTTON FUNCTIONALITY
-// =============================================================================
-/**
- * Purpose: Handle registration button clicks in modal
- * Opens WhatsApp chat with pre-filled message for event registration
- */
-function initializeRegisterButton() {
-    if (modalContent.registerBtn) {
-        modalContent.registerBtn.addEventListener('click', function() {
-            // Get current event title from modal
-            const eventTitle = modalContent.title.textContent;
-            
-            // Create WhatsApp message with event details
-            const message = encodeURIComponent(`Hi! I would like to register for ${eventTitle}. Please provide me with more information about registration process, availability, and payment options. Thank you!`);
-            
-            // Open WhatsApp with pre-filled message
-            // Phone number: +52 55 3906 1305 (format for WhatsApp: 525539061305)
-            window.open(`https://wa.me/525539061305?text=${message}`, '_blank');
-            
-            console.log('Register button clicked, opening WhatsApp...');
-        });
-    } else {
-        console.error('Register button not found in modal');
-    }
-}
-
-// =============================================================================
-// UTILITY FUNCTIONS
-// =============================================================================
-
-/**
- * Purpose: Smooth scroll to event section (if needed for navigation)
- * Can be used for anchor links or "back to events" functionality
- * 
- * @param {string} sectionId - The ID of the section to scroll to
- */
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
 }
 
 // =============================================================================
 // EVENTS SCROLL INDICATORS
 // =============================================================================
+
 /**
- * Initialize events scroll indicators
- * Show/hide arrows based on scroll position and handle click scrolling
+ * Shows the left/right arrows over the grid on phones and tablets, each only
+ * while there is more to scroll in its direction.
+ *
+ * @param {HTMLElement} grid - The cards' container.
+ * @returns {{update: () => void}} Call `update` after the visible cards change.
  */
-function initEventsScrollIndicators() {
-    const eventsGrid = document.querySelector('.events-grid');
+function initEventsScrollIndicators(grid) {
     const leftIndicator = document.querySelector('.events-scroll-indicator.left');
     const rightIndicator = document.querySelector('.events-scroll-indicator.right');
-    
-    if (!eventsGrid || !leftIndicator || !rightIndicator) return;
-    
-    // Only show on mobile/tablet (1024px and below)
     const isMobileOrTablet = () => window.innerWidth <= 1024;
-    
-    if (!isMobileOrTablet()) return;
-    
-    // Update indicator visibility based on scroll position
-    function updateIndicators() {
+
+    if (!leftIndicator || !rightIndicator || !isMobileOrTablet()) {
+        return { update() {} };
+    }
+
+    /**
+     * Shows each arrow only while there is something to scroll to.
+     *
+     * @returns {void}
+     */
+    function update() {
         if (!isMobileOrTablet()) {
             leftIndicator.classList.remove('visible');
             rightIndicator.classList.remove('visible');
             return;
         }
-        
-        const scrollLeft = eventsGrid.scrollLeft;
-        const maxScroll = eventsGrid.scrollWidth - eventsGrid.clientWidth;
-        
-        // Show left arrow if not at the start
-        if (scrollLeft > 10) {
-            leftIndicator.classList.add('visible');
-        } else {
-            leftIndicator.classList.remove('visible');
-        }
-        
-        // Show right arrow if not at the end
-        if (scrollLeft < maxScroll - 10) {
-            rightIndicator.classList.add('visible');
-        } else {
-            rightIndicator.classList.remove('visible');
-        }
+
+        const maxScroll = grid.scrollWidth - grid.clientWidth;
+        leftIndicator.classList.toggle('visible', grid.scrollLeft > 10);
+        rightIndicator.classList.toggle('visible', grid.scrollLeft < maxScroll - 10);
     }
-    
-    // Scroll left when left arrow is clicked
-    leftIndicator.addEventListener('click', function() {
-        const scrollAmount = eventsGrid.clientWidth * 0.8;
-        eventsGrid.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
+
+    leftIndicator.addEventListener('click', function () {
+        grid.scrollBy({ left: -grid.clientWidth * 0.8, behavior: 'smooth' });
     });
-    
-    // Scroll right when right arrow is clicked
-    rightIndicator.addEventListener('click', function() {
-        const scrollAmount = eventsGrid.clientWidth * 0.8;
-        eventsGrid.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
+
+    rightIndicator.addEventListener('click', function () {
+        grid.scrollBy({ left: grid.clientWidth * 0.8, behavior: 'smooth' });
     });
-    
-    // Update indicators on scroll
-    eventsGrid.addEventListener('scroll', updateIndicators);
-    
-    // Update indicators on window resize
-    window.addEventListener('resize', updateIndicators);
-    
-    // Initial update (with delay to ensure events are rendered)
-    setTimeout(updateIndicators, 500);
+
+    grid.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
+
+    return { update };
 }
 
 // =============================================================================
 // EVENT TYPE TILES INTERSECTION OBSERVER
 // =============================================================================
+
 /**
- * Initialize Intersection Observer for event type tiles on mobile
- * Purpose: Automatically show/hide overlays when tiles enter/leave trigger point
- * Only ONE tile can show its overlay at a time - entering the trigger hides all others
- * Only runs on mobile devices (768px and below)
+ * On phones, reveals each event-type tile's overlay as it scrolls through the
+ * upper part of the screen, one at a time; desktop uses `:hover` instead.
+ *
+ * @returns {void}
  */
 function initEventTypeTilesIntersectionObserver() {
-    // Only run on mobile devices
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    
+
     if (!isMobile) {
-        return; // Exit early on desktop - we use :hover instead
+        return;
     }
-    
+
     const eventTypeTiles = document.querySelectorAll('.event-type-tile');
-    
+
     if (!eventTypeTiles.length) {
         return;
     }
-    
-    // Configure Intersection Observer to trigger as tiles approach the top
-    // Same settings as yoga styles/spaces for consistency
+
+    // Trigger as a tile approaches the top third of the viewport, matching
+    // the yoga styles and spaces sections.
     const observerOptions = {
-        root: null, // Use viewport as root
-        rootMargin: '40% 0px -60% 0px', // Trigger when tile approaches the top third of viewport
-        threshold: 0 // Trigger as soon as tile crosses the threshold
+        root: null,
+        rootMargin: '40% 0px -60% 0px',
+        threshold: 0
     };
-    
-    // Helper function to hide all overlays
+
     function hideAllOverlays() {
-        eventTypeTiles.forEach(tile => {
-            const overlay = tile.querySelector('.event-type-overlay');
-            overlay.classList.remove('auto-visible');
+        eventTypeTiles.forEach((tile) => {
+            tile.querySelector('.event-type-overlay').classList.remove('auto-visible');
         });
     }
-    
-    // Callback function that handles intersection changes
-    const observerCallback = (entries) => {
-        entries.forEach(entry => {
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const overlay = entry.target.querySelector('.event-type-overlay');
             if (entry.isIntersecting) {
-                // A tile entered the trigger point
-                // First, hide all other overlays to ensure only one is visible
+                // Only one overlay at a time.
                 hideAllOverlays();
-                
-                // Then show this tile's overlay
-                const overlay = entry.target.querySelector('.event-type-overlay');
                 overlay.classList.add('auto-visible');
             } else {
-                // Tile left the trigger point - hide its overlay
-                const overlay = entry.target.querySelector('.event-type-overlay');
                 overlay.classList.remove('auto-visible');
             }
         });
-    };
-    
-    // Create the observer instance
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    
-    // Start observing all event type tiles
-    eventTypeTiles.forEach(tile => {
-        observer.observe(tile);
-        
-        // Store observer reference on tile for potential cleanup
-        tile._eventTypeObserver = observer;
-    });
-    
-    // Reinitialize on window resize to handle orientation changes
+    }, observerOptions);
+
+    eventTypeTiles.forEach((tile) => observer.observe(tile));
+
+    // Crossing the mobile breakpoint (a rotation, say) switches between the
+    // observer and :hover, which a reload handles most simply.
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            const newIsMobile = window.matchMedia('(max-width: 768px)').matches;
-            
-            // If switching between mobile/desktop, reload the page or reinitialize
-            if (newIsMobile !== isMobile) {
+            if (window.matchMedia('(max-width: 768px)').matches !== isMobile) {
                 location.reload();
             }
         }, 250);
     });
 }
-
-// =============================================================================
-// EXPORT FOR TESTING (if needed)
-// =============================================================================
-// Uncomment if you want to test functions externally
-// window.eventsPage = {
-//     filterEvents,
-//     openModal,
-//     closeModal,
-//     loadEventDataFromTranslations
-// };

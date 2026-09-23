@@ -23,7 +23,7 @@ function escapeHtml(value) {
  * Fails the build if a database string contains markup.
  *
  * @remarks
- * **Why fail rather than escape.** Generated locale strings reach the page two ways, and both treat them as HTML: `build-i18n.js` pastes the Spanish string straight into the markup, and `js/events.js` interpolates event text into `innerHTML`. The other path, `js/i18n.js` on a plain `data-i18n` element, uses `textContent` — so an escaped `&lt;` would print literally there. No single encoding is right for all three, and the school's content has never needed a tag, so the honest rule is that content is plain text and a `<` is refused with a message saying exactly where it is. Ampersands are allowed: `Harjeet & Camila` renders correctly on every path.
+ * **Why fail rather than escape.** Generated locale strings reach the page several ways, and they disagree about encoding: `build-i18n.js` pastes the Spanish string straight into the markup as HTML, while `js/i18n.js` on a plain `data-i18n` element uses `textContent`, so an escaped `&lt;` would print literally there. The English event cards are escaped with {@link escapeHtml} when rendered, which is right for that path and wrong for the other two. No single encoding is right for all of them, and the school's content has never needed a tag, so the honest rule is that content is plain text and a `<` is refused with a message saying exactly where it is. Ampersands are allowed: `Harjeet & Camila` renders correctly on every path.
  *
  * @param {unknown} value - The value about to be published.
  * @param {string} where - Where it came from, for the error, such as `school_events.title_es (chakras-workshop_jul2026)`.

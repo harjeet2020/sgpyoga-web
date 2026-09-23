@@ -179,13 +179,17 @@ class SGPi18n {
      * readers look it up in, in memory only.
      *
      * @remarks
-     * `js/events.js` and `js/eventSchema.js` read event text as
-     * `events:events.<id>.title`, and both are frozen by contract C2 in
-     * MIGRATION.md. Contract C1 forbids the build from writing generated keys
-     * into the hand-written `events.json`. So the build writes them to their
-     * own file, `eventContent.json`, and this method places that file's
-     * entries under `events.events` after both have loaded. The files stay
-     * separate on disk, and every reader finds the keys where it always has.
+     * `js/eventSchema.js` reads event text as `events:events.<id>.title`,
+     * a shape fixed by contract C2 in MIGRATION.md. Contract C1 forbids the
+     * build from writing generated keys into the hand-written `events.json`.
+     * So the build writes them to their own file, `eventContent.json`, and
+     * this method places that file's entries under `events.events` after both
+     * have loaded. The files stay separate on disk.
+     *
+     * The event cards do not need the graft: they are pre-rendered with
+     * `data-i18n="eventContent:<id>.*"`, which resolves against the
+     * `eventContent` namespace directly, because `build-i18n.js` never sees
+     * this in-memory copy.
      *
      * The generated file's `_comment` key is dropped rather than grafted,
      * since it would otherwise look like an event id.

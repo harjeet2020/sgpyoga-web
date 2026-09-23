@@ -15,6 +15,10 @@
     "timeToggle": {
       "showPast": "Mostrar Eventos Pasados",
       "showUpcoming": "Mostrar Próximos Eventos"
+    },
+    "empty": {
+      "upcoming": "No hay próximos eventos por ahora",
+      "past": "No se encontraron eventos pasados"
     }
   },
   "eventTypes": {

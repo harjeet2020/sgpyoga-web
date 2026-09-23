@@ -162,8 +162,15 @@
                         <button class="filter-btn" data-filter="course" data-i18n="events:upcomingEvents.filters.course">Courses</button>
                     </div>
                     
-                    <!-- Time View Toggle -->
-                    <button class="time-toggle-btn" id="timeToggleBtn" data-i18n="events:upcomingEvents.timeToggle.showPast">Show Past Events</button>
+                    <!-- Time View Toggle. Both labels are in the markup, and `js/events.js` only
+                         swaps which one is hidden, so the button never has to wait for a translation
+                         to load before it can say the right thing. The `data-i18n` sits on each
+                         leaf `<span>` rather than on the button: both translation paths replace an
+                         element's whole content, and would delete the other label. -->
+                    <button class="time-toggle-btn" id="timeToggleBtn" type="button" aria-pressed="false">
+                        <span data-shown-in="upcoming" data-i18n="events:upcomingEvents.timeToggle.showPast">Show Past Events</span>
+                        <span data-shown-in="past" data-i18n="events:upcomingEvents.timeToggle.showUpcoming" hidden>Show Upcoming Events</span>
+                    </button>
                 </div>
             </div>
             
@@ -179,10 +186,26 @@
                 </svg>
             </button>
             
-            <!-- Event Cards Grid (Full-width scrolling) -->
-            <!-- Events are dynamically rendered by JavaScript from js/eventsData.js -->
+            <!-- Event Cards Grid (full-width, scrolls sideways).
+
+                 The cards are generated from Supabase by `npm run build:content`, which renders
+                 this template into the gitignored `/events.html` in place of the `BUILD:` marker.
+                 Edit the template, never the output. They are in the served HTML rather than
+                 built by script so the page paints complete: the old client-side render waited
+                 on three CDN scripts and six locale files, then pushed the rest of the page down.
+
+                 Every event is rendered, past ones included, and the build hides whatever was
+                 past or beyond the first twelve on the day it ran. `js/events.js` re-checks
+                 against the visitor's own date on load, which only matters for an event that
+                 ended between the last publish and this visit, and it filters and switches to
+                 past events by hiding and reordering these cards, never by rebuilding them.
+
+                 The two empty-state messages are here for the same reason as the toggle labels:
+                 translated by both paths, and shown by script only when nothing matches. -->
             <div class="events-grid" id="eventsGrid">
-                <!-- Events will be inserted here by events.js -->
+                <p class="no-events-message" data-empty-in="upcoming" data-i18n="events:upcomingEvents.empty.upcoming" hidden>No upcoming events found</p>
+                <p class="no-events-message" data-empty-in="past" data-i18n="events:upcomingEvents.empty.past" hidden>No past events found</p>
+                <!-- BUILD:events-cards -->
             </div>
         </section>
 

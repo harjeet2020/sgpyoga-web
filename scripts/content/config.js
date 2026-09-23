@@ -21,12 +21,16 @@ const ROOT_DIR = path.resolve(__dirname, '..', '..');
  * Tracked templates and the gitignored files they render to.
  *
  * @remarks
- * A template holds everything hand-written about a file plus single-line markers where generated content goes. Rendering it to the original path — rather than editing that path in place — is what keeps a build from ever dirtying the working tree, and it is also why `build-i18n.js` and `build:copy` needed no changes: they still find `classes.html` and `js/eventsData.js` exactly where they always were.
+ * A template holds everything hand-written about a file plus single-line markers where generated content goes. Rendering it to the original path — rather than editing that path in place — is what keeps a build from ever dirtying the working tree, and it is also why `build-i18n.js` and `build:copy` needed no changes: they still find `classes.html`, `events.html` and `js/eventsData.js` exactly where they always were.
  */
 const TEMPLATES = {
   classes: {
     source: path.join(ROOT_DIR, 'templates', 'classes.html'),
     output: path.join(ROOT_DIR, 'classes.html'),
+  },
+  events: {
+    source: path.join(ROOT_DIR, 'templates', 'events.html'),
+    output: path.join(ROOT_DIR, 'events.html'),
   },
   eventsData: {
     source: path.join(ROOT_DIR, 'templates', 'eventsData.js'),

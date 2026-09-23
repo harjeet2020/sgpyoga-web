@@ -6,13 +6,14 @@
  * `js/eventsData.js`. Edit this file only to change the helpers; add, edit or
  * remove events in the platform admin panel, then publish.
  *
- * Purpose: Centralized event metadata for dynamic rendering. This file holds
- * structural/technical data for events, while all text (titles, descriptions,
- * etc.) comes from the generated `eventContent` locale namespace, which
- * `js/i18n.js` grafts into `events:events.<id>.*` at load time.
+ * Purpose: Event metadata for the page's structured data. The event cards are
+ * no longer built from this file: they are rendered into `events.html` at
+ * build time (see `scripts/content/eventCards.js`). What still reads it is
+ * `js/eventSchema.js`, which turns it into Schema.org JSON-LD, with all text
+ * coming from the generated `eventContent` locale namespace that `js/i18n.js`
+ * grafts into `events:events.<id>.*` at load time.
  *
- * The array's shape is frozen by contract C2 in MIGRATION.md, because
- * `js/events.js` and `js/eventSchema.js` read it and must not change:
+ * The array's shape is fixed by contract C2 in MIGRATION.md:
  * id · category · startDate · endDate · imageMobile · image · imageHigh ·
  * cardImagePosition · modalImagePosition. The image keys are omitted for an
  * event with no image of its own, which falls back to `categoryDefaults`.
@@ -29,33 +30,14 @@ const eventsData = /* BUILD:events-data */;
 // =============================================================================
 /**
  * Purpose: Provide fallback images when an event doesn't specify a custom image
- * These are used if you don't provide an 'image' property for an event
  *
  * Each size key maps to a width variant (encoded in the filename suffix):
  * imageMobile (480w), image (720w), imageHigh (900w), imageMax (1200w).
- * All variants of a category feed getEventImageSrcset() so the browser can
- * pick a DPR-appropriate resolution.
+ *
+ * Generated from `CATEGORY_IMAGES` in `scripts/content/eventCards.js`, which
+ * the pre-rendered cards use too, so the paths are written down only once.
  */
-const categoryDefaults = {
-  workshop: {
-    imageMobile: "/assets/photos/events/workshops-480.webp",
-    image: "/assets/photos/events/workshops-720.webp",
-    imageHigh: "/assets/photos/events/workshops-900.webp",
-    imageMax: "/assets/photos/events/workshops-1200.webp",
-  },
-  retreat: {
-    imageMobile: "/assets/photos/events/retreats-480.webp",
-    image: "/assets/photos/events/retreats-720.webp",
-    imageHigh: "/assets/photos/events/retreats-900.webp",
-    imageMax: "/assets/photos/events/retreats-1200.webp",
-  },
-  course: {
-    imageMobile: "/assets/photos/events/teacher-trainings-480.webp",
-    image: "/assets/photos/events/teacher-trainings-720.webp",
-    imageHigh: "/assets/photos/events/teacher-trainings-900.webp",
-    imageMax: "/assets/photos/events/teacher-trainings-1200.webp",
-  },
-};
+const categoryDefaults = /* BUILD:category-defaults */;
 
 // =============================================================================
 // HELPER FUNCTIONS
@@ -89,55 +71,15 @@ function getEventImage(event, highRes = false, mobile = false) {
 }
 
 /**
- * Purpose: Build a width-descriptor srcset string for an event's images,
- * so the browser can pick a resolution matching both viewport and pixel
- * density (retina screens need ~2x the CSS width in image pixels).
- *
- * How it works:
- * 1. Gathers every image variant defined for the event, or (if the event
- *    defines no custom images) its category defaults. Variants are never
- *    mixed between the two sources — they would be different photos.
- * 2. Reads each variant's pixel width from the filename suffix
- *    (e.g. "workshops-720.webp" -> 720).
- * 3. Returns them as "path 480w, path 720w, ..." sorted small-to-large.
- *
- * This handles both variant families automatically: category defaults use
- * 480/720/900/1200 widths, unique per-event images use 480/720/1080.
- *
- * @param {object} event - Event object from eventsData (needs at least `category`)
- * @returns {string} srcset value, e.g. "/a-480.webp 480w, /a-720.webp 720w"
- */
-function getEventImageSrcset(event) {
-  const sizeKeys = ["imageMobile", "image", "imageHigh", "imageMax"];
-
-  // Use the event's own variants if it defines any, else category defaults
-  const hasCustomImages = sizeKeys.some(key => event[key]);
-  const source = hasCustomImages
-    ? event
-    : categoryDefaults[event.category] || categoryDefaults.workshop;
-
-  const candidates = sizeKeys
-    .map(key => source[key])
-    .filter(Boolean)
-    .map(path => {
-      // Width is encoded in the filename suffix, e.g. "-720.webp"
-      const match = path.match(/-(\d+)\.webp$/);
-      return match ? { path, width: Number(match[1]) } : null;
-    })
-    .filter(Boolean);
-
-  // Dedupe by width (duplicate descriptors make the srcset invalid) and sort ascending
-  const seenWidths = new Set();
-  return candidates
-    .filter(({ width }) => !seenWidths.has(width) && seenWidths.add(width))
-    .sort((a, b) => a.width - b.width)
-    .map(({ path, width }) => `${path} ${width}w`)
-    .join(", ");
-}
-
-/**
  * Purpose: Determine if an event is in the past
- * An event is considered past if its end date has passed
+ * An event is past once the visitor's calendar date is after its end date,
+ * so it still counts as upcoming for the whole of its last day.
+ *
+ * Why compare strings: `new Date("2026-09-23")` is UTC midnight, which is
+ * the evening of the 22nd anywhere west of UTC, including Mexico City. Parsing
+ * the end date that way used to mark an event as past on its own final day.
+ * `YYYY-MM-DD` strings compare correctly as plain text, so neither side is
+ * ever turned into a moment in time. `js/events.js` uses the same rule.
  *
  * @param {object} event - Event object from eventsData
  * @returns {boolean} True if event has ended
@@ -145,27 +87,9 @@ function getEventImageSrcset(event) {
 function isPastEvent(event) {
   if (!event.endDate) return false;
 
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // Reset to start of day for accurate comparison
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 
-  const eventEndDate = new Date(event.endDate);
-  eventEndDate.setHours(0, 0, 0, 0);
-
-  return eventEndDate < today;
-}
-
-/**
- * Purpose: Sort events by date
- *
- * @param {Array} events - Array of event objects
- * @param {boolean} ascending - If true, sort earliest first. If false, latest first
- * @returns {Array} Sorted array of events
- */
-function sortEventsByDate(events, ascending = true) {
-  return [...events].sort((a, b) => {
-    const dateA = new Date(a.startDate);
-    const dateB = new Date(b.startDate);
-
-    return ascending ? dateA - dateB : dateB - dateA;
-  });
+  return event.endDate < today;
 }
