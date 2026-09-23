@@ -303,6 +303,13 @@ function initDropdown(axis, allAxes) {
 
     // Tabbing out of the control closes it, so the panel never lingers over
     // the week once focus has moved on.
+    //
+    // This relies on the panel's `tabindex="-1"` in the template. A mousedown
+    // on an option's label text (or on the checkbox itself in Safari, which
+    // never focuses checkboxes on click) sends focus to the nearest focusable
+    // ancestor. Without the tabindex that is `<body>`, `relatedTarget` is
+    // null, and the panel would be hidden before the click that ticks the box
+    // arrives, so the dropdown would collapse and nothing would be selected.
     axis.addEventListener('focusout', function (event) {
         if (!panel.hidden && !axis.contains(event.relatedTarget)) {
             setOpen(false);

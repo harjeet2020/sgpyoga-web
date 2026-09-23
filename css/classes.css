@@ -290,6 +290,13 @@
     box-shadow: var(--shadow-md);
 }
 
+/* The panel carries `tabindex="-1"` only so a click on a label's text lands
+   focus inside the control (see `initDropdown` in js/classes.js); it is never
+   a keyboard stop, so it needs no ring of its own. The checkboxes keep theirs. */
+.schedule__filter-panel:focus {
+    outline: none;
+}
+
 .schedule__filter-options {
     margin: 0;
     padding: 0;
