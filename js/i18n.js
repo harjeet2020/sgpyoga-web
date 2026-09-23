@@ -3,6 +3,19 @@
  * Dynamic loading of translation files organized by namespace
  */
 
+/**
+ * Generated namespaces that must be read through an authored one.
+ *
+ * @remarks
+ * Maps a generated namespace to the authored namespace and top-level key it
+ * is grafted under by {@link SGPi18n#composeGeneratedNamespaces}. The
+ * `schedule` namespace is absent because the classes page reads it directly
+ * as `schedule:*`.
+ */
+const GENERATED_NAMESPACE_TARGETS = {
+    eventContent: { into: 'events', at: 'events' }
+};
+
 class SGPi18n {
     constructor() {
         this.currentLanguage = 'en';
@@ -33,7 +46,10 @@ class SGPi18n {
             
             // Load initial namespaces
             await this.loadNamespaces(namespaces);
-            
+
+            // Graft generated namespaces into the authored ones that are read from
+            this.composeGeneratedNamespaces();
+
             // Initialize i18next if available
             if (typeof i18next !== 'undefined') {
                 await this.initI18next();
@@ -155,6 +171,39 @@ class SGPi18n {
             
         } catch (error) {
             console.warn(`Failed to load ${language}/${namespace}.json:`, error);
+        }
+    }
+
+    /**
+     * Grafts each loaded generated namespace into the authored namespace its
+     * readers look it up in, in memory only.
+     *
+     * @remarks
+     * `js/events.js` and `js/eventSchema.js` read event text as
+     * `events:events.<id>.title`, and both are frozen by contract C2 in
+     * MIGRATION.md. Contract C1 forbids the build from writing generated keys
+     * into the hand-written `events.json`. So the build writes them to their
+     * own file, `eventContent.json`, and this method places that file's
+     * entries under `events.events` after both have loaded. The files stay
+     * separate on disk, and every reader finds the keys where it always has.
+     *
+     * The generated file's `_comment` key is dropped rather than grafted,
+     * since it would otherwise look like an event id.
+     *
+     * @returns {void}
+     */
+    composeGeneratedNamespaces() {
+        for (const [generated, { into, at }] of Object.entries(GENERATED_NAMESPACE_TARGETS)) {
+            if (!this.loadedNamespaces.has(generated)) continue;
+
+            for (const lang of this.supportedLanguages) {
+                const source = this.translations[lang]?.[generated];
+                const target = this.translations[lang]?.[into];
+                if (!source || !target) continue;
+
+                const { _comment, ...entries } = source;
+                target[at] = entries;
+            }
         }
     }
 
@@ -622,6 +671,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     // MIGRATION.md.
     if (pageNamespace === 'classes') {
         namespaces.push('schedule');
+    }
+
+    // The events page's per-event text is generated from the database into
+    // its own namespace too, and grafted into `events:events.*` once loaded.
+    // See composeGeneratedNamespaces() above.
+    if (pageNamespace === 'events') {
+        namespaces.push('eventContent');
     }
     
     console.log('Initializing i18n with namespaces:', namespaces);

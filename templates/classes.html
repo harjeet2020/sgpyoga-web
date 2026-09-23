@@ -198,26 +198,27 @@
             <!-- Two axes, combining. The options are written out here rather than built by
                  script so that both translation paths reach them: `build-i18n.js` bakes the
                  Spanish page from these very attributes, and `js/i18n.js` swaps them again when
-                 somebody uses the in-page switcher. Phase 4 emits this list from the distinct
-                 teachers and locations across the slots; `js/classes.js` drops any option that
-                 matches no card, so a stale one can never offer an empty week. -->
+                 somebody uses the in-page switcher. `scripts/content` emits each list from the
+                 distinct teachers and locations across the slots; `js/classes.js` drops any option
+                 that matches no card, so a stale one can never offer an empty week.
+
+                 The options, the week and the legend below are generated from Supabase by
+                 `npm run build:content`, which renders `templates/classes.html` (where they are
+                 `BUILD:` markers) into the gitignored `/classes.html`. Edit the template, never
+                 the output. -->
             <div class="schedule__filters">
                 <div class="schedule__filter">
                     <label class="schedule__filter-label" for="filter-teacher" data-i18n="classes:schedule.filterTeacher">Teacher</label>
                     <select class="schedule__filter-select" id="filter-teacher" data-filter-field="teacher">
                         <option value="" data-i18n="classes:schedule.filterAllTeachers">All teachers</option>
-                        <option value="camila" data-i18n="schedule:teachers.camila">Camila</option>
-                        <option value="harjeet" data-i18n="schedule:teachers.harjeet">Harjeet</option>
-                        <option value="rox" data-i18n="schedule:teachers.rox">Rox</option>
+                        <!-- BUILD:schedule-teacher-options -->
                     </select>
                 </div>
                 <div class="schedule__filter">
                     <label class="schedule__filter-label" for="filter-location" data-i18n="classes:schedule.filterSpace">Space</label>
                     <select class="schedule__filter-select" id="filter-location" data-filter-field="location">
                         <option value="" data-i18n="classes:schedule.filterAllSpaces">All spaces</option>
-                        <option value="aguacate" data-i18n="schedule:locations.aguacate">Aguacate</option>
-                        <option value="hariom" data-i18n="schedule:locations.hariom">Hari Om</option>
-                        <option value="viveros" data-i18n="schedule:locations.viveros">Viveros</option>
+                        <!-- BUILD:schedule-location-options -->
                     </select>
                 </div>
                 <button type="button" class="schedule__filter-clear" data-i18n="classes:schedule.filterClear" hidden>Clear</button>
@@ -228,282 +229,7 @@
             <p class="schedule__none" data-i18n="classes:schedule.noneMatch" hidden>No classes match that filter. Try another.</p>
 
             <ol class="schedule__week">
-            <li class="schedule-day" data-day="1">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.monday">Monday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="20:00">20:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day" data-day="2">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.tuesday">Tuesday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="09:00">09:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                    <li class="class-card" data-style="aerial-restorative" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="10:00">10:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial-restorative">Restorative Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day" data-day="3">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.wednesday">Wednesday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="hariom" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="19:00">19:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.hariom">Hari Om</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day" data-day="4">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.thursday">Thursday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="09:00">09:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="20:00">20:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day is-empty" data-day="5">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.friday">Friday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes"></ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day" data-day="6">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.saturday">Saturday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="09:00">09:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                    <li class="class-card" data-style="aerial-beginners" data-family="aerial" data-teacher="rox" data-location="hariom" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="10:30">10:30</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial-beginners">Aerial Yoga Beginners</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.hariom">Hari Om</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <span class="class-card__avatar class-card__avatar--initials" aria-hidden="true">R</span>
-                            <span data-i18n="schedule:teachers.rox">Rox</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
-            <li class="schedule-day" data-day="7">
-                <div class="schedule-day__head">
-                    <h3 class="schedule-day__name" data-i18n="classes:days.sunday">Sunday</h3>
-                    <span class="schedule-day__today" data-i18n="classes:schedule.today">Today</span>
-                </div>
-                <ol class="schedule-day__classes">
-                    <li class="class-card" data-style="aerial" data-family="aerial" data-teacher="camila" data-location="aguacate" style="--style-accent: var(--style-aerial);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="09:00">09:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">60</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.aerial">Aerial Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.aguacate">Aguacate</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/camila-200.webp 200w,
-                                    /assets/photos/classes/camila-300.webp 300w,
-                                    /assets/photos/classes/camila-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/camila-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.camila">Camila</span>
-                        </p>
-                    </li>
-                    <li class="class-card" data-style="kundalini" data-family="kundalini" data-teacher="harjeet" data-location="viveros" style="--style-accent: var(--style-kundalini);">
-                        <p class="class-card__when">
-                            <time class="class-card__time" datetime="10:00">10:00</time>
-                            <span class="class-card__dot" aria-hidden="true">·</span>
-                            <span class="class-card__duration"><span class="class-card__duration-value">90</span>&nbsp;<span data-i18n="classes:duration.unit">min</span></span>
-                        </p>
-                        <h4 class="class-card__name" data-i18n="schedule:styles.kundalini">Kundalini Yoga</h4>
-                        <p class="class-card__where">
-                            <i data-lucide="map-pin" aria-hidden="true"></i>
-                            <span data-i18n="schedule:locations.viveros">Viveros</span>
-                        </p>
-                        <p class="class-card__teacher">
-                            <img class="class-card__avatar"
-                             srcset="/assets/photos/classes/harjeet-200.webp 200w,
-                                    /assets/photos/classes/harjeet-300.webp 300w,
-                                    /assets/photos/classes/harjeet-600.webp 600w"
-                             sizes="36px"
-                             src="/assets/photos/classes/harjeet-200.webp"
-                             alt="" width="200" height="200" loading="lazy">
-                            <span data-i18n="schedule:teachers.harjeet">Harjeet</span>
-                        </p>
-                    </li>
-                </ol>
-                <p class="schedule-day__empty" data-i18n="classes:schedule.noClasses">No classes</p>
-            </li>
+            <!-- BUILD:schedule-week -->
             </ol>
             </div>
         </section>
@@ -516,14 +242,7 @@
                     <p class="legend__subtitle" data-i18n="classes:legend.subtitle">Each class type offers a unique experience</p>
                 </header>
                 <ul class="legend__list">
-                <li class="legend__item" style="--style-accent: var(--style-aerial);">
-                    <h3 class="legend__name" data-i18n="schedule:legend.aerial.name">Aerial Yoga</h3>
-                    <p class="legend__text" data-i18n="schedule:legend.aerial.description">Unleash your body's potential with breathtaking aerial sequences performed in silk hammocks</p>
-                </li>
-                <li class="legend__item" style="--style-accent: var(--style-kundalini);">
-                    <h3 class="legend__name" data-i18n="schedule:legend.kundalini.name">Kundalini Yoga</h3>
-                    <p class="legend__text" data-i18n="schedule:legend.kundalini.description">Embark on a transformative journey of self-discovery and spiritual growth through an intense practice focused on energy work</p>
-                </li>
+                <!-- BUILD:legend-items -->
                 </ul>
             </div>
         </section>

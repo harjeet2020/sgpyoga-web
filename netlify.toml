@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "_site"
 
+# Node 22 for the content build (scripts/content), which relies on the
+# built-in fetch and process.loadEnvFile. SUPABASE_URL and
+# SUPABASE_PUBLISHABLE_KEY are set in the Netlify UI, not here.
+[build.environment]
+  NODE_VERSION = "22"
+
 # Redirect rules for clean URLs (optional)
 [[redirects]]
   from = "/blog"
