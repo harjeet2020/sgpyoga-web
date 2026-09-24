@@ -8,7 +8,7 @@ category: "announcements"
 # Template Configuration
 layout: layouts/post/standard.njk
 lang: es
-
+slug: retiro-de-yoga-colombia-2025
 # Post Organization
 tags: ["retreat", "yoga", "immersion"]
 visible: true

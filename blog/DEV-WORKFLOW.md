@@ -2,129 +2,56 @@
 
 ## Understanding the Setup
 
-The blog is located in `/blog/dist/` and needs to integrate with the main site. This creates a challenge for local development since the blog needs to access parent directory files.
+The blog is built by Eleventy from `blog/src/` into `blog/dist/`. `dist/` is laid out like the website root:
+
+| Built file | Public URL |
+|---|---|
+| `dist/blog/index.html` | `/blog/` (English index) |
+| `dist/blog/<slug>/index.html` | `/blog/<slug>/` (English post) |
+| `dist/es/blog/index.html` | `/es/blog/` (Spanish index) |
+| `dist/es/blog/<slug>/index.html` | `/es/blog/<slug>/` (Spanish post) |
+| `dist/blog/search-index.json` | `/blog/search-index.json` |
+
+The root build (`npm run build` in the project root) merges `dist/` into `_site/`, next to the main site's pages and its `css/`, `js/`, `assets/` and `locales/`. Blog pages load those shared files from the site root (`/css/main.css`), so the production blog build never copies them.
 
 ## Development Options
 
-### Option 1: Full Site Server (Recommended for testing navigation)
-
-This serves the entire site from the parent directory, allowing you to test navigation between the blog and main site.
-
-**Terminal 1 - Build and watch for changes:**
-```bash
-cd blog
-npm run build:watch
-```
-This rebuilds the blog automatically whenever you change blog files.
-
-**Terminal 2 - Serve the entire site:**
-```bash
-cd blog
-npm run serve
-```
-OR if you prefer another server:
-```bash
-# From the sgpyoga root directory
-python3 -m http.server 8080
-# or
-npx http-server -p 8080
-```
-
-**Access:**
-- Main site: `http://localhost:8080/index.html`
-- Blog: `http://localhost:8080/blog/dist/`
-
-**Pros:**
-✅ All navigation works correctly
-✅ Tests exactly how production will behave
-✅ Can navigate between blog and main site
-
-**Cons:**
-❌ No automatic browser reload
-❌ Need to manually refresh after changes
-❌ Requires two terminal windows
-
----
-
-### Option 2: Eleventy Dev Server (Faster for blog-only work)
-
-Use this when you're only working on blog content/styles and don't need to test navigation to other pages.
+### Option 1: Eleventy dev server (fast, blog only)
 
 ```bash
 cd blog
 npm run dev
 ```
 
-**Access:**
-- Blog only: `http://localhost:8080/`
+Open `http://localhost:8080/blog/` or `http://localhost:8080/es/blog/`.
 
-**Pros:**
-✅ Automatic browser reload
-✅ Fast development cycle
-✅ Single command
+- ✅ Rebuilds and reloads the browser on every change, including edits to the shared `../css`, `../js`, `../assets` and `../locales`.
+- ❌ Links to main-site pages (`/about.html` and so on) 404: this server only knows about the blog.
 
-**Cons:**
-❌ Links to main site pages won't work
-❌ Only see the blog, not full site
-❌ Not representative of production
+In this mode only, `.eleventy.js` copies the shared folders into `dist/` so the pages are styled. Those copies never reach production, because `npm run build` deletes `dist/` first and doesn't copy them.
 
----
+### Option 2: The full site, as it will be deployed
 
-## Recommended Workflow
+```bash
+# In the project root
+npm run build
+cd _site && python3 -m http.server 8080
+# or, from blog/:  npm run serve
+```
 
-### For blog content/styling work:
-1. Use `npm run dev` for fast iteration
-2. Don't worry about broken navigation links
-3. Focus on blog appearance and functionality
+Open `http://localhost:8080/blog/`. Everything works, including navigation to the main site and the language switcher. There's no live reload: rebuild after changes.
 
-### Before committing or for navigation testing:
-1. Run `npm run build` to generate latest version
-2. Start a simple HTTP server from parent directory
-3. Test all navigation links work correctly
-4. Verify blog integrates properly with main site
-
----
+Use this before committing anything that touches navigation, URLs or the language switcher.
 
 ## Production Deployment
 
-In production, your web server will serve everything from a single root directory, so all the absolute paths (`/index.html`, `/blog/dist/`, etc.) will work correctly.
-
-**Deployment checklist:**
-1. Run `npm run build` to generate `dist/`
-2. Upload the entire `sgpyoga/` directory to your server
-3. Ensure your web server serves from the `sgpyoga/` root
-4. Blog will be accessible at `yoursite.com/blog/dist/`
-
-**Optional:** You could create a rewrite rule or symbolic link so the blog is accessible at `yoursite.com/blog/` instead of `yoursite.com/blog/dist/`.
-
----
+Netlify runs the root `npm run build` and publishes `_site/`. Redirects from the blog's old addresses (`/blog/dist/...`) are in `netlify.toml`.
 
 ## Quick Reference
 
 ```bash
-# Blog development (fast, blog only)
-npm run dev
-
-# Build blog for production
-npm run build
-
-# Watch for changes (pair with separate server)
-npm run build:watch
-
-# Serve entire site (in separate terminal)
-npm run serve
-
-# Clean build
-npm run clean
+npm run dev          # Blog dev server with live reload (blog only)
+npm run build        # Clean production build of the blog into dist/
+npm run serve        # Serve the full site build (run the root build first)
+npm run clean        # Delete dist/
 ```
-
----
-
-## Why This Setup?
-
-The blog uses absolute paths (`/index.html`, `/assets/...`) to match how it will work in production. This means:
-
-- **In dev:** Links to parent pages don't work in Eleventy's server (expected)
-- **In production:** Everything works perfectly because all files share the same server root
-
-This is a common pattern for blogs integrated into existing sites and is **working as intended**. The important thing is that production behaves correctly, which it will!

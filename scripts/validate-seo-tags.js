@@ -44,11 +44,10 @@ const pages = [
     { file: 'es/events.html', canonical: 'https://sgpyoga.co/es/events.html', lang: 'es', alternate: 'https://sgpyoga.co/es/events.html' },
     { file: 'es/certifications/aerial-yoga-100.html', canonical: 'https://sgpyoga.co/es/certifications/aerial-yoga-100.html', lang: 'es', alternate: 'https://sgpyoga.co/es/certifications/aerial-yoga-100.html' },
     
-    // Blog English pages
-    { file: 'blog/dist/index.html', canonical: 'https://sgpyoga.co/blog/dist/', lang: 'en', alternate: 'https://sgpyoga.co/blog/dist/es/' },
-    
-    // Blog Spanish pages (self-referencing canonical)
-    { file: 'blog/dist/es/index.html', canonical: 'https://sgpyoga.co/blog/dist/es/', lang: 'es', alternate: 'https://sgpyoga.co/blog/dist/es/' },
+    // Blog indexes. blog/dist/ is laid out like the site root, so the file
+    // at blog/dist/blog/index.html is served at /blog/.
+    { file: 'blog/dist/blog/index.html', canonical: 'https://sgpyoga.co/blog/', lang: 'en', alternate: 'https://sgpyoga.co/es/blog/' },
+    { file: 'blog/dist/es/blog/index.html', canonical: 'https://sgpyoga.co/es/blog/', lang: 'es', alternate: 'https://sgpyoga.co/es/blog/' },
 ];
 
 /**
@@ -232,77 +231,79 @@ function validatePage(pageConfig) {
 }
 
 /**
- * Validate all blog posts
+ * Validate every built blog post.
+ *
+ * @remarks
+ * Posts live at blog/dist/blog/<slug>/index.html (English, served at
+ * /blog/<slug>/) and blog/dist/es/blog/<slug>/index.html (Spanish, served at
+ * /es/blog/<slug>/). For each post this checks that:
+ * - the canonical URL is the post's own URL, worked out from where the file is;
+ * - that URL is all lowercase. Netlify 301-redirects any URL with capitals to
+ *   its lowercase form, so a capitalised canonical points Google at a redirect;
+ * - every hreflang link points at a page that exists in the build, which
+ *   catches a translation whose slug changed or that was never built;
+ * - no URL uses the www host.
+ *
+ * @returns {{success: boolean, errors: string[], count: number}} The result.
  */
 function validateBlogPosts() {
-    const blogPostsDir = path.join(__dirname, '..', 'blog/dist/posts');
+    const distDir = path.join(__dirname, '..', 'blog/dist');
+    const sections = [
+        { dir: path.join(distDir, 'blog'), urlPrefix: '/blog/', label: 'EN' },
+        { dir: path.join(distDir, 'es/blog'), urlPrefix: '/es/blog/', label: 'ES' },
+    ];
     const errors = [];
     let validatedCount = 0;
-    
-    if (!fs.existsSync(blogPostsDir)) {
-        return { success: false, errors: ['Blog posts directory not found'], count: 0 };
+
+    if (!fs.existsSync(sections[0].dir)) {
+        return { success: false, errors: ['Blog build not found (blog/dist/blog/). Run npm run build first.'], count: 0 };
     }
-    
-    // Get all English posts
-    const enPostsDir = path.join(blogPostsDir, 'en');
-    const esPostsDir = path.join(blogPostsDir, 'es');
-    
-    if (fs.existsSync(enPostsDir)) {
-        const enPosts = fs.readdirSync(enPostsDir);
-        
-        for (const postSlug of enPosts) {
-            const postFile = path.join(enPostsDir, postSlug, 'index.html');
-            
-            if (fs.existsSync(postFile)) {
-                const html = fs.readFileSync(postFile, 'utf-8');
-                validatedCount++;
-                
-                // Check canonical includes /blog/dist/
-                const canonicalPattern = /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/;
-                const canonical = extractTag(html, canonicalPattern);
-                
-                if (!canonical) {
-                    errors.push(`[${postSlug}] Missing canonical tag`);
-                } else if (!canonical.includes('/blog/dist/')) {
-                    errors.push(`[${postSlug}] Canonical missing /blog/dist/ prefix: ${canonical}`);
+
+    const canonicalPattern = /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/;
+    const hreflangPattern = /<link[^>]*rel=["']alternate["'][^>]*hreflang=["']([^"']+)["'][^>]*href=["']([^"']+)["'][^>]*>/g;
+
+    for (const { dir, urlPrefix, label } of sections) {
+        if (!fs.existsSync(dir)) {
+            errors.push(`[${label}] Blog folder not found: ${path.relative(distDir, dir)}`);
+            continue;
+        }
+
+        // Every sub-folder with an index.html is a post (search-index.json and
+        // the blog index itself are files, so they're skipped).
+        const slugs = fs.readdirSync(dir, { withFileTypes: true })
+            .filter(entry => entry.isDirectory() && fs.existsSync(path.join(dir, entry.name, 'index.html')))
+            .map(entry => entry.name);
+
+        for (const slug of slugs) {
+            const html = fs.readFileSync(path.join(dir, slug, 'index.html'), 'utf-8');
+            const expectedUrl = `https://sgpyoga.co${urlPrefix}${slug}/`;
+            validatedCount++;
+
+            const canonical = extractTag(html, canonicalPattern);
+            if (!canonical) {
+                errors.push(`[${slug} ${label}] Missing canonical tag`);
+            } else if (canonical !== expectedUrl) {
+                errors.push(`[${slug} ${label}] Canonical should be ${expectedUrl}, found ${canonical}`);
+            }
+
+            if (/[A-Z]/.test(slug)) {
+                errors.push(`[${slug} ${label}] URL has capital letters; Netlify would redirect it to lowercase`);
+            }
+
+            for (const [, hreflang, href] of html.matchAll(hreflangPattern)) {
+                const hrefPath = href.replace(/^https:\/\/sgpyoga\.co/, '');
+                const target = path.join(distDir, hrefPath, hrefPath.endsWith('/') ? 'index.html' : '');
+                if (!href.startsWith('https://sgpyoga.co/') || !fs.existsSync(target)) {
+                    errors.push(`[${slug} ${label}] hreflang="${hreflang}" points at a page that isn't in the build: ${href}`);
                 }
-                
-                // Check for www
-                if (html.includes('www.sgpyoga.co')) {
-                    errors.push(`[${postSlug}] Found "www.sgpyoga.co" - should be "sgpyoga.co"`);
-                }
+            }
+
+            if (html.includes('www.sgpyoga.co')) {
+                errors.push(`[${slug} ${label}] Found "www.sgpyoga.co" - should be "sgpyoga.co"`);
             }
         }
     }
-    
-    if (fs.existsSync(esPostsDir)) {
-        const esPosts = fs.readdirSync(esPostsDir);
-        
-        for (const postSlug of esPosts) {
-            const postFile = path.join(esPostsDir, postSlug, 'index.html');
-            
-            if (fs.existsSync(postFile)) {
-                const html = fs.readFileSync(postFile, 'utf-8');
-                validatedCount++;
-                
-                // Spanish posts should have self-referencing canonical
-                const canonicalPattern = /<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/;
-                const canonical = extractTag(html, canonicalPattern);
-                
-                if (!canonical) {
-                    errors.push(`[${postSlug} ES] Missing canonical tag`);
-                } else if (!canonical.includes('/posts/es/')) {
-                    errors.push(`[${postSlug} ES] Canonical should be self-referencing (/posts/es/): ${canonical}`);
-                }
-                
-                // Check for www
-                if (html.includes('www.sgpyoga.co')) {
-                    errors.push(`[${postSlug} ES] Found "www.sgpyoga.co" - should be "sgpyoga.co"`);
-                }
-            }
-        }
-    }
-    
+
     return {
         success: errors.length === 0,
         errors,

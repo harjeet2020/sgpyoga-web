@@ -8,7 +8,7 @@ category: "announcements"
 # Template Configuration
 layout: layouts/post/standard.njk
 lang: es
-
+slug: formacion-yoga-aereo-colombia-2025
 # Post Organization
 tags: ["teacher training", "aerial yoga"]
 visible: true

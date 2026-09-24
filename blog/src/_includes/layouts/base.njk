@@ -16,10 +16,15 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
     
     <meta name="description" content="{{ description or 'SGP Yoga Blog - Insights on yoga practice, philosophy, and community' }}">
+
+    {# This page's public URL. page.url is already the full path (/blog/...,
+       /es/blog/...): permalinks are set in src/posts/posts.11tydata.js and
+       the index templates, and there is no pathPrefix any more. #}
+    {% set pageUrl = "https://sgpyoga.co" + page.url %}
     
     {# Open Graph / Facebook #}
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sgpyoga.co/blog/dist{{ page.url }}">
+    <meta property="og:url" content="{{ pageUrl }}">
     <meta property="og:title" content="{{ title or 'SGP Yoga Blog' }}">
     <meta property="og:description" content="{{ description or 'Explore yoga wisdom, practice tips, and philosophy from our teachers in Mexico City.' }}">
     <meta property="og:image" content="https://sgpyoga.co{{ image or '/assets/photos/social/og-blog.webp' }}">
@@ -31,37 +36,35 @@
     
     {# Twitter Card #}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://sgpyoga.co/blog/dist{{ page.url }}">
+    <meta name="twitter:url" content="{{ pageUrl }}">
     <meta name="twitter:title" content="{{ title or 'SGP Yoga Blog' }}">
     <meta name="twitter:description" content="{{ description or 'Explore yoga wisdom, practice tips, and philosophy from our teachers in Mexico City.' }}">
     <meta name="twitter:image" content="https://sgpyoga.co{{ image or '/assets/photos/social/og-blog.webp' }}">
     
     {# SEO: Canonical & Hreflang Tags #}
     {# All pages have self-referencing canonical #}
-    <link rel="canonical" href="https://sgpyoga.co/blog/dist{{ page.url }}">
-    {% if lang == 'es' %}
-        {# Spanish page - link to English equivalent #}
-        {% if page.fileSlug == 'index-es' %}
-        <link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/">
-        {% else %}
-        <link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/{{ page.fileSlug }}/">
-        {% endif %}
-        <link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist{{ page.url }}">
-        {% if page.fileSlug == 'index-es' %}
-        <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/">
-        {% else %}
-        <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/{{ page.fileSlug }}/">
-        {% endif %}
+    <link rel="canonical" href="{{ pageUrl }}">
+    {#
+      hreflang: tell Google which URL is the same page in the other language.
+      The blog indexes pair up directly. A post and its translation share a
+      filename (posts/en/yogaStyles.md, posts/es/yogaStyles.md), so we find
+      the other language's post by fileSlug and use its real URL: the slugs
+      differ per language (yoga-styles / estilos-de-yoga), so the URL can't
+      be derived from ours. No translation → no hreflang for that language.
+      js/i18n.js reads these same tags to power the language switcher.
+    #}
+    {% if page.fileSlug == 'index-en' or page.fileSlug == 'index-es' %}
+        {% set enUrl = "/blog/" %}
+        {% set esUrl = "/es/blog/" %}
     {% else %}
-        {# English page - link to Spanish equivalent #}
-        <link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist{{ page.url }}">
-        {% if page.fileSlug == 'index-en' %}
-        <link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/es/">
-        {% else %}
-        <link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/{{ page.fileSlug }}/">
-        {% endif %}
-        <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist{{ page.url }}">
+        {% set enPost = collections.postsEN | findByFileSlug(page.fileSlug) %}
+        {% set esPost = collections.postsES | findByFileSlug(page.fileSlug) %}
+        {% set enUrl = page.url if lang == 'en' else (enPost.url if enPost else '') %}
+        {% set esUrl = page.url if lang == 'es' else (esPost.url if esPost else '') %}
     {% endif %}
+    {% if enUrl %}<link rel="alternate" hreflang="en" href="https://sgpyoga.co{{ enUrl }}">{% endif %}
+    {% if esUrl %}<link rel="alternate" hreflang="es" href="https://sgpyoga.co{{ esUrl }}">{% endif %}
+    <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co{{ enUrl or esUrl }}">
     
     {# Only brand the title when it doesn't already name SGP Yoga: the index
        pages' titles do, and appending again produced 75-character titles. #}
@@ -80,7 +83,7 @@
     <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/Lato/Lato-Light.woff2" as="font" type="font/woff2" crossorigin>
     
-    {# Main site CSS - using copied assets from dist/ #}
+    {# Main site CSS, served from the site root #}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/navbar.css">
     
@@ -104,7 +107,7 @@
     {# CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency #}
     {# This runs immediately and sets language before any external JS loads #}
     <script>
-        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
+        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
     </script>
     
     {# Performance: Defer scripts to eliminate render blocking (self-hosted, pinned versions in /js/vendor/) #}
@@ -115,9 +118,9 @@
     {# Fuse.js for fuzzy search #}
     <script defer src="/js/vendor/fuse.min.js"></script>
 
-    {# SEO: BlogPosting structured data, posts only (their URLs contain /posts/).
+    {# SEO: BlogPosting structured data, posts only (their source files live in src/posts/).
        Strings go through `dump` (JSON.stringify), which quotes and escapes them. #}
-    {% if '/posts/' in page.url %}
+    {% if '/posts/' in page.inputPath %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -133,6 +136,7 @@
       },
       "publisher": {
         "@type": "Organization",
+        "@id": "https://sgpyoga.co/#business",
         "name": "SGP Yoga",
         "url": "https://sgpyoga.co",
         "logo": {
@@ -140,7 +144,7 @@
           "url": "https://sgpyoga.co/assets/logo/logoMain.png"
         }
       },
-      "mainEntityOfPage": "https://sgpyoga.co/blog/dist{{ page.url }}"
+      "mainEntityOfPage": "{{ pageUrl }}"
     }
     </script>
     {% endif %}
@@ -175,7 +179,7 @@
                         <a href="{% if lang == 'es' %}/es/certifications/aerial-yoga-100.html{% else %}/certifications/aerial-yoga-100.html{% endif %}" class="nav-dropdown-item" role="menuitem" data-i18n="common:nav.certificationsDropdown.aerial100">100-Hour Aerial Yoga Teacher Training</a>
                     </div>
                 </li>
-                <li><a href="{% if lang == 'es' %}/blog/dist/es/{% else %}/blog/dist/{% endif %}" class="navbar-link active" data-i18n="common:nav.blog">Blog</a></li>
+                <li><a href="{% if lang == 'es' %}/es/blog/{% else %}/blog/{% endif %}" class="navbar-link active" data-i18n="common:nav.blog">Blog</a></li>
             </ul>
         </div>
         
@@ -239,7 +243,7 @@
                             <li><a href="{% if lang == 'es' %}/es/classes.html{% else %}/classes.html{% endif %}" data-i18n="common:footer.sitemap.classes">Classes</a></li>
                             <li><a href="{% if lang == 'es' %}/es/events.html{% else %}/events.html{% endif %}" data-i18n="common:footer.sitemap.events">Events</a></li>
                             <li><a href="{% if lang == 'es' %}/es/certifications/aerial-yoga-100.html{% else %}/certifications/aerial-yoga-100.html{% endif %}" data-i18n="common:footer.sitemap.certifications">Certifications</a></li>
-                            <li><a href="{% if lang == 'es' %}/blog/dist/es/{% else %}/blog/dist/{% endif %}" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                            <li><a href="{% if lang == 'es' %}/es/blog/{% else %}/blog/{% endif %}" data-i18n="common:footer.sitemap.blog">Blog</a></li>
                         </ul>
                     </div>
 

@@ -8,7 +8,7 @@ category: "general"
 # Template Configuration
 layout: layouts/post/standard.njk
 lang: en
-
+slug: our-story
 # Post Organization
 tags: ["sgpyoga"]
 visible: true

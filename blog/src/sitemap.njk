@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
     { en: "/classes.html", es: "/es/classes.html", changefreq: "weekly", priority: "0.9" },
     { en: "/events.html", es: "/es/events.html", changefreq: "weekly", priority: "0.9" },
     { en: "/certifications/aerial-yoga-100.html", es: "/es/certifications/aerial-yoga-100.html", changefreq: "monthly", priority: "0.9" },
-    { en: "/blog/dist/", es: "/blog/dist/es/", changefreq: "weekly", priority: "0.7" }
+    { en: "/blog/", es: "/es/blog/", changefreq: "weekly", priority: "0.7" }
   ] %}
   {% for staticPage in staticPages %}
   {% for lang in ["en", "es"] %}
@@ -47,14 +47,14 @@ eleventyExcludeFromCollections: true
   {# English Blog Posts #}
   {% for post in collections.postsEN %}
   <url>
-    <loc>https://sgpyoga.co/blog/dist{{ post.url }}</loc>
+    <loc>https://sgpyoga.co{{ post.url }}</loc>
     {# Find Spanish equivalent if exists #}
     {% set spanishPost = collections.postsES | findByFileSlug(post.fileSlug) %}
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist{{ post.url }}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co{{ post.url }}"/>
     {% if spanishPost %}
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist{{ spanishPost.url }}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co{{ spanishPost.url }}"/>
     {% endif %}
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist{{ post.url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co{{ post.url }}"/>
     <lastmod>{{ post.date | htmlDateString }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -64,14 +64,14 @@ eleventyExcludeFromCollections: true
   {# Spanish Blog Posts #}
   {% for post in collections.postsES %}
   <url>
-    <loc>https://sgpyoga.co/blog/dist{{ post.url }}</loc>
+    <loc>https://sgpyoga.co{{ post.url }}</loc>
     {# Find English equivalent if exists #}
     {% set englishPost = collections.postsEN | findByFileSlug(post.fileSlug) %}
     {% if englishPost %}
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist{{ englishPost.url }}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co{{ englishPost.url }}"/>
     {% endif %}
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist{{ post.url }}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist{{ englishPost.url if englishPost else post.url }}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co{{ post.url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co{{ englishPost.url if englishPost else post.url }}"/>
     <lastmod>{{ post.date | htmlDateString }}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

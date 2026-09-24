@@ -8,7 +8,7 @@ category: "general"
 # Template Configuration
 layout: layouts/post/standard.njk
 lang: es
-
+slug: nuestro-equipo
 # Post Organization
 tags: ["sgpyoga", "team"]
 visible: true

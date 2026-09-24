@@ -106,7 +106,7 @@ sgpyoga/
 
    You should see output like:
    ```
-   [11ty] Writing dist/posts/en/...
+   [11ty] Writing dist/blog/yoga-styles/index.html ...
    [11ty] Wrote 2 files in 0.04 seconds
    ```
 
@@ -166,18 +166,15 @@ Filters transform data in templates:
 
 ### Step 1: Create Markdown File
 
-**English post:** `blog/src/posts/en/YYYY-MM-DD-post-title.md`
-**Spanish post:** `blog/src/posts/es/YYYY-MM-DD-post-title.md`
+**English post:** `blog/src/posts/en/<name>.md`
+**Spanish post:** `blog/src/posts/es/<name>.md`
 
 **Naming convention:**
-- Start with date: `YYYY-MM-DD-`
-- Use lowercase
-- Separate words with hyphens
-- Use descriptive titles
-
-**Examples:**
-- `2025-01-20-breathing-techniques.md`
-- `2025-02-01-yoga-for-beginners.md`
+- Give a post and its translation **the same filename** in both folders
+  (e.g. `yogaStyles.md`). That's how the templates pair them for the
+  language switcher and hreflang tags.
+- The filename is never part of the URL, so it can be anything readable.
+  The URL comes from the `slug` in the front matter (next step).
 
 ### Step 2: Add Frontmatter
 
@@ -191,9 +188,18 @@ date: 2025-01-20
 category: "Practice Tips"
 layout: layouts/post/standard.njk
 lang: en
+slug: breathing-techniques
 tags: ["yoga", "breathing", "pranayama"]
 ---
 ```
+
+**`slug` is required** and becomes the URL: `lang: en` → `/blog/<slug>/`,
+`lang: es` → `/es/blog/<slug>/`. Write each slug in the post's own language
+(`yoga-styles` / `estilos-de-yoga`), in lowercase words joined by hyphens,
+without accents. The build fails with a clear message otherwise; see
+`blog/src/posts/posts.11tydata.js` for why (Netlify redirects any URL with
+capital letters). **Once a post is published, don't change its slug** unless
+you also add a 301 redirect from the old URL in `netlify.toml`.
 
 ### Step 3: Write Content
 
@@ -262,22 +268,29 @@ npm run build
 
 **Output location:** `blog/dist/`
 
-**What gets generated:**
-- HTML files for each post
-- Organized in `/posts/en/` and `/posts/es/` directories
-- Each post gets its own folder with `index.html`
+**What gets generated:** `dist/` is laid out like the website root, so the
+root build (`npm run build` in the project root) merges it straight into
+`_site/` with `cp -r blog/dist/. _site/`.
 
 **Example output:**
 ```
 dist/
-└── posts/
-    ├── en/
-    │   └── 2025-01-15-welcome-to-yoga-journey/
-    │       └── index.html
-    └── es/
-        └── 2025-01-15-bienvenidos-viaje-yoga/
-            └── index.html
+├── blog/                      → https://sgpyoga.co/blog/
+│   ├── index.html             (English blog index)
+│   ├── search-index.json      (search data for both languages)
+│   └── yoga-styles/
+│       └── index.html         → /blog/yoga-styles/
+└── es/
+    └── blog/                  → https://sgpyoga.co/es/blog/
+        ├── index.html         (Spanish blog index)
+        └── estilos-de-yoga/
+            └── index.html     → /es/blog/estilos-de-yoga/
 ```
+
+The site-wide `css/`, `js/`, `assets/` and `locales/` are **not** copied
+into `dist/` by `npm run build`; the root build puts them in `_site/`
+already. Only `npm run dev` copies them, because its server can only serve
+`dist/` (see the comments in `.eleventy.js`).
 
 ### Clean Build
 
@@ -482,11 +495,9 @@ Use in templates:
 ### Development Server Won't Start
 
 **Error:** `Port 8080 already in use`
-- **Fix:** Change port in `.eleventy.js`:
-  ```javascript
-  eleventyConfig.setBrowserSyncConfig({
-    port: 3000  // Use different port
-  });
+- **Fix:** Start the dev server on another port:
+  ```bash
+  npx eleventy --serve --port 3000
   ```
 
 **Error:** `Command not found: eleventy`

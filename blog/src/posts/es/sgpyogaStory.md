@@ -8,7 +8,7 @@ category: "general"
 # Template Configuration
 layout: layouts/post/standard.njk
 lang: es
-
+slug: nuestra-historia
 # Post Organization
 tags: ["sgpyoga"]
 visible: true

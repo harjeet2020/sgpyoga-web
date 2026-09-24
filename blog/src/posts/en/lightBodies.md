@@ -8,7 +8,7 @@ category: "spirituality"
 # Template Configuration
 layout: layouts/post/longform.njk
 lang: en
-
+slug: light-bodies
 # Post Organization
 tags: ["light bodies", "consciousness", "kundalini yoga"]
 visible: true

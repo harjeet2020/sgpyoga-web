@@ -21,7 +21,7 @@ module.exports = function(eleventyConfig) {
    */
   function logInvisiblePost(post, reason) {
     const title = post.data.title || 'Untitled';
-    const previewUrl = '/blog/dist' + post.url;
+    const previewUrl = post.url;
     const dateStr = new Date(post.date).toISOString().split('T')[0];
     
     if (reason === 'draft') {
@@ -68,16 +68,34 @@ module.exports = function(eleventyConfig) {
   
   
   // ========================================================================
-  // Passthrough Copy - Static Assets
+  // Site-wide Assets (css, js, assets, locales) - dev server only
   // ========================================================================
-  // Copy site-wide assets from parent project into the blog output (dist/)
-  // Using explicit destination directories under dist so URLs can be absolute
-  eleventyConfig.addPassthroughCopy({ "../css": "css" });
-  eleventyConfig.addPassthroughCopy({ "../js": "js" });
-  eleventyConfig.addPassthroughCopy({ "../assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "../locales": "locales" });
+  // Blog pages load these from the site root (/css/main.css, /assets/...).
+  // In production they already exist there: the root build copies them into
+  // _site/ next to the blog output, so the blog build must NOT copy them too
+  // (it used to, which put ~35 MB of never-requested duplicates in every
+  // deploy under /blog/dist/).
+  //
+  // `npm run dev` (eleventy --serve) is different: its server only serves
+  // dist/, so without help /css/main.css would 404 and the blog would render
+  // unstyled. So in serve mode only, copy the folders into dist/.
+  //
+  // (Eleventy's "emulated passthrough", which serves files without copying
+  // them, can't be used: the dev server refuses to serve anything outside
+  // the blog/ folder, and these live in its parent.)
+  //
+  // These dev-only copies never reach production: `npm run build` starts by
+  // deleting dist/, and it runs in "build" mode, which skips this block.
+  // ELEVENTY_RUN_MODE ("build" | "serve" | "watch") is set by Eleventy
+  // before this config file is loaded.
+  if (process.env.ELEVENTY_RUN_MODE === "serve") {
+    eleventyConfig.addPassthroughCopy({ "../css": "css" });
+    eleventyConfig.addPassthroughCopy({ "../js": "js" });
+    eleventyConfig.addPassthroughCopy({ "../assets": "assets" });
+    eleventyConfig.addPassthroughCopy({ "../locales": "locales" });
+  }
 
-  // Watch parent directories so BrowserSync reloads on changes
+  // Watch parent directories so the dev server reloads on changes
   eleventyConfig.addWatchTarget("../css");
   eleventyConfig.addWatchTarget("../js");
   eleventyConfig.addWatchTarget("../assets");
@@ -246,16 +264,15 @@ module.exports = function(eleventyConfig) {
         .replace(/\n{3,}/g, '\n\n')  // Normalize multiple newlines
         .trim();
       
-      // Add pathPrefix to URL to match rendered hrefs
-      const fullUrl = '/blog/dist' + post.url;
-      
       return {
         title: post.data.title || '',
         description: post.data.description || '',
         content: content,
         category: post.data.category || 'general',
         tags: post.data.tags || [],
-        url: fullUrl,
+        // Must equal the post cards' hrefs: the index page matches search
+        // results to cards by comparing the two.
+        url: post.url,
         lang: post.data.lang || 'en',
         date: post.date
       };
@@ -319,20 +336,12 @@ module.exports = function(eleventyConfig) {
   // Server Configuration
   // ========================================================================
   
-  // Browser Sync options for development server
-  // Serve from parent directory so main site links work
-  eleventyConfig.setBrowserSyncConfig({
-    notify: true,
-    open: true,
-    port: 8080,
-    server: {
-      baseDir: "../",    // Serve from parent sgpyoga directory
-      serveStaticOptions: {
-        extensions: ["html"]  // Allow accessing files without .html extension
-      }
-    },
-    startPath: "/blog/dist/"  // Open to blog index by default
-  });
+  // `npm run dev` uses Eleventy 2's built-in dev server, which serves dist/
+  // as the web root on port 8080: open http://localhost:8080/blog/ (or
+  // /es/blog/). Links to main-site pages (/about.html) 404 there; to click
+  // through the whole site, run `npm run build` in the project root and serve
+  // _site/. (An older setBrowserSyncConfig() block lived here; Eleventy 2
+  // removed that API, so it had silently done nothing.)
   
   
   // ========================================================================
@@ -340,13 +349,13 @@ module.exports = function(eleventyConfig) {
   // ========================================================================
   
   return {
-    // Path prefix for all URLs (important for subdirectory deployment)
-    pathPrefix: "/blog/dist/",
-    
-    // Directory structure
+    // No pathPrefix: every page sets its full public path in its permalink
+    // (/blog/..., /es/blog/..., see src/posts/posts.11tydata.js), so dist/
+    // mirrors the site root (dist/blog/, dist/es/blog/) and the root build
+    // merges it straight into _site/.
     dir: {
       input: "src",           // Source files directory
-      output: "dist",         // Built site output directory
+      output: "dist",         // Built output, laid out like the site root
       includes: "_includes",  // Layout templates and partials
       data: "_data"          // Global data files
     },

@@ -110,19 +110,19 @@
   
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/"/>
+    <loc>https://sgpyoga.co/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/es/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/"/>
+    <loc>https://sgpyoga.co/es/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -136,98 +136,98 @@
   
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/yogaStyles/</loc>
+    <loc>https://sgpyoga.co/blog/yoga-styles/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/yogaStyles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/yoga-styles/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/yogaStyles/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/estilos-de-yoga/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/yogaStyles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/yoga-styles/"/>
     <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/ourTeam/</loc>
+    <loc>https://sgpyoga.co/blog/our-team/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/our-team/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/nuestro-equipo/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/our-team/"/>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/sgpyogaStory/</loc>
+    <loc>https://sgpyoga.co/blog/our-story/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/sgpyogaStory/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/our-story/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/sgpyogaStory/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/nuestra-historia/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/sgpyogaStory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/our-story/"/>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/chakras/</loc>
+    <loc>https://sgpyoga.co/blog/chakras/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/chakras/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/chakras/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/chakras/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/lightBodies/</loc>
+    <loc>https://sgpyoga.co/blog/light-bodies/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/lightBodies/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/light-bodies/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/lightBodies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/cuerpos-de-luz/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/lightBodies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/light-bodies/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/retreat-nov25/</loc>
+    <loc>https://sgpyoga.co/blog/yoga-retreat-colombia-2025/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/retreat-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/yoga-retreat-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/retreat-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/retiro-de-yoga-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/retreat-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/yoga-retreat-colombia-2025/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/en/teacherTraining-nov25/</loc>
+    <loc>https://sgpyoga.co/blog/aerial-yoga-teacher-training-colombia-2025/</loc>
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/teacherTraining-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/aerial-yoga-teacher-training-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/teacherTraining-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/formacion-yoga-aereo-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/teacherTraining-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/aerial-yoga-teacher-training-colombia-2025/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -237,98 +237,98 @@
   
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/yogaStyles/</loc>
+    <loc>https://sgpyoga.co/es/blog/estilos-de-yoga/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/yogaStyles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/yoga-styles/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/yogaStyles/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/yogaStyles/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/estilos-de-yoga/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/yoga-styles/"/>
     <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/ourTeam/</loc>
+    <loc>https://sgpyoga.co/es/blog/nuestro-equipo/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/our-team/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/ourTeam/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/ourTeam/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/nuestro-equipo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/our-team/"/>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/sgpyogaStory/</loc>
+    <loc>https://sgpyoga.co/es/blog/nuestra-historia/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/sgpyogaStory/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/our-story/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/sgpyogaStory/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/sgpyogaStory/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/nuestra-historia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/our-story/"/>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/chakras/</loc>
+    <loc>https://sgpyoga.co/es/blog/chakras/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/chakras/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/chakras/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/chakras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/chakras/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/lightBodies/</loc>
+    <loc>https://sgpyoga.co/es/blog/cuerpos-de-luz/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/lightBodies/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/light-bodies/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/lightBodies/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/lightBodies/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/cuerpos-de-luz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/light-bodies/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/retreat-nov25/</loc>
+    <loc>https://sgpyoga.co/es/blog/retiro-de-yoga-colombia-2025/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/retreat-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/yoga-retreat-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/retreat-nov25/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/retreat-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/retiro-de-yoga-colombia-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/yoga-retreat-colombia-2025/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://sgpyoga.co/blog/dist/posts/es/teacherTraining-nov25/</loc>
+    <loc>https://sgpyoga.co/es/blog/formacion-yoga-aereo-colombia-2025/</loc>
     
     
     
-    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/dist/posts/en/teacherTraining-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sgpyoga.co/blog/aerial-yoga-teacher-training-colombia-2025/"/>
     
-    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/blog/dist/posts/es/teacherTraining-nov25/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/dist/posts/en/teacherTraining-nov25/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/blog/formacion-yoga-aereo-colombia-2025/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/blog/aerial-yoga-teacher-training-colombia-2025/"/>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

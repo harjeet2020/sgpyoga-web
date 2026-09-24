@@ -30,46 +30,149 @@
   status = 301
   force = true
 
-# Blog entry points → the blog index, server-side (replaces the old
-# JavaScript redirect page blog.html). Spanish-speaking browsers get the
-# Spanish index, as blog.html used to do. The Language rules must come
-# before the catch-all rules because Netlify uses the first match.
-[[redirects]]
-  from = "/blog"
-  to = "/blog/dist/es/"
-  status = 301
-  force = true
-  conditions = {Language = ["es"]}
+# ---------------------------------------------------------------------------
+# Blog: the move from /blog/dist/ to /blog/ and /es/blog/ (Sept 2026)
+#
+# The blog used to live at /blog/dist/posts/<en|es>/<camelCaseSlug>/. It now
+# lives at /blog/<slug>/ and /es/blog/<spanish-slug>/, and /blog/ is a real
+# page, so there are no rules for /blog or /blog/ any more (the old rules
+# sent them to /blog/dist/, which would now loop back here).
+#
+# The rules below forward the OLD addresses so that Google, bookmarks and old
+# links land on the new pages. Each is a 301 ("moved permanently"), which
+# tells Google to transfer the old URL's ranking to the new one.
+#
+# `from` paths are lowercase because those are the addresses Netlify actually
+# served: it redirected every camelCase post URL to its lowercase form. If a
+# camelCase variant ever slips past these rules, the /blog/dist/* catch-all
+# still sends it to the blog index rather than a 404.
+#
+# SAFE TO DELETE the "old URLs" rules once Search Console → Pages shows no
+# /blog/dist/ URLs left in the index (typically a few months; review in
+# early 2027). Keep the /blog.html rules: that URL is older and harmless.
+# ---------------------------------------------------------------------------
 
+# Legacy /blog.html (the old JavaScript redirect page) → the blog index.
+# Spanish-speaking browsers get the Spanish index, as blog.html used to do.
+# The Language rule must come first because Netlify uses the first match.
 [[redirects]]
-  from = "/blog/"
-  to = "/blog/dist/es/"
+  from = "/blog.html"
+  to = "/es/blog/"
   status = 301
   force = true
   conditions = {Language = ["es"]}
 
 [[redirects]]
   from = "/blog.html"
-  to = "/blog/dist/es/"
-  status = 301
-  force = true
-  conditions = {Language = ["es"]}
-
-[[redirects]]
-  from = "/blog"
-  to = "/blog/dist/"
+  to = "/blog/"
   status = 301
   force = true
 
+# Old URLs: posts, one rule per post because the slugs changed.
+
 [[redirects]]
-  from = "/blog/"
-  to = "/blog/dist/"
+  from = "/blog/dist/posts/en/chakras/"
+  to = "/blog/chakras/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/blog.html"
-  to = "/blog/dist/"
+  from = "/blog/dist/posts/es/chakras/"
+  to = "/es/blog/chakras/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/lightbodies/"
+  to = "/blog/light-bodies/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/lightbodies/"
+  to = "/es/blog/cuerpos-de-luz/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/ourteam/"
+  to = "/blog/our-team/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/ourteam/"
+  to = "/es/blog/nuestro-equipo/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/retreat-nov25/"
+  to = "/blog/yoga-retreat-colombia-2025/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/retreat-nov25/"
+  to = "/es/blog/retiro-de-yoga-colombia-2025/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/sgpyogastory/"
+  to = "/blog/our-story/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/sgpyogastory/"
+  to = "/es/blog/nuestra-historia/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/teachertraining-nov25/"
+  to = "/blog/aerial-yoga-teacher-training-colombia-2025/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/teachertraining-nov25/"
+  to = "/es/blog/formacion-yoga-aereo-colombia-2025/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/en/yogastyles/"
+  to = "/blog/yoga-styles/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/yogastyles/"
+  to = "/es/blog/estilos-de-yoga/"
+  status = 301
+  force = true
+
+# Old URLs: the indexes, then a catch-all for anything else under
+# /blog/dist/ (index.html variants, the old search index, the duplicate asset
+# copies that used to be deployed there). Specific rules must come first.
+
+[[redirects]]
+  from = "/blog/dist/es/*"
+  to = "/es/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/posts/es/*"
+  to = "/es/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dist/*"
+  to = "/blog/"
   status = 301
   force = true
 

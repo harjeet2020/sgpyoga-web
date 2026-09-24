@@ -16,7 +16,7 @@
     function detectLanguage() {
         // Priority 1: Check URL path for /es/
         const pathname = window.location.pathname;
-        if (pathname.startsWith('/es/') || pathname.includes('/blog/dist/es/')) {
+        if (pathname.startsWith('/es/')) {
             return 'es';
         }
         

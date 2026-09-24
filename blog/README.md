@@ -21,8 +21,8 @@ npm run clean
 ## Adding a New Post
 
 1. Create a markdown file in `src/posts/en/` or `src/posts/es/`
-2. Name it: `YYYY-MM-DD-post-title.md`
-3. Add frontmatter:
+2. Give a translation the same filename as its original in the other folder (that's how they're paired)
+3. Add frontmatter, including a `slug`, which becomes the URL (`/blog/<slug>/` or `/es/blog/<slug>/`). Use lowercase words and hyphens, in the post's language, without accents:
 
 ```yaml
 ---
@@ -32,6 +32,7 @@ date: 2025-01-20
 category: "Category"
 layout: layouts/post/standard.njk
 lang: en
+slug: post-title
 tags: ["tag1", "tag2"]
 ---
 ```
@@ -66,7 +67,7 @@ See `docs/11ty-configuration.md` for comprehensive documentation including:
 - **Eleventy** v2.0.1 - Static site generator
 - **Nunjucks** - Template engine
 - **Markdown** - Content format
-- **Browser-Sync** - Development server
+- **Eleventy Dev Server** - Development server (see DEV-WORKFLOW.md)
 
 ## Current Status
 

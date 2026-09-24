@@ -8,7 +8,7 @@ category: "spirituality"
 # Template Configuration
 layout: layouts/post/longform.njk
 lang: es
-
+slug: estilos-de-yoga
 # Post Organization
 tags: ["yoga styles"]
 visible: true

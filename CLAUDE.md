@@ -14,7 +14,7 @@ The site is structured into the following pages:
 - About (about.html)
 - Classes (classes.html)
 - Events (events.html)
-- Blog (`/blog/dist/`, built by Eleventy from `blog/src/`; `/blog` redirects there via `netlify.toml`)
+- Blog (`/blog/` and `/es/blog/`, built by Eleventy from `blog/src/`). Each post's URL comes from the `slug` in its front matter: lowercase-kebab-case, in the post's own language, validated at build time. Changing a published slug needs a 301 in `netlify.toml`. The blog used to live at `/blog/dist/`; the redirects from there are in `netlify.toml`.
 
 ### The site uses the following colors:
 Primary Color: #1f2121 (Eerie Black)

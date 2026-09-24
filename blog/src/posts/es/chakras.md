@@ -8,7 +8,7 @@ category: "spirituality"
 # Template Configuration
 layout: layouts/post/longform.njk
 lang: es
-
+slug: chakras
 # Post Organization
 tags: ["chakras", "energy", "kundalini yoga"]
 visible: true

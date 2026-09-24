@@ -4,7 +4,7 @@ title: "Blog de Yoga - Consejos e Inspiración | SGP Yoga CDMX"
 description: "Explora sabiduría de yoga, consejos de práctica y filosofía de nuestros maestros en CDMX. Descubre artículos sobre Kundalini, Vinyasa y bienestar. ¡Lee ahora!"
 image: "/assets/photos/social/og-blog.webp"
 lang: es
-permalink: "/es/index.html"
+permalink: "/es/blog/index.html"
 ---
 
 {# Additional CSS for featured posts #}
@@ -158,7 +158,7 @@ if (document.readyState === 'loading') {
 async function initializeSearch() {
     try {
         // Fetch the search index JSON
-        const response = await fetch('/blog/dist/search-index.json');
+        const response = await fetch('/blog/search-index.json');
         if (!response.ok) {
             console.warn('Search index not found, search will be disabled');
             return;

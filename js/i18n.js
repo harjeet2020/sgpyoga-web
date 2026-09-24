@@ -16,6 +16,43 @@ const GENERATED_NAMESPACE_TARGETS = {
     eventContent: { into: 'events', at: 'events' }
 };
 
+/**
+ * Is this path part of the blog (`/blog/...` or `/es/blog/...`)?
+ *
+ * @remarks
+ * Blog pages are built by Eleventy with their text already in one language,
+ * so they're never translated in place: the URL decides the language, and
+ * switching language means navigating to the translated post.
+ *
+ * @param {string} path - A URL pathname, e.g. `window.location.pathname`.
+ * @returns {boolean} True for the blog indexes and posts in either language.
+ */
+function isBlogPath(path) {
+    return /^\/(es\/)?blog(\/|$)/.test(path);
+}
+
+/**
+ * Find the URL of the current blog page in another language.
+ *
+ * @remarks
+ * Blog slugs are translated (`/blog/yoga-styles/` ↔ `/es/blog/estilos-de-yoga/`),
+ * so the other URL can't be worked out from this one. Every blog page already
+ * names its translations in `<link rel="alternate" hreflang="…">` tags (see
+ * `blog/src/_includes/layouts/base.njk`), so we read them. Only the pathname
+ * is used, so this also works on localhost. A post with no translation falls
+ * back to that language's blog index.
+ *
+ * @param {string} languageCode - Target language, `en` or `es`.
+ * @returns {string} A pathname such as `/es/blog/estilos-de-yoga/`.
+ */
+function getBlogTranslationPath(languageCode) {
+    const alternate = document.querySelector(`link[rel="alternate"][hreflang="${languageCode}"]`);
+    if (alternate && alternate.href) {
+        return new URL(alternate.href).pathname;
+    }
+    return languageCode === 'es' ? '/es/blog/' : '/blog/';
+}
+
 class SGPi18n {
     constructor() {
         this.currentLanguage = 'en';
@@ -83,14 +120,9 @@ class SGPi18n {
             return 'es';
         }
         
-        // Check for Spanish blog path
-        if (currentPath.includes('/blog/dist/es/')) {
-            localStorage.setItem('selectedLanguage', 'es');
-            return 'es';
-        }
-        
-        // Check for English blog path
-        if (currentPath.includes('/blog/dist/') && !currentPath.includes('/es/')) {
+        // English blog (/blog/...): its content is English, so trust the URL.
+        // (The Spanish blog lives under /es/blog/ and was handled above.)
+        if (isBlogPath(currentPath)) {
             localStorage.setItem('selectedLanguage', 'en');
             return 'en';
         }
@@ -385,64 +417,19 @@ class SGPi18n {
         // Update localStorage for next visit
         localStorage.setItem('selectedLanguage', languageCode);
         
-        // Special handling for blog pages
-        if (currentPath.includes('/blog/dist/')) {
-            if (languageCode === 'es') {
-                // Check if already on Spanish blog (index or post)
-                const isSpanishBlogIndex = currentPath.includes('/blog/dist/es/');
-                const isSpanishBlogPost = currentPath.includes('/posts/es/');
-                
-                if (isSpanishBlogIndex || isSpanishBlogPost) {
-                    // Already on Spanish blog - just update UI, don't redirect
-                    console.log('✅ Already on Spanish blog - updating UI only');
-                    await this.updateLanguageInPlace(languageCode);
-                    return;
-                }
-                
-                // Will redirect - set flag
-                this.isChangingLanguage = true;
-                
-                // Need to switch to Spanish
-                // Handle blog index
-                if (currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html') {
-                    window.location.href = '/blog/dist/es/';
-                    return;
-                }
-                
-                // Handle blog posts - posts already have language in their URL structure
-                // e.g., /blog/dist/posts/en/... -> /blog/dist/posts/es/...
-                if (currentPath.includes('/posts/en/')) {
-                    window.location.href = currentPath.replace('/posts/en/', '/posts/es/');
-                    return;
-                }
-            } else {
-                // Switching to English
-                const isEnglishBlogIndex = currentPath === '/blog/dist/' || currentPath === '/blog/dist/index.html';
-                const isEnglishBlogPost = currentPath.includes('/posts/en/');
-                
-                if (isEnglishBlogIndex || isEnglishBlogPost) {
-                    // Already on English blog - just update UI, don't redirect
-                    console.log('✅ Already on English blog - updating UI only');
-                    await this.updateLanguageInPlace(languageCode);
-                    return;
-                }
-                
-                // Will redirect - set flag
-                this.isChangingLanguage = true;
-                
-                // Need to switch to English
-                // Handle blog index
-                if (currentPath.includes('/blog/dist/es/')) {
-                    window.location.href = currentPath.replace('/blog/dist/es/', '/blog/dist/');
-                    return;
-                }
-                
-                // Handle Spanish blog posts -> English blog posts
-                if (currentPath.includes('/posts/es/')) {
-                    window.location.href = currentPath.replace('/posts/es/', '/posts/en/');
-                    return;
-                }
+        // Blog pages: the URL decides the language (see isBlogPath), so
+        // either stay put or go to this page's translation.
+        if (isBlogPath(currentPath)) {
+            const onSpanishBlog = currentPath.startsWith('/es/');
+            if ((languageCode === 'es') === onSpanishBlog) {
+                console.log('✅ Already on the blog in this language - updating UI only');
+                await this.updateLanguageInPlace(languageCode);
+                return;
             }
+
+            this.isChangingLanguage = true;
+            window.location.href = getBlogTranslationPath(languageCode);
+            return;
         }
         
         // Regular page handling (non-blog)
@@ -618,7 +605,7 @@ function detectPageNamespace() {
     
     // Blog pages don't use namespace-based translations (content is in markdown)
     // Only load 'common' namespace for blog
-    if (path.includes('/blog/dist/')) {
+    if (isBlogPath(path)) {
         return null; // Will only load 'common' namespace
     }
     

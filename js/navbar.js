@@ -377,9 +377,11 @@ function setActiveNavLink() {
 
         const linkPath = new URL(link.href).pathname;
 
-        // Special handling for blog - match if current path starts with /blog/dist/
-        if (linkPath.includes('/blog/dist/')) {
-            if (currentPath.includes('/blog/dist/')) {
+        // Blog: the Blog link (/blog/ or /es/blog/) is active on every blog
+        // page in either language, index or post.
+        const blogPathPattern = /^\/(es\/)?blog(\/|$)/;
+        if (blogPathPattern.test(linkPath)) {
+            if (blogPathPattern.test(currentPath)) {
                 link.classList.add('active');
             }
             return;
@@ -433,8 +435,8 @@ function initializeLanguageOnLoad() {
     const currentPath = window.location.pathname;
     let urlLang = 'en'; // Default to English
     
-    // Check if we're on a Spanish URL
-    if (currentPath.startsWith('/es/') || currentPath.includes('/blog/dist/es/')) {
+    // Check if we're on a Spanish URL (the Spanish blog is under /es/blog/)
+    if (currentPath.startsWith('/es/')) {
         urlLang = 'es';
     }
     

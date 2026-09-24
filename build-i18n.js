@@ -315,10 +315,13 @@ function processHTML(html, translations, filename) {
         '$1/es/certifications/$2$3'
     );
     
-    // Blog link needs special handling - point to language-specific blog index
+    // Blog index link: the English pages link to /blog/, the Spanish blog
+    // index lives at /es/blog/. (This rule used to look for "blog.html",
+    // which no page linked to any more, so Spanish pages sent visitors to the
+    // English blog.)
     processed = processed.replace(
-        /(<a[^>]*href=["'])blog\.html(["'][^>]*>)/g,
-        '$1/blog/dist/es/$2'
+        /(<a[^>]*href=["'])\/blog\/(["'][^>]*>)/g,
+        '$1/es/blog/$2'
     );
     
     log(`    ✓ Made ${replacements} replacements in ${filename}`, 'green');

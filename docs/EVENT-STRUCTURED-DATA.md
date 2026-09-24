@@ -69,10 +69,11 @@ Do it in the platform admin panel (`platform.sgpyoga.co/admin/school`) and publi
 
 | Page | Type | Where it's written |
 |---|---|---|
-| Home | `LocalBusiness`, reviews | Hand-written in `index.html` |
-| Home | `FAQPage` | `js/faqSchema.js` (runtime; Google no longer shows FAQ rich results for most sites, so this is low priority) |
+| Home | `LocalBusiness` with `"@id": "https://sgpyoga.co/#business"` | Hand-written in `index.html`. The events' `organizer`, the course's `provider` and the blog's `publisher` reuse this `@id` so Google sees one business. Testimonials are not marked up as reviews: Google ignores reviews a business publishes about itself. |
 | Aerial teacher training | `Course` (with `CourseInstance`, `Offer`) | Hand-written in `certifications/aerial-yoga-100.html` |
 | Blog posts | `BlogPosting` | `blog/src/_includes/layouts/base.njk`, from each post's front matter |
+
+The home page has no `FAQPage` markup on purpose. Since 2023 Google only shows FAQ rich results for government and health sites, so the old runtime script `js/faqSchema.js` was deleted.
 
 ## Resources
 

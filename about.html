@@ -80,7 +80,7 @@
     <!-- CRITICAL: Inline language detection to prevent layout shift and eliminate external dependency -->
     <!-- This runs immediately and sets language before any external JS loads -->
     <script>
-        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
+        !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
     </script>
     
     <!-- Performance: Defer scripts to eliminate render blocking (self-hosted, pinned versions in /js/vendor/) -->
@@ -120,7 +120,7 @@
                         <a href="/certifications/aerial-yoga-100.html" class="nav-dropdown-item" role="menuitem" data-i18n="common:nav.certificationsDropdown.aerial100">100-Hour Aerial Yoga Teacher Training</a>
                     </div>
                 </li>
-                <li><a href="/blog/dist/" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
+                <li><a href="/blog/" class="navbar-link" data-i18n="common:nav.blog">Blog</a></li>
             </ul>
         </div>
         
@@ -484,7 +484,7 @@
                             <li><a href="classes.html" data-i18n="common:footer.sitemap.classes">Classes</a></li>
                             <li><a href="events.html" data-i18n="common:footer.sitemap.events">Events</a></li>
                             <li><a href="/certifications/aerial-yoga-100.html" data-i18n="common:footer.sitemap.certifications">Certifications</a></li>
-                            <li><a href="/blog/dist/" data-i18n="common:footer.sitemap.blog">Blog</a></li>
+                            <li><a href="/blog/" data-i18n="common:footer.sitemap.blog">Blog</a></li>
                         </ul>
                     </div>
 

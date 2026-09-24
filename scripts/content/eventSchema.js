@@ -131,8 +131,11 @@ function eventObject(entry, content, lang) {
         addressCountry: location.country,
       },
     },
+    // "@id" matches the LocalBusiness on the homepage, so Google links every
+    // event to the same business entity instead of treating each as new.
     organizer: {
       '@type': 'Organization',
+      '@id': `${SITE_ORIGIN}/#business`,
       name: 'SGP Yoga',
       url: SITE_ORIGIN,
     },
