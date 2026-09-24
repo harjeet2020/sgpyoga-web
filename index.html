@@ -16,13 +16,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
     
     <title data-i18n="common:pageTitles.home">SGP Yoga - Yoga Classes in Mexico City | CDMX Studio</title>
-    <meta name="description" content="Transformative yoga classes in Mexico City. Expert-led Kundalini, Vinyasa, Hatha & Aerial Yoga in CDMX. Join workshops, retreats & teacher trainings. Book your class today!" data-i18n="home:meta.description">
+    <meta name="description" content="Transformative yoga classes in Mexico City. Expert-led Kundalini, Vinyasa, Hatha & Aerial Yoga in CDMX. Join workshops, retreats & teacher trainings. Book your class today!" data-i18n-content="home:meta.description">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgpyoga.co/">
-    <meta property="og:title" content="SGP Yoga - Find Your Inner Peace in Mexico City">
-    <meta property="og:description" content="Transformative yoga classes, workshops, and retreats in CDMX. Experience Vinyasa, Hatha, Kundalini, and Aerial Yoga with expert teachers.">
+    <meta property="og:title" content="SGP Yoga - Find Your Inner Peace in Mexico City" data-i18n-content="common:pageTitles.home">
+    <meta property="og:description" content="Transformative yoga classes, workshops, and retreats in CDMX. Experience Vinyasa, Hatha, Kundalini, and Aerial Yoga with expert teachers." data-i18n-content="home:meta.description">
     <meta property="og:image" content="https://sgpyoga.co/assets/photos/social/og-home.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,19 +33,15 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sgpyoga.co/">
-    <meta name="twitter:title" content="SGP Yoga - Find Your Inner Peace in Mexico City">
-    <meta name="twitter:description" content="Transformative yoga classes, workshops, and retreats in CDMX. Experience Vinyasa, Hatha, Kundalini, and Aerial Yoga.">
+    <meta name="twitter:title" content="SGP Yoga - Find Your Inner Peace in Mexico City" data-i18n-content="common:pageTitles.home">
+    <meta name="twitter:description" content="Transformative yoga classes, workshops, and retreats in CDMX. Experience Vinyasa, Hatha, Kundalini, and Aerial Yoga." data-i18n-content="home:meta.description">
     <meta name="twitter:image" content="https://sgpyoga.co/assets/photos/social/og-home.webp">
     
     <!-- SEO: Canonical & Hreflang -->
-    <link rel="canonical" href="https://sgpyoga.co/index.html">
-    <link rel="alternate" hreflang="en" href="https://sgpyoga.co/index.html">
-    <link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/index.html">
-    <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/index.html">
-    
-    <!-- Performance: Preconnect to external resources -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="canonical" href="https://sgpyoga.co/">
+    <link rel="alternate" hreflang="en" href="https://sgpyoga.co/">
+    <link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/">
+    <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/">
     
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="/css/main.css" as="style">
@@ -65,8 +61,8 @@
           fetchpriority="high">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
-    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="/css/main.css">
@@ -94,13 +90,10 @@
         !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
     </script>
     
-    <!-- Performance: Defer external scripts to eliminate render blocking -->
-    <!-- Lucide Icons -->
-    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
+    <!-- Performance: Defer scripts to eliminate render blocking (self-hosted, pinned versions in /js/vendor/) -->
     <!-- i18next for language support -->
-    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="/js/vendor/i18next.min.js"></script>
+    <script defer src="/js/vendor/i18nextBrowserLanguageDetector.min.js"></script>
     
     <!-- LocalBusiness Structured Data for SEO -->
     <script type="application/ld+json">
@@ -257,7 +250,7 @@
                 <li><a href="classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
                 <li><a href="events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
                 <li class="has-dropdown">
-                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <i data-lucide="chevron-down" class="dropdown-icon"></i></button>
+                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-icon"><path d="m6 9 6 6 6-6"/></svg></button>
                     <div class="nav-dropdown" role="menu">
                         <a href="/certifications/aerial-yoga-100.html" class="nav-dropdown-item" role="menuitem" data-i18n="common:nav.certificationsDropdown.aerial100">100-Hour Aerial Yoga Teacher Training</a>
                     </div>
@@ -269,10 +262,11 @@
         <!-- Right Section: Language Dropdown -->
         <div class="navbar-right">
             <div class="language-selector">
-                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
-                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                <button class="language-toggle" id="languageToggle" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag" aria-hidden="true">🇺🇸</span>
                     <span class="language-code" id="currentLangCode">EN</span>
-                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                    <span class="sr-only" data-i18n="common:nav.selectLanguage">Select language</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-chevron"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="language-dropdown" id="languageDropdown">
                     <div class="language-option" data-lang="en">
@@ -324,7 +318,7 @@
                         <p data-i18n="home:classes.text">Step into the flow following the guidance of our expert teachers. We offer a variety of yoga styles such as Vinyasa, Hatha, Kundalini and Aerial Yoga - so that everyone can find what they need. See you on the mat!</p>
                         <a href="classes.html" class="btn btn-elegant">
                             <span data-i18n="home:classes.exploreButton">Explore Classes</span>
-                            <i data-lucide="arrow-right"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                     
@@ -367,7 +361,7 @@
                         <p data-i18n="home:events.text">Looking for something special? Have a look at our thematic workshops, retreats and teacher trainings!</p>
                         <a href="events.html" class="btn btn-elegant">
                             <span data-i18n="home:events.exploreButton">Explore Events</span>
-                            <i data-lucide="arrow-right"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                     </div>
                 </div>
@@ -404,7 +398,7 @@
                                                     /assets/photos/testimonials/testimonial1-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial1-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial1-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial1-480.webp" alt="Ramzi Anh Do portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -430,7 +424,7 @@
                                                     /assets/photos/testimonials/testimonial2-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial2-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial2-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial2-480.webp" alt="Agnieszka Malek portrait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -456,7 +450,7 @@
                                                     /assets/photos/testimonials/testimonial3-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial3-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial3-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial3-480.webp" alt="Marcin Topolski portait image - Harjeet's first Kundalini Yoga teacher" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -482,7 +476,7 @@
                                                     /assets/photos/testimonials/testimonial4-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial4-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial4-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial4-480.webp" alt="Lena Tiedmann portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -506,7 +500,7 @@
                                                     /assets/photos/testimonials/testimonial5-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial5-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial5-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial5-480.webp" alt="Svetlana Epifanova portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -532,7 +526,7 @@
                                                     /assets/photos/testimonials/testimonial6-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial6-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial6-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial6-480.webp" alt="Rosario Hernández Nieves portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -558,7 +552,7 @@
                                                     /assets/photos/testimonials/testimonial7-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial7-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial7-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial7-480.webp" alt="Rafał Duran portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Poland" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -584,7 +578,7 @@
                                                     /assets/photos/testimonials/testimonial8-720.webp 720w,
                                                     /assets/photos/testimonials/testimonial8-900.webp 900w,
                                                     /assets/photos/testimonials/testimonial8-1200.webp 1200w"
-                                            sizes="(max-width: 767px) 100vw, 50vw">
+                                            sizes="(max-width: 768px) 100vw, min(50vw, 600px)">
                                     <img src="/assets/photos/testimonials/testimonial8-480.webp" alt="Julián Alonso portait image - a satisfied client who experienced Harjeet's Kundalini Yoga classes in Cambodia" width="480" height="480" loading="lazy">
                                 </picture>
                             </div>
@@ -605,7 +599,7 @@
                     <!-- Navigation Controls -->
                     <div class="testimonials-navigation">
                         <button class="nav-btn" id="testimonials-prev" aria-label="Previous testimonial">
-                            <i data-lucide="chevron-left"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
                         </button>
                         
                         <div class="testimonials-dots">
@@ -613,7 +607,7 @@
                         </div>
                         
                         <button class="nav-btn" id="testimonials-next" aria-label="Next testimonial">
-                            <i data-lucide="chevron-right"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                         </button>
                     </div>
                 </div>
@@ -635,8 +629,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
                             <span data-i18n="home:faq.questions.0.q">What types of yoga classes do you offer in Mexico City?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-1">
                             <p data-i18n="home:faq.questions.0.a" data-i18n-html="true">We offer a wide variety of yoga styles such as Hatha, Vinyasa, Aerial and Kundalini. We also regularly organise thematic workshops such as sound healing sessions or yoga philosophy classes. This variety ensures that everyone can find a class that resonates with their soul.</p>
@@ -647,8 +641,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
                             <span data-i18n="home:faq.questions.1.q">Where are your yoga classes located?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-2">
                             <p data-i18n="home:faq.questions.1.a" data-i18n-html="true">Currently, we offer classes in two distinct locations in Mexico City - Hari Om and Aguacate.</p>
@@ -659,8 +653,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
                             <span data-i18n="home:faq.questions.2.q">How much do your yoga classes in CDMX cost?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-3">
                             <p data-i18n="home:faq.questions.2.a">First-time students can try any class for just 100 pesos!</p>
@@ -671,8 +665,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
                             <span data-i18n="home:faq.questions.3.q">Are your yoga classes suitable for beginners?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-4">
                             <p data-i18n="home:faq.questions.3.a">Yes. The level of each group is different, of course, but we often work with absolute beginners.</p>
@@ -683,8 +677,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
                             <span data-i18n="home:faq.questions.4.q">Which yoga style is best for beginners?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-5">
                             <p data-i18n="home:faq.questions.4.a" data-i18n-html="true">Hatha Yoga is an excellent starting point for beginners due to its slower pace and focus on foundational poses.</p>
@@ -695,8 +689,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
                             <span data-i18n="home:faq.questions.5.q">What are the benefits of practicing yoga?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-6">
                             <p data-i18n="home:faq.questions.5.a">Yoga offers holistic benefits for body, mind, and spirit.</p>
@@ -707,8 +701,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
                             <span data-i18n="home:faq.questions.6.q">How is yoga different from other forms of exercise?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-7">
                             <p data-i18n="home:faq.questions.6.a">Contrary to popular belief, yoga is not a sport.</p>
@@ -719,8 +713,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
                             <span data-i18n="home:faq.questions.7.q">How do I book my first class? Do I need to book in advance?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-8">
                             <p data-i18n="home:faq.questions.7.a">For now, we manage all bookings through our WhatsApp (+52 55 3906 1305).</p>
@@ -731,8 +725,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
                             <span data-i18n="home:faq.questions.8.q">What should I bring to my first yoga class?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-9">
                             <p data-i18n="home:faq.questions.8.a">A yoga mat, comfortable clothing, and a bottle of water.</p>
@@ -743,8 +737,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
                             <span data-i18n="home:faq.questions.9.q">Do your instructors teach in English and Spanish?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-10">
                             <p data-i18n="home:faq.questions.9.a">All our instructors speak both English and Spanish at a sufficient level to lead a yoga class.</p>
@@ -755,8 +749,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-11">
                             <span data-i18n="home:faq.questions.10.q">Do you offer private yoga sessions in Mexico City?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-11">
                             <p data-i18n="home:faq.questions.10.a">Yes! Private yoga classes are perfect for personalized instruction, busy schedules, physical limitations, or specific goals.</p>
@@ -767,8 +761,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-12">
                             <span data-i18n="home:faq.questions.11.q">Do you offer yoga workshops, retreats, or teacher trainings?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-12">
                             <p data-i18n="home:faq.questions.11.a" data-i18n-html="true">Yes! We regularly organize special yoga events & experiences beyond weekly classes.</p>
@@ -779,8 +773,8 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-13">
                             <span data-i18n="home:faq.questions.12.q">What is your cancellation policy? Do I need to cancel in advance?</span>
-                            <i data-lucide="plus" class="faq-icon faq-icon-plus"></i>
-                            <i data-lucide="minus" class="faq-icon faq-icon-minus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-plus faq-icon faq-icon-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-minus faq-icon faq-icon-minus"><path d="M5 12h14"/></svg>
                         </button>
                         <div class="faq-answer" id="faq-answer-13">
                             <p data-i18n="home:faq.questions.12.a">Yes, please cancel if you cannot attend, at least 24 hours in advance.</p>
@@ -832,14 +826,14 @@
                         <div class="footer-column footer-contact">
                             <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
                             <div class="footer-contact-item">
-                                <i data-lucide="mail"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.email">Email</span>:
                                     <a href="mailto:team@sgpyoga.co" data-i18n="common:footer.contact.emailValue">team@sgpyoga.co</a>
                                 </div>
                             </div>
                             <div class="footer-contact-item">
-                                <i data-lucide="phone"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.phone">Phone</span>:
                                     <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>

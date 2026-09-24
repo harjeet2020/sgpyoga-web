@@ -16,13 +16,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
 
     <title data-i18n="common:pageTitles.certificationsAerial100">100-Hour Aerial Yoga Teacher Training | SGP Yoga</title>
-    <meta name="description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City. Learn from experienced instructors at SGP Yoga." data-i18n="certifications:meta.description">
+    <meta name="description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City. Learn from experienced instructors at SGP Yoga." data-i18n-content="certifications:meta.description">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgpyoga.co/certifications/aerial-yoga-100.html">
-    <meta property="og:title" content="100-Hour Aerial Yoga Teacher Training | SGP Yoga">
-    <meta property="og:description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City.">
+    <meta property="og:title" content="100-Hour Aerial Yoga Teacher Training | SGP Yoga" data-i18n-content="common:pageTitles.certificationsAerial100">
+    <meta property="og:description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City." data-i18n-content="certifications:meta.description">
     <meta property="og:image" content="https://sgpyoga.co/assets/photos/certifications/hero-1280.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,8 +33,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sgpyoga.co/certifications/aerial-yoga-100.html">
-    <meta name="twitter:title" content="100-Hour Aerial Yoga Teacher Training | SGP Yoga">
-    <meta name="twitter:description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City.">
+    <meta name="twitter:title" content="100-Hour Aerial Yoga Teacher Training | SGP Yoga" data-i18n-content="common:pageTitles.certificationsAerial100">
+    <meta name="twitter:description" content="Become a certified aerial yoga teacher with our comprehensive 100-hour training program in Mexico City." data-i18n-content="certifications:meta.description">
     <meta name="twitter:image" content="https://sgpyoga.co/assets/photos/certifications/hero-1280.webp">
 
     <!-- SEO: Canonical & Hreflang -->
@@ -42,10 +42,6 @@
     <link rel="alternate" hreflang="en" href="https://sgpyoga.co/certifications/aerial-yoga-100.html">
     <link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/certifications/aerial-yoga-100.html">
     <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/certifications/aerial-yoga-100.html">
-
-    <!-- Performance: Preconnect to external resources -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="dns-prefetch" href="https://unpkg.com">
 
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="/css/main.css" as="style">
@@ -65,8 +61,8 @@
           fetchpriority="high">
 
     <!-- Performance: Preload critical fonts to prevent FOUT -->
-    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="/css/main.css">
@@ -88,13 +84,10 @@
         !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"\ud83c\uddfa\ud83c\uddf8",code:"EN"},es:{flag:"\ud83c\uddf2\ud83c\uddfd",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
     </script>
 
-    <!-- Performance: Defer external scripts to eliminate render blocking -->
-    <!-- Lucide Icons -->
-    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    <!-- Performance: Defer scripts to eliminate render blocking (self-hosted, pinned versions in /js/vendor/) -->
     <!-- i18next for language support -->
-    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="/js/vendor/i18next.min.js"></script>
+    <script defer src="/js/vendor/i18nextBrowserLanguageDetector.min.js"></script>
 
     <!-- Course Structured Data for SEO -->
     <script type="application/ld+json">
@@ -183,7 +176,7 @@
                 <li><a href="/classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
                 <li><a href="/events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
                 <li class="has-dropdown">
-                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <i data-lucide="chevron-down" class="dropdown-icon"></i></button>
+                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-icon"><path d="m6 9 6 6 6-6"/></svg></button>
                     <div class="nav-dropdown" role="menu">
                         <a href="/certifications/aerial-yoga-100.html" class="nav-dropdown-item" role="menuitem" data-i18n="common:nav.certificationsDropdown.aerial100">100-Hour Aerial Yoga Teacher Training</a>
                     </div>
@@ -195,10 +188,11 @@
         <!-- Right Section: Language Dropdown -->
         <div class="navbar-right">
             <div class="language-selector">
-                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
-                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                <button class="language-toggle" id="languageToggle" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag" aria-hidden="true">🇺🇸</span>
                     <span class="language-code" id="currentLangCode">EN</span>
-                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                    <span class="sr-only" data-i18n="common:nav.selectLanguage">Select language</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-chevron"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="language-dropdown" id="languageDropdown">
                     <div class="language-option" data-lang="en">
@@ -261,7 +255,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">01</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module1.title">Introduction to Aerial Yoga</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -278,7 +272,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">02</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module2.title">Aerial Yoga Practice Fundamentals</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -296,7 +290,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">03</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module3.title">Yoga Philosophy</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -313,7 +307,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">04</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module4.title">Yoga Anatomy</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -332,7 +326,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">05</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module5.title">Mobility & Technique</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -351,7 +345,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">06</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module6.title">Sequences & Flow</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -371,7 +365,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">07</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module7.title">Pranayama & Mantra</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -390,7 +384,7 @@
                         <button class="accordion-header" aria-expanded="false">
                             <span class="module-number">08</span>
                             <span class="module-title" data-i18n="certifications:curriculum.modules.module8.title">Teaching Methodology</span>
-                            <i data-lucide="chevron-down" class="accordion-icon"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down accordion-icon"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
                         <div class="accordion-content">
                             <ul class="module-topics">
@@ -588,7 +582,7 @@
                     <!-- Navigation Controls -->
                     <div class="testimonials-navigation">
                         <button class="nav-btn" id="testimonials-prev" aria-label="Previous testimonial">
-                            <i data-lucide="chevron-left"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
                         </button>
 
                         <div class="testimonials-dots">
@@ -596,7 +590,7 @@
                         </div>
 
                         <button class="nav-btn" id="testimonials-next" aria-label="Next testimonial">
-                            <i data-lucide="chevron-right"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                         </button>
                     </div>
                 </div>
@@ -613,11 +607,11 @@
                 <div class="cta-buttons">
                     <a href="https://wa.me/525539061305?text=Hi!%20I'm%20interested%20in%20the%20Aerial%20Yoga%20Teacher%20Training." class="btn btn-elegant" target="_blank" rel="noopener noreferrer">
                         <span data-i18n="certifications:cta.buttons.whatsapp">WhatsApp</span>
-                        <i data-lucide="message-circle"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
                     </a>
                     <a href="mailto:team@sgpyoga.co?subject=Aerial%20Yoga%20Teacher%20Training%20Inquiry" class="btn btn-elegant">
                         <span data-i18n="certifications:cta.buttons.email">Email</span>
-                        <i data-lucide="mail"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
                     </a>
                 </div>
             </div>
@@ -665,14 +659,14 @@
                         <div class="footer-column footer-contact">
                             <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
                             <div class="footer-contact-item">
-                                <i data-lucide="mail"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.email">Email</span>:
                                     <a href="mailto:team@sgpyoga.co" data-i18n="common:footer.contact.emailValue">team@sgpyoga.co</a>
                                 </div>
                             </div>
                             <div class="footer-contact-item">
-                                <i data-lucide="phone"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.phone">Phone</span>:
                                     <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>

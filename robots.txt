@@ -1,17 +1,10 @@
 # SGP Yoga - Robots.txt
-# Last Updated: 2025-01-29
+#
+# Everything is crawlable. CSS and JS must stay crawlable: Google renders
+# pages like a browser, and without them it judges an unstyled page.
 
 User-agent: *
 Allow: /
 
-# Disallow admin and system directories
-Disallow: /blog/dist/admin/
-Disallow: /js/
-Disallow: /css/
-Disallow: /.git/
-
-# Sitemap location
-Sitemap: https://www.sgpyoga.co/sitemap.xml
-
-# Crawl-delay for polite bots
-Crawl-delay: 1
+# Sitemap location (apex domain: www redirects there)
+Sitemap: https://sgpyoga.co/sitemap.xml

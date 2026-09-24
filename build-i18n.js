@@ -23,6 +23,14 @@ const TARGET_LANG = 'es';
 const OUTPUT_DIR = 'es';
 const LOCALES_DIR = 'locales';
 
+/**
+ * Where the content build leaves structured data (JSON-LD) for languages other than English.
+ *
+ * @remarks
+ * `scripts/content/` inlines the English JSON-LD into the page it renders and writes `<name>.es.json` here (gitignored). {@link processHTML} swaps it into the matching `<script type="application/ld+json" data-jsonld="<name>">`.
+ */
+const JSONLD_DIR = '.build/jsonld';
+
 // Color output for terminal
 const colors = {
     reset: '\x1b[0m',
@@ -112,6 +120,20 @@ function getTranslation(translations, key) {
 }
 
 /**
+ * Escapes text for use inside a double-quoted HTML attribute.
+ *
+ * @param {string} value - A translation string.
+ * @returns {string} The string with `&`, `"`, `<` and `>` replaced by entities.
+ */
+function escapeAttribute(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+/**
  * Process HTML content and replace data-i18n attributes with translations
  * @param {string} html - HTML content
  * @param {Object} translations - Loaded translations
@@ -183,6 +205,57 @@ function processHTML(html, translations, filename) {
         return match;
     });
     
+    // Handle data-i18n-content attributes (void elements such as <meta>)
+    // The main data-i18n pattern above only matches elements with a closing
+    // tag, so <meta name="description" data-i18n="…"> was silently skipped and
+    // every Spanish page shipped an English description and OG text. Void
+    // elements carry data-i18n-content instead, and their content attribute
+    // is replaced.
+    const contentPattern = /<([a-zA-Z][a-zA-Z0-9]*)([^>]*?)data-i18n-content=["']([^"']+)["']([^>]*?)>/g;
+
+    processed = processed.replace(contentPattern, (match, tagName, beforeAttrs, key, afterAttrs) => {
+        const translation = getTranslation(translations, key);
+
+        if (!translation) {
+            log(`    ⚠ Translation not found: ${key}`, 'yellow');
+            return match;
+        }
+
+        replacements++;
+        const allAttrs = `${beforeAttrs}${afterAttrs}`.replace(/\s+$/, '');
+        const updatedAttrs = allAttrs.replace(/content=["'][^"']*["']/, `content="${escapeAttribute(translation)}"`);
+        return `<${tagName}${updatedAttrs}>`;
+    });
+
+    // Social previews: advertise Spanish as this page's locale and English as the alternate
+    processed = processed
+        .replace(/<meta property="og:locale" content="en_US">/g, '<meta property="og:locale" content="__OG_LOCALE_ES__">')
+        .replace(/<meta property="og:locale:alternate" content="es_MX">/g, '<meta property="og:locale:alternate" content="en_US">')
+        .replace(/__OG_LOCALE_ES__/g, 'es_MX');
+
+    // Social preview URLs point at the Spanish page itself (the homepage URL is just the domain + "/")
+    processed = processed.replace(
+        /(<meta (?:property=["']og:url["']|name=["']twitter:url["']) content=["']https:\/\/sgpyoga\.co\/)(?!es\/)([^"']*)(["'])/g,
+        '$1es/$2$3'
+    );
+
+    // Swap pre-rendered JSON-LD for its Spanish version
+    // The content build writes structured data in both languages. English is
+    // inlined in the page; Spanish is waiting in JSONLD_DIR, keyed by the
+    // script's data-jsonld name.
+    processed = processed.replace(
+        /(<script type=["']application\/ld\+json["'] data-jsonld=["']([^"']+)["']>)([\s\S]*?)(<\/script>)/g,
+        (match, open, name, body, close) => {
+            const spanishPath = path.join(__dirname, JSONLD_DIR, `${name}.${TARGET_LANG}.json`);
+            if (!fs.existsSync(spanishPath)) {
+                log(`    ⚠ No Spanish JSON-LD for "${name}" (${path.relative(__dirname, spanishPath)}), keeping English`, 'yellow');
+                return match;
+            }
+            replacements++;
+            return `${open}\n${fs.readFileSync(spanishPath, 'utf8').trim()}\n    ${close}`;
+        }
+    );
+
     // Inject Google Search Console verification meta tag if not present
     if (!processed.includes('google-site-verification')) {
         processed = processed.replace(
@@ -202,28 +275,30 @@ function processHTML(html, translations, filename) {
     );
     
     // Update canonical URL to point to Spanish version
-    // Each language version should have a self-referencing canonical
+    // Each language version should have a self-referencing canonical.
+    // The page path may be empty: the homepage canonical is "https://sgpyoga.co/",
+    // which must become "https://sgpyoga.co/es/" (hence `*`, not `+`).
     processed = processed.replace(
-        /<link rel=["']canonical["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)([^"']+)["']>/g,
+        /<link rel=["']canonical["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)([^"']*)["']>/g,
         (match, domain, page) => `<link rel="canonical" href="https://sgpyoga.co/es/${page}">`
     );
-    
+
     // Update hreflang tags for Spanish version
     // Update the hreflang="es" to point to /es/ version (but avoid double /es/es/)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']es["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?!es\/)([^"']+)["']>/g,
+        /<link rel=["']alternate["'] hreflang=["']es["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?!es\/)([^"']*)["']>/g,
         (match, domain, page) => `<link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/${page}">`
     );
-    
+
     // Ensure hreflang="en" points to root version (remove www if present)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']en["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']+)["']>/g,
+        /<link rel=["']alternate["'] hreflang=["']en["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']*)["']>/g,
         (match, domain, page) => `<link rel="alternate" hreflang="en" href="https://sgpyoga.co/${page}">`
     );
-    
+
     // Ensure x-default points to root version (English, without www)
     processed = processed.replace(
-        /<link rel=["']alternate["'] hreflang=["']x-default["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']+)["']>/g,
+        /<link rel=["']alternate["'] hreflang=["']x-default["'] href=["'](https:\/\/(?:www\.)?sgpyoga\.co\/)(?:es\/)?([^"']*)["']>/g,
         (match, domain, page) => `<link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/${page}">`
     );
     

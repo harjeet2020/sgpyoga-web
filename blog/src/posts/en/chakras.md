@@ -99,7 +99,7 @@ What follows is a detailed description of each of the seven major chakras. Treat
 
 </div>
 
-<img src="/assets/graphics/chakras/1.png" alt="Muladhara - Root Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/1-480.webp" srcset="/assets/graphics/chakras/1-480.webp 480w, /assets/graphics/chakras/1-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Muladhara - Root Chakra" class="aside-photo">
 
 </aside>
 
@@ -160,7 +160,7 @@ If you have mastered your root chakra, you have transcended fear completely. You
 
 </div>
 
-<img src="/assets/graphics/chakras/2.png" alt="Svadhisthana - Sacral Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/2-480.webp" srcset="/assets/graphics/chakras/2-480.webp 480w, /assets/graphics/chakras/2-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Svadhisthana - Sacral Chakra" class="aside-photo">
 
 </aside>
 
@@ -221,7 +221,7 @@ If you have mastered your sacral chakra, you have learned to live on a knife's e
 
 </div>
 
-<img src="/assets/graphics/chakras/3.png" alt="Manipura - Solar Plexus Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/3-480.webp" srcset="/assets/graphics/chakras/3-480.webp 480w, /assets/graphics/chakras/3-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Manipura - Solar Plexus Chakra" class="aside-photo">
 
 </aside>
 
@@ -282,7 +282,7 @@ If you have mastered your solar plexus chakra, your will becomes reality. You do
 
 </div>
 
-<img src="/assets/graphics/chakras/4.png" alt="Anahata - Heart Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/4-480.webp" srcset="/assets/graphics/chakras/4-480.webp 480w, /assets/graphics/chakras/4-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Anahata - Heart Chakra" class="aside-photo">
 
 </aside>
 
@@ -343,7 +343,7 @@ If you have mastered your heart chakra, you are filled with such love, empathy a
 
 </div>
 
-<img src="/assets/graphics/chakras/5.png" alt="Vishuddha - Throat Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/5-480.webp" srcset="/assets/graphics/chakras/5-480.webp 480w, /assets/graphics/chakras/5-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Vishuddha - Throat Chakra" class="aside-photo">
 
 </aside>
 
@@ -404,7 +404,7 @@ If you have mastered your throat chakra, you radiate a sense of immense tranquil
 
 </div>
 
-<img src="/assets/graphics/chakras/6.png" alt="Ajna - Third Eye Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/6-480.webp" srcset="/assets/graphics/chakras/6-480.webp 480w, /assets/graphics/chakras/6-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Ajna - Third Eye Chakra" class="aside-photo">
 
 </aside>
 
@@ -465,7 +465,7 @@ If you have mastered your third eye chakra, you can see through the illusion of 
 
 </div>
 
-<img src="/assets/graphics/chakras/7.png" alt="Sahasrara - Crown Chakra" class="aside-photo">
+<img src="/assets/graphics/chakras/7-480.webp" srcset="/assets/graphics/chakras/7-480.webp 480w, /assets/graphics/chakras/7-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Sahasrara - Crown Chakra" class="aside-photo">
 
 </aside>
 

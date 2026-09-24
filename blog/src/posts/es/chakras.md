@@ -99,7 +99,7 @@ Lo que sigue es una descripción detallada de cada uno de los siete chakras prin
 
 </div>
 
-<img src="/assets/graphics/chakras/1.png" alt="Muladhara - Chakra Raíz" class="aside-photo">
+<img src="/assets/graphics/chakras/1-480.webp" srcset="/assets/graphics/chakras/1-480.webp 480w, /assets/graphics/chakras/1-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Muladhara - Chakra Raíz" class="aside-photo">
 
 </aside>
 
@@ -160,7 +160,7 @@ Si has dominado tu chakra raíz, has trascendido el miedo completamente. Pones t
 
 </div>
 
-<img src="/assets/graphics/chakras/2.png" alt="Svadhisthana - Chakra Sacro" class="aside-photo">
+<img src="/assets/graphics/chakras/2-480.webp" srcset="/assets/graphics/chakras/2-480.webp 480w, /assets/graphics/chakras/2-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Svadhisthana - Chakra Sacro" class="aside-photo">
 
 </aside>
 
@@ -221,7 +221,7 @@ Si has dominado tu chakra sacro, has aprendido a vivir en el filo de la navaja. 
 
 </div>
 
-<img src="/assets/graphics/chakras/3.png" alt="Manipura - Chakra del Plexo Solar" class="aside-photo">
+<img src="/assets/graphics/chakras/3-480.webp" srcset="/assets/graphics/chakras/3-480.webp 480w, /assets/graphics/chakras/3-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Manipura - Chakra del Plexo Solar" class="aside-photo">
 
 </aside>
 
@@ -282,7 +282,7 @@ Si has dominado tu chakra del plexo solar, tu voluntad se convierte en realidad.
 
 </div>
 
-<img src="/assets/graphics/chakras/4.png" alt="Anahata - Chakra del Corazón" class="aside-photo">
+<img src="/assets/graphics/chakras/4-480.webp" srcset="/assets/graphics/chakras/4-480.webp 480w, /assets/graphics/chakras/4-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Anahata - Chakra del Corazón" class="aside-photo">
 
 </aside>
 
@@ -343,7 +343,7 @@ Si has dominado tu chakra del corazón, estás lleno de tal amor, empatía y hum
 
 </div>
 
-<img src="/assets/graphics/chakras/5.png" alt="Vishuddha - Chakra de la Garganta" class="aside-photo">
+<img src="/assets/graphics/chakras/5-480.webp" srcset="/assets/graphics/chakras/5-480.webp 480w, /assets/graphics/chakras/5-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Vishuddha - Chakra de la Garganta" class="aside-photo">
 
 </aside>
 
@@ -404,7 +404,7 @@ Si has dominado tu chakra de la garganta, irradias un sentido de inmensa tranqui
 
 </div>
 
-<img src="/assets/graphics/chakras/6.png" alt="Ajna - Chakra del Tercer Ojo" class="aside-photo">
+<img src="/assets/graphics/chakras/6-480.webp" srcset="/assets/graphics/chakras/6-480.webp 480w, /assets/graphics/chakras/6-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Ajna - Chakra del Tercer Ojo" class="aside-photo">
 
 </aside>
 
@@ -465,7 +465,7 @@ Si has dominado tu chakra del tercer ojo, puedes ver a través de la ilusión de
 
 </div>
 
-<img src="/assets/graphics/chakras/7.png" alt="Sahasrara - Chakra de la Corona" class="aside-photo">
+<img src="/assets/graphics/chakras/7-480.webp" srcset="/assets/graphics/chakras/7-480.webp 480w, /assets/graphics/chakras/7-720.webp 720w" sizes="(max-width: 767px) 150px, (max-width: 991px) 180px, 240px" width="240" height="240" loading="lazy" decoding="async" alt="Sahasrara - Chakra de la Corona" class="aside-photo">
 
 </aside>
 

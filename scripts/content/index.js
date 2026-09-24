@@ -24,6 +24,7 @@ const { buildSchedule, TEACHER_WIDTHS } = require('./schedule');
 const { buildEvents, EVENT_WIDTHS } = require('./events');
 const { schoolToday } = require('./eventCards');
 const { fillMarkers } = require('./html');
+const { jsonLdScript } = require('./eventSchema');
 
 /** Terminal colours, matching `build-i18n.js`. */
 const colors = { reset: '\x1b[0m', green: '\x1b[32m', yellow: '\x1b[33m', blue: '\x1b[34m', red: '\x1b[31m' };
@@ -115,7 +116,11 @@ async function buildContent() {
   const eventsTemplate = fs.readFileSync(TEMPLATES.events.source, 'utf8');
   const eventsHtml = fillMarkers(
     eventsTemplate,
-    { '<!-- BUILD:events-cards -->': eventOutput.cards },
+    {
+      '<!-- BUILD:events-cards -->': eventOutput.cards,
+      // English structured data inline; build-i18n.js swaps in the Spanish file for /es/events.html.
+      '<!-- BUILD:events-schema -->': eventOutput.schema ? jsonLdScript('events', eventOutput.schema.en) : '',
+    },
     'templates/events.html'
   );
 
@@ -145,6 +150,13 @@ async function buildContent() {
   for (const lang of ['en', 'es']) {
     writeOutput(OUTPUTS.scheduleNamespace(lang), toJson(schedule.namespace[lang]));
     writeOutput(OUTPUTS.eventContentNamespace(lang), toJson(eventOutput.namespace[lang]));
+  }
+  // With no upcoming events there is no schema, and a stale Spanish file must not outlive it.
+  if (eventOutput.schema) {
+    writeOutput(OUTPUTS.jsonLd('events', 'es'), `${eventOutput.schema.es}\n`);
+  } else {
+    fs.rmSync(OUTPUTS.jsonLd('events', 'es'), { force: true });
+    log('  ⚠ No upcoming events: the events page ships without event structured data.', 'yellow');
   }
 
   // The same missing translation can be read for more than one output (a style's name feeds both the card and the legend).

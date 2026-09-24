@@ -319,12 +319,6 @@ function openModal(modal, card) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    // navbar.js swaps the modal's icon placeholders on `load`; this covers a
-    // visitor quick enough to open a card before then.
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
 }
 
 /**

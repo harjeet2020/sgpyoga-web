@@ -6,9 +6,9 @@
  * @remarks
  * **The cards are static HTML**, rendered by {@link module:scripts/content/eventCards} into `/events.html`, so the page no longer builds them in the browser. See that module for why.
  *
- * **The two data shapes are still fixed by C2**, now because `js/eventSchema.js` reads them to write the page's structured data. `eventsData` keeps `id · category · startDate · endDate · imageMobile · image · imageHigh · cardImagePosition · modalImagePosition`; each `eventContent` entry keeps `title · category · date · time · location · shortDescription · fullDescription · instructor · price`.
+ * **The two data shapes are still fixed by C2.** Their last runtime reader, `js/eventSchema.js`, was retired when the structured data moved to build time (`./eventSchema.js`, fed from these same namespaces), so nothing in the browser reads them any more. They are kept exactly as they are until C2 is revisited. `eventsData` keeps `id · category · startDate · endDate · imageMobile · image · imageHigh · cardImagePosition · modalImagePosition`; each `eventContent` entry keeps `title · category · date · time · location · shortDescription · fullDescription · instructor · price`.
  *
- * **Where the content ends up at runtime.** `js/eventSchema.js` looks text up as `events:events.<id>.title`, from the authored `events` namespace. `eventContent.json` is kept a separate file, so a build never rewrites hand-written copy (C1), and `js/i18n.js` grafts it into the `events` namespace in memory when the events page loads. The cards read the same file directly as `eventContent:<id>.*`. See {@link buildEvents}.
+ * **Where the content ends up at runtime.** The retired `js/eventSchema.js` looked text up as `events:events.<id>.title`, from the authored `events` namespace, and that lookup shape is still honoured. `eventContent.json` is kept a separate file, so a build never rewrites hand-written copy (C1), and `js/i18n.js` grafts it into the `events` namespace in memory when the events page loads. The cards read the same file directly as `eventContent:<id>.*`. See {@link buildEvents}.
  *
  * **Dates are derived, except where a row overrides them.** `date` comes from `start_date`/`end_date` via {@link module:scripts/content/dates}, unless `date_label_en`/`_es` is set. `category` works the same way with `category_label_en`/`_es`. Two events override their date and four their category; see Data model in `MIGRATION.md` for why.
  */
@@ -16,6 +16,7 @@
 const { derivedDateLabel, derivedCategoryLabel } = require('./dates');
 const { assertPlainText } = require('./html');
 const { renderEventCards, CATEGORY_IMAGES } = require('./eventCards');
+const { renderEventSchema } = require('./eventSchema');
 
 /** The widths an event image is stored at, per C4, in the order `eventsData` names them. */
 const EVENT_WIDTHS = { imageMobile: 480, image: 720, imageHigh: 1080 };
@@ -43,6 +44,7 @@ const PROSE_FIELDS = [
  * @property {string} categoryDefaults - The JavaScript object literal for the `/* BUILD:category-defaults *\/` marker.
  * @property {string} cards - The card markup for the `<!-- BUILD:events-cards -->` marker in `templates/events.html`.
  * @property {{en: object, es: object}} namespace - The `eventContent` locale namespace per language.
+ * @property {{en: string, es: string}|null} schema - Upcoming events as schema.org JSON-LD per language, or null when none are upcoming.
  * @property {string[]} imageStems - Storage stems of every event image referenced.
  */
 
@@ -138,7 +140,7 @@ function dataEntry(entry) {
  *
  * @param {object[]} rows - `school_events`, published rows only (RLS filters the rest).
  * @param {{publicPrefix: string, today: string, warn: (message: string) => void}} options - Image URL prefix, today's date at the school as `YYYY-MM-DD` (which decides the cards visible before any script runs), and a warning sink.
- * @returns {EventsOutput} The cards, the two script literals, the namespaces and the images to download.
+ * @returns {EventsOutput} The cards, the two script literals, the namespaces, the structured data and the images to download.
  * @throws {Error} When there are no published events, or any row holds markup or an impossible value.
  */
 function buildEvents(rows, { publicPrefix, today, warn }) {
@@ -194,6 +196,7 @@ function buildEvents(rows, { publicPrefix, today, warn }) {
     dataArray: ['[', ...entries.map(dataEntry), ']'].join('\n'),
     categoryDefaults: JSON.stringify(CATEGORY_IMAGES, null, 2),
     cards: renderEventCards(entries, namespaces, today),
+    schema: renderEventSchema(entries, namespaces, today),
     namespace: namespaces,
     imageStems: events.filter((row) => row.image_path).map((row) => row.image_path),
   };

@@ -58,11 +58,6 @@ class CurriculumAccordion {
                 header.addEventListener('keydown', (e) => this.handleKeydown(e, item));
             }
         });
-
-        // Initialize Lucide icons for accordion
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
     }
 
     /**
@@ -166,13 +161,4 @@ if (document.readyState === 'loading') {
 function initCertifications() {
     // Initialize accordion
     curriculumAccordion = new CurriculumAccordion();
-
-    // Reinitialize Lucide icons after i18n updates
-    if (window.i18next) {
-        window.i18next.on('languageChanged', () => {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-        });
-    }
 }

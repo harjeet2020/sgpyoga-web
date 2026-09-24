@@ -8,7 +8,8 @@
     "certificationsDropdown": {
       "aerial100": "100-Hour Aerial Yoga Teacher Training"
     },
-    "blog": "Blog"
+    "blog": "Blog",
+    "selectLanguage": "Select language"
   },
   "pageTitles": {
     "home": "SGP Yoga - Yoga Classes in Mexico City | CDMX Studio",
@@ -17,9 +18,7 @@
     "events": "Yoga Workshops, Retreats & Courses | SGP Yoga CDMX",
     "certificationsAerial100": "100-Hour Aerial Yoga Teacher Training | SGP Yoga"
   },
-  "buttons": {
-    
-  },
+  "buttons": {},
   "footer": {
     "mission": {
       "title": "Our Mission",
@@ -44,7 +43,7 @@
     "social": {
       "title": "Follow Us",
       "facebook": "Facebook",
-      "instagram": "Instagram", 
+      "instagram": "Instagram",
       "youtube": "YouTube"
     },
     "copyright": "© 2025 SAT GUR PRASAAD YOGA LLC. All rights reserved."

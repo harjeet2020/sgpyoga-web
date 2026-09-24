@@ -45,6 +45,12 @@ const OUTPUTS = {
   scheduleNamespace: (lang) => path.join(ROOT_DIR, 'locales', lang, 'schedule.json'),
   /** @param {string} lang - `en` or `es`. @returns {string} Path to that language's generated event namespace. */
   eventContentNamespace: (lang) => path.join(ROOT_DIR, 'locales', lang, 'eventContent.json'),
+  /**
+   * @param {string} name - The JSON-LD block's `data-jsonld` name, such as `events`.
+   * @param {string} lang - A non-English language code (English is inlined in the page).
+   * @returns {string} Where `build-i18n.js` looks for that block's translated JSON-LD.
+   */
+  jsonLd: (name, lang) => path.join(ROOT_DIR, '.build', 'jsonld', `${name}.${lang}.json`),
 };
 
 /**

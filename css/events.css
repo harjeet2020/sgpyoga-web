@@ -329,7 +329,7 @@
 }
 
 .event-badge.retreat {
-    background-color: rgba(160, 103, 137, 0.9); /* Accent-2: Chinese Violet */
+    background-color: rgba(144, 93, 123, 0.9); /* Accent-2: Chinese Violet */
 }
 
 .event-badge.course {
@@ -708,7 +708,7 @@
 
 /* Different background colors for each icon type */
 .modal-info-item:nth-child(1) .modal-info-icon {
-    background-color: rgba(160, 103, 137, 0.1); /* Instructor - Violet tint */
+    background-color: rgba(144, 93, 123, 0.1); /* Instructor - Violet tint */
     color: var(--color-accent-2);
 }
 
@@ -723,7 +723,7 @@
 }
 
 .modal-info-item:nth-child(4) .modal-info-icon {
-    background-color: rgba(160, 103, 137, 0.1); /* Price - Violet tint */
+    background-color: rgba(144, 93, 123, 0.1); /* Price - Violet tint */
     color: var(--color-accent-2);
 }
 

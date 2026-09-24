@@ -8,11 +8,70 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Redirect rules for clean URLs (optional)
+# ---------------------------------------------------------------------------
+# Redirects
+#
+# Every rule here uses `force = true`. Without it Netlify serves a matching
+# file first and never reaches the rule. That's why the old `/blog` rule never
+# fired: `/blog` matched `blog.html`, which then redirected with JavaScript.
+# ---------------------------------------------------------------------------
+
+# Canonical host: www → apex in ONE hop. Without these rules, Netlify upgrades
+# http→https first and switches host second, so http://www took two redirects.
+[[redirects]]
+  from = "http://www.sgpyoga.co/*"
+  to = "https://sgpyoga.co/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.sgpyoga.co/*"
+  to = "https://sgpyoga.co/:splat"
+  status = 301
+  force = true
+
+# Blog entry points → the blog index, server-side (replaces the old
+# JavaScript redirect page blog.html). Spanish-speaking browsers get the
+# Spanish index, as blog.html used to do. The Language rules must come
+# before the catch-all rules because Netlify uses the first match.
+[[redirects]]
+  from = "/blog"
+  to = "/blog/dist/es/"
+  status = 301
+  force = true
+  conditions = {Language = ["es"]}
+
+[[redirects]]
+  from = "/blog/"
+  to = "/blog/dist/es/"
+  status = 301
+  force = true
+  conditions = {Language = ["es"]}
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog/dist/es/"
+  status = 301
+  force = true
+  conditions = {Language = ["es"]}
+
 [[redirects]]
   from = "/blog"
   to = "/blog/dist/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/"
+  to = "/blog/dist/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog/dist/"
+  status = 301
+  force = true
 
 # Headers for security and performance (optional)
 [[headers]]

@@ -16,13 +16,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/apple-touch-icon.png">
     
     <title data-i18n="common:pageTitles.about">About SGP Yoga - Kundalini, Vinyasa & Aerial Yoga CDMX</title>
-    <meta name="description" content="Meet SGP Yoga's passionate teachers in Mexico City. Explore our yoga philosophy and discover Kundalini, Vinyasa, Hatha & Aerial styles. Join our CDMX yoga community today!" data-i18n="about:meta.description">
+    <meta name="description" content="Meet SGP Yoga's passionate teachers in Mexico City. Explore our yoga philosophy and discover Kundalini, Vinyasa, Hatha & Aerial styles. Join our CDMX yoga community today!" data-i18n-content="about:meta.description">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgpyoga.co/about.html">
-    <meta property="og:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City">
-    <meta property="og:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga in CDMX.">
+    <meta property="og:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City" data-i18n-content="common:pageTitles.about">
+    <meta property="og:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga in CDMX." data-i18n-content="about:meta.description">
     <meta property="og:image" content="https://sgpyoga.co/assets/photos/social/og-about.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -33,8 +33,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sgpyoga.co/about.html">
-    <meta name="twitter:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City">
-    <meta name="twitter:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga.">
+    <meta name="twitter:title" content="About SGP Yoga - Expert Yoga Teachers in Mexico City" data-i18n-content="common:pageTitles.about">
+    <meta name="twitter:description" content="Meet our passionate yoga teachers and learn about our philosophy. Discover Kundalini, Vinyasa, Hatha, and Aerial Yoga." data-i18n-content="about:meta.description">
     <meta name="twitter:image" content="https://sgpyoga.co/assets/photos/social/og-about.webp">
     
     <!-- SEO: Canonical & Hreflang -->
@@ -42,10 +42,6 @@
     <link rel="alternate" hreflang="en" href="https://sgpyoga.co/about.html">
     <link rel="alternate" hreflang="es" href="https://sgpyoga.co/es/about.html">
     <link rel="alternate" hreflang="x-default" href="https://sgpyoga.co/about.html">
-    
-    <!-- Performance: Preconnect to external resources -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="dns-prefetch" href="https://unpkg.com">
     
     <!-- Performance: Preload critical assets -->
     <link rel="preload" href="/css/main.css" as="style">
@@ -65,8 +61,8 @@
           fetchpriority="high">
     
     <!-- Performance: Preload critical fonts to prevent FOUT -->
-    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Lato/Lato-Light.woff2" as="font" type="font/woff2" crossorigin>
     
     <!-- CSS Files -->
     <link rel="stylesheet" href="/css/main.css">
@@ -87,13 +83,10 @@
         !function(){"use strict";function e(){const e=window.location.pathname;if(e.startsWith("/es/")||e.includes("/blog/dist/es/"))return"es";try{const e=localStorage.getItem("selectedLanguage");if("en"===e||"es"===e)return e}catch(e){}return(navigator.language||navigator.userLanguage||"").toLowerCase().startsWith("es")?"es":"en"}function t(e){const t=document.getElementById("currentFlag"),n=document.getElementById("currentLangCode");if(t&&n){const a={en:{flag:"🇺🇸",code:"EN"},es:{flag:"🇲🇽",code:"ES"}}[e];a&&(t.textContent=a.flag,n.textContent=a.code)}}const n=e();document.documentElement.setAttribute("lang",n),document.documentElement.setAttribute("data-lang",n),window.__INITIAL_LANG__=n,"loading"!==document.readyState?t(n):document.addEventListener("DOMContentLoaded",(function(){t(n)}))}();
     </script>
     
-    <!-- Performance: Defer external scripts to eliminate render blocking -->
-    <!-- Lucide Icons -->
-    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
+    <!-- Performance: Defer scripts to eliminate render blocking (self-hosted, pinned versions in /js/vendor/) -->
     <!-- i18next for language support -->
-    <script defer src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
-    <script defer src="https://unpkg.com/i18next-browser-languagedetector/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+    <script defer src="/js/vendor/i18next.min.js"></script>
+    <script defer src="/js/vendor/i18nextBrowserLanguageDetector.min.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -122,7 +115,7 @@
                 <li><a href="classes.html" class="navbar-link" data-i18n="common:nav.classes">Classes</a></li>
                 <li><a href="events.html" class="navbar-link" data-i18n="common:nav.events">Events</a></li>
                 <li class="has-dropdown">
-                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <i data-lucide="chevron-down" class="dropdown-icon"></i></button>
+                    <button class="navbar-link dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span data-i18n="common:nav.certifications">Certifications</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-icon"><path d="m6 9 6 6 6-6"/></svg></button>
                     <div class="nav-dropdown" role="menu">
                         <a href="/certifications/aerial-yoga-100.html" class="nav-dropdown-item" role="menuitem" data-i18n="common:nav.certificationsDropdown.aerial100">100-Hour Aerial Yoga Teacher Training</a>
                     </div>
@@ -134,10 +127,11 @@
         <!-- Right Section: Language Dropdown -->
         <div class="navbar-right">
             <div class="language-selector">
-                <button class="language-toggle" id="languageToggle" aria-label="Select Language" aria-expanded="false">
-                    <span class="flag-circle" id="currentFlag">🇺🇸</span>
+                <button class="language-toggle" id="languageToggle" aria-expanded="false">
+                    <span class="flag-circle" id="currentFlag" aria-hidden="true">🇺🇸</span>
                     <span class="language-code" id="currentLangCode">EN</span>
-                    <i data-lucide="chevron-down" class="dropdown-chevron"></i>
+                    <span class="sr-only" data-i18n="common:nav.selectLanguage">Select language</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-down dropdown-chevron"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="language-dropdown" id="languageDropdown">
                     <div class="language-option" data-lang="en">
@@ -423,7 +417,7 @@
                         <div class="space-content">
                             <h3 class="space-name" data-i18n="about:spaces.space1.name">Hari Om</h3>
                             <div class="space-address">
-                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-map-pin address-icon"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
                                 <span data-i18n="about:spaces.space1.address">Calle Tres Zapotes 128, Letran Valle, Benito Juárez CDMX</span>
                             </div>
                             <p class="space-description" data-i18n="about:spaces.space1.description">Our space in Letran Valle is small but cosy and quiet. It is located close to Parque de los Venados in a calm, safe housing district. There are plenty of cafes nearby if you feel like resting after a class.</p>
@@ -447,7 +441,7 @@
                         <div class="space-content">
                             <h3 class="space-name" data-i18n="about:spaces.space2.name">Aguacate</h3>
                             <div class="space-address">
-                                <i data-lucide="map-pin" class="address-icon"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-map-pin address-icon"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
                                 <span data-i18n="about:spaces.space2.address">Callejón de Aguacate 3, Santa Catarina, Coyoacán, CDMX</span>
                             </div>
                             <p class="space-description" data-i18n="about:spaces.space2.description">Our space in Coyacán is large and beautiful. With plenty of height, it is perfect for aerial yoga classes. It is very close to Parque de los Viveros, but due to its ensconced location, it is also very calm and quiet. </p>
@@ -500,14 +494,14 @@
                         <div class="footer-column footer-contact">
                             <h3 data-i18n="common:footer.contact.title">Contact Us</h3>
                             <div class="footer-contact-item">
-                                <i data-lucide="mail"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.email">Email</span>:
                                     <a href="mailto:team@sgpyoga.co" data-i18n="common:footer.contact.emailValue">team@sgpyoga.co</a>
                                 </div>
                             </div>
                             <div class="footer-contact-item">
-                                <i data-lucide="phone"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
                                 <div>
                                     <span data-i18n="common:footer.contact.phone">Phone</span>:
                                     <a href="tel:+525539061305" data-i18n="common:footer.contact.phoneValue">+52 55 3906 1305</a>

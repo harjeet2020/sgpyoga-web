@@ -77,11 +77,6 @@
     function ready() {
         // Initialize FAQ
         initFAQ();
-        
-        // Initialize Lucide icons for FAQ section
-        if (typeof lucide !== 'undefined' && lucide.createIcons) {
-            lucide.createIcons();
-        }
     }
 
     // Wait for DOM to be ready

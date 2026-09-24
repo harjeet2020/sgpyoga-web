@@ -8,7 +8,8 @@
     "certificationsDropdown": {
       "aerial100": "Formación de Profesores de Yoga Aéreo - 100 Horas"
     },
-    "blog": "Blog"
+    "blog": "Blog",
+    "selectLanguage": "Seleccionar idioma"
   },
   "pageTitles": {
     "home": "SGP Yoga - Clases de Yoga en la Ciudad de México | Estudio CDMX",
@@ -17,9 +18,7 @@
     "events": "Talleres de Yoga, Retiros y Cursos | SGP Yoga CDMX",
     "certificationsAerial100": "Formación de Profesores de Yoga Aéreo 100 Horas | SGP Yoga"
   },
-  "buttons": {
-    
-  },
+  "buttons": {},
   "footer": {
     "mission": {
       "title": "Nuestra Misión",

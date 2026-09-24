@@ -5,11 +5,6 @@
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', async function() {
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
     // Load the 'about' namespace for translations
     // Wait for SGPi18n to be initialized first
     await waitForI18nAndLoadNamespace();
@@ -591,14 +586,3 @@ function initTeachersScrollIndicators() {
     // Initial update
     updateIndicators();
 }
-
-/**
- * Listen for language change events and reload Lucide icons
- * This ensures icons render properly after content updates
- */
-document.addEventListener('languageChanged', function(event) {
-    // Re-initialize Lucide icons after language change
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-});

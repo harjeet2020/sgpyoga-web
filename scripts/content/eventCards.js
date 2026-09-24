@@ -14,6 +14,7 @@
  */
 
 const { escapeHtml } = require('./html');
+const { icon } = require('./icons');
 
 /**
  * How many cards one view shows, which `js/events.js` applies too.
@@ -43,7 +44,7 @@ const SCHOOL_TIMEZONE = 'America/Mexico_City';
  * The stock photographs an event without an image of its own falls back to, per category.
  *
  * @remarks
- * These are tracked files, not downloads, and they come in 480/720/900/1200 where per-event images come in 480/720/1080 (C4). This is the one copy of these paths: the build also writes it into `js/eventsData.js` as `categoryDefaults`, which `js/eventSchema.js` still reads through `getEventImage()`.
+ * These are tracked files, not downloads, and they come in 480/720/900/1200 where per-event images come in 480/720/1080 (C4). This is the one copy of these paths: the build also writes it into `js/eventsData.js` as `categoryDefaults` (kept for contract C2), and `scripts/content/eventSchema.js` uses it for the image of an event's structured data.
  */
 const CATEGORY_IMAGES = {
   workshop: {
@@ -75,16 +76,13 @@ const CATEGORY_IMAGES = {
 const CARD_SIZES = '(max-width: 480px) 300px, (max-width: 768px) 320px, 360px';
 
 /**
- * Inline copies of the two Lucide icons a card shows.
+ * The two icons a card shows, sized by `.meta-icon`.
  *
- * @remarks
- * Inline rather than `<i data-lucide>`, because Lucide is a deferred CDN script and swapping those placeholders for icons after load was one more thing appearing late on this page. The attributes match what `lucide.createIcons()` produces, and `.meta-icon` sizes them.
+ * @see {@link module:scripts/content/icons} for why icons are inline SVG.
  */
 const ICONS = {
-  calendar:
-    '<svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>',
-  mapPin:
-    '<svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>',
+  calendar: icon('calendar', 'meta-icon'),
+  mapPin: icon('mapPin', 'meta-icon'),
 };
 
 /**

@@ -22,11 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // DEFERRED: Initialize non-critical features after page load
 // This allows the hero section to render without waiting for these features
 window.addEventListener('load', function() {
-    // Initialize Lucide icons after page load (not needed for LCP)
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
     // Initialize mobile scroll behavior after page load (not needed for LCP)
     initMobileScrollBehavior();
 });

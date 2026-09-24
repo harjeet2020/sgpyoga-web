@@ -60,11 +60,11 @@
                         {% endif %}
                         
                         {# Title (link to full post) #}
-                        <h3 class="featured-title">
+                        <h2 class="featured-title">
                             <a href="{{ post.url | url }}">
                                 {{ post.data.title }}
                             </a>
-                        </h3>
+                        </h2>
                         
                         {# Description/Excerpt #}
                         <p class="featured-description">
@@ -78,8 +78,8 @@
                             </time>
                             
                             <a href="{{ post.url | url }}" class="featured-read-more">
-                                <span class="read-more-text">Leer más</span>
-                                <i data-lucide="arrow-right" class="read-more-icon"></i>
+                                <span class="read-more-text">Leer más</span><span class="sr-only">: {{ post.data.title }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-arrow-right read-more-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </a>
                         </div>
                         
@@ -99,7 +99,7 @@
             <!-- Navigation Controls -->
             <div class="featured-posts-navigation">
                 <button class="nav-btn" id="featured-posts-prev" aria-label="Publicación destacada anterior">
-                    <i data-lucide="chevron-left"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 
                 <div class="featured-posts-dots">
@@ -107,7 +107,7 @@
                 </div>
                 
                 <button class="nav-btn" id="featured-posts-next" aria-label="Siguiente publicación destacada">
-                    <i data-lucide="chevron-right"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
             </div>
         </div>

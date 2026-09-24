@@ -401,7 +401,7 @@
 }
 
 .teachers-grid::-webkit-scrollbar-track {
-    background: rgba(160, 103, 137, 0.1); /* Light accent color */
+    background: rgba(144, 93, 123, 0.1); /* Light accent color */
     border-radius: 10px;
 }
 

@@ -38,13 +38,13 @@ permalink: "/es/index.html"
                 {# Search Box #}
                 <div class="blog-search" role="search">
                     <label for="blogSearchInput" class="visually-hidden">Buscar publicaciones</label>
-                    <i data-lucide="search" class="search-icon"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-search search-icon"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
                     <input 
                         type="search" 
                         id="blogSearchInput" 
                         class="search-input"
                         placeholder="Buscar publicaciones..."
-                        data-i18n="[placeholder]blog:search.placeholder"
+                        data-i18n-placeholder="blog:search.placeholder"
                         aria-label="Buscar publicaciones"
                         autocomplete="off"
                     >
@@ -53,10 +53,10 @@ permalink: "/es/index.html"
                         id="searchClearBtn" 
                         class="search-clear-btn" 
                         aria-label="Limpiar búsqueda"
-                        data-i18n="[aria-label]blog:search.clear"
+                        data-i18n-aria-label="blog:search.clear"
                         style="display: none;"
                     >
-                        <i data-lucide="x"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                     </button>
                 </div>
             </div>
@@ -383,12 +383,3 @@ function resetFilters() {
 {# JavaScript for featured posts slideshow #}
 <script src="/js/blog-featured.js"></script>
 
-{# Re-initialize Lucide icons for dynamically added elements #}
-<script>
-    // Re-initialize Lucide icons after slideshow loads
-    if (typeof lucide !== 'undefined') {
-        setTimeout(() => {
-            lucide.createIcons();
-        }, 100);
-    }
-</script>

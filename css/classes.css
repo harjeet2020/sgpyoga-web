@@ -929,7 +929,7 @@
 
 .pricing-card--featured:hover {
     transform: scale(1.02) translateY(-8px);
-    box-shadow: 0 20px 40px rgba(160, 103, 137, 0.3);
+    box-shadow: 0 20px 40px rgba(144, 93, 123, 0.3);
     border-color: var(--color-accent-2);
 }
 

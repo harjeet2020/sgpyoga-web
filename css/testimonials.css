@@ -246,30 +246,46 @@
 .testimonials-dots {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0; /* spacing comes from each dot's 24px hit area */
 }
 
+/* Each dot is a 24×24px button: the WCAG 2.2 minimum touch target, which
+   Lighthouse checks. The visible 8px dot is drawn by ::before, so the tap
+   area grows without the dot looking any bigger. The buttons sit edge to
+   edge (the container has no gap), putting dot centres 24px apart. */
 .dot {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 8px;
     height: 8px;
     border-radius: var(--border-radius-circle);
     background-color: #c0c0c0; /* Light grey */
-    cursor: pointer;
-    transition: all var(--transition-normal);
     opacity: 0.4;
-    border: none;
-    padding: 0;
+    transform: translate(-50%, -50%);
+    transition: all var(--transition-normal);
 }
 
-.dot.active {
+.dot.active::before {
     background-color: var(--color-accent-2); /* Chinese violet for active */
     opacity: 1;
-    transform: scale(1.3);
+    transform: translate(-50%, -50%) scale(1.3);
 }
 
-.dot:hover {
+.dot:hover::before {
     opacity: 0.8;
-    transform: scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 /* Responsive Design
@@ -425,7 +441,7 @@
         height: 18px;
     }
 
-    .dot {
+    .dot::before {
         width: 7px;
         height: 7px;
     }
@@ -442,7 +458,7 @@
         transition: none;
     }
     
-    .nav-btn, .dot, .play-pause-btn {
+    .nav-btn, .dot::before, .play-pause-btn {
         transition: none;
     }
 }

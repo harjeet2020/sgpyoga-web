@@ -179,8 +179,10 @@ class SGPi18n {
      * readers look it up in, in memory only.
      *
      * @remarks
-     * `js/eventSchema.js` reads event text as `events:events.<id>.title`,
-     * a shape fixed by contract C2 in MIGRATION.md. Contract C1 forbids the
+     * `events:events.<id>.title` is the shape fixed by contract C2 in
+     * MIGRATION.md. Its reader, `js/eventSchema.js`, has been retired (the
+     * events' structured data is now rendered at build time), but the graft
+     * is kept so C2 still holds until it is revisited. Contract C1 forbids the
      * build from writing generated keys into the hand-written `events.json`.
      * So the build writes them to their own file, `eventContent.json`, and
      * this method places that file's entries under `events.events` after both

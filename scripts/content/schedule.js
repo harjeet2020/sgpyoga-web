@@ -14,6 +14,7 @@
  */
 
 const { escapeHtml, assertPlainText } = require('./html');
+const { icon } = require('./icons');
 
 /**
  * ISO weekday number (1 = Monday) to the key its heading is translated by in the authored `classes` namespace.
@@ -193,7 +194,7 @@ function cardLines(slot, { style, family, teacher, location }, publicPrefix) {
     '    </p>',
     `    <h4 class="class-card__name" data-i18n="schedule:styles.${style.slug}">${escapeHtml(style.name_en)}</h4>`,
     '    <p class="class-card__where">',
-    '        <i data-lucide="map-pin" aria-hidden="true"></i>',
+    `        ${icon('mapPin', 'lucide lucide-map-pin')}`,
     `        <span data-i18n="schedule:locations.${location.slug}">${escapeHtml(location.name_en)}</span>`,
     '    </p>',
     '    <p class="class-card__teacher">',

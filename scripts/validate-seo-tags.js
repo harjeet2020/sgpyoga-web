@@ -31,16 +31,18 @@ const colors = {
 // Expected page configurations
 const pages = [
     // Main site English pages
-    { file: 'index.html', canonical: 'https://sgpyoga.co/index.html', lang: 'en', alternate: 'https://sgpyoga.co/es/index.html' },
+    { file: 'index.html', canonical: 'https://sgpyoga.co/', lang: 'en', alternate: 'https://sgpyoga.co/es/' },
     { file: 'about.html', canonical: 'https://sgpyoga.co/about.html', lang: 'en', alternate: 'https://sgpyoga.co/es/about.html' },
     { file: 'classes.html', canonical: 'https://sgpyoga.co/classes.html', lang: 'en', alternate: 'https://sgpyoga.co/es/classes.html' },
     { file: 'events.html', canonical: 'https://sgpyoga.co/events.html', lang: 'en', alternate: 'https://sgpyoga.co/es/events.html' },
+    { file: 'certifications/aerial-yoga-100.html', canonical: 'https://sgpyoga.co/certifications/aerial-yoga-100.html', lang: 'en', alternate: 'https://sgpyoga.co/es/certifications/aerial-yoga-100.html' },
     
     // Main site Spanish pages (self-referencing canonical)
-    { file: 'es/index.html', canonical: 'https://sgpyoga.co/es/index.html', lang: 'es', alternate: 'https://sgpyoga.co/es/index.html' },
+    { file: 'es/index.html', canonical: 'https://sgpyoga.co/es/', lang: 'es', alternate: 'https://sgpyoga.co/es/' },
     { file: 'es/about.html', canonical: 'https://sgpyoga.co/es/about.html', lang: 'es', alternate: 'https://sgpyoga.co/es/about.html' },
     { file: 'es/classes.html', canonical: 'https://sgpyoga.co/es/classes.html', lang: 'es', alternate: 'https://sgpyoga.co/es/classes.html' },
     { file: 'es/events.html', canonical: 'https://sgpyoga.co/es/events.html', lang: 'es', alternate: 'https://sgpyoga.co/es/events.html' },
+    { file: 'es/certifications/aerial-yoga-100.html', canonical: 'https://sgpyoga.co/es/certifications/aerial-yoga-100.html', lang: 'es', alternate: 'https://sgpyoga.co/es/certifications/aerial-yoga-100.html' },
     
     // Blog English pages
     { file: 'blog/dist/index.html', canonical: 'https://sgpyoga.co/blog/dist/', lang: 'en', alternate: 'https://sgpyoga.co/blog/dist/es/' },

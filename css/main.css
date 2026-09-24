@@ -3,21 +3,32 @@
    ========================================================================== */
 
 /* Font Face Declarations - Using Local Font Files
+   --------------------------------------------------------------------------
+   Each face loads a WOFF2 subset first (Latin, Latin Extended, Vietnamese,
+   punctuation and currency: every character the site uses, with headroom
+   for staff-entered text). The TTF is only a fallback for browsers without
+   WOFF2 support. WOFF2 is ~10x smaller for Cormorant (75 KB vs 651 KB).
+   The subsets were made with fontTools' pyftsubset; see CLAUDE.md for the
+   command before adding a font or characters from another script.
+
+   Cormorant: a single Regular file deliberately serves the whole 300–700
+   weight range, so headings keep their current look. The browser treats the
+   face as covering those weights and does not synthesise bold. Switching to
+   the variable font would make bold headings genuinely bolder: a design
+   decision, not a performance one.
    ========================================================================== */
 @font-face {
     font-family: 'Cormorant Garamond';
-    src: url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf') format('truetype'),
-         url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Light.ttf') format('truetype'),
-         url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Medium.ttf') format('truetype'),
-         url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-SemiBold.ttf') format('truetype'),
-         url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf') format('truetype');
+    src: url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.woff2') format('woff2'),
+         url('../assets/fonts/Cormorant_Garamond/static/CormorantGaramond-Regular.ttf') format('truetype');
     font-weight: 300 700;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Lato Light';
-    src: url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+    src: url('../assets/fonts/Lato/Lato-Light.woff2') format('woff2'),
+         url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -25,7 +36,8 @@
 
 @font-face {
     font-family: 'Lato Light';
-    src: url('../assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Lato/Lato-Regular.woff2') format('woff2'),
+         url('../assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -33,7 +45,8 @@
 
 @font-face {
     font-family: 'Lato Light';
-    src: url('../assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+    src: url('../assets/fonts/Lato/Lato-Bold.woff2') format('woff2'),
+         url('../assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -46,7 +59,7 @@
     --color-primary: #1f2121;        /* Eerie Black */
     --color-secondary: #ffeddf;       /* Linen */
     --color-accent-1: #40689a;        /* Lapis Lazuli */
-    --color-accent-2: #a06789;        /* Chinese Violet */
+    --color-accent-2: #905d7b;        /* Chinese Violet (darkened from #a06789 to meet WCAG AA 4.5:1 contrast with white and Linen) */
     --color-supplementary: #3e3e3e;   /* Onyx */
     
     /* Typography */

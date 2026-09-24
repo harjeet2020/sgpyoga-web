@@ -6,12 +6,12 @@
  * `js/eventsData.js`. Edit this file only to change the helpers; add, edit or
  * remove events in the platform admin panel, then publish.
  *
- * Purpose: Event metadata for the page's structured data. The event cards are
- * no longer built from this file: they are rendered into `events.html` at
- * build time (see `scripts/content/eventCards.js`). What still reads it is
- * `js/eventSchema.js`, which turns it into Schema.org JSON-LD, with all text
- * coming from the generated `eventContent` locale namespace that `js/i18n.js`
- * grafts into `events:events.<id>.*` at load time.
+ * Purpose: Event metadata, still generated and loaded on the events page, but
+ * no longer read by anything at runtime. The event cards are rendered into
+ * `events.html` at build time (see `scripts/content/eventCards.js`), and the
+ * structured data now is too (`scripts/content/eventSchema.js`), which retired
+ * `js/eventSchema.js`, this file's last reader. It is kept, unchanged, until
+ * contract C2 in MIGRATION.md is revisited; removing it is a follow-up.
  *
  * The array's shape is fixed by contract C2 in MIGRATION.md:
  * id · category · startDate · endDate · imageMobile · image · imageHigh ·
