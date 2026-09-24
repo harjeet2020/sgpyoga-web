@@ -148,6 +148,8 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
     padding: 0 7% var(--spacing-xl) 7%; /* Horizontal padding and space for scrollbar */
+    scrollbar-gutter: stable;
+    min-height: 460px;
 }
 
 /* Custom scrollbar styling for better UX */
@@ -871,6 +873,7 @@
     /* Event Cards - maintain horizontal scroll with smaller cards */
     .events-grid {
         padding: 0 var(--spacing-md) var(--spacing-lg) var(--spacing-md);
+        min-height: 400px;
     }
     
     .event-card {
@@ -986,6 +989,10 @@
     .event-card {
         flex: 0 0 300px;
         min-width: 300px;
+    }
+
+    .events-grid {
+        min-height: 360px;
     }
     
     .event-card-image {
